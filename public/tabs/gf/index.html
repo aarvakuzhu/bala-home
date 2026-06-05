@@ -48,9 +48,25 @@
      onclick="openRoom('id')" on the group
      ═══════════════════════════════════ -->
 
-<!-- GARAGE -->
+<!-- GARAGE — open canopy, not enclosed walls -->
 <g class="room-hit" onclick="openRoom('garage')">
-  <rect x="113" y="131" width="150" height="300" fill="#cdc0a0" stroke="#5a3810" stroke-width="3" rx="2"/>
+  <!-- dashed boundary = open/canopy (no solid walls on north+east) -->
+  <rect x="113" y="131" width="150" height="300" fill="#cdc0a0" stroke="#9a8858" stroke-width="1.5" stroke-dasharray="8 4" rx="2"/>
+  <!-- canopy roof lines (hatched top = roof canopy) -->
+  <rect x="113" y="131" width="150" height="16" fill="#b8a870" stroke="#8a7840" stroke-width="1"/>
+  <line x1="120" y1="131" x2="120" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="133" y1="131" x2="133" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="146" y1="131" x2="146" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="159" y1="131" x2="159" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="172" y1="131" x2="172" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="185" y1="131" x2="185" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="198" y1="131" x2="198" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="211" y1="131" x2="211" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="224" y1="131" x2="224" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="237" y1="131" x2="237" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <line x1="250" y1="131" x2="250" y2="147" stroke="#a89050" stroke-width="1.5"/>
+  <text x="188" y="143" font-family="Jost" font-size="7" fill="#6a5020" text-anchor="middle">CANOPY ROOF</text>
+  <!-- car bays -->
   <rect x="121" y="168" width="62" height="148" fill="#d8d0b0" rx="3" stroke="#9a9068" stroke-width="1.5"/>
   <text x="152" y="245" font-family="Jost" font-size="9" fill="#5a5030" text-anchor="middle">CAR 1</text>
   <rect x="191" y="168" width="62" height="148" fill="#d8d0b0" rx="3" stroke="#9a9068" stroke-width="1.5"/>
@@ -59,11 +75,16 @@
   <text x="150" y="377" font-family="Jost" font-size="8" fill="#5a5030" text-anchor="middle">BIKE 1</text>
   <rect x="187" y="332" width="58" height="82" fill="#ccc8a8" rx="2" stroke="#9a9068" stroke-width="1"/>
   <text x="216" y="377" font-family="Jost" font-size="8" fill="#5a5030" text-anchor="middle">BIKE 2</text>
-  <rect x="113" y="424" width="150" height="13" fill="#e8d870" stroke="#8a7818" stroke-width="1.5" rx="1"/>
+  <!-- open side indicator (east face = open to driveway) -->
+  <line x1="263" y1="131" x2="263" y2="431" stroke="#9a8858" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="258" y="280" font-family="Jost" font-size="7" fill="#9a8858" text-anchor="end" transform="rotate(-90,258,280)">open to driveway</text>
+  <!-- roller shutter line at south face -->
+  <rect x="113" y="424" width="150" height="10" fill="#e8d870" stroke="#8a7818" stroke-width="1.5" rx="1"/>
   <text x="188" y="432" font-family="Jost" font-size="7.5" fill="#6a5010" text-anchor="middle">Roller Shutter</text>
-  <rect x="113" y="437" width="150" height="82" fill="#c4bc98"/>
-  <text x="188" y="481" font-family="Jost" font-size="9" fill="#786840" text-anchor="middle">DRIVEWAY</text>
-  <text x="188" y="145" font-family="Jost" font-size="9" fill="#3a2808" text-anchor="middle" font-weight="500">GARAGE ›</text>
+  <rect x="113" y="434" width="150" height="66" fill="#c4bc98"/>
+  <text x="188" y="470" font-family="Jost" font-size="9" fill="#786840" text-anchor="middle">DRIVEWAY</text>
+  <text x="188" y="155" font-family="Jost" font-size="9" fill="#3a2808" text-anchor="middle" font-weight="500">GARAGE ›</text>
+  <text x="188" y="165" font-family="Jost" font-size="7.5" fill="#6a5028" text-anchor="middle">open canopy</text>
 </g>
 
 <!-- STAIR (non-clickable, structural) -->
@@ -238,22 +259,49 @@
   <text x="490" y="507" font-family="Jost" font-size="8.5" fill="#5a3820" text-anchor="middle" font-weight="500">LAUNDRY / WM › · ~32 sq ft · Covered</text>
 </g>
 
-<!-- INTERNAL WALLS -->
-<line x1="383" y1="131" x2="383" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="550" y1="131" x2="550" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="131" x2="694" y2="131" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="241" x2="383" y2="241" stroke="#2a1808" stroke-width="3"/>
-<line x1="263" y1="381" x2="383" y2="381" stroke="#2a1808" stroke-width="3"/>
-<line x1="263" y1="451" x2="383" y2="451" stroke="#2a1808" stroke-width="3"/>
-<line x1="383" y1="173" x2="550" y2="173" stroke="#2a1808" stroke-width="3"/>
-<line x1="383" y1="381" x2="550" y2="381" stroke="#2a1808" stroke-width="3"/>
+<!-- WALL LEGEND (top-right of plan) -->
+<rect x="710" y="58" width="250" height="120" fill="#faf4e8" stroke="#c8a040" stroke-width="1" rx="4"/>
+<text x="835" y="74" font-family="Cormorant Garamond,serif" font-size="11" fill="#3a2808" text-anchor="middle" font-weight="600" font-style="italic">Wall Legend</text>
+<!-- Structural wall -->
+<line x1="722" y1="90" x2="762" y2="90" stroke="#2a1808" stroke-width="5.5"/>
+<text x="770" y="94" font-family="Jost" font-size="9" fill="#3a2808">Structural wall</text>
+<!-- Half-wall / partition -->
+<line x1="722" y1="108" x2="762" y2="108" stroke="#c8a858" stroke-width="3.5"/>
+<line x1="762" y1="108" x2="802" y2="108" stroke="#9a9050" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="810" y="112" font-family="Jost" font-size="9" fill="#3a2808">Half-wall (open above)</text>
+<!-- Open boundary / canopy -->
+<line x1="722" y1="126" x2="762" y2="126" stroke="#9a8858" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="770" y="130" font-family="Jost" font-size="9" fill="#3a2808">Open / canopy edge</text>
+<!-- Logical room boundary -->
+<line x1="722" y1="144" x2="762" y2="144" stroke="#c8920a" stroke-width="2" stroke-dasharray="6 3"/>
+<text x="770" y="148" font-family="Jost" font-size="9" fill="#3a2808">Logical boundary (open)</text>
+<!-- Sliding glass -->
+<rect x="722" y="156" width="40" height="5" fill="#88b8d0" stroke="#3a80b0" stroke-width="1" rx="1"/>
+<text x="770" y="163" font-family="Jost" font-size="9" fill="#3a2808">Sliding glass door</text>
+
+<!-- INTERNAL WALLS — with type-coding -->
+<!-- Structural walls (thick, dark) -->
+<line x1="383" y1="131" x2="383" y2="519" stroke="#2a1808" stroke-width="5.5"/>
+<line x1="550" y1="131" x2="550" y2="519" stroke="#2a1808" stroke-width="5.5"/>
+<line x1="263" y1="131" x2="694" y2="131" stroke="#2a1808" stroke-width="5.5"/>
+<line x1="263" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="5.5"/>
+<line x1="263" y1="241" x2="383" y2="241" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="381" x2="383" y2="381" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="451" x2="383" y2="451" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="383" y1="173" x2="550" y2="173" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="383" y1="381" x2="550" y2="381" stroke="#2a1808" stroke-width="3.5"/>
 <line x1="383" y1="494" x2="550" y2="494" stroke="#2a1808" stroke-width="2.5"/>
-<line x1="550" y1="245" x2="694" y2="245" stroke="#2a1808" stroke-width="3"/>
-<line x1="550" y1="381" x2="694" y2="381" stroke="#2a1808" stroke-width="3"/>
-<line x1="550" y1="451" x2="694" y2="451" stroke="#2a1808" stroke-width="3"/>
+<line x1="550" y1="245" x2="694" y2="245" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="550" y1="381" x2="694" y2="381" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="550" y1="451" x2="694" y2="451" stroke="#2a1808" stroke-width="3.5"/>
 <line x1="630" y1="381" x2="630" y2="451" stroke="#2a1808" stroke-width="2.5"/>
 <line x1="640" y1="451" x2="640" y2="519" stroke="#2a1808" stroke-width="2.5"/>
+
+<!-- Logical open boundary between dining and living (step change only, no wall) -->
+<line x1="383" y1="381" x2="550" y2="381" stroke="#c8920a" stroke-width="2" stroke-dasharray="6 3"/>
+<text x="466" y="378" font-family="Jost" font-size="7" fill="#c8920a" text-anchor="middle">step-up to living</text>
+
+<!-- Half wall annotation already on kitchen side -->
 
 <!-- WINDOWS -->
 <rect x="416" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
