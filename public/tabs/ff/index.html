@@ -1,225 +1,358 @@
-<div class="callout" style="margin-bottom:12px">
-  <strong>Click any room</strong> on the plan to open its detail panel, or use the room index in the sidebar.
-  Rooms with <strong>›</strong> marker are interactive.
+<div style="padding:8px 8px 0;font-family:'Jost',sans-serif;font-size:.7rem;color:#666;letter-spacing:1px;text-transform:uppercase">
+  First Floor · 10 ft ceiling · ~1500 sq ft · Tap any room
 </div>
-<div class="fl">First Floor — 1500 sq ft · 10 ft Ceiling · Master · 2 Children · Flex Room</div>
-<svg class="plan" width="980" height="680" viewBox="0 0 980 680">
-<rect width="980" height="680" fill="#e0d8c4"/>
-<rect width="980" height="680" fill="url(#gr)"/>
-<!-- FF L-shape -->
-<polygon points="263,131 550,131 550,245 694,245 694,519 263,519" fill="#faf4e8" stroke="#2a1808" stroke-width="5.5"/>
-<!-- NE terrace FF -->
-<rect x="550" y="131" width="144" height="114" fill="#c4d8b0" stroke="#5a8040" stroke-width="1.5" stroke-dasharray="7 4" rx="3"/>
-<text x="622" y="183" font-family="Jost" font-size="9.5" fill="#2a5018" text-anchor="middle">OPEN TERRACE FF</text>
+<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding:6px 4px 12px">
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="920" viewBox="0 0 820 920"
+  style="background:#f6f6f2;display:block;font-family:'Jost',sans-serif">
+<defs>
+  <pattern id="gridff" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M20 0H0V20" fill="none" stroke="#e8e8e2" stroke-width=".5"/>
+  </pattern>
+</defs>
+<rect width="820" height="920" fill="#f6f6f2"/>
+<rect width="820" height="920" fill="url(#gridff)"/>
 
-<!-- DINING VOID (x=383,y=131→550,y=381) — double height, open to GF -->
-<rect x="383" y="131" width="167" height="250" fill="#fffce8" stroke="#c8920a" stroke-width="2.5" stroke-dasharray="9 4"/>
-<line x1="383" y1="131" x2="550" y2="381" stroke="#c8920a" stroke-width=".8" opacity=".2"/>
-<line x1="550" y1="131" x2="383" y2="381" stroke="#c8920a" stroke-width=".8" opacity=".2"/>
-<!-- skylight at top -->
-<rect x="423" y="131" width="107" height="16" fill="#a8d8f0" stroke="#3a88c0" stroke-width="1.5" rx="1"/>
-<text x="476" y="142" font-family="Jost" font-size="8" fill="#1a4870" text-anchor="middle">SKYLIGHT AT ROOF</text>
-<text x="466" y="240" font-family="Cormorant Garamond,serif" font-size="13" fill="#8a7010" text-anchor="middle" font-weight="600" font-style="italic">Dining Void</text>
-<text x="466" y="257" font-family="Jost" font-size="8.5" fill="#a09028" text-anchor="middle">Open to GF Dining below</text>
-<text x="466" y="272" font-family="Jost" font-size="8" fill="#c8920a" text-anchor="middle">21 ft total ceiling height</text>
-<!-- glass parapet FF -->
-<rect x="385" y="379" width="163" height="9" fill="#88b8e0" stroke="#4a80b0" stroke-width="1.5" rx="1"/>
-<text x="466" y="386" font-family="Jost" font-size="7.5" fill="#2a5888" text-anchor="middle">Glass parapet — FF level, looking down into dining</text>
-<!-- stair arriving at FF (north strip) -->
-<rect x="383" y="131" width="167" height="42" fill="#e8e0b8" stroke="#c8920a" stroke-width="1.5"/>
-<line x1="387" y1="162" x2="546" y2="162" stroke="#b89840" stroke-width="1.2"/>
-<line x1="387" y1="150" x2="546" y2="150" stroke="#b89840" stroke-width="1.2"/>
-<line x1="387" y1="139" x2="546" y2="139" stroke="#b89840" stroke-width="1.2"/>
-<text x="466" y="154" font-family="Jost" font-size="7.5" fill="#8a7010" text-anchor="middle">↓ STAIR ARRIVES AT FF LANDING ↓</text>
+<!--
+  FF LAYOUT — same L-footprint as GF, same column/row system
+  House polygon: 175,50 → 510,50 → 510,165 → 702,165 → 702,715 → 175,715
+  Scale ~9px/ft
 
-<!-- STAIR LANDING + CORRIDOR (x=263,y=131→383,y=381) -->
-<rect x="263" y="131" width="120" height="110" fill="#e8e0b8" stroke="#2a1808" stroke-width="2.5"/>
-<!-- treads arriving -->
-<rect x="271" y="139" width="104" height="94" fill="#f0e8c8" stroke="#c8920a" stroke-width="2" rx="1"/>
-<line x1="275" y1="222" x2="371" y2="222" stroke="#b89840" stroke-width="1.2"/>
-<line x1="275" y1="211" x2="371" y2="211" stroke="#b89840" stroke-width="1.2"/>
-<line x1="275" y1="200" x2="371" y2="200" stroke="#b89840" stroke-width="1.2"/>
-<line x1="275" y1="189" x2="371" y2="189" stroke="#b89840" stroke-width="1.2"/>
-<line x1="361" y1="143" x2="361" y2="229" stroke="#b89840" stroke-width="1.2"/>
-<line x1="350" y1="143" x2="350" y2="229" stroke="#b89840" stroke-width="1.2"/>
-<line x1="275" y1="151" x2="371" y2="151" stroke="#b89840" stroke-width="1.2"/>
-<line x1="283" y1="143" x2="283" y2="229" stroke="#b89840" stroke-width="1.2"/>
-<rect x="299" y="168" width="44" height="54" fill="rgba(200,170,80,.18)" stroke="#c8920a" stroke-width="1" stroke-dasharray="3 2"/>
-<polygon points="323,215 319,228 327,228" fill="#c8920a"/>
-<line x1="323" y1="215" x2="323" y2="228" stroke="#c8920a" stroke-width="1.5"/>
-<text x="323" y="213" font-family="Jost" font-size="7.5" fill="#c8920a" text-anchor="middle">DN</text>
-<text x="323" y="238" font-family="Jost" font-size="8" fill="#8a7010" text-anchor="middle">FF LANDING</text>
-<rect x="263" y="241" width="120" height="140" fill="#e4dcc0" stroke="#2a1808" stroke-width="2.5"/>
-<text x="323" y="308" font-family="Jost" font-size="9.5" fill="#7a6840" text-anchor="middle">CORRIDOR</text>
-<text x="323" y="323" font-family="Jost" font-size="8" fill="#9a8860" text-anchor="middle">Distributes to all rooms</text>
+  COLUMNS:
+    A  x=175–315  (140px)  Landing | Corridor | Master bed | Balcony
+    B  x=315–510  (195px)  Dining void (open) | Master bed east | Flex bottom
+    C  x=510–702  (192px)  Terrace (top) | Child1+bath | Child2+bath | Flex
 
-<!-- MASTER BEDROOM (x=263,y=381→383,y=519 + extending into B column) -->
-<!-- Master: x=263,y=381→550,y=519 split into master(263-430) and ensuite strip(430-550 partial) -->
-<!-- Master bed area: x=263,y=381→430,y=519 (w=167,h=138=~218sqft) -->
-<rect x="263" y="381" width="167" height="138" fill="#e4d0f0" stroke="#2a1808" stroke-width="2.5"/>
-<text x="346" y="439" font-family="Cormorant Garamond,serif" font-size="12" fill="#2a1848" text-anchor="middle" font-weight="600">MASTER BEDROOM</text>
-<text x="346" y="454" font-family="Jost" font-size="8.5" fill="#6a5880" text-anchor="middle">~218 sq ft</text>
-<!-- king bed -->
-<rect x="278" y="392" width="140" height="105" fill="#c0a8d8" rx="4" stroke="#8058a8" stroke-width="1.5"/>
-<rect x="278" y="392" width="140" height="27" fill="#b098c8" rx="3" stroke="#8058a8" stroke-width="1"/>
-<circle cx="300" cy="405" r="8" fill="#d0c0e8"/>
-<circle cx="396" cy="405" r="8" fill="#d0c0e8"/>
-<!-- wardrobe wall strip -->
-<rect x="263" y="497" width="167" height="17" fill="#cca8e0" stroke="#8058a8" stroke-width="1" rx="1"/>
-<line x1="305" y1="497" x2="305" y2="514" stroke="#8058a8" stroke-width=".8"/>
-<line x1="346" y1="497" x2="346" y2="514" stroke="#8058a8" stroke-width=".8"/>
-<line x1="388" y1="497" x2="388" y2="514" stroke="#8058a8" stroke-width=".8"/>
-<text x="346" y="509" font-family="Jost" font-size="7.5" fill="#6848a0" text-anchor="middle">Full-height wardrobe + mirror</text>
-<!-- dressing corridor leading to ensuite (right of master) -->
-<!-- Master ensuite: x=430,y=381→550,y=519 (w=120,h=138=~65sqft) -->
-<rect x="430" y="381" width="120" height="138" fill="#f0c8c8" stroke="#2a1808" stroke-width="2.5"/>
-<text x="490" y="429" font-family="Jost" font-size="9.5" fill="#5a1818" text-anchor="middle" font-weight="500">MASTER</text>
-<text x="490" y="443" font-family="Jost" font-size="9.5" fill="#5a1818" text-anchor="middle" font-weight="500">ENSUITE</text>
-<text x="490" y="457" font-family="Jost" font-size="8" fill="#8a5050" text-anchor="middle">~64 sq ft</text>
-<rect x="440" y="390" width="50" height="34" fill="#f0a0a0" rx="3" stroke="#c06060" stroke-width="1"/>
-<text x="465" y="409" font-family="Jost" font-size="7.5" fill="#8a4040" text-anchor="middle">BATHTUB</text>
-<rect x="440" y="432" width="26" height="18" fill="#f4b8b8" rx="2" stroke="#c06060" stroke-width="1"/>
-<text x="453" y="443" font-family="Jost" font-size="6.5" fill="#8a4040" text-anchor="middle">Basin</text>
-<ellipse cx="510" cy="496" rx="16" ry="9" fill="#f0a0a0" stroke="#c06060" stroke-width="1"/>
-<!-- dressing corridor annotation -->
-<rect x="263" y="381" width="4" height="30" fill="white"/>
-<path d="M267 381 Q267 411 297 411" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
-<text x="260" y="388" font-family="Jost" font-size="7" fill="#c8920a" text-anchor="end">door</text>
-<!-- divider dressing/ensuite -->
-<rect x="428" y="381" width="4" height="138" fill="#d8c0e8" stroke="#8058a8" stroke-width="1"/>
-<text x="421" y="453" font-family="Jost" font-size="7.5" fill="#8058a8" text-anchor="end" transform="rotate(-90,421,453)">← Dressing corridor</text>
+  ROW BOUNDARIES:
+    y=50   top of house
+    y=165  NE terrace bottom / Col C starts
+    y=230  stair landing / corridor divide (col A)
+    y=430  corridor / master (col A)
+    y=590  master / balcony (col A+B partial)
+    y=650  master wardrobe strip (inside master)
+    y=715  bottom of house
 
-<!-- BALCONY / THOTTI (x=263,y=519→430,y=579) -->
-<rect x="263" y="519" width="167" height="60" fill="#d0e8c8" stroke="#2a1808" stroke-width="2.5" stroke-dasharray="8 4"/>
-<text x="346" y="547" font-family="Jost" font-size="10" fill="#1a5020" text-anchor="middle" font-weight="500">BALCONY / THOTTI</text>
-<text x="346" y="561" font-family="Jost" font-size="8.5" fill="#3a7038" text-anchor="middle">~75 sq ft · South-facing</text>
-<line x1="263" y1="571" x2="430" y2="571" stroke="#5a8850" stroke-width="2.5"/>
-<line x1="275" y1="523" x2="275" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="291" y1="523" x2="291" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="307" y1="523" x2="307" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="323" y1="523" x2="323" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="339" y1="523" x2="339" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="355" y1="523" x2="355" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="371" y1="523" x2="371" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="387" y1="523" x2="387" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="403" y1="523" x2="403" y2="571" stroke="#5a8850" stroke-width="1.5"/>
-<line x1="419" y1="523" x2="419" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+  COL B rows:
+    y=50–430   dining void (dashed, no slab)
+    y=430–590  master bedroom east extension
+    y=590–715  flex / library
 
-<!-- CHILD ROOM 1 (x=550,y=245→664,y=405) -->
-<rect x="550" y="245" width="114" height="160" fill="#f4e0d0" stroke="#2a1808" stroke-width="2.5"/>
-<text x="607" y="312" font-family="Cormorant Garamond,serif" font-size="12" fill="#481808" text-anchor="middle" font-weight="600">CHILD ROOM 1</text>
-<text x="607" y="327" font-family="Jost" font-size="8.5" fill="#886050" text-anchor="middle">~142 sq ft</text>
-<rect x="558" y="255" width="80" height="64" fill="#e4c0a8" rx="3" stroke="#b08868" stroke-width="1.5"/>
-<rect x="558" y="255" width="80" height="19" fill="#d4b098" rx="3" stroke="#b08868" stroke-width="1"/>
-<rect x="558" y="360" width="58" height="34" fill="#d8c0a0" stroke="#a07858" stroke-width="1.5" rx="1"/>
-<line x1="587" y1="360" x2="587" y2="394" stroke="#a07858" stroke-width="1.5"/>
-<rect x="558" y="360" width="58" height="7" fill="#c0a880" rx="1"/>
-<text x="587" y="381" font-family="Jost" font-size="8" fill="#6a4828" text-anchor="middle">MINI WD</text>
-<rect x="558" y="388" width="96" height="8" fill="#dcc8b0" stroke="#b09070" stroke-width="1" rx="1"/>
-<text x="606" y="398" font-family="Jost" font-size="7.5" fill="#6a4028" text-anchor="middle">DESK</text>
-<!-- door from corridor -->
-<rect x="550" y="257" width="4" height="28" fill="white"/>
-<path d="M554 257 Q582 257 582 285" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+  COL C rows:
+    y=165–390  child room 1 (510–612) + bath 1 (612–702)
+    y=390–590  child room 2 (510–612) + bath 2 (612–702)
+    y=590–715  flex continues full width (510–702)
+-->
 
-<!-- CHILD BATH 1 (x=664,y=245→694,y=405 — only 30px wide) -->
-<!-- Use combined: Child 1 x=550-644, Bath 1 x=644-694 -->
-<rect x="550" y="245" width="94" height="160" fill="#f4e0d0" stroke="#2a1808" stroke-width="2.5"/>
-<text x="597" y="308" font-family="Cormorant Garamond,serif" font-size="11" fill="#481808" text-anchor="middle" font-weight="600">CHILD ROOM 1</text>
-<text x="597" y="322" font-family="Jost" font-size="8.5" fill="#886050" text-anchor="middle">~142 sq ft</text>
-<rect x="558" y="254" width="78" height="62" fill="#e4c0a8" rx="3" stroke="#b08868" stroke-width="1.5"/>
-<rect x="558" y="254" width="78" height="18" fill="#d4b098" rx="3" stroke="#b08868" stroke-width="1"/>
-<rect x="558" y="356" width="56" height="32" fill="#d8c0a0" stroke="#a07858" stroke-width="1.5" rx="1"/>
-<line x1="586" y1="356" x2="586" y2="388" stroke="#a07858" stroke-width="1.5"/>
-<text x="586" y="376" font-family="Jost" font-size="7.5" fill="#6a4828" text-anchor="middle">MINI WD</text>
+<!-- ── NE open terrace ── -->
+<rect x="510" y="50" width="192" height="115" fill="#e4ede0" stroke="#bbb" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="606" y="100" text-anchor="middle" font-size="11" fill="#777">Open Terrace FF</text>
+<text x="606" y="116" text-anchor="middle" font-size="10" fill="#999">~165 sq ft</text>
 
-<rect x="644" y="245" width="50" height="160" fill="#c8e0e8" stroke="#2a1808" stroke-width="2.5"/>
-<text x="669" y="318" font-family="Jost" font-size="9" fill="#1a4858" text-anchor="middle" transform="rotate(-90,669,318)" font-weight="500">BATH 1 · ~38 sqft</text>
-<rect x="650" y="253" width="22" height="14" fill="#88b8c8" rx="2" stroke="#3888a0" stroke-width="1"/>
-<ellipse cx="669" cy="388" rx="12" ry="8" fill="#88b8c8" stroke="#3888a0" stroke-width="1"/>
-<rect x="646" y="257" width="26" height="4" fill="white"/>
-<path d="M646 261 Q646 289 618 289" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<!-- ── HOUSE SHELL (white fill first) ── -->
+<polygon points="175,50 510,50 510,165 702,165 702,715 175,715" fill="white" stroke="none"/>
 
-<!-- CHILD ROOM 2 (x=550,y=405→644,y=519) -->
-<rect x="550" y="405" width="94" height="114" fill="#d0e8d8" stroke="#2a1808" stroke-width="2.5"/>
-<text x="597" y="454" font-family="Cormorant Garamond,serif" font-size="12" fill="#183018" text-anchor="middle" font-weight="600">CHILD ROOM 2</text>
-<text x="597" y="468" font-family="Jost" font-size="8.5" fill="#4a7048" text-anchor="middle">~142 sq ft</text>
-<rect x="558" y="414" width="78" height="60" fill="#b0d0b8" rx="3" stroke="#68a070" stroke-width="1.5"/>
-<rect x="558" y="414" width="78" height="18" fill="#a0c0a8" rx="3" stroke="#68a070" stroke-width="1"/>
-<rect x="558" y="492" width="56" height="22" fill="#a8d0b0" stroke="#68a870" stroke-width="1.5" rx="1"/>
-<line x1="586" y1="492" x2="586" y2="514" stroke="#68a870" stroke-width="1.5"/>
-<text x="586" y="506" font-family="Jost" font-size="7.5" fill="#2a6030" text-anchor="middle">MINI WD</text>
-<rect x="550" y="411" width="4" height="26" fill="white"/>
-<path d="M554 411 Q580 411 580 437" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<!-- ══ ROOM FILLS ══ -->
+<!-- Landing zone: plain white -->
+<rect x="175" y="50"  width="140" height="180" fill="white"/>
+<!-- Corridor: very faint tint -->
+<rect x="175" y="230" width="140" height="200" fill="#fafaf8"/>
+<!-- Master bed: plain white -->
+<rect x="175" y="430" width="335" height="220" fill="white"/>
+<!-- Balcony: faint green -->
+<rect x="175" y="650" width="140" height="65"  fill="#f2f6f0"/>
+<!-- Dining void: faint yellow -->
+<rect x="315" y="50"  width="195" height="380" fill="#fffef5"/>
+<!-- Ensuite: plain white -->
+<rect x="315" y="430" width="195" height="160" fill="white"/>
+<!-- Flex: plain white -->
+<rect x="175" y="650" width="527" height="65"  fill="white"/>
+<!-- Col C child rooms -->
+<rect x="510" y="165" width="192" height="225" fill="white"/>
+<rect x="510" y="390" width="192" height="200" fill="white"/>
 
-<!-- CHILD BATH 2 (x=644,y=405→694,y=519) -->
-<rect x="644" y="405" width="50" height="114" fill="#c8e4d0" stroke="#2a1808" stroke-width="2.5"/>
-<text x="669" y="458" font-family="Jost" font-size="9" fill="#1a4828" text-anchor="middle" transform="rotate(-90,669,458)" font-weight="500">BATH 2 · ~38 sqft</text>
-<rect x="650" y="413" width="22" height="14" fill="#88c8a0" rx="2" stroke="#38a060" stroke-width="1"/>
-<ellipse cx="669" cy="500" rx="12" ry="8" fill="#88c8a0" stroke="#38a060" stroke-width="1"/>
-<rect x="646" y="409" width="26" height="4" fill="white"/>
-<path d="M646 413 Q646 441 618 441" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<!-- ══ ROOM CONTENT ══ -->
 
-<!-- FLEX / LIBRARY (x=430,y=519→694,y=579) — south-facing strip -->
-<rect x="430" y="519" width="264" height="60" fill="#d8d0ec" stroke="#2a1808" stroke-width="2.5"/>
-<rect x="434" y="523" width="256" height="52" fill="#e0d8f4" stroke="#7860b8" stroke-width="1" stroke-dasharray="4 3" rx="1"/>
-<text x="562" y="547" font-family="Cormorant Garamond,serif" font-size="13" fill="#2a1850" text-anchor="middle" font-weight="600">FLEX / LIBRARY ROOM</text>
-<text x="562" y="561" font-family="Jost" font-size="8.5" fill="#6850a0" text-anchor="middle">~125 sq ft · Soundproof-ready · Double-wall cavity</text>
-<rect x="438" y="526" width="12" height="46" fill="#c0b0d8" stroke="#8060b0" stroke-width=".8" rx="1"/>
-<line x1="438" y1="542" x2="450" y2="542" stroke="#8060b0" stroke-width=".6"/>
-<line x1="438" y1="556" x2="450" y2="556" stroke="#8060b0" stroke-width=".6"/>
-<!-- flex door -->
-<rect x="430" y="531" width="4" height="26" fill="white"/>
-<path d="M434 531 Q458 531 458 555" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<!-- STAIR LANDING (175–315, 50–230) -->
+<rect x="183" y="58" width="124" height="164" fill="#fafaf7" stroke="#ccc" stroke-width="1"/>
+<line x1="183" y1="78"  x2="307" y2="78"  stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="94"  x2="307" y2="94"  stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="110" x2="307" y2="110" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="126" x2="307" y2="126" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="142" x2="307" y2="142" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="158" x2="307" y2="158" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="174" x2="307" y2="174" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="190" x2="307" y2="190" stroke="#bbb" stroke-width="1.2"/>
+<line x1="183" y1="206" x2="307" y2="206" stroke="#bbb" stroke-width="1.2"/>
+<!-- DN arrow -->
+<polygon points="245,218 240,206 250,206" fill="#777"/>
+<line x1="245" y1="210" x2="245" y2="222" stroke="#777" stroke-width="1.5"/>
+<text x="245" y="222" text-anchor="middle" font-size="10" fill="#777">DN</text>
+<text x="245" y="63"  text-anchor="middle" font-size="8.5" fill="#aaa">FF LANDING</text>
+<!-- Stair strip across top of col B -->
+<rect x="315" y="50" width="195" height="62" fill="#fafaf7"/>
+<line x1="319" y1="68"  x2="506" y2="68"  stroke="#bbb" stroke-width="1.2"/>
+<line x1="319" y1="84"  x2="506" y2="84"  stroke="#bbb" stroke-width="1.2"/>
+<line x1="319" y1="100" x2="506" y2="100" stroke="#bbb" stroke-width="1.2"/>
+<text x="412" y="80" text-anchor="middle" font-size="8" fill="#bbb">← STAIR UPPER FLIGHT →</text>
 
-<!-- NADUMUTTAM VOID (x=550,y=381→694,y=405 — small strip) -->
-<!-- Better: put Nadumuttam void as a distinct zone. Actually it's already set in GF. -->
-<!-- FF just shows the void with railing. Let me put it at x=430,y=381→550,y=519 (overlaps with dining void area partially) -->
-<!-- The nadumuttam void on FF: it exists within the right portion. Show as overlay on corridor zone -->
-<!-- Simple: show as a small inset in the corridor area -->
-<rect x="263" y="381" width="0" height="0"/><!-- placeholder, already drawn -->
+<!-- CORRIDOR (175–315, 230–430) -->
+<text x="245" y="325" text-anchor="middle" font-size="12" fill="#555" font-weight="600">CORRIDOR</text>
+<text x="245" y="342" text-anchor="middle" font-size="9"  fill="#aaa">Distributes to all rooms</text>
+<!-- Corridor door to master -->
+<!-- shown below with master door -->
 
-<!-- INNER WALLS FF -->
-<line x1="383" y1="131" x2="383" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="550" y1="131" x2="550" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="131" x2="694" y2="131" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="263" y1="241" x2="383" y2="241" stroke="#2a1808" stroke-width="3"/>
-<line x1="263" y1="381" x2="550" y2="381" stroke="#c8920a" stroke-width="2.5" stroke-dasharray="7 3"/><!-- dining void edge -->
-<line x1="263" y1="381" x2="263" y2="519" stroke="#2a1808" stroke-width="3.5"/>
-<line x1="430" y1="381" x2="430" y2="519" stroke="#2a1808" stroke-width="2.5"/><!-- master/ensuite divide -->
-<line x1="550" y1="245" x2="694" y2="245" stroke="#2a1808" stroke-width="3"/>
-<line x1="550" y1="405" x2="694" y2="405" stroke="#2a1808" stroke-width="3"/>
-<line x1="644" y1="245" x2="644" y2="519" stroke="#2a1808" stroke-width="2.5"/>
-<line x1="430" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="2.5"/>
+<!-- DINING VOID (315–510, 50–430) -->
+<!-- Cross lines to show open void -->
+<line x1="315" y1="112" x2="510" y2="430" stroke="#ddd" stroke-width="1"/>
+<line x1="510" y1="112" x2="315" y2="430" stroke="#ddd" stroke-width="1"/>
+<!-- Glass parapet at y=430 -->
+<rect x="315" y="426" width="195" height="8" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="412" y="432" text-anchor="middle" font-size="7.5" fill="white">glass parapet</text>
+<!-- Skylight at top -->
+<rect x="380" y="54" width="110" height="14" fill="#c8e4f4" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="435" y="64" text-anchor="middle" font-size="8.5" fill="#4878a0">SKYLIGHT</text>
+<!-- Labels -->
+<text x="412" y="245" text-anchor="middle" font-size="14" fill="#b8a840" font-style="italic" font-weight="600">Dining Void</text>
+<text x="412" y="264" text-anchor="middle" font-size="9"  fill="#c8b040">Open to GF Dining below</text>
+<text x="412" y="280" text-anchor="middle" font-size="9"  fill="#c8b040">21 ft total ceiling height</text>
 
-<!-- WINDOWS FF -->
-<rect x="396" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
-<rect x="464" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
-<rect x="564" y="245" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
-<rect x="686" y="264" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
-<rect x="686" y="418" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<!-- MASTER BEDROOM (175–510, 430–650) -->
+<!-- Bed against west wall -->
+<rect x="188" y="448" width="148" height="96" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="188" y="448" width="148" height="18" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="222" cy="457" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="262" cy="457" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
+<!-- Wardrobe strip + dressing corridor -->
+<rect x="188" y="560" width="315" height="20" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="340" y1="560" x2="340" y2="580" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
+<line x1="430" y1="560" x2="430" y2="580" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
+<text x="260" y="574" text-anchor="middle" font-size="8.5" fill="#888">Full-height wardrobe + mirror</text>
+<text x="440" y="574" text-anchor="middle" font-size="8"  fill="#999">← dressing corridor</text>
+<!-- Labels -->
+<text x="310" y="512" text-anchor="middle" font-size="13" fill="#333" font-weight="600">MASTER BEDROOM</text>
+<text x="310" y="529" text-anchor="middle" font-size="10" fill="#888">~218 sq ft</text>
 
-<!-- NORTH -->
-<text x="952" y="68" font-family="Jost" font-size="10" fill="#5a3818" text-anchor="middle" font-weight="600">N</text>
-<line x1="952" y1="72" x2="952" y2="88" stroke="#5a3818" stroke-width="1.5"/>
-<polygon points="952,72 948,84 956,84" fill="#5a3818"/>
-<!-- height note -->
-<text x="710" y="155" font-family="Jost" font-size="8" fill="#c8920a">FF ceiling: 10 ft</text>
-<text x="710" y="167" font-family="Jost" font-size="8" fill="#a8d0e8">Dining void open here</text>
+<!-- Ensuite divider line (x=510 is col boundary, but ensuite is IN col B east portion) -->
+<!-- Ensuite: x=430–510, y=430–590 (runs alongside master east wall, entered via dressing) -->
+<!-- Actual ensuite: right of dressing, let's place it at x=430–510, y=430–590 -->
+<rect x="430" y="430" width="80" height="160" fill="white"/>
+<!-- Bathtub -->
+<rect x="440" y="442" width="62" height="36" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="471" y="462" text-anchor="middle" font-size="9"  fill="#888">BATHTUB</text>
+<!-- Basin -->
+<rect x="440" y="488" width="24" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="452" cy="498" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<!-- WC -->
+<ellipse cx="492" cy="556" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="492" cy="552" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="471" y="524" text-anchor="middle" font-size="10" fill="#333" font-weight="600">MASTER</text>
+<text x="471" y="538" text-anchor="middle" font-size="10" fill="#333" font-weight="600">ENSUITE</text>
+<text x="471" y="552" text-anchor="middle" font-size="9"  fill="#888">~64 sq ft</text>
+
+<!-- BALCONY / THOTTI (175–315, 650–715) -->
+<rect x="175" y="650" width="140" height="65" fill="#edf4ea"/>
+<!-- Grille lines -->
+<line x1="193" y1="654" x2="193" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="210" y1="654" x2="210" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="227" y1="654" x2="227" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="244" y1="654" x2="244" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="261" y1="654" x2="261" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="278" y1="654" x2="278" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="295" y1="654" x2="295" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="175" y1="666" x2="315" y2="666" stroke="#bbb" stroke-width="1"/>
+<line x1="175" y1="700" x2="315" y2="700" stroke="#bbb" stroke-width="1"/>
+<text x="245" y="686" text-anchor="middle" font-size="11" fill="#555" font-weight="600">BALCONY</text>
+<text x="245" y="700" text-anchor="middle" font-size="9"  fill="#888">~75 sq ft · south</text>
+
+<!-- CHILD ROOM 1 (510–612, 165–390) -->
+<!-- Bed against north wall -->
+<rect x="520" y="176" width="84" height="64" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="520" y="176" width="84" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="543" cy="183" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="576" cy="183" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
+<!-- Desk -->
+<rect x="520" y="280" width="84" height="24" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<text x="562" y="295" text-anchor="middle" font-size="8.5" fill="#888">DESK</text>
+<!-- Mini wardrobe -->
+<rect x="520" y="355" width="56" height="28" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="548" y1="355" x2="548" y2="383" stroke="#ccc" stroke-width="1"/>
+<text x="548" y="372" text-anchor="middle" font-size="8" fill="#888">WD</text>
+<text x="558" y="252" text-anchor="middle" font-size="11" fill="#333" font-weight="600">CHILD</text>
+<text x="558" y="267" text-anchor="middle" font-size="11" fill="#333" font-weight="600">ROOM 1</text>
+<text x="558" y="282" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
+
+<!-- CHILD BATH 1 (612–702, 165–390) -->
+<rect x="622" y="176" width="22" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="633" cy="186" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="622" y="320" width="34" height="34" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="639" cy="337" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="678" cy="358" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="678" cy="354" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="657" y="285" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 1</text>
+<text x="657" y="300" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
+
+<!-- CHILD ROOM 2 (510–612, 390–590) -->
+<rect x="520" y="400" width="84" height="64" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="520" y="400" width="84" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="543" cy="407" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="576" cy="407" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
+<rect x="520" y="500" width="84" height="24" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<text x="562" y="515" text-anchor="middle" font-size="8.5" fill="#888">DESK</text>
+<rect x="520" y="556" width="56" height="26" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="548" y1="556" x2="548" y2="582" stroke="#ccc" stroke-width="1"/>
+<text x="548" y="572" text-anchor="middle" font-size="8" fill="#888">WD</text>
+<text x="558" y="462" text-anchor="middle" font-size="11" fill="#333" font-weight="600">CHILD</text>
+<text x="558" y="477" text-anchor="middle" font-size="11" fill="#333" font-weight="600">ROOM 2</text>
+<text x="558" y="492" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
+
+<!-- CHILD BATH 2 (612–702, 390–590) -->
+<rect x="622" y="400" width="22" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="633" cy="410" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="622" y="530" width="34" height="34" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="639" cy="547" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="678" cy="566" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="678" cy="562" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="657" y="490" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 2</text>
+<text x="657" y="505" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
+
+<!-- FLEX / LIBRARY (175–702, 650–715) -->
+<!-- Bookshelf along north wall -->
+<rect x="350" y="654" width="340" height="14" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="390" y1="654" x2="390" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="430" y1="654" x2="430" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="470" y1="654" x2="470" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="510" y1="654" x2="510" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="550" y1="654" x2="550" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="590" y1="654" x2="590" y2="668" stroke="#ccc" stroke-width=".8"/>
+<line x1="630" y1="654" x2="630" y2="668" stroke="#ccc" stroke-width=".8"/>
+<text x="530" y="692" text-anchor="middle" font-size="12" fill="#333" font-weight="600">FLEX / LIBRARY ROOM</text>
+<text x="530" y="708" text-anchor="middle" font-size="9"  fill="#888">~125 sq ft · Soundproof-ready · Double-wall cavity</text>
+
+<!-- Nadumuttam void indicator (where GF nadumuttam is — open at FF level too) -->
+<!-- Small void zone with railing, right side of col C, y=590–650 -->
+<rect x="620" y="590" width="82" height="60" fill="#f0f8fc"/>
+<line x1="622" y1="596" x2="698" y2="596" stroke="#a0c4e0" stroke-width="1.5"/>
+<line x1="634" y1="592" x2="634" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
+<line x1="650" y1="592" x2="650" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
+<line x1="666" y1="592" x2="666" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
+<line x1="682" y1="592" x2="682" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
+<text x="661" y="616" text-anchor="middle" font-size="8.5" fill="#5888b0">NADUMUTTAM</text>
+<text x="661" y="630" text-anchor="middle" font-size="8"   fill="#5888b0">VOID</text>
+<text x="661" y="644" text-anchor="middle" font-size="7.5" fill="#88b0d0">railing below</text>
+
+<!-- ══ STRUCTURAL WALLS on top ══ -->
+<polygon points="175,50 510,50 510,165 702,165 702,715 175,715" fill="none" stroke="#333" stroke-width="5"/>
+
+<!-- Col A vertical -->
+<line x1="315" y1="50"  x2="315" y2="715" stroke="#333" stroke-width="3.5"/>
+<!-- Col B/C vertical -->
+<line x1="510" y1="112" x2="510" y2="715" stroke="#333" stroke-width="3.5"/>
+
+<!-- Col A horizontals -->
+<line x1="175" y1="230" x2="315" y2="230" stroke="#333" stroke-width="3"/><!-- landing/corridor -->
+<line x1="175" y1="430" x2="315" y2="430" stroke="#333" stroke-width="3"/><!-- corridor/master -->
+<line x1="175" y1="650" x2="315" y2="650" stroke="#333" stroke-width="3"/><!-- master/balcony -->
+
+<!-- Col B horizontals -->
+<line x1="315" y1="112" x2="510" y2="112" stroke="#333" stroke-width="3"/><!-- stair/void -->
+<!-- Dining void lower edge = glass parapet, not structural (already drawn) -->
+<line x1="315" y1="430" x2="430" y2="430" stroke="#333" stroke-width="3"/><!-- void/master -->
+<line x1="315" y1="590" x2="510" y2="590" stroke="#333" stroke-width="3"/><!-- master/flex -->
+
+<!-- Ensuite divider (vertical, inside master) -->
+<line x1="430" y1="430" x2="430" y2="590" stroke="#333" stroke-width="2.5"/>
+
+<!-- Col C horizontals -->
+<line x1="510" y1="390" x2="702" y2="390" stroke="#333" stroke-width="3"/><!-- child1/child2 -->
+<line x1="510" y1="590" x2="702" y2="590" stroke="#333" stroke-width="3"/><!-- child2/flex+void -->
+<line x1="620" y1="590" x2="620" y2="650" stroke="#333" stroke-width="2.5"/><!-- flex/void divider -->
+<!-- Child room/bath dividers -->
+<line x1="612" y1="165" x2="612" y2="390" stroke="#333" stroke-width="2.5"/>
+<line x1="612" y1="390" x2="612" y2="590" stroke="#333" stroke-width="2.5"/>
+<!-- FF bottom wall -->
+<line x1="175" y1="715" x2="702" y2="715" stroke="#333" stroke-width="5"/>
+
+<!-- ══ DOORS — all drawn last on top ══ -->
+<!-- Rule: gap over wall (white rect), hinge line = door leaf, arc into destination room -->
+
+<!-- D1: Corridor → master (wall y=430, gap x=200–242, hinge x=200, swing south into master) -->
+<rect x="197" y="427" width="48" height="6" fill="white"/>
+<line x1="200" y1="430" x2="200" y2="478" stroke="#444" stroke-width="2.5"/>
+<path d="M 200 478 A 48 48 0 0 0 248 430" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D2: Master → ensuite (wall x=430, gap y=444–486, hinge y=444, swing east into ensuite) -->
+<rect x="427" y="441" width="6" height="48" fill="white"/>
+<line x1="430" y1="444" x2="478" y2="444" stroke="#444" stroke-width="2.5"/>
+<path d="M 478 444 A 48 48 0 0 1 430 492" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D3: Corridor → child room 1 (wall x=510, gap y=185–227, hinge y=185, swing east) -->
+<rect x="507" y="182" width="6" height="46" fill="white"/>
+<line x1="510" y1="185" x2="556" y2="185" stroke="#444" stroke-width="2.5"/>
+<path d="M 556 185 A 46 46 0 0 1 510 231" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D4: Child room 1 → bath 1 (wall x=612, gap y=180–220, hinge y=180, swing east) -->
+<rect x="609" y="177" width="6" height="46" fill="white"/>
+<line x1="612" y1="180" x2="658" y2="180" stroke="#444" stroke-width="2.5"/>
+<path d="M 658 180 A 46 46 0 0 1 612 226" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D5: Corridor → child room 2 (wall x=510, gap y=402–444, hinge y=402, swing east) -->
+<rect x="507" y="399" width="6" height="46" fill="white"/>
+<line x1="510" y1="402" x2="556" y2="402" stroke="#444" stroke-width="2.5"/>
+<path d="M 556 402 A 46 46 0 0 1 510 448" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D6: Child room 2 → bath 2 (wall x=612, gap y=402–442, hinge y=402, swing east) -->
+<rect x="609" y="399" width="6" height="44" fill="white"/>
+<line x1="612" y1="402" x2="656" y2="402" stroke="#444" stroke-width="2.5"/>
+<path d="M 656 402 A 44 44 0 0 1 612 446" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D7: Corridor → flex (wall y=650, gap x=350–392, hinge x=350, swing north into flex) -->
+<rect x="347" y="647" width="48" height="6" fill="white"/>
+<line x1="350" y1="650" x2="350" y2="602" stroke="#444" stroke-width="2.5"/>
+<path d="M 350 602 A 48 48 0 0 0 398 650" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- ══ ANNOTATIONS ══ -->
+<circle cx="762" cy="48" r="20" fill="white" stroke="#ccc" stroke-width="1.5"/>
+<polygon points="762,28 757,46 762,41 767,46" fill="#333"/>
+<polygon points="762,68 757,50 762,55 767,50" fill="#ddd"/>
+<text x="762" y="53" text-anchor="middle" font-size="11" fill="#333" font-weight="600">N</text>
+
+<!-- Scale bar -->
+<line x1="30"  y1="810" x2="120" y2="810" stroke="#777" stroke-width="2"/>
+<line x1="30"  y1="806" x2="30"  y2="814" stroke="#777" stroke-width="2"/>
+<line x1="120" y1="806" x2="120" y2="814" stroke="#777" stroke-width="2"/>
+<text x="75"   y="824" text-anchor="middle" font-size="10" fill="#777">10 ft</text>
+
+<!-- Height note -->
+<text x="30" y="840" font-size="9.5" fill="#888">FF ceiling: 10 ft throughout</text>
+<text x="30" y="856" font-size="9.5" fill="#a08828">Dining void: 21 ft (open to GF)</text>
+
+<!-- Wall legend -->
+<rect x="528" y="760" width="252" height="68" fill="white" stroke="#ddd" stroke-width="1" rx="3"/>
+<text x="654" y="776" text-anchor="middle" font-size="10" fill="#666" font-weight="600" letter-spacing="1">WALL TYPES</text>
+<line x1="540" y1="790" x2="580" y2="790" stroke="#333" stroke-width="5"/>
+<text x="588" y="794" font-size="9.5" fill="#444">Structural wall</text>
+<line x1="540" y1="806" x2="580" y2="806" stroke="#ccc" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="588" y="810" font-size="9.5" fill="#444">Logical / open boundary</text>
+<rect x="540" y="816" width="22" height="8" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="570" y="824" font-size="9.5" fill="#444">Glass parapet / sliding</text>
+
+<!-- HIT AREAS -->
+<rect x="175" y="50"  width="140" height="180" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="175" y="230" width="140" height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="175" y="430" width="255" height="220" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="430" y="430" width="80"  height="160" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bath')"/>
+<rect x="175" y="650" width="140" height="65"  fill="transparent" style="cursor:pointer" onclick="openRoom('balcony')"/>
+<rect x="315" y="50"  width="195" height="380" fill="transparent" style="cursor:pointer" onclick="openRoom('dining')"/>
+<rect x="175" y="650" width="527" height="65"  fill="transparent" style="cursor:pointer" onclick="openRoom('flex-library')"/>
+<rect x="510" y="165" width="102" height="225" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bed')"/>
+<rect x="612" y="165" width="90"  height="225" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bath')"/>
+<rect x="510" y="390" width="102" height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bed')"/>
+<rect x="612" y="390" width="90"  height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bath')"/>
+<rect x="620" y="590" width="82"  height="60"  fill="transparent" style="cursor:pointer" onclick="openRoom('nadumuttam-void')"/>
 </svg>
-<div class="leg">
-  <div class="li2"><div class="ls" style="background:#e4d0f0"></div>Master Bed</div>
-  <div class="li2"><div class="ls" style="background:#d8c0e8"></div>Walk-in WD + Dressing</div>
-  <div class="li2"><div class="ls" style="background:#f0c8c8"></div>Master Ensuite</div>
-  <div class="li2"><div class="ls" style="background:#f4e0d0"></div>Child Room 1</div>
-  <div class="li2"><div class="ls" style="background:#c8e0e8"></div>Bath 1</div>
-  <div class="li2"><div class="ls" style="background:#d0e8d8"></div>Child Room 2</div>
-  <div class="li2"><div class="ls" style="background:#c8e4d0"></div>Bath 2</div>
-  <div class="li2"><div class="ls" style="background:#d8d0ec;border:1px dashed #7860b8"></div>Flex/Library</div>
-  <div class="li2"><div class="ls" style="background:#fffce8;border:1.5px dashed #c8920a"></div>Dining Void (21 ft)</div>
-  <div class="li2"><div class="ls" style="background:#d0e8c8"></div>Balcony/Thotti</div>
 </div>
-<div class="callout">
-  <strong>FF layout:</strong> Landing from stair opens to corridor serving all rooms. Master bedroom occupies the full south-west zone with a dressing wall flowing into the ensuite. Each child room has its own private bath. The <em>Flex / Library</em> runs the full south width — quiet, naturally lit, soundproof-ready. The <em>Thotti</em> balcony faces south with a traditional iron grille parapet for openness and safety.
-</div>
+<div style="padding:4px 8px 8px;display:flex;flex-wrap:wrap;gap:10px;font-family:'Jost',sans-serif;font-size:.68rem;color:#999">
+  <span>Tap any room for details</span>
+  <span style="display:flex;align-items:center;gap:3px"><svg width="16" height="4"><line x1="0" y1="2" x2="16" y2="2" stroke="#333" stroke-width="4"/></svg>Structural</span>
+  <span style="display:flex;align-items:center;gap:3px"><svg width="16" height="4"><line x1="0" y1="2" x2="16" y2="2" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/></svg>Open boundary</span>
+  <span style="display:flex;align-items:center;gap:3px"><svg width="16" height="8"><rect x="0" y="0" width="16" height="8" fill="#a8cce0" rx="1"/></svg>Glass</span>
 </div>
