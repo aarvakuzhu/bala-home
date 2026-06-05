@@ -4,19 +4,20 @@ const path    = require('path');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from public/
+// All static files from public/
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Root → floor plan
+// Root → index.html (express static handles this but explicit fallback)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'home_plan_v7.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Health check for Render
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', app: 'bala-home', version: '1.0.0' });
+  res.json({ status: 'ok', app: 'bala-home', version: '2.0.0' });
 });
 
 app.listen(PORT, () => {
-  console.log(`bala-home running on port ${PORT}`);
+  console.log(`bala-home v2 running on port ${PORT}`);
+  console.log(`Structure: index.html + /css + /js + /tabs (lazy-loaded)`);
 });
