@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chennai Home — Indian Style v7</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="deco"></div>
+<header>
+  <div>
+    <div class="sub">Chennai Residence · Indian Vernacular · G+1 · v7</div>
+    <h1>நல்ல இல்லம் — Your Dream Home</h1>
+  </div>
+  <div class="hbadge">
+    <strong>✦ Indian Style · Chennai · v7</strong>
+    Plot 80×60 ft · 8 ft setback all sides<br>
+    GF 11 ft · FF 10 ft · Dining void 21 ft<br>
+    Thinnai · Nadumuttam · Stair wraps Dining
+  </div>
+</header>
+<div class="deco"></div>
+
+<div class="tabs">
+  <button class="tab active"  onclick="loadTab('req',this)">📋 Requirements</button>
+  <button class="tab"         onclick="loadTab('gf',this)">Ground Floor</button>
+  <button class="tab"         onclick="loadTab('ff',this)">First Floor</button>
+  <button class="tab"         onclick="loadTab('site',this)">Site Plan</button>
+  <button class="tab"         onclick="loadTab('sec',this)">Section</button>
+  <button class="tab"         onclick="loadTab('sum',this)">Summary</button>
+</div>
+
+<div class="main">
+
+  <!-- SIDEBAR — loaded once -->
+  <div class="sb" id="sb">
+    <div class="sb-toggle" onclick="tSb()">
+      <span class="arrow">◀</span><span class="lbl">Room Index</span>
+    </div>
+    <div class="sb-inner" id="sb-inner">
+      <!-- injected by sidebar loader -->
+    </div>
+  </div>
+
+  <!-- PLAN AREA — each tab is a lazy-loaded fragment -->
+  <div class="pa">
+    <div class="fw active" id="tab-req"></div>
+    <div class="fw"        id="tab-gf"></div>
+    <div class="fw"        id="tab-ff"></div>
+    <div class="fw"        id="tab-site"></div>
+    <div class="fw"        id="tab-sec"></div>
+    <div class="fw"        id="tab-sum"></div>
+  </div>
+
+</div><!-- .main -->
+
+<script src="/js/defs.js"></script>
+<script src="/js/app.js"></script>
+<script>
+  // Load sidebar and first tab on boot
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/tabs/sidebar.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('sb-inner').innerHTML = html; });
+
+    // Load requirements tab (default active)
+    loadTab('req', document.querySelector('.tab.active'));
+  });
+</script>
+</body>
+</html>
