@@ -2,62 +2,756 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chennai Home — Indian Style v7</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>நல்ல இல்லம் — Chennai Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & base ── */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;
+  display:flex;flex-direction:column;max-width:480px;margin:0 auto;
+  position:relative;
+}
+
+/* ── Top header ── */
+.app-header{
+  background:linear-gradient(135deg,#1e1208,#2a1a08);
+  border-bottom:1px solid #5a3810;
+  padding:14px 16px 10px;
+  flex-shrink:0;
+}
+.app-header h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;color:#e8c060;
+  line-height:1.1;
+}
+.app-header .sub{
+  font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
+  color:#7a6040;margin-top:3px;
+}
+.deco{height:3px;background:repeating-linear-gradient(90deg,#6a3808 0,#6a3808 6px,#c8920a 6px,#c8920a 12px,#e8c060 12px,#e8c060 14px,#c8920a 14px,#c8920a 20px,#6a3808 20px,#6a3808 26px);flex-shrink:0}
+
+/* ── Floor switcher ── */
+.floor-switch{
+  display:flex;gap:6px;padding:10px 14px 8px;
+  background:#120e08;flex-shrink:0;
+  border-bottom:1px solid #2a1a08;
+}
+.fs-btn{
+  flex:1;padding:8px 0;border:1px solid #3a2010;border-radius:8px;
+  background:transparent;color:#7a6040;font-family:'Jost',sans-serif;
+  font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;transition:all .18s;font-weight:500;
+}
+.fs-btn.active{
+  background:rgba(200,146,10,.15);
+  border-color:#c8920a;color:#e8c060;
+}
+
+/* ── View toggle (rooms / plan) ── */
+.view-toggle{
+  display:flex;padding:6px 14px 4px;background:#120e08;
+  gap:4px;flex-shrink:0;
+}
+.vt-btn{
+  padding:5px 14px;border:1px solid #2a1a08;border-radius:20px;
+  background:transparent;color:#5a4020;font-family:'Jost',sans-serif;
+  font-size:.7rem;letter-spacing:1px;text-transform:uppercase;
+  cursor:pointer;transition:all .18s;
+}
+.vt-btn.active{background:rgba(200,146,10,.12);border-color:#5a3810;color:#c8920a;}
+
+/* ── Scroll area ── */
+.scroll-area{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:72px;/* space for bottom nav */
+}
+
+/* ── Page sections ── */
+.page{display:none;padding:12px 12px 0;}
+.page.active{display:block;}
+
+/* ── ROOM GRID ── */
+.floor-label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.8rem;font-style:italic;color:#7a6040;
+  padding:4px 2px 10px;letter-spacing:1px;
+}
+.room-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.room-card{
+  background:#1e1608;border:1px solid #3a2010;border-radius:10px;
+  padding:14px 12px 12px;cursor:pointer;
+  transition:transform .15s,border-color .15s,background .15s;
+  position:relative;overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+.room-card:active{transform:scale(.97);background:#261e0a;}
+.room-card .rc-accent{
+  position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px;
+}
+.room-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.95rem;font-weight:600;color:#f2e8d0;
+  line-height:1.2;margin-bottom:4px;padding-left:8px;
+}
+.room-card .rc-area{
+  font-size:.68rem;color:#7a6040;padding-left:8px;
+}
+.room-card .rc-floor{
+  font-size:.6rem;color:#5a4020;padding-left:8px;
+  text-transform:uppercase;letter-spacing:1px;margin-top:2px;
+}
+.room-card .rc-status{
+  position:absolute;top:10px;right:10px;
+  width:7px;height:7px;border-radius:50%;
+  background:#3a2010;
+}
+.room-card .rc-status.done{background:#4a8040;}
+
+/* wide card (full width) */
+.room-card.wide{grid-column:span 2;}
+
+/* ── PLAN VIEW ── */
+.plan-view{padding:8px 4px;}
+.plan-scroll{
+  overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  border-radius:8px;
+}
+.plan-scroll svg{display:block;}
+.plan-hint{
+  text-align:center;font-size:.7rem;color:#5a4020;
+  padding:6px 0 12px;letter-spacing:1px;
+}
+
+/* ── REQUIREMENTS PAGE ── */
+.req-section{margin-bottom:16px;}
+.req-section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.95rem;font-style:italic;color:#c8920a;
+  padding:8px 0 6px;border-bottom:1px solid #2a1a08;
+  margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+.req-section-title .cnt{
+  font-family:'Jost',sans-serif;font-size:.6rem;font-style:normal;
+  background:rgba(200,146,10,.12);border:1px solid #3a2010;
+  padding:1px 6px;border-radius:10px;color:#7a6040;margin-left:auto;
+}
+.req-item{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:7px 0;border-bottom:1px solid #1a1008;
+}
+.req-item:last-child{border-bottom:none;}
+.req-num{
+  min-width:20px;height:20px;background:rgba(200,146,10,.12);
+  border:1px solid #3a2010;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;color:#c8920a;font-weight:600;flex-shrink:0;margin-top:1px;
+}
+.req-text{flex:1;}
+.req-text strong{font-size:.78rem;color:#f2e8d0;display:block;margin-bottom:2px;}
+.req-text em{font-size:.7rem;color:#6a5838;font-style:normal;line-height:1.5;}
+.req-done{font-size:.62rem;background:rgba(80,180,80,.12);color:#80d880;border:1px solid rgba(80,180,80,.2);padding:2px 6px;border-radius:10px;flex-shrink:0;margin-top:2px;}
+
+/* ── SUMMARY PAGE ── */
+.sum-block{
+  background:#1a1208;border:1px solid #3a2010;border-radius:8px;
+  padding:12px;margin-bottom:10px;
+}
+.sum-block h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.95rem;font-style:italic;color:#e8c060;
+  margin-bottom:8px;
+}
+.sum-row{
+  display:flex;justify-content:space-between;
+  font-size:.75rem;padding:4px 0;
+  border-bottom:1px solid #1a1008;color:#7a6040;
+}
+.sum-row:last-child{border-bottom:none;}
+.sum-row span:last-child{color:#f2e8d0;font-weight:500;text-align:right;max-width:55%;}
+.badge-green{
+  background:rgba(80,180,80,.08);border:1px solid rgba(80,180,80,.15);
+  border-radius:6px;padding:8px 12px;text-align:center;
+  font-size:.75rem;color:#80c880;margin-top:10px;
+}
+
+/* ── NOTE / CALLOUT ── */
+.callout{
+  background:rgba(200,146,10,.07);border-left:3px solid #c8920a;
+  padding:10px 13px;font-size:.77rem;line-height:1.7;
+  border-radius:0 6px 6px 0;color:#9a8860;margin:10px 0;
+}
+.callout strong{color:#e8c060;}
+.note-box{
+  background:rgba(180,228,248,.05);border-left:3px solid #4a8ab0;
+  padding:10px 13px;font-size:.77rem;line-height:1.7;
+  border-radius:0 6px 6px 0;color:#7aa8c0;margin:10px 0;
+}
+.note-box strong{color:#a8d0e8;}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:480px;
+  display:flex;background:#120e08;
+  border-top:1px solid #3a2010;
+  padding-bottom:env(safe-area-inset-bottom);
+  z-index:50;
+}
+.bn-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  padding:8px 4px 6px;cursor:pointer;border:none;background:transparent;
+  color:#5a4020;transition:color .15s;gap:2px;
+}
+.bn-btn.active{color:#e8c060;}
+.bn-btn .bn-icon{font-size:1.2rem;line-height:1;}
+.bn-btn .bn-label{font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;font-family:'Jost',sans-serif;}
+
+/* ── ROOM DETAIL SHEET (slides up from bottom) ── */
+#room-sheet{
+  position:fixed;bottom:-100%;left:50%;transform:translateX(-50%);
+  width:100%;max-width:480px;
+  height:85vh;
+  background:#120e08;
+  border-top:1px solid #5a3810;border-radius:16px 16px 0 0;
+  z-index:80;
+  transition:bottom .3s cubic-bezier(.32,0,.67,0);
+  display:flex;flex-direction:column;
+}
+#room-sheet.open{bottom:0;}
+
+.sheet-handle{
+  width:36px;height:4px;background:#3a2010;border-radius:2px;
+  margin:10px auto 0;flex-shrink:0;cursor:pointer;
+}
+.sheet-header{
+  padding:12px 16px 10px;border-bottom:1px solid #2a1a08;flex-shrink:0;
+  display:flex;align-items:center;gap:10px;
+}
+.sheet-header h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;color:#e8c060;flex:1;
+}
+.sheet-area{
+  font-size:.72rem;color:#7a6040;
+  background:rgba(200,146,10,.1);
+  padding:3px 9px;border-radius:10px;
+  border:1px solid #3a2010;
+}
+.sheet-close{
+  background:none;border:none;color:#5a4020;
+  font-size:1.1rem;cursor:pointer;padding:4px;
+}
+.sheet-body{
+  flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:14px 16px 24px;
+}
+
+.sheet-section{margin-bottom:18px;}
+.sheet-section h3{
+  font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:#c8920a;margin-bottom:8px;
+  padding-bottom:4px;border-bottom:1px solid #2a1a08;
+}
+.sheet-overview{
+  font-size:.82rem;color:#b8a880;line-height:1.7;
+}
+.spec-row{
+  display:flex;justify-content:space-between;
+  font-size:.77rem;padding:5px 0;
+  border-bottom:1px solid #1a1008;color:#7a6040;
+}
+.spec-row:last-child{border-bottom:none;}
+.spec-row span:last-child{color:#f2e8d0;font-weight:500;text-align:right;max-width:55%;}
+
+.interior-placeholder{
+  background:#1a1608;border:1px dashed #3a2010;border-radius:8px;
+  padding:18px;text-align:center;
+}
+.interior-placeholder .ip-icon{font-size:1.8rem;margin-bottom:8px;}
+.interior-placeholder h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;color:#5a4020;margin-bottom:6px;font-style:italic;
+}
+.interior-placeholder p{font-size:.75rem;color:#4a3818;line-height:1.7;}
+
+/* overlay backdrop */
+#sheet-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);
+  z-index:70;display:none;
+}
+#sheet-backdrop.show{display:block;}
+
+/* ── Scrollbar hide on mobile ── */
+.scroll-area::-webkit-scrollbar{display:none;}
+.sheet-body::-webkit-scrollbar{display:none;}
+</style>
 </head>
 <body>
 
+<!-- Header -->
 <div class="deco"></div>
-<header>
-  <div>
-    <div class="sub">Chennai Residence · Indian Vernacular · G+1 · v7</div>
-    <h1>நல்ல இல்லம் — Your Dream Home</h1>
-  </div>
-  <div class="hbadge">
-    <strong>✦ Indian Style · Chennai · v7</strong>
-    Plot 80×60 ft · 8 ft setback all sides<br>
-    GF 11 ft · FF 10 ft · Dining void 21 ft<br>
-    Thinnai · Nadumuttam · Stair wraps Dining
-  </div>
-</header>
+<div class="app-header">
+  <h1>நல்ல இல்லம் — Your Home</h1>
+  <div class="sub">Chennai · Indian Vernacular · G+1 · v7</div>
+</div>
 <div class="deco"></div>
 
-<div class="tabs">
-  <button class="tab active" onclick="loadTab('req',this)">📋 Requirements</button>
-  <button class="tab"        onclick="loadTab('gf',this)">Ground Floor</button>
-  <button class="tab"        onclick="loadTab('ff',this)">First Floor</button>
-  <button class="tab"        onclick="loadTab('site',this)">Site Plan</button>
-  <button class="tab"        onclick="loadTab('sec',this)">Section</button>
-  <button class="tab"        onclick="loadTab('sum',this)">Summary</button>
+<!-- Floor switcher (shown only on Rooms + Plan pages) -->
+<div class="floor-switch" id="floor-switch">
+  <button class="fs-btn active" onclick="setFloor('gf',this)">Ground Floor (GF)</button>
+  <button class="fs-btn" onclick="setFloor('ff',this)">First Floor (FF)</button>
 </div>
 
-<div class="main">
+<!-- View toggle (shown only on Rooms + Plan pages) -->
+<div class="view-toggle" id="view-toggle">
+  <button class="vt-btn active" onclick="setView('cards',this)" id="vt-cards">🏠 Rooms</button>
+  <button class="vt-btn" onclick="setView('plan',this)" id="vt-plan">📐 Plan</button>
+</div>
 
-  <div class="sb" id="sb">
-    <div class="sb-toggle" onclick="tSb()">
-      <span class="arrow">◀</span><span class="lbl">Room Index</span>
+<!-- Main scroll area -->
+<div class="scroll-area">
+
+  <!-- PAGE: ROOMS (card grid) -->
+  <div class="page active" id="page-rooms">
+    <div id="room-grid-container"></div>
+  </div>
+
+  <!-- PAGE: PLAN (SVG scaled) -->
+  <div class="page" id="page-plan">
+    <div class="plan-view">
+      <p class="plan-hint">Scroll to pan · Tap room label to open detail</p>
+      <div class="plan-scroll" id="plan-svg-container"></div>
     </div>
-    <div class="sb-inner" id="sb-inner"></div>
   </div>
 
-  <div class="pa">
-    <div class="fw active" id="tab-req"></div>
-    <div class="fw"        id="tab-gf"></div>
-    <div class="fw"        id="tab-ff"></div>
-    <div class="fw"        id="tab-site"></div>
-    <div class="fw"        id="tab-sec"></div>
-    <div class="fw"        id="tab-sum"></div>
+  <!-- PAGE: REQUIREMENTS -->
+  <div class="page" id="page-req">
+    <div id="req-content"></div>
   </div>
 
+  <!-- PAGE: SUMMARY -->
+  <div class="page" id="page-sum">
+    <div id="sum-content"></div>
+  </div>
+
+</div><!-- scroll-area -->
+
+<!-- Bottom nav -->
+<nav class="bottom-nav">
+  <button class="bn-btn active" onclick="showPage('rooms',this)">
+    <span class="bn-icon">🏠</span><span class="bn-label">Rooms</span>
+  </button>
+  <button class="bn-btn" onclick="showPage('plan',this)">
+    <span class="bn-icon">📐</span><span class="bn-label">Plan</span>
+  </button>
+  <button class="bn-btn" onclick="showPage('req',this)">
+    <span class="bn-icon">📋</span><span class="bn-label">Req.</span>
+  </button>
+  <button class="bn-btn" onclick="showPage('sum',this)">
+    <span class="bn-icon">📊</span><span class="bn-label">Summary</span>
+  </button>
+</nav>
+
+<!-- Room detail sheet -->
+<div id="sheet-backdrop" onclick="closeSheet()"></div>
+<div id="room-sheet">
+  <div class="sheet-handle" onclick="closeSheet()"></div>
+  <div class="sheet-header">
+    <h2 id="sheet-title">Room</h2>
+    <span class="sheet-area" id="sheet-area"></span>
+    <button class="sheet-close" onclick="closeSheet()">✕</button>
+  </div>
+  <div class="sheet-body" id="sheet-body"></div>
 </div>
 
-<!-- Room detail slide-in panel -->
-<div id="room-panel"></div>
+<script>
+/* ══════════════════════════════════════════
+   ROOM DATA — single source of truth
+   ══════════════════════════════════════════ */
+const ROOMS = {
+  // Ground Floor
+  thinnai:      {floor:'gf',label:'Thinnai',        emoji:'🚪',area:'~60 sq ft', color:'#c4a870',
+    overview:'Raised front sit-out · Traditional teak platform · Kolam space at threshold · Visitors rest here before entering home.',
+    specs:[['Type','Raised sit-out (traditional)'],['Floor','Athangudi / Kadappa stone'],['Ceiling','Open · sloped terracotta tile roof'],['Railing','Teak posts + stone cap'],['Feature','Kolam floor space at entry']]},
 
-<script src="/js/defs.js"></script>
-<script src="/js/rooms.js"></script>
-<script src="/js/app.js"></script>
+  foyer:        {floor:'gf',label:'Foyer',          emoji:'🏛',area:'~80 sq ft', color:'#e8e0c4',
+    overview:'Entry lobby that screens kitchen and dining from view. First-floor stair and sunken living room are visible. Directs flow naturally.',
+    specs:[['Type','Entry lobby / circulation'],['Floor','Athangudi tiles'],['Ceiling','11 ft · painted plaster'],['Door','Double-leaf teak main door'],['Privacy','K+D hidden · Living visible ✓']]},
+
+  living:       {floor:'gf',label:'Sunken Living',  emoji:'🛋',area:'~185 sq ft',color:'#c4d4e8',
+    overview:'3 steps (18") below GF slab level. Enclosed conversation zone with low stone parapet. TV wall on north face. Visible from foyer on entry.',
+    specs:[['Type','Sunken conversation pit'],['Level','18" below GF slab'],['Steps','3 steps · Kadappa stone edge'],['Floor','Polished Kota stone'],['Ceiling','11 ft from GF / 9.5 ft from pit floor']]},
+
+  pooja:        {floor:'gf',label:'Pooja Room',     emoji:'🪔',area:'~52 sq ft', color:'#f0d4e4',
+    overview:'East-facing as per Vastu. Jali screen on east wall. Acts as visual screen hiding kitchen and dining from entry door.',
+    specs:[['Orientation','East-facing (Vastu)'],['Floor','White Makrana marble'],['Ceiling','11 ft · decorative cornice'],['Screen','Perforated stone Jali · east wall'],['Altar','Built-in teak shelf unit']]},
+
+  dining:       {floor:'gf',label:'Dining Hall',    emoji:'🍽',area:'~240 sq ft',color:'#f8f0c0',
+    overview:'Heart of the home. 21 ft double-height ceiling open to first floor. Stair wraps north and west faces — visible from dining table. Nadumuttam accessible via sliding glass to east.',
+    specs:[['Ceiling','21 ft — full double-height void'],['Floor','Athangudi pattern tiles'],['Stair','Wraps 2 faces — visible from table'],['Skylight','Fixed louvre at roof level'],['Connections','Nadumuttam east · Kitchen south (half-wall)']]},
+
+  kitchen:      {floor:'gf',label:'Open Kitchen',   emoji:'🍳',area:'~180 sq ft',color:'#c8e8d0',
+    overview:'L-shaped counter with hob, sink and storage. Counter-height half-wall faces dining so cook stays connected. Fridge near partition — accessible from both sides.',
+    specs:[['Counter','L-shaped · granite top'],['Cabinets','Teak veneer · overhead + base'],['Hob','3-burner + chimney'],['Fridge','Near half-wall · dining access'],['Floor','Kota stone / red oxide']]},
+
+  'kitchen-store':{floor:'gf',label:'Kitchen Store',emoji:'📦',area:'~48 sq ft', color:'#e4e0a8',
+    overview:'Pantry and dry store directly off kitchen. Three shelf rows floor to ceiling. LPG cylinder, vessels, dry groceries, small appliances.',
+    specs:[['Type','Pantry / dry store'],['Shelving','3 rows · floor to ceiling'],['Floor','Kota stone'],['Door','Solid teak · internal'],['Use','Dry goods · vessels · LPG · appliances']]},
+
+  nadumuttam:   {floor:'gf',label:'Nadumuttam',     emoji:'☁',area:'~55 sq ft', color:'#a8d8e8',
+    overview:'Open-to-sky internal courtyard. Rain falls in directly. Sliding glass connects dining. Tulsi planter at base. Cuddapah stone floor with central drain feeding rainwater sump.',
+    specs:[['Type','Internal open courtyard'],['Floor','Cuddapah stone + central drain'],['Access','Sliding glass from dining'],['Plant','Tulsi / Neem in central planter'],['Drain','Channel → underground sump']]},
+
+  'guest-bed':  {floor:'gf',label:'Guest Bedroom',  emoji:'🛏',area:'~155 sq ft',color:'#d4e8f4',
+    overview:'Ground floor guest room near foyer. Private zone away from kitchen noise. Attached bathroom. Double or queen bed.',
+    specs:[['Bed','Double / Queen'],['Wardrobe','2-door built-in'],['Floor','Polished Kota / Athangudi'],['Ceiling','11 ft'],['Bath','Private attached']]},
+
+  'guest-bath': {floor:'gf',label:'Guest Bathroom', emoji:'🚿',area:'~45 sq ft', color:'#c8e4e4',
+    overview:'Attached to guest bedroom. WC, basin and shower. Jali window for ventilation.',
+    specs:[['WC','Wall-hung or floor-mount'],['Basin','Pedestal or vanity'],['Shower','Rainfall shower head'],['Floor','Anti-slip Kota stone'],['Wall','Subway tile / stone']]},
+
+  laundry:      {floor:'gf',label:'Laundry / WM',   emoji:'🧺',area:'~32 sq ft', color:'#f0e4d0',
+    overview:'Back of house, covered bay. Washing machine provision with drain and tap. Back door opens to rear drying yard in the 8 ft setback.',
+    specs:[['Location','Back of house · covered'],['WM','Top-load or front-load provision'],['Drain','Floor drain + wall tap'],['Door','Back door to drying yard'],['Yard','Rear 8 ft setback · private']]},
+
+  garage:       {floor:'gf',label:'Garage',         emoji:'🚗',area:'~520 sq ft',color:'#cdc0a0',
+    overview:'West side of house. Two cars side-by-side and two bike bays. Roller shutter faces south. Pedestrian door connects directly to foyer.',
+    specs:[['Cars','2 cars · side by side'],['Bikes','2 dedicated bays'],['Shutter','Roller shutter · south-facing'],['Door','Pedestrian door to foyer'],['Floor','Non-slip concrete screed']]},
+
+  // First Floor
+  'master-bed': {floor:'ff',label:'Master Bedroom', emoji:'👑',area:'~218 sq ft',color:'#e4d0f0',
+    overview:'Full west zone of first floor. Walk-in wardrobe wall with full-height mirror. Dressing corridor flows into ensuite. King bed. 10 ft ceiling.',
+    specs:[['Bed','King size'],['Wardrobe','Full-height built-in + mirror wall'],['Dressing','Corridor to ensuite'],['Floor','Engineered wood or polished Kota'],['Ceiling','10 ft · concealed cove lighting']]},
+
+  'master-bath':{floor:'ff',label:'Master Ensuite',  emoji:'🛁',area:'~64 sq ft', color:'#f0c8c8',
+    overview:'Private ensuite via dressing corridor. Freestanding or alcove bathtub, separate shower, double vanity basin, wall-hung WC.',
+    specs:[['Bathtub','Freestanding or alcove'],['Shower','Separate enclosure · rainfall head'],['Basin','Double vanity'],['WC','Wall-hung'],['Floor','Anti-slip marble / stone']]},
+
+  'child-1-bed':{floor:'ff',label:'Child Room 1',    emoji:'🧒',area:'~142 sq ft',color:'#f4e0d0',
+    overview:'First child bedroom. Built-in 2-door mini wardrobe. Study desk with shelf. Private attached bathroom. 10 ft ceiling.',
+    specs:[['Bed','Single / bunk-ready'],['Wardrobe','2-door built-in mini WD'],['Desk','Built-in with overhead shelf'],['Floor','Athangudi or engineered wood'],['Bath','Private attached']]},
+
+  'child-1-bath':{floor:'ff',label:'Child Bath 1',   emoji:'🚿',area:'~38 sq ft', color:'#c8e0e8',
+    overview:'Private bathroom attached to Child Room 1. WC, basin, shower.',
+    specs:[['WC','Wall-hung'],['Basin','Vanity'],['Shower','Rainfall head'],['Floor','Anti-slip tile'],['Wall','Colourful subway tile']]},
+
+  'child-2-bed':{floor:'ff',label:'Child Room 2',    emoji:'🧒',area:'~142 sq ft',color:'#d0e8d8',
+    overview:'Second child bedroom. Built-in 2-door mini wardrobe. Study desk with shelf. Private attached bathroom. 10 ft ceiling.',
+    specs:[['Bed','Single / bunk-ready'],['Wardrobe','2-door built-in mini WD'],['Desk','Built-in with overhead shelf'],['Floor','Athangudi or engineered wood'],['Bath','Private attached']]},
+
+  'child-2-bath':{floor:'ff',label:'Child Bath 2',   emoji:'🚿',area:'~38 sq ft', color:'#c8e4d0',
+    overview:'Private bathroom attached to Child Room 2. WC, basin, shower.',
+    specs:[['WC','Wall-hung'],['Basin','Vanity'],['Shower','Rainfall head'],['Floor','Anti-slip tile'],['Wall','Colourful subway tile']]},
+
+  'flex-library':{floor:'ff',label:'Flex / Library', emoji:'📚',area:'~125 sq ft',color:'#d8d0ec',
+    overview:'Soundproof-ready room. Double-wall cavity construction. Start as a reading library with full-wall bookshelves. Later convert to home studio, podcast room, or home cinema.',
+    specs:[['Wall','Double-wall · rockwool cavity'],['Door','Solid-core · acoustic seal'],['Shelving','Full wall built-in shelves'],['Floor','Cork or engineered wood (acoustic)'],['Future','Studio · podcast · home cinema']]},
+
+  balcony:      {floor:'ff',label:'Balcony / Thotti',emoji:'🌿',area:'~75 sq ft', color:'#d0e8c8',
+    overview:'South-facing open balcony. Traditional iron grille parapet. Used for clothes drying, seating, and enjoying the street view. Traditional Thotti character.',
+    specs:[['Type','Open balcony — Thotti'],['Parapet','Traditional iron grille · 3.5 ft'],['Floor','Anti-slip Kota stone'],['Facing','South · road view'],['Use','Drying · seating · air']]},
+
+  'nadumuttam-void':{floor:'ff',label:'Nadumuttam Void',emoji:'☁',area:'~55 sq ft',color:'#a8d8e8',
+    overview:'First floor continuation of the Nadumuttam courtyard. Open void looking down to GF planter. Ornamental gold-tone iron railing — 3.5 ft tall, child-safe.',
+    specs:[['Type','Open void — continues from GF'],['Railing','Ornamental iron · 3.5 ft · child-safe'],['View','Look down to GF Tulsi planter'],['Light','Full sky floods down to GF']]},
+};
+
+/* ══════════════════════════════════════════
+   APP STATE
+   ══════════════════════════════════════════ */
+let currentFloor = 'gf';
+let currentView  = 'cards';
+let currentPage  = 'rooms';
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════ */
+function showPage(page, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  if (btn) btn.classList.add('active');
+  currentPage = page;
+
+  const showFloorUI = (page === 'rooms');
+  document.getElementById('floor-switch').style.display = showFloorUI ? 'flex' : 'none';
+  document.getElementById('view-toggle').style.display  = showFloorUI ? 'flex' : 'none';
+
+  if (page === 'req')  renderReq();
+  if (page === 'sum')  renderSum();
+}
+
+function setFloor(floor, btn) {
+  currentFloor = floor;
+  document.querySelectorAll('.fs-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRooms();
+  if (currentView === 'plan') renderPlan();
+}
+
+function setView(view, btn) {
+  currentView = view;
+  document.querySelectorAll('.vt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('page-rooms').classList.toggle('active', view === 'cards');
+  document.getElementById('page-plan').classList.toggle('active', view === 'plan');
+  // keep bottom nav "rooms" active
+  if (view === 'plan') renderPlan();
+}
+
+/* ══════════════════════════════════════════
+   ROOM GRID
+   ══════════════════════════════════════════ */
+// Room display order per floor
+const GF_ORDER = ['thinnai','foyer','living','pooja','dining','kitchen','kitchen-store','nadumuttam','guest-bed','guest-bath','laundry','garage'];
+const FF_ORDER = ['master-bed','master-bath','child-1-bed','child-1-bath','child-2-bed','child-2-bath','flex-library','balcony','nadumuttam-void'];
+
+// Which rooms span full width
+const WIDE = new Set(['dining','garage','nadumuttam-void']);
+
+function renderRooms() {
+  const order = currentFloor === 'gf' ? GF_ORDER : FF_ORDER;
+  const floorLabel = currentFloor === 'gf'
+    ? 'Ground Floor · 11 ft ceiling · ~1500 sq ft'
+    : 'First Floor · 10 ft ceiling · ~1500 sq ft';
+
+  let html = `<p class="floor-label">${floorLabel}</p><div class="room-grid">`;
+  for (const id of order) {
+    const r = ROOMS[id];
+    if (!r) continue;
+    const wide = WIDE.has(id) ? ' wide' : '';
+    html += `
+    <div class="room-card${wide}" onclick="openRoom('${id}')" style="border-color:${r.color}30">
+      <div class="rc-accent" style="background:${r.color}"></div>
+      <div class="rc-status"></div>
+      <h3>${r.emoji} ${r.label}</h3>
+      <div class="rc-area">${r.area}</div>
+    </div>`;
+  }
+  html += '</div>';
+  document.getElementById('room-grid-container').innerHTML = html;
+}
+
+/* ══════════════════════════════════════════
+   PLAN VIEW — fetch SVG tab
+   ══════════════════════════════════════════ */
+const _planCache = {};
+function renderPlan() {
+  if (_planCache[currentFloor]) {
+    document.getElementById('plan-svg-container').innerHTML = _planCache[currentFloor];
+    return;
+  }
+  document.getElementById('plan-svg-container').innerHTML = '<p style="padding:20px;color:#5a4020;font-size:.8rem">Loading plan…</p>';
+  fetch(`/tabs/${currentFloor}/index.html`)
+    .then(r => r.text())
+    .then(html => {
+      // Scale SVG to fit ~360px wide (mobile)
+      const scaled = html.replace(/<svg([^>]*)width="(\d+)"([^>]*)height="(\d+)"/, (m,a,w,b,h) => {
+        const scale = 360 / parseInt(w);
+        const nh    = Math.round(parseInt(h) * scale);
+        return `<svg${a}width="${360}"${b}height="${nh}" style="min-width:${w}px"`;
+      });
+      _planCache[currentFloor] = scaled;
+      document.getElementById('plan-svg-container').innerHTML = scaled;
+    })
+    .catch(() => {
+      document.getElementById('plan-svg-container').innerHTML =
+        '<p style="padding:20px;color:#c8920a;font-size:.8rem">Plan unavailable</p>';
+    });
+}
+
+/* ══════════════════════════════════════════
+   ROOM SHEET
+   ══════════════════════════════════════════ */
+function openRoom(id) {
+  const r = ROOMS[id];
+  if (!r) return;
+
+  document.getElementById('sheet-title').textContent = r.emoji + ' ' + r.label;
+  document.getElementById('sheet-area').textContent  = r.area + ' · ' + (r.floor === 'gf' ? 'GF' : 'FF');
+  document.getElementById('sheet-header').style.borderLeftColor = r.color;
+
+  const specsHtml = r.specs.map(([k,v]) =>
+    `<div class="spec-row"><span>${k}</span><span>${v}</span></div>`
+  ).join('');
+
+  document.getElementById('sheet-body').innerHTML = `
+    <div class="sheet-section">
+      <h3>Overview</h3>
+      <p class="sheet-overview">${r.overview}</p>
+    </div>
+    <div class="sheet-section">
+      <h3>Specifications</h3>
+      ${specsHtml}
+    </div>
+    <div class="sheet-section">
+      <h3>Interior Design</h3>
+      <div class="interior-placeholder">
+        <div class="ip-icon">🎨</div>
+        <h4>Not designed yet</h4>
+        <p>When ready, this section will show wall colours, flooring, ceiling detail, furniture layout, materials palette, and mood board.</p>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('room-sheet').classList.add('open');
+  document.getElementById('sheet-backdrop').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSheet() {
+  document.getElementById('room-sheet').classList.remove('open');
+  document.getElementById('sheet-backdrop').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Swipe down to close sheet
+let touchStartY = 0;
+document.getElementById('room-sheet').addEventListener('touchstart', e => {
+  touchStartY = e.touches[0].clientY;
+}, {passive:true});
+document.getElementById('room-sheet').addEventListener('touchend', e => {
+  if (e.changedTouches[0].clientY - touchStartY > 60) closeSheet();
+}, {passive:true});
+
+/* ══════════════════════════════════════════
+   REQUIREMENTS
+   ══════════════════════════════════════════ */
+const REQ_DATA = [
+  {title:'Plot & Structure', icon:'🏗', items:[
+    [1,'Plot 80×60 ft','4800 sq ft (2 grounds) · Rectangular · Road on south'],
+    [2,'8 ft setback all sides','Buildable zone 64×44 ft = 2816 sq ft'],
+    [3,'GF height 11 ft','All GF rooms · Aids natural convection in Chennai heat'],
+    [4,'FF height 10 ft','All FF rooms · Generous ceiling throughout'],
+    [5,'Dining — 21 ft ceiling, open to FF','GF 11 ft + FF 10 ft void · No slab over dining · Skylight at roof'],
+    [6,'Stair wraps dining area','Wraps north + west face · visible from table · promenade from GF to FF'],
+    [7,'Non-rectangular L-shaped plan','NE corner cut for open terrace + airflow'],
+    [8,'Compound wall all 4 sides','Traditional brick · coping + plinth · Gate south'],
+  ]},
+  {title:'Indian Vernacular', icon:'🪔', items:[
+    [9,'Thinnai — raised front sit-out','~60 sq ft · Kolam space at threshold'],
+    [10,'Nadumuttam — internal courtyard','~55 sq ft · open sky · rain + sunlight · off dining · Tulsi + Cuddapah drain'],
+    [11,'Pooja room — GF east-facing','~52 sq ft · Vastu east · Jali screen · visual privacy screen at entry'],
+    [12,'Jali screens on all GF windows','Perforated stone / terracotta · ventilation + privacy'],
+    [13,'Athangudi / traditional tile floors','Thinnai + dining + stair · Cuddapah for Nadumuttam · Kota for kitchen'],
+    [14,'Balcony / Thotti — FF','~75 sq ft · south-facing · traditional grille parapet'],
+  ]},
+  {title:'Garage & Entry', icon:'🚗', items:[
+    [15,'Garage — west side','2 cars + 2 bike bays · roller shutter south · pedestrian door to foyer'],
+    [16,'Driveway','~14 ft wide · compound gate to garage'],
+    [17,'Kitchen + Dining hidden on entry','Foyer + Pooja wall = visual screen · K+D invisible from main door'],
+    [18,'Living room visible from entry','Sunken living first thing seen on entry'],
+    [19,'Trees all around','Neem · peepal · mango · jasmine hedge in 8 ft setback'],
+  ]},
+  {title:'Ground Floor Rooms', icon:'🪑', items:[
+    [20,'Sunken living room','~185 sq ft · 3 steps / 18" below GF slab · low stone parapet'],
+    [21,'Dining hall — stair wraps','~240 sq ft · 21 ft ceiling · open to FF'],
+    [22,'Open kitchen from dining','~180 sq ft · L-counter · storage · half-wall · fridge accessible both sides'],
+    [23,'Kitchen store room','~48 sq ft · direct door from kitchen · pantry + dry goods'],
+    [24,'Nadumuttam from dining','~55 sq ft · sliding glass · 7×8 ft sky opening · drain → sump'],
+    [25,'Guest bedroom — GF','~155 sq ft · attached bath · near foyer · private'],
+    [26,'Guest bathroom — GF attached','~45 sq ft · WC + basin + shower'],
+    [27,'Laundry / WM — back of GF','~32 sq ft covered · back door to drying yard'],
+  ]},
+  {title:'Appliances', icon:'🍳', items:[
+    [28,'Fridge — kitchen near half-wall','Accessible from dining side'],
+    [29,'Washing machine — back GF','Covered bay · drain + tap · drying yard access'],
+    [30,'Drying yard — rear private','8 ft rear setback · not road-visible'],
+  ]},
+  {title:'First Floor Rooms', icon:'🛏', items:[
+    [31,'Master bedroom — FF','~218 sq ft · walk-in wardrobe + dressing corridor → ensuite'],
+    [32,'Master ensuite — attached','~64 sq ft · bathtub + WC + basin'],
+    [33,'Child bedroom 1 — FF','~142 sq ft · mini wardrobe · desk · private bath'],
+    [34,'Child bathroom 1 — private','~38 sq ft · WC + basin + shower'],
+    [35,'Child bedroom 2 — FF','~142 sq ft · mini wardrobe · desk · private bath'],
+    [36,'Child bathroom 2 — private','~38 sq ft · WC + basin + shower'],
+    [37,'Flex / Library / Soundproof room','~125 sq ft · double-wall cavity · library now → studio later'],
+  ]},
+];
+
+function renderReq() {
+  if (document.getElementById('req-content').innerHTML) return;
+  let html = '';
+  for (const section of REQ_DATA) {
+    html += `<div class="req-section">
+      <div class="req-section-title">${section.icon} ${section.title}<span class="cnt">${section.items.length}</span></div>`;
+    for (const [n,title,detail] of section.items) {
+      html += `<div class="req-item">
+        <div class="req-num">${n}</div>
+        <div class="req-text"><strong>${title}</strong><em>${detail}</em></div>
+        <span class="req-done">✓</span>
+      </div>`;
+    }
+    html += '</div>';
+  }
+  html += `<div class="note-box"><strong>For your architect:</strong> GF 11 ft slab-to-slab · FF 10 ft slab-to-slab · No slab over dining (21 ft void) · Jali screens on all GF windows · Athangudi tiles: Thinnai + dining + stair · Cuddapah for Nadumuttam floor · Teak double-leaf main door · Compound wall 9" brick + coping + plinth · Skylight at roof over dining void</div>`;
+  document.getElementById('req-content').innerHTML = html;
+}
+
+/* ══════════════════════════════════════════
+   SUMMARY
+   ══════════════════════════════════════════ */
+function renderSum() {
+  if (document.getElementById('sum-content').innerHTML) return;
+  const blocks = [
+    {title:'Plot & Heights', rows:[
+      ['Plot','80×60 ft = 4800 sq ft'],['Setback','8 ft all 4 sides'],
+      ['GF ceiling','11 ft'],['FF ceiling','10 ft'],
+      ['Dining void','21 ft (11+10, no slab)'],
+      ['GF footprint','~1500 sq ft L-shaped'],['FF footprint','~1500 sq ft'],
+      ['Style','Indian vernacular · Chennai'],
+      ['Compound wall','All 4 sides · coping + plinth'],['Garage','~520 sq ft · west side'],
+    ]},
+    {title:'Indian Vernacular', rows:[
+      ['Thinnai','Raised front sit-out ~60 sq ft'],['Kolam space','Threshold at Thinnai entry'],
+      ['Nadumuttam','~55 sq ft open-sky courtyard'],
+      ['Pooja room','~52 sq ft · East-facing · Jali'],
+      ['Jali windows','All GF openings'],['Athangudi tiles','Thinnai + dining + stair'],
+      ['Cuddapah stone','Nadumuttam floor'],['Stair character','Wraps dining · visible promenade'],
+      ['Skylight','Over dining void at roof'],['Thotti balcony','~75 sq ft · south · grille'],
+    ]},
+    {title:'Ground Floor Rooms', rows:[
+      ['Thinnai','~60 sq ft'],['Foyer (screen)','~80 sq ft'],
+      ['Sunken Living','~185 sq ft · 18" lower'],['Pooja Room','~52 sq ft · East'],
+      ['Dining + Stair','~240 sq ft · 21 ft ceiling'],['Open Kitchen','~180 sq ft'],
+      ['Kitchen Store','~48 sq ft'],['Nadumuttam','~55 sq ft from dining'],
+      ['Guest Bed + Bath','~155 + ~45 sq ft'],['Laundry','~32 sq ft covered'],
+    ]},
+    {title:'First Floor Rooms', rows:[
+      ['Master + Walk-in WD','~218 sq ft · dressing corridor'],
+      ['Master Ensuite','~64 sq ft · bathtub'],
+      ['Child Room 1 + Mini WD','~142 sq ft · private bath'],
+      ['Child Bath 1','~38 sq ft · private'],
+      ['Child Room 2 + Mini WD','~142 sq ft · private bath'],
+      ['Child Bath 2','~38 sq ft · private'],
+      ['Flex / Library','~125 sq ft · soundproof-ready'],
+      ['Balcony / Thotti','~75 sq ft · south · grille'],
+      ['Nadumuttam Void','~55 sq ft · gold railing'],
+    ]},
+  ];
+
+  let html = '';
+  for (const b of blocks) {
+    html += `<div class="sum-block"><h4>${b.title}</h4>`;
+    for (const [k,v] of b.rows) html += `<div class="sum-row"><span>${k}</span><span>${v}</span></div>`;
+    html += '</div>';
+  }
+  html += '<div class="badge-green">✓ All 37 requirements addressed</div>';
+  html += '<div class="callout" style="margin-top:12px"><strong>v7 complete:</strong> Thinnai · Kolam · Nadumuttam · East Pooja · Jali windows · Athangudi tiles · Stair wraps dining · 21 ft dining void · Sunken living · Entry privacy · Garage · Compound wall · Master walk-in · Two children with private baths · Mini wardrobes · Flex room · Balcony. GF 11 ft · FF 10 ft · L-shaped plan · Chennai climate.</div>';
+  document.getElementById('sum-content').innerHTML = html;
+}
+
+/* ══════════════════════════════════════════
+   INIT
+   ══════════════════════════════════════════ */
+renderRooms();
+</script>
 </body>
 </html>
