@@ -309,11 +309,7 @@ body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;
   <button class="fs-btn" onclick="setFloor('ff',this)">First Floor (FF)</button>
 </div>
 
-<!-- View toggle (shown only on Rooms + Plan pages) -->
-<div class="view-toggle" id="view-toggle">
-  <button class="vt-btn active" onclick="setView('cards',this)" id="vt-cards">🏠 Rooms</button>
-  <button class="vt-btn" onclick="setView('plan',this)" id="vt-plan">📐 Plan</button>
-</div>
+<!-- (view toggle removed — plan is now its own bottom nav page) -->
 
 <!-- Main scroll area -->
 <div class="scroll-area">
@@ -325,9 +321,30 @@ body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;
 
   <!-- PAGE: PLAN (SVG scaled) -->
   <div class="page" id="page-plan">
+    <div style="display:flex;gap:6px;padding:10px 12px 8px;">
+      <button class="fs-btn active" id="plan-gf-btn" onclick="setPlanFloor('gf',this)">Ground Floor</button>
+      <button class="fs-btn" id="plan-ff-btn" onclick="setPlanFloor('ff',this)">First Floor</button>
+    </div>
     <div class="plan-view">
-      <p class="plan-hint">Scroll to pan · Tap room label to open detail</p>
-      <div class="plan-scroll" id="plan-svg-container"></div>
+      <p class="plan-hint">← Scroll to pan · Tap room label to open detail →</p>
+      <div class="plan-scroll" id="plan-svg-container">
+        <p style="padding:20px;color:#5a4020;font-size:.8rem">Loading plan…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: SECTION -->
+  <div class="page" id="page-section">
+    <div class="plan-view">
+      <p class="plan-hint">East–West section showing all heights</p>
+      <div class="plan-scroll" id="section-svg-container">
+        <p style="padding:20px;color:#5a4020;font-size:.8rem">Loading section…</p>
+      </div>
+    </div>
+    <div style="padding:0 12px 12px">
+      <div class="callout">
+        <strong>Heights:</strong> GF all rooms 11 ft · FF all rooms 10 ft · Dining void 21 ft (no slab) · Sunken living 18" below GF · Nadumuttam open to sky full height · Stair wraps dining on 2 faces
+      </div>
     </div>
   </div>
 
@@ -356,6 +373,9 @@ body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;
   </button>
   <button class="bn-btn" onclick="showPage('sum',this)">
     <span class="bn-icon">📊</span><span class="bn-label">Summary</span>
+  </button>
+  <button class="bn-btn" onclick="showPage('section',this)">
+    <span class="bn-icon">📏</span><span class="bn-label">Section</span>
   </button>
 </nav>
 
@@ -480,12 +500,13 @@ function showPage(page, btn) {
   if (btn) btn.classList.add('active');
   currentPage = page;
 
-  const showFloorUI = (page === 'rooms');
-  document.getElementById('floor-switch').style.display = showFloorUI ? 'flex' : 'none';
-  document.getElementById('view-toggle').style.display  = showFloorUI ? 'flex' : 'none';
+  // Floor switcher only on rooms page
+  document.getElementById('floor-switch').style.display = (page === 'rooms') ? 'flex' : 'none';
 
-  if (page === 'req')  renderReq();
-  if (page === 'sum')  renderSum();
+  if (page === 'req')     renderReq();
+  if (page === 'sum')     renderSum();
+  if (page === 'plan')    renderPlan(currentFloor);
+  if (page === 'section') renderSection();
 }
 
 function setFloor(floor, btn) {
@@ -493,17 +514,13 @@ function setFloor(floor, btn) {
   document.querySelectorAll('.fs-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderRooms();
-  if (currentView === 'plan') renderPlan();
 }
 
-function setView(view, btn) {
-  currentView = view;
-  document.querySelectorAll('.vt-btn').forEach(b => b.classList.remove('active'));
+function setPlanFloor(floor, btn) {
+  currentFloor = floor;
+  document.querySelectorAll('#page-plan .fs-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('page-rooms').classList.toggle('active', view === 'cards');
-  document.getElementById('page-plan').classList.toggle('active', view === 'plan');
-  // keep bottom nav "rooms" active
-  if (view === 'plan') renderPlan();
+  renderPlan(floor);
 }
 
 /* ══════════════════════════════════════════
@@ -540,31 +557,42 @@ function renderRooms() {
 }
 
 /* ══════════════════════════════════════════
-   PLAN VIEW — fetch SVG tab
+   PLAN VIEW — fetch SVG, let user pan
    ══════════════════════════════════════════ */
 const _planCache = {};
-function renderPlan() {
-  if (_planCache[currentFloor]) {
-    document.getElementById('plan-svg-container').innerHTML = _planCache[currentFloor];
+function renderPlan(floor) {
+  floor = floor || currentFloor;
+  const container = document.getElementById('plan-svg-container');
+  if (_planCache[floor]) {
+    container.innerHTML = _planCache[floor];
     return;
   }
-  document.getElementById('plan-svg-container').innerHTML = '<p style="padding:20px;color:#5a4020;font-size:.8rem">Loading plan…</p>';
-  fetch(`/tabs/${currentFloor}/index.html`)
-    .then(r => r.text())
+  container.innerHTML = '<p style="padding:20px;color:#5a4020;font-size:.8rem">Loading plan…</p>';
+  fetch(`/tabs/${floor}/index.html`)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
     .then(html => {
-      // Scale SVG to fit ~360px wide (mobile)
-      const scaled = html.replace(/<svg([^>]*)width="(\d+)"([^>]*)height="(\d+)"/, (m,a,w,b,h) => {
-        const scale = 360 / parseInt(w);
-        const nh    = Math.round(parseInt(h) * scale);
-        return `<svg${a}width="${360}"${b}height="${nh}" style="min-width:${w}px"`;
-      });
-      _planCache[currentFloor] = scaled;
-      document.getElementById('plan-svg-container').innerHTML = scaled;
+      // Keep SVG at native size — container scrolls horizontally
+      // Just strip the outer .fl div if present
+      const clean = html.replace(/<div class="fl">.*?<\/div>\s*/s, '');
+      _planCache[floor] = clean;
+      container.innerHTML = clean;
     })
-    .catch(() => {
-      document.getElementById('plan-svg-container').innerHTML =
-        '<p style="padding:20px;color:#c8920a;font-size:.8rem">Plan unavailable</p>';
+    .catch(err => {
+      container.innerHTML = `<p style="padding:20px;color:#c8920a;font-size:.8rem">Could not load plan (${err.message}). Make sure the floor plan file exists at /tabs/${floor}/index.html</p>`;
     });
+}
+
+/* ══════════════════════════════════════════
+   SECTION VIEW
+   ══════════════════════════════════════════ */
+let _sectionLoaded = false;
+function renderSection() {
+  if (_sectionLoaded) return;
+  const container = document.getElementById('section-svg-container');
+  fetch('/tabs/sec.html')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(html => { container.innerHTML = html; _sectionLoaded = true; })
+    .catch(() => { container.innerHTML = '<p style="padding:20px;color:#c8920a;font-size:.8rem">Section unavailable.</p>'; });
 }
 
 /* ══════════════════════════════════════════
