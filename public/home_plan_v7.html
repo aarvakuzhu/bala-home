@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chennai Home — Indian Style v7</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;min-height:100vh}
+header{background:linear-gradient(to right,#1a0e04,#2a1808,#1a0e04);border-bottom:2px solid #8a5a18;padding:18px 36px 14px;display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8820a' fill-opacity='0.05'%3E%3Cpath d='M20 20.5V18H0v5h5v5H0v5h20v-2.5h20V20.5H20zM15 45H0V25h5v5h5v5H5v5h10v5zM0 0h20v2.5H20V5H0V0zm0 10h20v2.5H20V15H0V10z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+header h1{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:#e8c060;line-height:1;position:relative}
+header .sub{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#8a7048;margin-top:5px}
+.hbadge{margin-left:auto;background:rgba(200,130,20,.08);border:1px solid #5a3a10;border-radius:6px;padding:9px 14px;font-size:.7rem;line-height:1.9;color:#8a7048;text-align:right}
+.hbadge strong{color:#e8c060;display:block;font-size:.78rem;margin-bottom:2px}
+.deco{height:5px;background:repeating-linear-gradient(90deg,#6a3808 0,#6a3808 8px,#c8920a 8px,#c8920a 16px,#e8c060 16px,#e8c060 18px,#c8920a 18px,#c8920a 26px,#6a3808 26px,#6a3808 34px)}
+.tabs{display:flex;gap:2px;padding:0 36px;background:#100e08;border-bottom:1px solid #4a3010;flex-wrap:wrap}
+.tab{padding:9px 15px;font-size:.67rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:#5a4820;cursor:pointer;border:none;background:transparent;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.active{color:#e8c060;border-bottom-color:#c8920a}
+.tab:hover{color:#f2e8d0}
+.main{display:flex;min-height:calc(100vh - 118px)}
+.sb{width:246px;flex-shrink:0;background:#0e0804;border-right:1px solid #3a2010;overflow-y:auto;transition:width .25s ease}
+.sb.collapsed{width:34px;overflow:hidden}
+.sb-toggle{display:flex;align-items:center;justify-content:center;width:100%;padding:10px 0;cursor:pointer;background:#181408;border-bottom:1px solid #3a2010;gap:6px;font-size:.64rem;letter-spacing:2px;text-transform:uppercase;color:#c8920a;user-select:none;position:sticky;top:0;z-index:10}
+.sb-toggle .arrow{font-size:.75rem;transition:transform .25s}
+.sb.collapsed .sb-toggle .arrow{transform:rotate(180deg)}
+.sb.collapsed .sb-toggle .lbl{display:none}
+.sb-inner{padding:12px 11px;min-width:222px}
+.sb-sec{margin-bottom:3px;margin-top:10px}
+.sb-sec:first-child{margin-top:0}
+.sb-sec-hd{display:flex;align-items:center;gap:6px;cursor:pointer;padding:5px 6px;border-radius:4px;user-select:none;transition:background .15s}
+.sb-sec-hd:hover{background:rgba(200,146,10,.1)}
+.sb-sec-hd h3{font-size:.57rem;letter-spacing:3px;text-transform:uppercase;color:#c8920a;margin:0;flex:1}
+.sb-sec-hd .cnt{font-size:.57rem;color:#5a4020;background:rgba(200,146,10,.1);padding:1px 5px;border-radius:8px}
+.sb-sec-hd .chev{font-size:.64rem;color:#5a4020;transition:transform .2s}
+.sb-sec.open .sb-sec-hd .chev{transform:rotate(180deg)}
+.sb-sec-body{display:none;padding-left:2px;padding-bottom:2px}
+.sb-sec.open .sb-sec-body{display:block}
+.ri{display:flex;align-items:center;gap:7px;padding:4px 6px;border-radius:4px;font-size:.71rem;color:#9a8860;margin-bottom:1px}
+.sw{width:10px;height:10px;border-radius:2px;flex-shrink:0;border:1px solid rgba(255,255,255,.1)}
+.rsz{font-size:.61rem;color:#5a4020;margin-left:auto;white-space:nowrap}
+.scard{background:rgba(255,255,255,.03);border:1px solid #3a2010;border-radius:5px;padding:9px;margin-top:5px}
+.sr{display:flex;justify-content:space-between;font-size:.7rem;padding:3px 0;color:#7a6040;border-bottom:1px solid #181008}
+.sr:last-child{border-bottom:none}
+.sr span:last-child{color:#f2e8d0;font-weight:500}
+.gbadge{margin-top:6px;padding:5px 7px;background:rgba(80,180,80,.08);border:1px solid rgba(80,180,80,.15);border-radius:4px;font-size:.7rem;color:#80c880;text-align:center}
+.pa{flex:1;padding:20px 18px;overflow:auto;background:#0c0804;display:flex;flex-direction:column;gap:0}
+.fw{display:none}
+.fw.active{display:flex;flex-direction:column;gap:12px}
+.fl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:#e8c060;display:flex;align-items:center;gap:11px}
+.fl::after{content:'';flex:1;height:1px;background:linear-gradient(to right,#5a3a10,transparent)}
+svg.plan{background:#faf4e8;border-radius:3px;box-shadow:0 8px 48px rgba(0,0,0,.7);display:block}
+.leg{display:flex;flex-wrap:wrap;gap:8px}
+.li2{display:flex;align-items:center;gap:5px;font-size:.68rem;color:#7a6840}
+.ls{width:10px;height:10px;border-radius:2px;border:1px solid rgba(255,255,255,.1)}
+.callout{background:rgba(200,146,10,.07);border-left:3px solid #c8920a;padding:9px 14px;font-size:.76rem;line-height:1.7;border-radius:0 5px 5px 0;color:#9a8860;max-width:960px}
+.callout strong{color:#e8c060}
+.note{background:rgba(180,228,248,.05);border-left:3px solid #4a8ab0;padding:9px 14px;font-size:.76rem;line-height:1.7;border-radius:0 5px 5px 0;color:#7aa8c0;max-width:960px}
+.note strong{color:#a8d0e8}
+.rp{max-width:960px;display:flex;flex-direction:column;gap:14px}
+.rs{background:rgba(255,255,255,.025);border:1px solid #3a2010;border-radius:7px;overflow:hidden}
+.rsh{background:rgba(200,146,10,.1);border-bottom:1px solid #4a3010;padding:8px 14px;display:flex;align-items:center;gap:8px}
+.rsh h4{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#e8c060;font-style:italic}
+.rsh .cnt{margin-left:auto;font-size:.61rem;color:#8a7048;letter-spacing:1px}
+.rl{padding:8px 14px;display:flex;flex-direction:column}
+.ri2{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #1a1008;font-size:.76rem;line-height:1.5}
+.ri2:last-child{border-bottom:none}
+.rn{min-width:18px;height:18px;background:rgba(200,146,10,.15);border:1px solid #4a3010;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.61rem;color:#c8920a;font-weight:600;flex-shrink:0;margin-top:1px}
+.rt{flex:1;color:#b8a880}
+.rt strong{color:#f2e8d0;display:block;margin-bottom:1px}
+.rt em{font-style:normal;color:#6a5838;font-size:.7rem}
+.rstat{font-size:.64rem;padding:2px 6px;border-radius:10px;flex-shrink:0;margin-top:2px}
+.done{background:rgba(80,180,80,.12);color:#80d880;border:1px solid rgba(80,180,80,.2)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:11px;max-width:960px}
+.sb2{background:rgba(255,255,255,.025);border:1px solid #3a2010;border-radius:6px;padding:11px}
+.sb2 h4{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:#e8c060;margin-bottom:6px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="deco"></div>
+<header>
+  <div>
+    <div class="sub">Chennai Residence · Indian Vernacular · G+1 · v7</div>
+    <h1>நல்ல இல்லம் — Your Dream Home</h1>
+  </div>
+  <div class="hbadge">
+    <strong>✦ Indian Style · Chennai · v7</strong>
+    Plot 80×60 ft · 8 ft setback all sides<br>
+    GF 11 ft · FF 10 ft · Dining void 21 ft<br>
+    Thinnai · Nadumuttam · Stair wraps Dining
+  </div>
+</header>
+<div class="deco"></div>
+<div class="tabs">
+  <button class="tab active" onclick="showTab('req',this)">📋 Requirements</button>
+  <button class="tab" onclick="showTab('gf',this)">Ground Floor</button>
+  <button class="tab" onclick="showTab('ff',this)">First Floor</button>
+  <button class="tab" onclick="showTab('site',this)">Site Plan</button>
+  <button class="tab" onclick="showTab('sec',this)">Section</button>
+  <button class="tab" onclick="showTab('sum',this)">Summary</button>
+</div>
+<div class="main">
+<div class="sb" id="sb">
+  <div class="sb-toggle" onclick="tSb()"><span class="arrow">◀</span><span class="lbl">Room Index</span></div>
+  <div class="sb-inner">
+    <div class="sb-sec open" id="s-gf">
+      <div class="sb-sec-hd" onclick="tS('s-gf')"><h3>Ground Floor</h3><span class="cnt">13</span><span class="chev">▾</span></div>
+      <div class="sb-sec-body">
+        <div class="ri"><div class="sw" style="background:#c4a870"></div>Thinnai (sit-out)<span class="rsz">~60</span></div>
+        <div class="ri"><div class="sw" style="background:#e8e0c4"></div>Foyer (privacy screen)<span class="rsz">~80</span></div>
+        <div class="ri"><div class="sw" style="background:#c4d4e8"></div>↘ Sunken Living<span class="rsz">~185</span></div>
+        <div class="ri"><div class="sw" style="background:#f0d4e4"></div>🪔 Pooja Room<span class="rsz">~52</span></div>
+        <div class="ri"><div class="sw" style="background:#f8f0c0"></div>Dining · 21ft void<span class="rsz">~240</span></div>
+        <div class="ri"><div class="sw" style="background:#e8e0b8"></div>Stair wraps dining<span class="rsz">—</span></div>
+        <div class="ri"><div class="sw" style="background:#c8e8d0"></div>Open Kitchen<span class="rsz">~180</span></div>
+        <div class="ri"><div class="sw" style="background:#e4e0a8"></div>Kitchen Store<span class="rsz">~48</span></div>
+        <div class="ri"><div class="sw" style="background:#a8d8e8"></div>☁ Nadumuttam<span class="rsz">~55</span></div>
+        <div class="ri"><div class="sw" style="background:#f0e4d0"></div>Laundry / WM<span class="rsz">~32</span></div>
+        <div class="ri"><div class="sw" style="background:#d4e8f4"></div>Guest Bedroom<span class="rsz">~155</span></div>
+        <div class="ri"><div class="sw" style="background:#c8e4e4"></div>Guest Bathroom<span class="rsz">~45</span></div>
+        <div class="ri"><div class="sw" style="background:#c8c0a8"></div>Garage 2car+2bike<span class="rsz">~520</span></div>
+      </div>
+    </div>
+    <div class="sb-sec open" id="s-ff">
+      <div class="sb-sec-hd" onclick="tS('s-ff')"><h3>First Floor</h3><span class="cnt">10</span><span class="chev">▾</span></div>
+      <div class="sb-sec-body">
+        <div class="ri"><div class="sw" style="background:#e4d0f0"></div>Master Bedroom<span class="rsz">~218</span></div>
+        <div class="ri"><div class="sw" style="background:#d8c0e8"></div>Walk-in Wardrobe<span class="rsz">incl.</span></div>
+        <div class="ri"><div class="sw" style="background:#f0c8c8"></div>Master Ensuite<span class="rsz">~64</span></div>
+        <div class="ri"><div class="sw" style="background:#f4e0d0"></div>Child Room 1 + WD<span class="rsz">~142</span></div>
+        <div class="ri"><div class="sw" style="background:#c8e0e8"></div>Child Bath 1<span class="rsz">~38</span></div>
+        <div class="ri"><div class="sw" style="background:#d0e8d8"></div>Child Room 2 + WD<span class="rsz">~142</span></div>
+        <div class="ri"><div class="sw" style="background:#c8e4d0"></div>Child Bath 2<span class="rsz">~38</span></div>
+        <div class="ri"><div class="sw" style="background:#d8d0ec"></div>📚 Flex / Library<span class="rsz">~125</span></div>
+        <div class="ri"><div class="sw" style="background:#d0e8c8"></div>Balcony / Thotti<span class="rsz">~75</span></div>
+        <div class="ri"><div class="sw" style="background:#a8d8e8"></div>Nadumuttam void<span class="rsz">~55</span></div>
+      </div>
+    </div>
+    <div class="sb-sec open" id="s-pl">
+      <div class="sb-sec-hd" onclick="tS('s-pl')"><h3>Plot & Heights</h3><span class="cnt">9</span><span class="chev">▾</span></div>
+      <div class="sb-sec-body">
+        <div class="scard" style="margin-top:4px">
+          <div class="sr"><span>Plot</span><span>80×60 ft = 4800 sq ft</span></div>
+          <div class="sr"><span>Setback</span><span>8 ft all sides</span></div>
+          <div class="sr"><span>GF ceiling</span><span>11 ft</span></div>
+          <div class="sr"><span>FF ceiling</span><span>10 ft</span></div>
+          <div class="sr"><span>Dining void</span><span>21 ft (11+10)</span></div>
+          <div class="sr"><span>GF area</span><span>~1500 sq ft</span></div>
+          <div class="sr"><span>FF area</span><span>~1500 sq ft</span></div>
+          <div class="sr"><span>Style</span><span>Indian vernacular</span></div>
+          <div class="sr"><span>Location</span><span>Chennai</span></div>
+        </div>
+        <div class="gbadge">✓ All 37 requirements addressed</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pa">
+<!-- REQUIREMENTS TAB -->
+<div class="fw active" id="tab-req">
+<div class="fl">Requirements — Indian Vernacular · Chennai · v7 (37 items)</div>
+<div class="rp">
+<div class="rs"><div class="rsh"><span>🏗</span><h4>Plot, Structure & Heights</h4><span class="cnt">8</span></div><div class="rl">
+  <div class="ri2"><div class="rn">1</div><div class="rt"><strong>Plot 80×60 ft</strong><em>4800 sq ft (2 grounds) · Rectangular · Road on south</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">2</div><div class="rt"><strong>8 ft setback all sides</strong><em>Buildable zone 64×44 ft = 2816 sq ft</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">3</div><div class="rt"><strong>GF height 11 ft</strong><em>All GF rooms · Tall ceilings aid natural convection in Chennai heat</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">4</div><div class="rt"><strong>FF height 10 ft</strong><em>All FF bedrooms and rooms · Generous ceiling throughout</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">5</div><div class="rt"><strong>Dining — high ceiling, open to first floor</strong><em>21 ft total (GF 11 ft + FF 10 ft, no slab here) · Full double-height void · Skylight at roof</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">6</div><div class="rt"><strong>Stair runs around dining area</strong><em>Stair wraps north + west face of dining · visible from table · acts as architectural promenade from GF to FF</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">7</div><div class="rt"><strong>Non-rectangular L-shaped plan</strong><em>NE corner cut for open terrace + airflow · organic footprint</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">8</div><div class="rt"><strong>Compound wall all 4 sides</strong><em>Traditional brick compound with coping + plinth · Gate south</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="rs"><div class="rsh"><span>🪔</span><h4>Indian Vernacular Elements</h4><span class="cnt">6</span></div><div class="rl">
+  <div class="ri2"><div class="rn">9</div><div class="rt"><strong>Thinnai — raised front sit-out</strong><em>~60 sq ft · traditional raised platform · Kolam space at threshold · visitors rest here before entering</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">10</div><div class="rt"><strong>Nadumuttam — internal open courtyard</strong><em>~55 sq ft · open to sky · direct rain + sunlight + breeze · off dining via sliding glass · Tulsi planter · Cuddapah floor + central drain</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">11</div><div class="rt"><strong>Pooja room — GF east-facing</strong><em>~52 sq ft · auspicious east orientation per Vastu · Jali screen · marble floor · acts as visual screen at entry</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">12</div><div class="rt"><strong>Jali screens on windows</strong><em>All GF windows · perforated stone or terracotta jali for ventilation and privacy · traditional Chennai feature</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">13</div><div class="rt"><strong>Athangudi / traditional tile floors</strong><em>Thinnai + dining + stair treads · Cuddapah stone for Nadumuttam · Kota/red oxide for kitchen</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">14</div><div class="rt"><strong>Balcony / Thotti — FF</strong><em>~75 sq ft · south-facing · traditional grille parapet · open-air · clothes drying + seating</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="rs"><div class="rsh"><span>🚗</span><h4>Garage, Entry & Privacy</h4><span class="cnt">5</span></div><div class="rl">
+  <div class="ri2"><div class="rn">15</div><div class="rt"><strong>Garage — west side</strong><em>2 cars side-by-side + 2 bike bays · ~520 sq ft · roller shutter south · pedestrian door to foyer</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">16</div><div class="rt"><strong>Driveway gate to garage</strong><em>~14 ft wide · along west compound wall</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">17</div><div class="rt"><strong>Kitchen + Dining NOT visible on entry</strong><em>Foyer L-turn + Pooja wall = visual screen · K+D completely hidden from main door</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">18</div><div class="rt"><strong>Living room visible from entry</strong><em>Sunken living first thing seen · draws visitor naturally · Thinnai announces arrival</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">19</div><div class="rt"><strong>Trees all around</strong><em>Neem + peepal (rear) · mango + jackfruit (sides) · jasmine/hibiscus hedge (front) · 8 ft setback used for planting</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="rs"><div class="rsh"><span>🪑</span><h4>Ground Floor Rooms</h4><span class="cnt">8</span></div><div class="rl">
+  <div class="ri2"><div class="rn">20</div><div class="rt"><strong>Sunken living room</strong><em>~185 sq ft · 3 steps / 18" below GF slab · low stone parapet · TV wall · enclosed sofa zone · visible from foyer</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">21</div><div class="rt"><strong>Dining hall — stair wraps around it</strong><em>~240 sq ft · 21 ft ceiling · open to FF · stair visible on 2 sides · Nadumuttam off dining</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">22</div><div class="rt"><strong>Open kitchen — accessible from dining</strong><em>~180 sq ft · L-counter · overhead + base storage · counter-height half-wall to dining · fridge near partition</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">23</div><div class="rt"><strong>Kitchen store room</strong><em>~48 sq ft · direct door from kitchen · dry goods + vessels + appliances</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">24</div><div class="rt"><strong>Nadumuttam from dining</strong><em>~55 sq ft open sky · sliding glass off dining · 7×8 ft clear opening · drain → sump · secure all sides</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">25</div><div class="rt"><strong>Guest bedroom — GF</strong><em>~155 sq ft · attached bathroom · near foyer · private zone away from kitchen noise</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">26</div><div class="rt"><strong>Guest bathroom — GF attached</strong><em>~45 sq ft · WC + basin + shower</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">27</div><div class="rt"><strong>Laundry / WM — back of house GF</strong><em>~32 sq ft covered · drain + tap · back door to rear drying yard · private</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="rs"><div class="rsh"><span>🍳</span><h4>Appliances</h4><span class="cnt">3</span></div><div class="rl">
+  <div class="ri2"><div class="rn">28</div><div class="rt"><strong>Fridge — kitchen near half-wall</strong><em>Accessible from dining side · built into kitchen corner near partition</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">29</div><div class="rt"><strong>Washing machine — back of GF covered</strong><em>Covered laundry bay · drain + tap · door to rear drying yard</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">30</div><div class="rt"><strong>Drying yard — rear private</strong><em>8 ft rear setback · not road-visible · clothesline / drying rack</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="rs"><div class="rsh"><span>🛏</span><h4>First Floor Bedrooms & Rooms</h4><span class="cnt">8</span></div><div class="rl">
+  <div class="ri2"><div class="rn">31</div><div class="rt"><strong>Master bedroom — FF</strong><em>~218 sq ft · walk-in wardrobe wall + dressing corridor → attached ensuite</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">32</div><div class="rt"><strong>Master ensuite — attached FF</strong><em>~64 sq ft · bathtub + WC + basin · via dressing corridor</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">33</div><div class="rt"><strong>Child bedroom 1 — FF</strong><em>~142 sq ft · 2-door built-in mini wardrobe · study desk · private attached bath</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">34</div><div class="rt"><strong>Child bathroom 1 — FF attached private</strong><em>~38 sq ft · WC + basin + shower</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">35</div><div class="rt"><strong>Child bedroom 2 — FF</strong><em>~142 sq ft · 2-door built-in mini wardrobe · study desk · private attached bath</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">36</div><div class="rt"><strong>Child bathroom 2 — FF attached private</strong><em>~38 sq ft · WC + basin + shower</em></div><span class="rstat done">✓</span></div>
+  <div class="ri2"><div class="rn">37</div><div class="rt"><strong>Flex / Library / Soundproof room — FF</strong><em>~125 sq ft · double-wall cavity construction · library now · studio / home cinema later</em></div><span class="rstat done">✓</span></div>
+</div></div>
+<div class="note"><strong>For your architect:</strong> GF 11 ft floor-to-slab · FF 10 ft floor-to-slab · Dining void full 21 ft (no FF slab over dining) · Jali screens on all GF openings · Athangudi tiles in thinnai + dining + stair · Cuddapah stone for Nadumuttam · Traditional double-leaf teak main door · Compound wall 9" brick + coping + plinth · Skylight at roof over dining void · Structural engineer to check beam depths at void perimeter</div>
+</div>
+</div><!-- req -->
+<!-- GROUND FLOOR TAB -->
+<div class="fw" id="tab-gf">
+<div class="fl">Ground Floor — 1500 sq ft · 11 ft Ceiling · Stair wraps Dining · Nadumuttam · Thinnai</div>
+<svg class="plan" width="980" height="760" viewBox="0 0 980 760">
+<defs>
+  <pattern id="gr" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0L0 0 0 10" fill="none" stroke="#dfd8c0" stroke-width=".35"/></pattern>
+  <pattern id="h45" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#a89858" stroke-width="1.2"/></pattern>
+  <pattern id="athi" width="14" height="14" patternUnits="userSpaceOnUse">
+    <rect width="14" height="14" fill="#f8f0e0"/>
+    <path d="M0,7 L7,0 L14,7 L7,14 Z" fill="none" stroke="#d4b060" stroke-width=".6"/>
+    <circle cx="7" cy="7" r="1.5" fill="#c8a040" opacity=".5"/>
+  </pattern>
+  <pattern id="kpat" width="16" height="16" patternUnits="userSpaceOnUse">
+    <rect width="16" height="16" fill="#c8a870"/>
+    <path d="M0,8 L8,0 L16,8 L8,16 Z" fill="none" stroke="#e8c060" stroke-width=".8"/>
+    <circle cx="8" cy="8" r="2" fill="#e8c060" opacity=".5"/>
+  </pattern>
+  <radialGradient id="sg" cx="50%" cy="40%" r="55%"><stop offset="0%" stop-color="#88c8f0" stop-opacity=".85"/><stop offset="100%" stop-color="#c8ecff" stop-opacity=".15"/></radialGradient>
+  <pattern id="sp" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.1" fill="#70c0f0" opacity=".45"/></pattern>
+</defs>
+<rect width="980" height="760" fill="#e0d8c4"/>
+<rect width="980" height="760" fill="url(#gr)"/>
+
+<!-- COMPOUND WALL: plot 80×60ft, scale 9px/ft → 720×540px, placed x=100,y=55 -->
+<rect x="100" y="55" width="720" height="540" fill="none" stroke="#5a3810" stroke-width="7" rx="4"/>
+<rect x="100" y="55"  width="720" height="13" fill="#c49040"/>
+<rect x="100" y="582" width="720" height="13" fill="#c49040"/>
+<rect x="100" y="55"  width="13"  height="540" fill="#c49040"/>
+<rect x="807" y="55"  width="13"  height="540" fill="#c49040"/>
+<rect x="100" y="68"  width="720" height="3"  fill="#e8b040" opacity=".5"/>
+<rect x="100" y="579" width="720" height="3"  fill="#e8b040" opacity=".5"/>
+<!-- Gate south with pillars -->
+<rect x="380" y="582" width="160" height="13" fill="#e8c040" stroke="#8a6010" stroke-width="2" rx="1"/>
+<rect x="368" y="567" width="17" height="28" fill="#c49040" stroke="#8a6010" stroke-width="1" rx="1"/>
+<rect x="535" y="567" width="17" height="28" fill="#c49040" stroke="#8a6010" stroke-width="1" rx="1"/>
+<text x="460" y="610" font-family="Jost" font-size="9.5" fill="#2a1808" text-anchor="middle">🚪 COMPOUND GATE</text>
+<!-- Road -->
+<rect x="0" y="638" width="980" height="122" fill="#c0bca8"/>
+<text x="490" y="702" font-family="Jost" font-size="13" fill="#888" text-anchor="middle" letter-spacing="6">R O A D</text>
+<line x1="0" y1="638" x2="980" y2="638" stroke="#aaa" stroke-width="2" stroke-dasharray="24 8"/>
+
+<!-- GARDEN ZONES (8ft=72px setback) -->
+<rect x="113" y="68"  width="694" height="63" fill="#a8c890" opacity=".65"/>
+<rect x="113" y="519" width="694" height="63" fill="#a8c890" opacity=".65"/>
+<rect x="113" y="131" width="63"  height="388" fill="#a8c890" opacity=".65"/>
+<rect x="694" y="131" width="113" height="388" fill="#a8c890" opacity=".65"/>
+
+<!-- GARAGE west x=113–263, y=131–431 (15ft×33ft=495sqft) -->
+<rect x="113" y="131" width="150" height="300" fill="#ccc0a0" stroke="#5a3810" stroke-width="3" rx="2"/>
+<text x="188" y="145" font-family="Jost" font-size="9" fill="#3a2808" text-anchor="middle" font-weight="500">GARAGE</text>
+<text x="188" y="157" font-family="Jost" font-size="8" fill="#6a5028" text-anchor="middle">2 Cars · 2 Bikes</text>
+<rect x="121" y="168" width="62" height="148" fill="#d8d0b0" rx="3" stroke="#9a9068" stroke-width="1.5"/>
+<text x="152" y="245" font-family="Jost" font-size="9" fill="#5a5030" text-anchor="middle">CAR 1</text>
+<rect x="191" y="168" width="62" height="148" fill="#d8d0b0" rx="3" stroke="#9a9068" stroke-width="1.5"/>
+<text x="222" y="245" font-family="Jost" font-size="9" fill="#5a5030" text-anchor="middle">CAR 2</text>
+<rect x="121" y="332" width="58" height="82" fill="#ccc8a8" rx="2" stroke="#9a9068" stroke-width="1"/>
+<text x="150" y="377" font-family="Jost" font-size="8" fill="#5a5030" text-anchor="middle">BIKE 1</text>
+<rect x="187" y="332" width="58" height="82" fill="#ccc8a8" rx="2" stroke="#9a9068" stroke-width="1"/>
+<text x="216" y="377" font-family="Jost" font-size="8" fill="#5a5030" text-anchor="middle">BIKE 2</text>
+<rect x="113" y="424" width="150" height="13" fill="#e8d870" stroke="#8a7818" stroke-width="1.5" rx="1"/>
+<text x="188" y="432" font-family="Jost" font-size="7.5" fill="#6a5010" text-anchor="middle">Roller Shutter</text>
+<rect x="113" y="437" width="150" height="82" fill="#c4bc98"/>
+<text x="188" y="481" font-family="Jost" font-size="9" fill="#786840" text-anchor="middle">DRIVEWAY</text>
+<!-- ped door -->
+<rect x="261" y="182" width="5" height="30" fill="white"/>
+<path d="M266 182 Q296 182 296 212" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<text x="272" y="178" font-family="Jost" font-size="7" fill="#c8920a">ped.door</text>
+
+<!-- HOUSE L-SHAPE: 263,131 → 694,519 minus NE cut 550,131→694,245 -->
+<polygon points="263,131 550,131 550,245 694,245 694,519 263,519" fill="#faf4e8" stroke="#2a1808" stroke-width="5.5"/>
+
+<!-- NE TERRACE -->
+<rect x="550" y="131" width="144" height="114" fill="#c8dcb4" stroke="#5a8040" stroke-width="1.5" stroke-dasharray="7 4" rx="3"/>
+<text x="622" y="183" font-family="Jost" font-size="9.5" fill="#2a5018" text-anchor="middle">OPEN TERRACE</text>
+<text x="622" y="197" font-family="Jost" font-size="8" fill="#4a7830" text-anchor="middle">~162 sq ft · Trees</text>
+
+<!--
+ROOM LAYOUT inside house (x=263–694, y=131–519)
+Col A x=263–383 (w=120): Stair + Pooja + Foyer + Thinnai
+Col B x=383–550 (w=167): Sunken Living + Dining
+Col C x=550–694 (w=144, starts y=245): Kitchen + Store + Nadumuttam + Guest + Laundry
+
+Rows:
+y=131–241: Stair(A) + Living_top(B) + Terrace(C)
+y=241–381: Pooja(A) + Living_bottom(B) + Kitchen(C)
+y=381–451: Foyer(A) + Dining_top(B) + Nadumuttam+Store(C)
+y=451–519: Thinnai(A) + Dining_bot(B) + Guest+Bath+Laundry(C)
+-->
+
+<!-- A1: STAIRCASE wraps dining north+west (x=263,y=131→383,y=241) -->
+<rect x="263" y="131" width="120" height="110" fill="#e8e0b8" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="271" y="139" width="104" height="94" fill="#f0e8c8" stroke="#c8920a" stroke-width="2" rx="1"/>
+<!-- treads wrap: bottom run -->
+<line x1="275" y1="222" x2="371" y2="222" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="211" x2="371" y2="211" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="200" x2="371" y2="200" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="189" x2="371" y2="189" stroke="#b89840" stroke-width="1.2"/>
+<!-- right run -->
+<line x1="361" y1="143" x2="361" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<line x1="350" y1="143" x2="350" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<!-- top run -->
+<line x1="275" y1="151" x2="371" y2="151" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="162" x2="371" y2="162" stroke="#b89840" stroke-width="1.2"/>
+<!-- left run -->
+<line x1="283" y1="143" x2="283" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<line x1="294" y1="143" x2="294" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<!-- center void -->
+<rect x="300" y="170" width="44" height="54" fill="rgba(200,170,80,.18)" stroke="#c8920a" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="322" y="199" font-family="Jost" font-size="7" fill="#8a7010" text-anchor="middle">VOID</text>
+<polygon points="322,184 318,194 326,194" fill="#c8920a"/>
+<text x="323" y="235" font-family="Jost" font-size="8" fill="#8a7010" text-anchor="middle">STAIR UP</text>
+<!-- stair also runs along north of dining (strip y=131–171 across col B) -->
+<rect x="383" y="131" width="167" height="42" fill="#e8e0b8" stroke="#2a1808" stroke-width="2"/>
+<line x1="387" y1="162" x2="546" y2="162" stroke="#b89840" stroke-width="1.2"/>
+<line x1="387" y1="150" x2="546" y2="150" stroke="#b89840" stroke-width="1.2"/>
+<line x1="387" y1="139" x2="546" y2="139" stroke="#b89840" stroke-width="1.2"/>
+<text x="465" y="154" font-family="Jost" font-size="7.5" fill="#8a7010" text-anchor="middle">↑ STAIR UPPER FLIGHT / LANDING ↑</text>
+<!-- stair annotation wraps dining -->
+<text x="258" y="127" font-family="Jost" font-size="7.5" fill="#c8920a">Stair wraps dining →</text>
+
+<!-- A2: POOJA ROOM (x=263,y=241→383,y=381) -->
+<rect x="263" y="241" width="120" height="140" fill="#f0d4e4" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="267" y="245" width="112" height="132" fill="none" stroke="#e0a8c8" stroke-width=".5" stroke-dasharray="8 4"/>
+<circle cx="323" cy="305" r="30" fill="none" stroke="#e0a0c0" stroke-width=".8" stroke-dasharray="5 3"/>
+<circle cx="323" cy="305" r="17" fill="none" stroke="#e0a0c0" stroke-width=".8"/>
+<circle cx="323" cy="305" r="8"  fill="#f8d0e8" stroke="#d070a0" stroke-width="1.2"/>
+<ellipse cx="323" cy="305" rx="5" ry="3" fill="#e8a020"/>
+<line x1="323" y1="295" x2="323" y2="287" stroke="#e8a020" stroke-width="1.5"/>
+<circle cx="323" cy="285" r="3" fill="#ffd050" opacity=".9"/>
+<circle cx="303" cy="297" r="4" fill="#e8c040" stroke="#c09010" stroke-width="1"/>
+<circle cx="343" cy="297" r="4" fill="#e8c040" stroke="#c09010" stroke-width="1"/>
+<text x="323" y="345" font-family="Cormorant Garamond,serif" font-size="12" fill="#8a1858" text-anchor="middle" font-weight="600">🪔 POOJA ROOM</text>
+<text x="323" y="360" font-family="Jost" font-size="8.5" fill="#c080a0" text-anchor="middle">~52 sq ft · East-facing</text>
+<text x="323" y="373" font-family="Jost" font-size="8" fill="#c080a0" text-anchor="middle">Jali screen on east wall</text>
+<!-- pooja door -->
+<rect x="358" y="253" width="4" height="26" fill="white"/>
+<path d="M362 253 Q388 253 388 279" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- A3: FOYER (x=263,y=381→383,y=451) -->
+<rect x="263" y="381" width="120" height="70" fill="#e8e0c4" stroke="#2a1808" stroke-width="2.5"/>
+<text x="323" y="412" font-family="Jost" font-size="10" fill="#5a4820" text-anchor="middle" font-weight="500">FOYER</text>
+<text x="323" y="426" font-family="Jost" font-size="8" fill="#8a7848" text-anchor="middle">K+D hidden · Living visible</text>
+<rect x="265" y="390" width="80" height="22" fill="rgba(180,80,20,.07)" stroke="#c07840" stroke-width="1" stroke-dasharray="3 2" rx="2"/>
+<text x="269" y="400" font-family="Jost" font-size="7" fill="#c07840">🚪 Entry → Living ✓</text>
+<text x="269" y="409" font-family="Jost" font-size="7" fill="#c07840">K + D invisible ✓</text>
+<!-- foyer → living door -->
+<rect x="383" y="392" width="4" height="32" fill="white"/>
+<path d="M387 392 Q421 392 421 426" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- A4: THINNAI (x=263,y=451→383,y=519) -->
+<rect x="263" y="451" width="120" height="68" fill="#c4a870" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="267" y="455" width="112" height="60" fill="url(#kpat)" opacity=".85"/>
+<!-- steps -->
+<rect x="263" y="510" width="120" height="7"  fill="#b09050" stroke="#2a1808" stroke-width="1"/>
+<rect x="267" y="517" width="112" height="2"  fill="#e8c060"/>
+<!-- kolam circle -->
+<circle cx="323" cy="477" r="18" fill="none" stroke="#e8a020" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="323" cy="477" r="10" fill="none" stroke="#e8a020" stroke-width=".8"/>
+<text x="323" y="480" font-family="Jost" font-size="8" fill="#c87010" text-anchor="middle">KOLAM</text>
+<text x="323" y="505" font-family="Jost" font-size="9.5" fill="#3a2410" text-anchor="middle" font-weight="600">THINNAI</text>
+<!-- main door -->
+<rect x="263" y="467" width="5" height="46" fill="white"/>
+<rect x="268" y="467" width="24" height="46" fill="#c8920a" rx="1"/>
+<rect x="292" y="467" width="24" height="46" fill="#a07010" rx="1"/>
+<rect x="316" y="467" width="5" height="46" fill="white"/>
+<text x="293" y="493" font-family="Jost" font-size="7" fill="#f0e8d0" text-anchor="middle">MAIN DOOR</text>
+
+<!-- B1: SUNKEN LIVING (x=383,y=173→550,y=381) -->
+<rect x="383" y="173" width="167" height="208" fill="#c4d4e8" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="394" y="184" width="145" height="186" fill="#ccdce8"/>
+<rect x="405" y="195" width="123" height="164" fill="#d4e0f0" stroke="#5878a8" stroke-width="1.5" stroke-dasharray="6 3"/>
+<rect x="394" y="184" width="145" height="11" fill="url(#h45)" opacity=".26"/>
+<rect x="394" y="369" width="145" height="11" fill="url(#h45)" opacity=".26" transform="rotate(180,467,374.5)"/>
+<rect x="394" y="184" width="11"  height="196" fill="url(#h45)" opacity=".26"/>
+<rect x="528" y="184" width="11"  height="196" fill="url(#h45)" opacity=".26"/>
+<text x="408" y="196" font-family="Jost" font-size="7.5" fill="#4060a0">↘ 3 steps down (18")</text>
+<text x="466" y="268" font-family="Cormorant Garamond,serif" font-size="13" fill="#1a2a50" text-anchor="middle" font-weight="600">SUNKEN</text>
+<text x="466" y="285" font-family="Cormorant Garamond,serif" font-size="13" fill="#1a2a50" text-anchor="middle" font-weight="600">LIVING ROOM</text>
+<text x="466" y="301" font-family="Jost" font-size="8" fill="#4a5a80" text-anchor="middle">~185 sq ft · 18" below GF level</text>
+<!-- TV wall -->
+<rect x="403" y="180" width="127" height="10" fill="#889098" rx="1" stroke="#5870a0" stroke-width=".8"/>
+<text x="466" y="188" font-family="Jost" font-size="7.5" fill="#e8f0f8" text-anchor="middle">TV WALL</text>
+<!-- sofa -->
+<rect x="415" y="320" width="100" height="36" fill="#a8bcd8" rx="4" stroke="#6880b8" stroke-width="1.2"/>
+<rect x="403" y="320" width="14" height="36" fill="#98acd0" rx="3" stroke="#6880b8" stroke-width="1"/>
+<rect x="515" y="320" width="14" height="36" fill="#98acd0" rx="3" stroke="#6880b8" stroke-width="1"/>
+<rect x="428" y="305" width="58" height="17" fill="#a8bcd8" rx="3" stroke="#6880b8" stroke-width="1"/>
+
+<!-- B2: DINING with stair wrap (x=383,y=381→550,y=519) -->
+<rect x="383" y="381" width="167" height="138" fill="#f8f0c0" stroke="#2a1808" stroke-width="2.5"/>
+<!-- Athangudi tile floor -->
+<rect x="385" y="383" width="163" height="134" fill="url(#athi)" opacity=".6"/>
+<!-- high ceiling band -->
+<rect x="385" y="383" width="163" height="16" fill="rgba(200,146,10,.15)" stroke="#c8920a" stroke-width=".8"/>
+<text x="466" y="393" font-family="Jost" font-size="7.5" fill="#c8920a" text-anchor="middle">⬆ 21 ft HIGH CEILING · Open to First Floor</text>
+<!-- dining table -->
+<ellipse cx="452" cy="464" rx="50" ry="30" fill="#e8d070" stroke="#9a8840" stroke-width="1.5"/>
+<rect x="426" y="428" width="20" height="12" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<rect x="458" y="428" width="20" height="12" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<rect x="426" y="482" width="20" height="12" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<rect x="458" y="482" width="20" height="12" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<rect x="392" y="451" width="12" height="22" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<rect x="496" y="451" width="12" height="22" fill="#d8c060" rx="2" stroke="#9a8840" stroke-width=".8"/>
+<!-- arrows to court + kitchen -->
+<line x1="550" y1="458" x2="568" y2="458" stroke="#3a90c0" stroke-width="2" stroke-dasharray="5 3"/>
+<polygon points="568,454 578,458 568,462" fill="#3a90c0"/>
+<text x="556" y="453" font-family="Jost" font-size="7" fill="#2a78a0">Court</text>
+<line x1="550" y1="424" x2="568" y2="424" stroke="#4a8a50" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="568,420 576,424 568,428" fill="#4a8a50"/>
+<text x="556" y="419" font-family="Jost" font-size="7" fill="#3a7040">Kitchen</text>
+<text x="466" y="510" font-family="Cormorant Garamond,serif" font-size="13" fill="#3a3008" text-anchor="middle" font-weight="600">DINING HALL</text>
+<!-- stair runs along west face of dining (annotation) -->
+<line x1="383" y1="381" x2="383" y2="519" stroke="#c8920a" stroke-width="2.5"/>
+<text x="378" y="450" font-family="Jost" font-size="7.5" fill="#c8920a" text-anchor="end" transform="rotate(-90,378,450)">← Stair this face →</text>
+
+<!-- C1: OPEN KITCHEN (x=550,y=245→694,y=381) -->
+<rect x="550" y="245" width="144" height="136" fill="#c8e8d0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="622" y="299" font-family="Cormorant Garamond,serif" font-size="12" fill="#1a4820" text-anchor="middle" font-weight="600">OPEN KITCHEN</text>
+<text x="622" y="314" font-family="Jost" font-size="8.5" fill="#4a7840" text-anchor="middle">~180 sq ft</text>
+<!-- L counter -->
+<rect x="557" y="253" width="130" height="18" fill="#88c090" stroke="#3a8048" stroke-width="1.2" rx="1"/>
+<rect x="676" y="253" width="10" height="88" fill="#88c090" stroke="#3a8048" stroke-width="1.2" rx="1"/>
+<!-- sink -->
+<rect x="570" y="255" width="28" height="14" fill="#60a870" stroke="#2a7838" stroke-width="1" rx="1"/>
+<circle cx="584" cy="262" r="3.5" fill="#2a7838"/>
+<!-- hob -->
+<rect x="614" y="256" width="36" height="12" fill="#78b880" stroke="#2a7838" stroke-width="1" rx="1"/>
+<circle cx="622" cy="262" r="2.8" fill="#185820"/>
+<circle cx="633" cy="262" r="2.8" fill="#185820"/>
+<circle cx="644" cy="262" r="2.8" fill="#185820"/>
+<!-- fridge -->
+<rect x="555" y="322" width="30" height="44" fill="#d8f0e0" stroke="#3a9858" stroke-width="1.5" rx="2"/>
+<text x="570" y="344" font-family="Jost" font-size="8" fill="#1a6030" text-anchor="middle" font-weight="600">FRIDGE</text>
+<text x="570" y="355" font-family="Jost" font-size="7" fill="#3a8050" text-anchor="middle">↔ dining</text>
+<!-- base cabs -->
+<rect x="558" y="340" width="110" height="9" fill="#98d8a0" stroke="#3a8848" stroke-width=".8" rx="1"/>
+<text x="622" y="333" font-family="Jost" font-size="7.5" fill="#3a7040" text-anchor="middle">Overhead + base storage</text>
+<!-- half wall K/D -->
+<rect x="548" y="381" width="5" height="138" fill="#c8a858" stroke="#886020" stroke-width="1"/>
+<line x1="551" y1="381" x2="551" y2="445" stroke="#886020" stroke-width="3.5"/>
+<line x1="551" y1="445" x2="551" y2="519" stroke="#9a9050" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="541" y="416" font-family="Jost" font-size="7.5" fill="#886020" text-anchor="end">½ wall</text>
+
+<!-- C2: KITCHEN STORE (x=550,y=381→630,y=451) -->
+<rect x="550" y="381" width="80" height="70" fill="#e4e0a8" stroke="#2a1808" stroke-width="2.5"/>
+<text x="590" y="411" font-family="Jost" font-size="9.5" fill="#4a4818" text-anchor="middle" font-weight="500">KITCHEN</text>
+<text x="590" y="425" font-family="Jost" font-size="9.5" fill="#4a4818" text-anchor="middle" font-weight="500">STORE</text>
+<text x="590" y="438" font-family="Jost" font-size="7.5" fill="#8a8438" text-anchor="middle">~48 sq ft</text>
+<rect x="558" y="389" width="64" height="9" fill="#c8c480" stroke="#8a8850" stroke-width=".8" rx="1"/>
+<rect x="558" y="403" width="64" height="9" fill="#c8c480" stroke="#8a8850" stroke-width=".8" rx="1"/>
+<!-- store door -->
+<rect x="548" y="391" width="4" height="24" fill="white"/>
+<path d="M552 391 Q576 391 576 367" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- C3: NADUMUTTAM (x=630,y=381→694,y=451) -->
+<rect x="630" y="381" width="64" height="70" fill="#e0f0f8" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="636" y="387" width="52" height="58" fill="url(#sp)" stroke="#3a90c0" stroke-width="2" rx="2"/>
+<rect x="637" y="388" width="50" height="56" fill="url(#sg)" rx="2"/>
+<line x1="650" y1="392" x2="648" y2="408" stroke="#48a8d8" stroke-width="1.8" opacity=".8"/>
+<line x1="662" y1="390" x2="660" y2="406" stroke="#48a8d8" stroke-width="1.8" opacity=".8"/>
+<line x1="674" y1="393" x2="672" y2="409" stroke="#48a8d8" stroke-width="1.5" opacity=".7"/>
+<circle cx="662" cy="425" r="10" fill="rgba(255,220,60,.2)" stroke="rgba(255,200,40,.4)" stroke-width="1"/>
+<circle cx="662" cy="425" r="6" fill="rgba(255,220,60,.5)"/>
+<ellipse cx="662" cy="444" rx="16" ry="5" fill="#88c870" stroke="#3a8030" stroke-width="1"/>
+<text x="662" y="447" font-family="Jost" font-size="6" fill="#1a4818" text-anchor="middle">Tulsi</text>
+<!-- sliding glass -->
+<rect x="632" y="381" width="40" height="5" fill="#88b8d0" stroke="#3a80b0" stroke-width="1" rx="1"/>
+<text x="629" y="378" font-family="Jost" font-size="7" fill="#3a80b0" text-anchor="end">← Slide</text>
+<text x="662" y="455" font-family="Jost" font-size="6.5" fill="#1a6880" text-anchor="middle">☁ NADUMUTTAM</text>
+
+<!-- C4: GUEST BEDROOM (x=550,y=451→664,y=519) -->
+<rect x="550" y="451" width="114" height="68" fill="#d4e8f4" stroke="#2a1808" stroke-width="2.5"/>
+<text x="607" y="481" font-family="Cormorant Garamond,serif" font-size="11" fill="#1a3050" text-anchor="middle" font-weight="600">GUEST BEDROOM</text>
+<text x="607" y="495" font-family="Jost" font-size="8" fill="#4a6080" text-anchor="middle">~155 sq ft</text>
+<rect x="558" y="459" width="86" height="52" fill="#a8c8e4" rx="3" stroke="#6898c0" stroke-width="1.5"/>
+<rect x="558" y="459" width="86" height="17" fill="#98b8d4" rx="3" stroke="#6898c0" stroke-width="1"/>
+<!-- guest door -->
+<rect x="550" y="463" width="4" height="28" fill="white"/>
+<path d="M554 463 Q582 463 582 491" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- C5: GUEST BATH (x=664,y=451→694,y=519 — too narrow; use: x=550,y=451→694,y=519 split 114+30) -->
+<!-- Guest bath: x=664,y=451→694,y=519 (30px wide = 3.3ft, too small) -->
+<!-- Redefine: Guest room x=550,y=451→640,y=519; Bath x=640,y=451→694,y=519 -->
+<rect x="550" y="451" width="90" height="68" fill="#d4e8f4" stroke="#2a1808" stroke-width="2.5"/>
+<text x="595" y="481" font-family="Cormorant Garamond,serif" font-size="10" fill="#1a3050" text-anchor="middle" font-weight="600">GUEST BED</text>
+<text x="595" y="493" font-family="Jost" font-size="7.5" fill="#4a6080" text-anchor="middle">~155 sq ft</text>
+<rect x="558" y="458" width="74" height="52" fill="#a8c8e4" rx="3" stroke="#6898c0" stroke-width="1.5"/>
+<rect x="558" y="458" width="74" height="16" fill="#98b8d4" rx="3" stroke="#6898c0" stroke-width="1"/>
+<rect x="640" y="451" width="54" height="68" fill="#c8e4e4" stroke="#2a1808" stroke-width="2.5"/>
+<text x="667" y="481" font-family="Jost" font-size="8.5" fill="#1a5050" text-anchor="middle" transform="rotate(-90,667,481)" font-weight="500">GUEST BATH</text>
+<rect x="646" y="459" width="20" height="13" fill="#90c8c8" rx="2" stroke="#3a8888" stroke-width="1"/>
+<ellipse cx="667" cy="505" rx="12" ry="7" fill="#90c8c8" stroke="#3a8888" stroke-width="1"/>
+<!-- bath door -->
+<rect x="642" y="455" width="26" height="4" fill="white"/>
+<path d="M642 459 Q642 483 616 483" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<!-- guest door from foyer side -->
+<rect x="550" y="459" width="4" height="28" fill="white"/>
+<path d="M554 459 Q582 459 582 487" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- LAUNDRY (x=383,y=519→550,y=519 - bottom strip behind dining) -->
+<!-- Use: x=383,y=495→550,y=519 (h=24px = 2.7ft, a bit thin but labeled) -->
+<rect x="383" y="494" width="167" height="25" fill="#f0e4d0" stroke="#2a1808" stroke-width="2"/>
+<text x="466" y="507" font-family="Jost" font-size="8.5" fill="#5a3820" text-anchor="middle" font-weight="500">LAUNDRY / WM · ~32 sq ft · Covered · Back</text>
+<rect x="396" y="497" width="26" height="18" fill="#d8c0a0" rx="3" stroke="#9a8060" stroke-width="1.5"/>
+<circle cx="409" cy="506" r="7" fill="none" stroke="#7a6040" stroke-width="1.5"/>
+<circle cx="409" cy="506" r="4" fill="#c8a870" stroke="#7a6040" stroke-width="1"/>
+<line x1="466" y1="519" x2="466" y2="532" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text x="466" y="543" font-family="Jost" font-size="7.5" fill="#c8920a" text-anchor="middle">→ Drying yard (rear)</text>
+
+<!-- INTERNAL WALLS -->
+<line x1="383" y1="131" x2="383" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="550" y1="131" x2="550" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="131" x2="694" y2="131" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="241" x2="383" y2="241" stroke="#2a1808" stroke-width="3"/>
+<line x1="263" y1="381" x2="383" y2="381" stroke="#2a1808" stroke-width="3"/>
+<line x1="263" y1="451" x2="383" y2="451" stroke="#2a1808" stroke-width="3"/>
+<line x1="383" y1="173" x2="550" y2="173" stroke="#2a1808" stroke-width="3"/>
+<line x1="383" y1="381" x2="550" y2="381" stroke="#2a1808" stroke-width="3"/>
+<line x1="383" y1="494" x2="550" y2="494" stroke="#2a1808" stroke-width="2.5"/>
+<line x1="550" y1="245" x2="694" y2="245" stroke="#2a1808" stroke-width="3"/>
+<line x1="550" y1="381" x2="694" y2="381" stroke="#2a1808" stroke-width="3"/>
+<line x1="550" y1="451" x2="694" y2="451" stroke="#2a1808" stroke-width="3"/>
+<line x1="630" y1="381" x2="630" y2="451" stroke="#2a1808" stroke-width="2.5"/>
+<line x1="640" y1="451" x2="640" y2="519" stroke="#2a1808" stroke-width="2.5"/>
+
+<!-- WINDOWS (jali style) -->
+<rect x="416" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="484" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="567" y="245" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="686" y="272" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="686" y="390" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="686" y="463" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<text x="440" y="129" font-family="Jost" font-size="7" fill="#4878a0" text-anchor="middle">Jali</text>
+<text x="508" y="129" font-family="Jost" font-size="7" fill="#4878a0" text-anchor="middle">Jali</text>
+
+<!-- NORTH -->
+<text x="952" y="70" font-family="Jost" font-size="10" fill="#5a3818" text-anchor="middle" font-weight="600">N</text>
+<line x1="952" y1="74" x2="952" y2="90" stroke="#5a3818" stroke-width="1.5"/>
+<polygon points="952,74 948,86 956,86" fill="#5a3818"/>
+<!-- DIMENSIONS -->
+<line x1="100" y1="726" x2="820" y2="726" stroke="#6a5030" stroke-width="1"/>
+<line x1="100" y1="720" x2="100" y2="732" stroke="#6a5030" stroke-width="1"/>
+<line x1="820" y1="720" x2="820" y2="732" stroke="#6a5030" stroke-width="1"/>
+<text x="460" y="741" font-family="Jost" font-size="9.5" fill="#8a7050" text-anchor="middle">80 ft Plot Width · Road faces South</text>
+<line x1="66" y1="55" x2="66" y2="595" stroke="#6a5030" stroke-width="1"/>
+<line x1="61" y1="55"  x2="71" y2="55"  stroke="#6a5030" stroke-width="1"/>
+<line x1="61" y1="595" x2="71" y2="595" stroke="#6a5030" stroke-width="1"/>
+<text x="52" y="325" font-family="Jost" font-size="9.5" fill="#8a7050" text-anchor="middle" transform="rotate(-90,52,325)">60 ft Depth</text>
+<!-- scale -->
+<line x1="113" y1="716" x2="203" y2="716" stroke="#5a3818" stroke-width="2"/>
+<line x1="113" y1="712" x2="113" y2="720" stroke="#5a3818" stroke-width="1.5"/>
+<line x1="203" y1="712" x2="203" y2="720" stroke="#5a3818" stroke-width="1.5"/>
+<text x="158" y="714" font-family="Jost" font-size="8.5" fill="#5a3818" text-anchor="middle">10 ft</text>
+<!-- height note -->
+<text x="710" y="158" font-family="Jost" font-size="8" fill="#c8920a">GF ceiling: 11 ft</text>
+<text x="710" y="170" font-family="Jost" font-size="8" fill="#c8920a">Dining void: 21 ft</text>
+</svg>
+<div class="leg">
+  <div class="li2"><div class="ls" style="background:#c4a870"></div>Thinnai</div>
+  <div class="li2"><div class="ls" style="background:#e8e0c4"></div>Foyer</div>
+  <div class="li2"><div class="ls" style="background:#c4d4e8;border:1.5px dashed #5878a8"></div>Sunken Living (18"↓)</div>
+  <div class="li2"><div class="ls" style="background:#f0d4e4"></div>🪔 Pooja</div>
+  <div class="li2"><div class="ls" style="background:#f8f0c0"></div>Dining (21 ft void)</div>
+  <div class="li2"><div class="ls" style="background:#e8e0b8"></div>Stair wraps dining</div>
+  <div class="li2"><div class="ls" style="background:#c8e8d0"></div>Open Kitchen</div>
+  <div class="li2"><div class="ls" style="background:#e4e0a8"></div>Kitchen Store</div>
+  <div class="li2"><div class="ls" style="background:#a8d8e8;border:1px solid #3a90c0"></div>☁ Nadumuttam</div>
+  <div class="li2"><div class="ls" style="background:#d4e8f4"></div>Guest Bed</div>
+  <div class="li2"><div class="ls" style="background:#c8e4e4"></div>Guest Bath</div>
+  <div class="li2"><div class="ls" style="background:#f0e4d0"></div>Laundry/WM</div>
+  <div class="li2"><div class="ls" style="background:#c8dcb4;border:1.5px dashed #5a8040"></div>Open Terrace (NE)</div>
+</div>
+<div class="callout">
+  <strong>Key design moves:</strong> The <em>Thinnai</em> (raised platform) greets guests with a Kolam pattern before they enter — a traditional Tamil threshold. The stair wraps around the north and west walls of the dining zone, rising visibly like a promenade stair so the dining table looks up at ascending family members. The <em>Nadumuttam</em> slides open from the dining — rain falls directly into it, Tulsi grows at the base. The Pooja room's east wall acts as a visual screen so Kitchen and Dining stay completely hidden from the entry door.
+</div>
+</div><!-- gf -->
+<!-- FIRST FLOOR TAB -->
+<div class="fw" id="tab-ff">
+<div class="fl">First Floor — 1500 sq ft · 10 ft Ceiling · Master · 2 Children · Flex Room</div>
+<svg class="plan" width="980" height="680" viewBox="0 0 980 680">
+<rect width="980" height="680" fill="#e0d8c4"/>
+<rect width="980" height="680" fill="url(#gr)"/>
+<!-- FF L-shape -->
+<polygon points="263,131 550,131 550,245 694,245 694,519 263,519" fill="#faf4e8" stroke="#2a1808" stroke-width="5.5"/>
+<!-- NE terrace FF -->
+<rect x="550" y="131" width="144" height="114" fill="#c4d8b0" stroke="#5a8040" stroke-width="1.5" stroke-dasharray="7 4" rx="3"/>
+<text x="622" y="183" font-family="Jost" font-size="9.5" fill="#2a5018" text-anchor="middle">OPEN TERRACE FF</text>
+
+<!-- DINING VOID (x=383,y=131→550,y=381) — double height, open to GF -->
+<rect x="383" y="131" width="167" height="250" fill="#fffce8" stroke="#c8920a" stroke-width="2.5" stroke-dasharray="9 4"/>
+<line x1="383" y1="131" x2="550" y2="381" stroke="#c8920a" stroke-width=".8" opacity=".2"/>
+<line x1="550" y1="131" x2="383" y2="381" stroke="#c8920a" stroke-width=".8" opacity=".2"/>
+<!-- skylight at top -->
+<rect x="423" y="131" width="107" height="16" fill="#a8d8f0" stroke="#3a88c0" stroke-width="1.5" rx="1"/>
+<text x="476" y="142" font-family="Jost" font-size="8" fill="#1a4870" text-anchor="middle">SKYLIGHT AT ROOF</text>
+<text x="466" y="240" font-family="Cormorant Garamond,serif" font-size="13" fill="#8a7010" text-anchor="middle" font-weight="600" font-style="italic">Dining Void</text>
+<text x="466" y="257" font-family="Jost" font-size="8.5" fill="#a09028" text-anchor="middle">Open to GF Dining below</text>
+<text x="466" y="272" font-family="Jost" font-size="8" fill="#c8920a" text-anchor="middle">21 ft total ceiling height</text>
+<!-- glass parapet FF -->
+<rect x="385" y="379" width="163" height="9" fill="#88b8e0" stroke="#4a80b0" stroke-width="1.5" rx="1"/>
+<text x="466" y="386" font-family="Jost" font-size="7.5" fill="#2a5888" text-anchor="middle">Glass parapet — FF level, looking down into dining</text>
+<!-- stair arriving at FF (north strip) -->
+<rect x="383" y="131" width="167" height="42" fill="#e8e0b8" stroke="#c8920a" stroke-width="1.5"/>
+<line x1="387" y1="162" x2="546" y2="162" stroke="#b89840" stroke-width="1.2"/>
+<line x1="387" y1="150" x2="546" y2="150" stroke="#b89840" stroke-width="1.2"/>
+<line x1="387" y1="139" x2="546" y2="139" stroke="#b89840" stroke-width="1.2"/>
+<text x="466" y="154" font-family="Jost" font-size="7.5" fill="#8a7010" text-anchor="middle">↓ STAIR ARRIVES AT FF LANDING ↓</text>
+
+<!-- STAIR LANDING + CORRIDOR (x=263,y=131→383,y=381) -->
+<rect x="263" y="131" width="120" height="110" fill="#e8e0b8" stroke="#2a1808" stroke-width="2.5"/>
+<!-- treads arriving -->
+<rect x="271" y="139" width="104" height="94" fill="#f0e8c8" stroke="#c8920a" stroke-width="2" rx="1"/>
+<line x1="275" y1="222" x2="371" y2="222" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="211" x2="371" y2="211" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="200" x2="371" y2="200" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="189" x2="371" y2="189" stroke="#b89840" stroke-width="1.2"/>
+<line x1="361" y1="143" x2="361" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<line x1="350" y1="143" x2="350" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<line x1="275" y1="151" x2="371" y2="151" stroke="#b89840" stroke-width="1.2"/>
+<line x1="283" y1="143" x2="283" y2="229" stroke="#b89840" stroke-width="1.2"/>
+<rect x="299" y="168" width="44" height="54" fill="rgba(200,170,80,.18)" stroke="#c8920a" stroke-width="1" stroke-dasharray="3 2"/>
+<polygon points="323,215 319,228 327,228" fill="#c8920a"/>
+<line x1="323" y1="215" x2="323" y2="228" stroke="#c8920a" stroke-width="1.5"/>
+<text x="323" y="213" font-family="Jost" font-size="7.5" fill="#c8920a" text-anchor="middle">DN</text>
+<text x="323" y="238" font-family="Jost" font-size="8" fill="#8a7010" text-anchor="middle">FF LANDING</text>
+<rect x="263" y="241" width="120" height="140" fill="#e4dcc0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="323" y="308" font-family="Jost" font-size="9.5" fill="#7a6840" text-anchor="middle">CORRIDOR</text>
+<text x="323" y="323" font-family="Jost" font-size="8" fill="#9a8860" text-anchor="middle">Distributes to all rooms</text>
+
+<!-- MASTER BEDROOM (x=263,y=381→383,y=519 + extending into B column) -->
+<!-- Master: x=263,y=381→550,y=519 split into master(263-430) and ensuite strip(430-550 partial) -->
+<!-- Master bed area: x=263,y=381→430,y=519 (w=167,h=138=~218sqft) -->
+<rect x="263" y="381" width="167" height="138" fill="#e4d0f0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="346" y="439" font-family="Cormorant Garamond,serif" font-size="12" fill="#2a1848" text-anchor="middle" font-weight="600">MASTER BEDROOM</text>
+<text x="346" y="454" font-family="Jost" font-size="8.5" fill="#6a5880" text-anchor="middle">~218 sq ft</text>
+<!-- king bed -->
+<rect x="278" y="392" width="140" height="105" fill="#c0a8d8" rx="4" stroke="#8058a8" stroke-width="1.5"/>
+<rect x="278" y="392" width="140" height="27" fill="#b098c8" rx="3" stroke="#8058a8" stroke-width="1"/>
+<circle cx="300" cy="405" r="8" fill="#d0c0e8"/>
+<circle cx="396" cy="405" r="8" fill="#d0c0e8"/>
+<!-- wardrobe wall strip -->
+<rect x="263" y="497" width="167" height="17" fill="#cca8e0" stroke="#8058a8" stroke-width="1" rx="1"/>
+<line x1="305" y1="497" x2="305" y2="514" stroke="#8058a8" stroke-width=".8"/>
+<line x1="346" y1="497" x2="346" y2="514" stroke="#8058a8" stroke-width=".8"/>
+<line x1="388" y1="497" x2="388" y2="514" stroke="#8058a8" stroke-width=".8"/>
+<text x="346" y="509" font-family="Jost" font-size="7.5" fill="#6848a0" text-anchor="middle">Full-height wardrobe + mirror</text>
+<!-- dressing corridor leading to ensuite (right of master) -->
+<!-- Master ensuite: x=430,y=381→550,y=519 (w=120,h=138=~65sqft) -->
+<rect x="430" y="381" width="120" height="138" fill="#f0c8c8" stroke="#2a1808" stroke-width="2.5"/>
+<text x="490" y="429" font-family="Jost" font-size="9.5" fill="#5a1818" text-anchor="middle" font-weight="500">MASTER</text>
+<text x="490" y="443" font-family="Jost" font-size="9.5" fill="#5a1818" text-anchor="middle" font-weight="500">ENSUITE</text>
+<text x="490" y="457" font-family="Jost" font-size="8" fill="#8a5050" text-anchor="middle">~64 sq ft</text>
+<rect x="440" y="390" width="50" height="34" fill="#f0a0a0" rx="3" stroke="#c06060" stroke-width="1"/>
+<text x="465" y="409" font-family="Jost" font-size="7.5" fill="#8a4040" text-anchor="middle">BATHTUB</text>
+<rect x="440" y="432" width="26" height="18" fill="#f4b8b8" rx="2" stroke="#c06060" stroke-width="1"/>
+<text x="453" y="443" font-family="Jost" font-size="6.5" fill="#8a4040" text-anchor="middle">Basin</text>
+<ellipse cx="510" cy="496" rx="16" ry="9" fill="#f0a0a0" stroke="#c06060" stroke-width="1"/>
+<!-- dressing corridor annotation -->
+<rect x="263" y="381" width="4" height="30" fill="white"/>
+<path d="M267 381 Q267 411 297 411" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+<text x="260" y="388" font-family="Jost" font-size="7" fill="#c8920a" text-anchor="end">door</text>
+<!-- divider dressing/ensuite -->
+<rect x="428" y="381" width="4" height="138" fill="#d8c0e8" stroke="#8058a8" stroke-width="1"/>
+<text x="421" y="453" font-family="Jost" font-size="7.5" fill="#8058a8" text-anchor="end" transform="rotate(-90,421,453)">← Dressing corridor</text>
+
+<!-- BALCONY / THOTTI (x=263,y=519→430,y=579) -->
+<rect x="263" y="519" width="167" height="60" fill="#d0e8c8" stroke="#2a1808" stroke-width="2.5" stroke-dasharray="8 4"/>
+<text x="346" y="547" font-family="Jost" font-size="10" fill="#1a5020" text-anchor="middle" font-weight="500">BALCONY / THOTTI</text>
+<text x="346" y="561" font-family="Jost" font-size="8.5" fill="#3a7038" text-anchor="middle">~75 sq ft · South-facing</text>
+<line x1="263" y1="571" x2="430" y2="571" stroke="#5a8850" stroke-width="2.5"/>
+<line x1="275" y1="523" x2="275" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="291" y1="523" x2="291" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="307" y1="523" x2="307" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="323" y1="523" x2="323" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="339" y1="523" x2="339" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="355" y1="523" x2="355" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="371" y1="523" x2="371" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="387" y1="523" x2="387" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="403" y1="523" x2="403" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+<line x1="419" y1="523" x2="419" y2="571" stroke="#5a8850" stroke-width="1.5"/>
+
+<!-- CHILD ROOM 1 (x=550,y=245→664,y=405) -->
+<rect x="550" y="245" width="114" height="160" fill="#f4e0d0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="607" y="312" font-family="Cormorant Garamond,serif" font-size="12" fill="#481808" text-anchor="middle" font-weight="600">CHILD ROOM 1</text>
+<text x="607" y="327" font-family="Jost" font-size="8.5" fill="#886050" text-anchor="middle">~142 sq ft</text>
+<rect x="558" y="255" width="80" height="64" fill="#e4c0a8" rx="3" stroke="#b08868" stroke-width="1.5"/>
+<rect x="558" y="255" width="80" height="19" fill="#d4b098" rx="3" stroke="#b08868" stroke-width="1"/>
+<rect x="558" y="360" width="58" height="34" fill="#d8c0a0" stroke="#a07858" stroke-width="1.5" rx="1"/>
+<line x1="587" y1="360" x2="587" y2="394" stroke="#a07858" stroke-width="1.5"/>
+<rect x="558" y="360" width="58" height="7" fill="#c0a880" rx="1"/>
+<text x="587" y="381" font-family="Jost" font-size="8" fill="#6a4828" text-anchor="middle">MINI WD</text>
+<rect x="558" y="388" width="96" height="8" fill="#dcc8b0" stroke="#b09070" stroke-width="1" rx="1"/>
+<text x="606" y="398" font-family="Jost" font-size="7.5" fill="#6a4028" text-anchor="middle">DESK</text>
+<!-- door from corridor -->
+<rect x="550" y="257" width="4" height="28" fill="white"/>
+<path d="M554 257 Q582 257 582 285" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- CHILD BATH 1 (x=664,y=245→694,y=405 — only 30px wide) -->
+<!-- Use combined: Child 1 x=550-644, Bath 1 x=644-694 -->
+<rect x="550" y="245" width="94" height="160" fill="#f4e0d0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="597" y="308" font-family="Cormorant Garamond,serif" font-size="11" fill="#481808" text-anchor="middle" font-weight="600">CHILD ROOM 1</text>
+<text x="597" y="322" font-family="Jost" font-size="8.5" fill="#886050" text-anchor="middle">~142 sq ft</text>
+<rect x="558" y="254" width="78" height="62" fill="#e4c0a8" rx="3" stroke="#b08868" stroke-width="1.5"/>
+<rect x="558" y="254" width="78" height="18" fill="#d4b098" rx="3" stroke="#b08868" stroke-width="1"/>
+<rect x="558" y="356" width="56" height="32" fill="#d8c0a0" stroke="#a07858" stroke-width="1.5" rx="1"/>
+<line x1="586" y1="356" x2="586" y2="388" stroke="#a07858" stroke-width="1.5"/>
+<text x="586" y="376" font-family="Jost" font-size="7.5" fill="#6a4828" text-anchor="middle">MINI WD</text>
+
+<rect x="644" y="245" width="50" height="160" fill="#c8e0e8" stroke="#2a1808" stroke-width="2.5"/>
+<text x="669" y="318" font-family="Jost" font-size="9" fill="#1a4858" text-anchor="middle" transform="rotate(-90,669,318)" font-weight="500">BATH 1 · ~38 sqft</text>
+<rect x="650" y="253" width="22" height="14" fill="#88b8c8" rx="2" stroke="#3888a0" stroke-width="1"/>
+<ellipse cx="669" cy="388" rx="12" ry="8" fill="#88b8c8" stroke="#3888a0" stroke-width="1"/>
+<rect x="646" y="257" width="26" height="4" fill="white"/>
+<path d="M646 261 Q646 289 618 289" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- CHILD ROOM 2 (x=550,y=405→644,y=519) -->
+<rect x="550" y="405" width="94" height="114" fill="#d0e8d8" stroke="#2a1808" stroke-width="2.5"/>
+<text x="597" y="454" font-family="Cormorant Garamond,serif" font-size="12" fill="#183018" text-anchor="middle" font-weight="600">CHILD ROOM 2</text>
+<text x="597" y="468" font-family="Jost" font-size="8.5" fill="#4a7048" text-anchor="middle">~142 sq ft</text>
+<rect x="558" y="414" width="78" height="60" fill="#b0d0b8" rx="3" stroke="#68a070" stroke-width="1.5"/>
+<rect x="558" y="414" width="78" height="18" fill="#a0c0a8" rx="3" stroke="#68a070" stroke-width="1"/>
+<rect x="558" y="492" width="56" height="22" fill="#a8d0b0" stroke="#68a870" stroke-width="1.5" rx="1"/>
+<line x1="586" y1="492" x2="586" y2="514" stroke="#68a870" stroke-width="1.5"/>
+<text x="586" y="506" font-family="Jost" font-size="7.5" fill="#2a6030" text-anchor="middle">MINI WD</text>
+<rect x="550" y="411" width="4" height="26" fill="white"/>
+<path d="M554 411 Q580 411 580 437" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- CHILD BATH 2 (x=644,y=405→694,y=519) -->
+<rect x="644" y="405" width="50" height="114" fill="#c8e4d0" stroke="#2a1808" stroke-width="2.5"/>
+<text x="669" y="458" font-family="Jost" font-size="9" fill="#1a4828" text-anchor="middle" transform="rotate(-90,669,458)" font-weight="500">BATH 2 · ~38 sqft</text>
+<rect x="650" y="413" width="22" height="14" fill="#88c8a0" rx="2" stroke="#38a060" stroke-width="1"/>
+<ellipse cx="669" cy="500" rx="12" ry="8" fill="#88c8a0" stroke="#38a060" stroke-width="1"/>
+<rect x="646" y="409" width="26" height="4" fill="white"/>
+<path d="M646 413 Q646 441 618 441" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- FLEX / LIBRARY (x=430,y=519→694,y=579) — south-facing strip -->
+<rect x="430" y="519" width="264" height="60" fill="#d8d0ec" stroke="#2a1808" stroke-width="2.5"/>
+<rect x="434" y="523" width="256" height="52" fill="#e0d8f4" stroke="#7860b8" stroke-width="1" stroke-dasharray="4 3" rx="1"/>
+<text x="562" y="547" font-family="Cormorant Garamond,serif" font-size="13" fill="#2a1850" text-anchor="middle" font-weight="600">FLEX / LIBRARY ROOM</text>
+<text x="562" y="561" font-family="Jost" font-size="8.5" fill="#6850a0" text-anchor="middle">~125 sq ft · Soundproof-ready · Double-wall cavity</text>
+<rect x="438" y="526" width="12" height="46" fill="#c0b0d8" stroke="#8060b0" stroke-width=".8" rx="1"/>
+<line x1="438" y1="542" x2="450" y2="542" stroke="#8060b0" stroke-width=".6"/>
+<line x1="438" y1="556" x2="450" y2="556" stroke="#8060b0" stroke-width=".6"/>
+<!-- flex door -->
+<rect x="430" y="531" width="4" height="26" fill="white"/>
+<path d="M434 531 Q458 531 458 555" fill="none" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+<!-- NADUMUTTAM VOID (x=550,y=381→694,y=405 — small strip) -->
+<!-- Better: put Nadumuttam void as a distinct zone. Actually it's already set in GF. -->
+<!-- FF just shows the void with railing. Let me put it at x=430,y=381→550,y=519 (overlaps with dining void area partially) -->
+<!-- The nadumuttam void on FF: it exists within the right portion. Show as overlay on corridor zone -->
+<!-- Simple: show as a small inset in the corridor area -->
+<rect x="263" y="381" width="0" height="0"/><!-- placeholder, already drawn -->
+
+<!-- INNER WALLS FF -->
+<line x1="383" y1="131" x2="383" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="550" y1="131" x2="550" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="131" x2="694" y2="131" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="263" y1="241" x2="383" y2="241" stroke="#2a1808" stroke-width="3"/>
+<line x1="263" y1="381" x2="550" y2="381" stroke="#c8920a" stroke-width="2.5" stroke-dasharray="7 3"/><!-- dining void edge -->
+<line x1="263" y1="381" x2="263" y2="519" stroke="#2a1808" stroke-width="3.5"/>
+<line x1="430" y1="381" x2="430" y2="519" stroke="#2a1808" stroke-width="2.5"/><!-- master/ensuite divide -->
+<line x1="550" y1="245" x2="694" y2="245" stroke="#2a1808" stroke-width="3"/>
+<line x1="550" y1="405" x2="694" y2="405" stroke="#2a1808" stroke-width="3"/>
+<line x1="644" y1="245" x2="644" y2="519" stroke="#2a1808" stroke-width="2.5"/>
+<line x1="430" y1="519" x2="694" y2="519" stroke="#2a1808" stroke-width="2.5"/>
+
+<!-- WINDOWS FF -->
+<rect x="396" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="464" y="131" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="564" y="245" width="48" height="6" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="686" y="264" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+<rect x="686" y="418" width="6" height="38" fill="#c0d4e4" stroke="#4878a0" stroke-width=".8"/>
+
+<!-- NORTH -->
+<text x="952" y="68" font-family="Jost" font-size="10" fill="#5a3818" text-anchor="middle" font-weight="600">N</text>
+<line x1="952" y1="72" x2="952" y2="88" stroke="#5a3818" stroke-width="1.5"/>
+<polygon points="952,72 948,84 956,84" fill="#5a3818"/>
+<!-- height note -->
+<text x="710" y="155" font-family="Jost" font-size="8" fill="#c8920a">FF ceiling: 10 ft</text>
+<text x="710" y="167" font-family="Jost" font-size="8" fill="#a8d0e8">Dining void open here</text>
+</svg>
+<div class="leg">
+  <div class="li2"><div class="ls" style="background:#e4d0f0"></div>Master Bed</div>
+  <div class="li2"><div class="ls" style="background:#d8c0e8"></div>Walk-in WD + Dressing</div>
+  <div class="li2"><div class="ls" style="background:#f0c8c8"></div>Master Ensuite</div>
+  <div class="li2"><div class="ls" style="background:#f4e0d0"></div>Child Room 1</div>
+  <div class="li2"><div class="ls" style="background:#c8e0e8"></div>Bath 1</div>
+  <div class="li2"><div class="ls" style="background:#d0e8d8"></div>Child Room 2</div>
+  <div class="li2"><div class="ls" style="background:#c8e4d0"></div>Bath 2</div>
+  <div class="li2"><div class="ls" style="background:#d8d0ec;border:1px dashed #7860b8"></div>Flex/Library</div>
+  <div class="li2"><div class="ls" style="background:#fffce8;border:1.5px dashed #c8920a"></div>Dining Void (21 ft)</div>
+  <div class="li2"><div class="ls" style="background:#d0e8c8"></div>Balcony/Thotti</div>
+</div>
+<div class="callout">
+  <strong>FF layout:</strong> Landing from stair opens to corridor serving all rooms. Master bedroom occupies the full south-west zone with a dressing wall flowing into the ensuite. Each child room has its own private bath. The <em>Flex / Library</em> runs the full south width — quiet, naturally lit, soundproof-ready. The <em>Thotti</em> balcony faces south with a traditional iron grille parapet for openness and safety.
+</div>
+</div><!-- ff -->
+<!-- SITE PLAN TAB -->
+<div class="fw" id="tab-site">
+<div class="fl">Site Plan — 80×60 ft · Compound Wall · 8 ft Setback · Garage West</div>
+<svg class="plan" width="740" height="640" viewBox="0 0 740 640">
+<rect width="740" height="640" fill="#dedad0"/>
+<rect width="740" height="640" fill="url(#gr)"/>
+<rect x="0" y="552" width="740" height="88" fill="#c0bca8"/>
+<text x="370" y="600" font-family="Jost" font-size="12" fill="#888" text-anchor="middle" letter-spacing="6">R O A D</text>
+<line x1="0" y1="552" x2="740" y2="552" stroke="#aaa" stroke-width="1.5" stroke-dasharray="20 8"/>
+<!-- compound 80×60ft at 8.5px/ft = 680×510px, offset x=30,y=18 -->
+<rect x="30" y="18" width="680" height="510" fill="none" stroke="#5a3810" stroke-width="8" rx="4"/>
+<rect x="30" y="18"  width="680" height="13" fill="#c49040"/>
+<rect x="30" y="515" width="680" height="13" fill="#c49040"/>
+<rect x="30" y="18"  width="13"  height="510" fill="#c49040"/>
+<rect x="697" y="18" width="13"  height="510" fill="#c49040"/>
+<rect x="30" y="31"  width="680" height="3"  fill="#e8b040" opacity=".5"/>
+<rect x="30" y="512" width="680" height="3"  fill="#e8b040" opacity=".5"/>
+<!-- Gate pillars -->
+<rect x="310" y="515" width="120" height="13" fill="#e8c040" stroke="#8a6010" stroke-width="2" rx="1"/>
+<rect x="298" y="500" width="17" height="28" fill="#c49040" stroke="#8a6010" stroke-width="1" rx="1"/>
+<rect x="415" y="500" width="17" height="28" fill="#c49040" stroke="#8a6010" stroke-width="1" rx="1"/>
+<text x="370" y="536" font-family="Jost" font-size="9" fill="#2a1808" text-anchor="middle">🚪 COMPOUND GATE</text>
+<!-- 8ft=68px gardens -->
+<rect x="43" y="31"  width="654" height="68" fill="#a8c890" opacity=".65"/>
+<rect x="43" y="447" width="654" height="68" fill="#a8c890" opacity=".65"/>
+<rect x="43" y="99"  width="68"  height="348" fill="#a8c890" opacity=".65"/>
+<rect x="629" y="99" width="68"  height="348" fill="#a8c890" opacity=".65"/>
+<!-- GARAGE west -->
+<rect x="43" y="99"  width="127" height="255" fill="#ccc0a0" stroke="#5a3810" stroke-width="2.5" rx="2"/>
+<text x="106" y="225" font-family="Jost" font-size="9" fill="#3a2808" text-anchor="middle" transform="rotate(-90,106,225)">GARAGE · 2 cars · 2 bikes</text>
+<rect x="43" y="342" width="127" height="12" fill="#e8d870" stroke="#8a7818" stroke-width="1"/>
+<rect x="43" y="354" width="127" height="93" fill="#c4bc98"/>
+<text x="106" y="404" font-family="Jost" font-size="9" fill="#786840" text-anchor="middle" transform="rotate(-90,106,404)">DRIVEWAY</text>
+<!-- house L-shape -->
+<polygon points="170,99 451,99 451,184 629,184 629,447 170,447" fill="#f0e8d4" stroke="#2a1808" stroke-width="3.5"/>
+<!-- NE terrace -->
+<rect x="451" y="99"  width="178" height="85" fill="#c8dcb4" stroke="#5a8040" stroke-width="1.5" stroke-dasharray="6 3" rx="2"/>
+<text x="540" y="145" font-family="Jost" font-size="9" fill="#2a5018" text-anchor="middle">TERRACE</text>
+<!-- Nadumuttam -->
+<rect x="472" y="297" width="62" height="70" fill="rgba(168,216,232,.65)" stroke="#3a90c0" stroke-width="1.5" rx="2"/>
+<text x="503" y="336" font-family="Jost" font-size="8.5" fill="#1a6888" text-anchor="middle">☁ Nadumuttam</text>
+<!-- Dining stair void -->
+<rect x="290" y="99"  width="161" height="122" fill="#f8f0c0" stroke="#c8920a" stroke-width="2" rx="2"/>
+<text x="370" y="153" font-family="Jost" font-size="8.5" fill="#7a7030" text-anchor="middle">DINING VOID</text>
+<text x="370" y="166" font-family="Jost" font-size="8" fill="#c8920a" text-anchor="middle">21 ft · Stair wraps</text>
+<!-- Thinnai -->
+<rect x="170" y="367" width="120" height="80" fill="#c4a870" stroke="#5a3810" stroke-width="2" rx="2"/>
+<text x="230" y="404" font-family="Jost" font-size="9.5" fill="#3a2410" text-anchor="middle">THINNAI</text>
+<text x="230" y="418" font-family="Jost" font-size="8" fill="#6a5028" text-anchor="middle">Kolam at entry</text>
+<!-- house label -->
+<text x="384" y="298" font-family="Cormorant Garamond,serif" font-size="14" fill="#3d2b1f" text-anchor="middle" font-weight="600">HOUSE G+1</text>
+<text x="384" y="315" font-family="Jost" font-size="9" fill="#888" text-anchor="middle">GF 1500 · FF 1500 · Chennai · Indian Style</text>
+<!-- trees -->
+<circle cx="100" cy="65" r="13" fill="#4a8840" opacity=".85"/><circle cx="100" cy="65" r="7" fill="#2a6828"/>
+<circle cx="214" cy="65" r="15" fill="#4a8840" opacity=".85"/><circle cx="214" cy="65" r="8" fill="#2a6828"/>
+<circle cx="370" cy="65" r="20" fill="#4a8840" opacity=".85"/><circle cx="370" cy="65" r="10" fill="#2a6828"/>
+<circle cx="526" cy="65" r="15" fill="#4a8840" opacity=".85"/><circle cx="526" cy="65" r="8" fill="#2a6828"/>
+<circle cx="640" cy="65" r="13" fill="#4a8840" opacity=".85"/><circle cx="640" cy="65" r="7" fill="#2a6828"/>
+<circle cx="649" cy="170" r="13" fill="#4a8840" opacity=".85"/><circle cx="649" cy="170" r="7" fill="#2a6828"/>
+<circle cx="658" cy="310" r="13" fill="#4a8840" opacity=".85"/><circle cx="658" cy="310" r="7" fill="#2a6828"/>
+<circle cx="649" cy="410" r="13" fill="#4a8840" opacity=".85"/><circle cx="649" cy="410" r="7" fill="#2a6828"/>
+<circle cx="120" cy="472" r="12" fill="#4a8840" opacity=".85"/><circle cx="120" cy="472" r="6" fill="#2a6828"/>
+<circle cx="260" cy="472" r="12" fill="#4a8840" opacity=".85"/><circle cx="260" cy="472" r="6" fill="#2a6828"/>
+<circle cx="480" cy="472" r="12" fill="#4a8840" opacity=".85"/><circle cx="480" cy="472" r="6" fill="#2a6828"/>
+<circle cx="610" cy="472" r="12" fill="#4a8840" opacity=".85"/><circle cx="610" cy="472" r="6" fill="#2a6828"/>
+<!-- entry path -->
+<rect x="310" y="447" width="120" height="68" fill="#c8c0a0"/>
+<text x="370" y="486" font-family="Jost" font-size="9" fill="#786840" text-anchor="middle">ENTRY PATH</text>
+<!-- dimensions -->
+<line x1="30"  y1="600" x2="710" y2="600" stroke="#3d2b1f" stroke-width="1"/>
+<line x1="30"  y1="595" x2="30"  y2="605" stroke="#3d2b1f" stroke-width="1"/>
+<line x1="710" y1="595" x2="710" y2="605" stroke="#3d2b1f" stroke-width="1"/>
+<text x="370" y="616" font-family="Jost" font-size="9" fill="#5a4a28" text-anchor="middle">80 ft (Plot Width)</text>
+<line x1="724" y1="18"  x2="724" y2="528" stroke="#3d2b1f" stroke-width="1"/>
+<line x1="719" y1="18"  x2="729" y2="18"  stroke="#3d2b1f" stroke-width="1"/>
+<line x1="719" y1="528" x2="729" y2="528" stroke="#3d2b1f" stroke-width="1"/>
+<text x="735" y="273" font-family="Jost" font-size="9" fill="#5a4a28" text-anchor="middle" transform="rotate(90,735,273)">60 ft (Depth)</text>
+<text x="370" y="113" font-family="Jost" font-size="8" fill="#6a5838" text-anchor="middle">← 8 ft setback all sides →</text>
+</svg>
+</div><!-- site -->
+
+<!-- SECTION TAB -->
+<div class="fw" id="tab-sec">
+<div class="fl">Section — 11 ft GF · 10 ft FF · 21 ft Dining Void · Stair wraps · Nadumuttam</div>
+<svg class="plan" width="920" height="520" viewBox="0 0 920 520">
+<rect width="920" height="520" fill="#faf4e8"/>
+<rect width="920" height="520" fill="url(#gr)"/>
+<text x="460" y="22" font-family="Cormorant Garamond,serif" font-size="14" fill="#2a1808" text-anchor="middle" font-weight="600" font-style="italic">Section — Showing GF 11 ft · FF 10 ft · Dining Void 21 ft</text>
+<!-- Ground -->
+<rect x="30" y="432" width="860" height="20" fill="#b0a070"/>
+<text x="460" y="445" font-family="Jost" font-size="8.5" fill="#f0e8d8" text-anchor="middle">GROUND LEVEL · ±0.00</text>
+<!-- outer walls -->
+<rect x="30"  y="110" width="16" height="322" fill="#c8a050" stroke="#2a1808" stroke-width="1.2"/>
+<rect x="874" y="110" width="16" height="322" fill="#c8a050" stroke="#2a1808" stroke-width="1.2"/>
+<!-- GF slab -->
+<rect x="30" y="428" width="860" height="8" fill="#c8a858" stroke="#2a1808" stroke-width="1"/>
+
+<!-- SUNKEN LIVING -->
+<rect x="46" y="390" width="110" height="42" fill="#c4d4e8" stroke="#5878a8" stroke-width="1.5"/>
+<text x="101" y="414" font-family="Jost" font-size="8.5" fill="#1a2a50" text-anchor="middle" font-weight="500">SUNKEN LIVING</text>
+<line x1="156" y1="432" x2="156" y2="390" stroke="#5878a8" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="143" y="411" font-family="Jost" font-size="7.5" fill="#5878a8">18"</text>
+
+<!-- FOYER+POOJA (GF, 11ft) -->
+<rect x="46" y="212" width="110" height="220" fill="#ece8d4" stroke="#4a3818" stroke-width="1.5"/>
+<text x="101" y="322" font-family="Jost" font-size="8.5" fill="#5a4820" text-anchor="middle">FOYER + POOJA</text>
+<text x="101" y="337" font-family="Jost" font-size="8" fill="#8a7848" text-anchor="middle">11 ft ceiling</text>
+
+<!-- GF height arrow -->
+<line x1="18" y1="212" x2="18" y2="432" stroke="#c8920a" stroke-width="1.2"/>
+<line x1="13" y1="212" x2="23" y2="212" stroke="#c8920a" stroke-width="1.2"/>
+<line x1="13" y1="432" x2="23" y2="432" stroke="#c8920a" stroke-width="1.2"/>
+<text x="8" y="326" font-family="Jost" font-size="9" fill="#c8920a" text-anchor="middle" transform="rotate(-90,8,326)">GF: 11 ft</text>
+
+<!-- DINING — double height 21ft -->
+<rect x="156" y="110" width="220" height="322" fill="#f8f0c0" stroke="#c8920a" stroke-width="3"/>
+<line x1="156" y1="212" x2="376" y2="212" stroke="#c8920a" stroke-width="1.8" stroke-dasharray="8 4"/>
+<text x="266" y="204" font-family="Jost" font-size="8" fill="#c8920a" text-anchor="middle">── FF level (open, no slab) ──</text>
+<!-- total height arrow -->
+<line x1="140" y1="110" x2="140" y2="432" stroke="#c8920a" stroke-width="1.5"/>
+<line x1="135" y1="110" x2="145" y2="110" stroke="#c8920a" stroke-width="1.5"/>
+<line x1="135" y1="432" x2="145" y2="432" stroke="#c8920a" stroke-width="1.5"/>
+<text x="128" y="276" font-family="Jost" font-size="9" fill="#c8920a" text-anchor="middle" transform="rotate(-90,128,276)">DINING: 21 ft</text>
+<!-- skylight -->
+<rect x="186" y="110" width="160" height="18" fill="#a8d8f0" stroke="#3a88c0" stroke-width="1.5" rx="1"/>
+<text x="266" y="122" font-family="Jost" font-size="8.5" fill="#1a4870" text-anchor="middle">SKYLIGHT AT ROOF</text>
+<!-- dining label + table -->
+<text x="234" y="175" font-family="Cormorant Garamond,serif" font-size="14" fill="#3a3008" text-anchor="middle" font-weight="600">DINING HALL</text>
+<text x="234" y="193" font-family="Jost" font-size="8.5" fill="#7a7030" text-anchor="middle">21 ft ceiling · Open to FF</text>
+<ellipse cx="224" cy="394" rx="44" ry="24" fill="#e8d070" stroke="#9a9048" stroke-width="1.5"/>
+<text x="224" y="397" font-family="Jost" font-size="8" fill="#5a4820" text-anchor="middle">Table</text>
+<!-- Athangudi tile floor -->
+<line x1="160" y1="428" x2="376" y2="428" stroke="#c8a040" stroke-width="2.5"/>
+<text x="266" y="425" font-family="Jost" font-size="7.5" fill="#9a7828" text-anchor="middle">Athangudi tiles</text>
+
+<!-- STAIR wrapping dining (section view, west side) -->
+<rect x="316" y="212" width="60" height="220" fill="#e8e0b8" stroke="#c8920a" stroke-width="2"/>
+<text x="346" y="270" font-family="Jost" font-size="8.5" fill="#8a7010" text-anchor="middle" font-weight="500">STAIR</text>
+<text x="346" y="282" font-family="Jost" font-size="8.5" fill="#8a7010" text-anchor="middle">WRAPS</text>
+<line x1="320" y1="418" x2="372" y2="418" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="404" x2="372" y2="404" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="390" x2="372" y2="390" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="376" x2="372" y2="376" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="362" x2="372" y2="362" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="348" x2="372" y2="348" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="334" x2="372" y2="334" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="320" x2="372" y2="320" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="306" x2="372" y2="306" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="292" x2="372" y2="292" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="278" x2="372" y2="278" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="264" x2="372" y2="264" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="250" x2="372" y2="250" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="236" x2="372" y2="236" stroke="#b89840" stroke-width="1.5"/>
+<line x1="320" y1="222" x2="372" y2="222" stroke="#b89840" stroke-width="1.5"/>
+
+<!-- FF SLAB (only outside dining) -->
+<line x1="376" y1="212" x2="890" y2="212" stroke="#8a7030" stroke-width="2.5"/>
+<text x="895" y="215" font-family="Jost" font-size="8.5" fill="#8a7030">FF slab</text>
+<!-- FF height arrow -->
+<line x1="18" y1="110" x2="18" y2="212" stroke="#4a80b0" stroke-width="1.2"/>
+<line x1="13" y1="110" x2="23" y2="110" stroke="#4a80b0" stroke-width="1.2"/>
+<line x1="13" y1="212" x2="23" y2="212" stroke="#4a80b0" stroke-width="1.2"/>
+<text x="8" y="164" font-family="Jost" font-size="9" fill="#4a80b0" text-anchor="middle" transform="rotate(-90,8,164)">FF: 10 ft</text>
+<!-- ROOF -->
+<line x1="30" y1="110" x2="890" y2="110" stroke="#5a3818" stroke-width="2.5"/>
+<text x="895" y="113" font-family="Jost" font-size="8.5" fill="#5a3818">Roof</text>
+<!-- NADUMUTTAM full height -->
+<rect x="376" y="110" width="80" height="362" fill="rgba(168,216,232,.35)" stroke="#3a90c0" stroke-width="2"/>
+<line x1="398" y1="116" x2="395" y2="136" stroke="#48a8d8" stroke-width="1.8" opacity=".8"/>
+<line x1="416" y1="113" x2="413" y2="133" stroke="#48a8d8" stroke-width="1.8" opacity=".8"/>
+<line x1="434" y1="116" x2="431" y2="136" stroke="#48a8d8" stroke-width="1.5" opacity=".7"/>
+<circle cx="416" cy="166" r="13" fill="rgba(255,220,60,.22)" stroke="rgba(255,200,40,.4)" stroke-width="1"/>
+<circle cx="416" cy="166" r="8" fill="rgba(255,220,60,.5)"/>
+<rect x="374" y="210" width="84" height="12" fill="#e8c040" stroke="#c8920a" stroke-width="1.5" rx="1"/>
+<text x="416" y="219" font-family="Jost" font-size="7.5" fill="#2a1808" text-anchor="middle">Gold railing FF</text>
+<ellipse cx="416" cy="424" rx="28" ry="5" fill="#88c870" stroke="#3a8030" stroke-width="1"/>
+<text x="416" y="427" font-family="Jost" font-size="7" fill="#1a4818" text-anchor="middle">Tulsi planter</text>
+<rect x="400" y="428" width="30" height="4" fill="#8898b0" stroke="#6878a0" stroke-width=".8" rx="1"/>
+<text x="416" y="458" font-family="Jost" font-size="8.5" fill="#3a90c0" text-anchor="middle">☁ NADUMUTTAM</text>
+<text x="416" y="473" font-family="Jost" font-size="8" fill="#4a88a8" text-anchor="middle">Open sky · full height</text>
+<!-- Rooms right side -->
+<rect x="456" y="212" width="148" height="220" fill="#c8e8d0" stroke="#3a8048" stroke-width="1.5"/>
+<text x="530" y="322" font-family="Jost" font-size="9" fill="#1a4820" text-anchor="middle" font-weight="500">KITCHEN · GF</text>
+<text x="530" y="337" font-family="Jost" font-size="8" fill="#4a7840" text-anchor="middle">11 ft ceiling</text>
+<rect x="604" y="212" width="140" height="220" fill="#d4e8f4" stroke="#6898c0" stroke-width="1.5"/>
+<text x="674" y="322" font-family="Jost" font-size="9" fill="#1a3050" text-anchor="middle" font-weight="500">GUEST BED · GF</text>
+<text x="674" y="337" font-family="Jost" font-size="8" fill="#4a6080" text-anchor="middle">11 ft ceiling</text>
+<rect x="744" y="212" width="130" height="220" fill="#e8e4b8" stroke="#9a9050" stroke-width="1.5"/>
+<text x="809" y="322" font-family="Jost" font-size="9" fill="#4a4818" text-anchor="middle" font-weight="500">STORE · GF</text>
+<rect x="456" y="110" width="148" height="102" fill="#e4d0f0" stroke="#8058a8" stroke-width="1.5"/>
+<text x="530" y="162" font-family="Jost" font-size="9" fill="#2a1848" text-anchor="middle" font-weight="500">MASTER · FF</text>
+<text x="530" y="175" font-family="Jost" font-size="8" fill="#6a5880" text-anchor="middle">10 ft ceiling</text>
+<rect x="604" y="110" width="140" height="102" fill="#f4e0d0" stroke="#b08868" stroke-width="1.5"/>
+<text x="674" y="162" font-family="Jost" font-size="9" fill="#481808" text-anchor="middle" font-weight="500">CHILD ROOMS · FF</text>
+<text x="674" y="175" font-family="Jost" font-size="8" fill="#886050" text-anchor="middle">10 ft ceiling</text>
+<rect x="744" y="110" width="130" height="102" fill="#d8d0ec" stroke="#7860b8" stroke-width="1.5"/>
+<text x="809" y="162" font-family="Jost" font-size="9" fill="#2a1850" text-anchor="middle" font-weight="500">FLEX · FF</text>
+<text x="809" y="175" font-family="Jost" font-size="8" fill="#6850a0" text-anchor="middle">10 ft ceiling</text>
+<!-- summary line -->
+<text x="40" y="492" font-family="Jost" font-size="8.5" fill="#6a5838" font-weight="500">Heights:</text>
+<text x="40" y="508" font-family="Jost" font-size="8" fill="#8a7858">GF all rooms: 11 ft · FF all rooms: 10 ft · Dining void (GF+FF): 21 ft total · Sunken living: 18" below GF · Nadumuttam: open to sky full height · Stair: wraps dining on 2 faces</text>
+</svg>
+<div class="callout">
+  <strong>Height section reading:</strong> All GF rooms are 11 ft floor-to-slab. All FF rooms are 10 ft floor-to-slab. Over the dining zone, there is no slab — the 21 ft void rises from the Athangudi tile floor to the skylight at roof level. The stair wraps the west and north faces of this void, making climbing and descending a visual event within the dining space. The Nadumuttam column is open to sky from GF floor to the heavens — rain falls in, sun sweeps through, and the Tulsi planter at base completes the Chennai vernacular courtyard experience.
+</div>
+</div><!-- sec -->
+
+<!-- SUMMARY TAB -->
+<div class="fw" id="tab-sum">
+<div class="fl">Complete Summary — Chennai Indian Vernacular · v7</div>
+<div class="sg">
+  <div class="sb2"><h4>Plot, Heights & Structure</h4>
+    <div class="sr"><span>Plot</span><span>80×60 ft = 4800 sq ft</span></div>
+    <div class="sr"><span>Setback</span><span>8 ft all 4 sides</span></div>
+    <div class="sr"><span>GF ceiling height</span><span>11 ft</span></div>
+    <div class="sr"><span>FF ceiling height</span><span>10 ft</span></div>
+    <div class="sr"><span>Dining void</span><span>21 ft (11+10, no slab)</span></div>
+    <div class="sr"><span>GF footprint</span><span>~1500 sq ft L-shaped</span></div>
+    <div class="sr"><span>FF footprint</span><span>~1500 sq ft</span></div>
+    <div class="sr"><span>Style</span><span>Indian vernacular · Chennai</span></div>
+    <div class="sr"><span>Compound wall</span><span>All 4 sides · coping + plinth</span></div>
+    <div class="sr"><span>Garage</span><span>~520 sq ft · west side</span></div>
+  </div>
+  <div class="sb2"><h4>Indian Vernacular Features</h4>
+    <div class="sr"><span>Thinnai</span><span>Raised front sit-out ~60 sq ft</span></div>
+    <div class="sr"><span>Kolam space</span><span>Threshold at Thinnai entry</span></div>
+    <div class="sr"><span>Nadumuttam</span><span>~55 sq ft open-sky courtyard</span></div>
+    <div class="sr"><span>Pooja room</span><span>~52 sq ft · East-facing · Jali</span></div>
+    <div class="sr"><span>Jali windows</span><span>All GF openings</span></div>
+    <div class="sr"><span>Athangudi tiles</span><span>Thinnai + dining + stair treads</span></div>
+    <div class="sr"><span>Cuddapah stone</span><span>Nadumuttam floor</span></div>
+    <div class="sr"><span>Stair wraps dining</span><span>Visible promenade stair</span></div>
+    <div class="sr"><span>Skylight</span><span>At roof over dining void</span></div>
+    <div class="sr"><span>Thotti balcony</span><span>~75 sq ft · south · grille parapet</span></div>
+  </div>
+  <div class="sb2"><h4>Ground Floor Rooms</h4>
+    <div class="sr"><span>Thinnai</span><span>~60 sq ft · Kolam · raised</span></div>
+    <div class="sr"><span>Foyer</span><span>~80 sq ft · privacy screen</span></div>
+    <div class="sr"><span>↘ Sunken Living</span><span>~185 sq ft · 18" lower</span></div>
+    <div class="sr"><span>🪔 Pooja Room</span><span>~52 sq ft · East · Jali</span></div>
+    <div class="sr"><span>Dining + Stair</span><span>~240 sq ft · 21 ft ceiling</span></div>
+    <div class="sr"><span>Open Kitchen (½ wall)</span><span>~180 sq ft</span></div>
+    <div class="sr"><span>Kitchen Store</span><span>~48 sq ft</span></div>
+    <div class="sr"><span>Fridge</span><span>Near kitchen half-wall</span></div>
+    <div class="sr"><span>☁ Nadumuttam</span><span>~55 sq ft · from dining</span></div>
+    <div class="sr"><span>Guest Bed + Bath</span><span>~155 + ~45 sq ft</span></div>
+    <div class="sr"><span>Laundry / WM</span><span>~32 sq ft · back · covered</span></div>
+  </div>
+  <div class="sb2"><h4>First Floor Rooms</h4>
+    <div class="sr"><span>Master + Walk-in WD</span><span>~218 sq ft · dressing corridor</span></div>
+    <div class="sr"><span>Master Ensuite</span><span>~64 sq ft · bathtub · attached</span></div>
+    <div class="sr"><span>Child Room 1 + Mini WD</span><span>~142 sq ft · private bath</span></div>
+    <div class="sr"><span>Child Bath 1</span><span>~38 sq ft · private attached</span></div>
+    <div class="sr"><span>Child Room 2 + Mini WD</span><span>~142 sq ft · private bath</span></div>
+    <div class="sr"><span>Child Bath 2</span><span>~38 sq ft · private attached</span></div>
+    <div class="sr"><span>Flex / Library</span><span>~125 sq ft · soundproof-ready</span></div>
+    <div class="sr"><span>Balcony / Thotti</span><span>~75 sq ft · south · grille</span></div>
+    <div class="sr"><span>Dining void (open)</span><span>21 ft · glass parapet FF</span></div>
+  </div>
+</div>
+<div class="callout" style="max-width:960px;margin-top:10px">
+  <strong>v7 — All original requirements + Indian vernacular Chennai character.</strong> Every room from the original list is present. Heights: GF 11 ft, FF 10 ft, Dining 21 ft. The stair wraps around the dining zone as a visible architectural promenade. Nadumuttam open courtyard is directly off the dining. Traditional elements: Thinnai, Kolam threshold, Pooja room, Jali screens, Athangudi tiles, Cuddapah stone, Thotti balcony.
+</div>
+<div class="note" style="max-width:960px;margin-top:8px">
+  <strong>For your architect:</strong> GF 11 ft slab-to-slab · FF 10 ft slab-to-slab · No slab over dining (21 ft void) · Structural engineer to design transfer beam at FF level around dining void perimeter · Jali screens on all GF windows (perforated terracotta or stone) · Athangudi tiles in Thinnai + dining + stair treads · Cuddapah/Kadappa stone for Nadumuttam floor with central drainage channel to sump · Teak double-leaf main door at Thinnai · Compound wall 9" brick with traditional coping and raised plinth course · Skylight at roof over dining void (fixed/openable louvre type for ventilation)
+</div>
+</div><!-- sum -->
+
+</div><!-- pa -->
+</div><!-- main -->
+<script>
+function showTab(n,b){
+  document.querySelectorAll('.fw').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  b.classList.add('active');
+}
+function tSb(){document.getElementById('sb').classList.toggle('collapsed')}
+function tS(id){document.getElementById(id).classList.toggle('open')}
+</script>
+</body>
+</html>
