@@ -88,3 +88,105 @@ svg.plan{background:#faf4e8;border-radius:3px;box-shadow:0 8px 48px rgba(0,0,0,.
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:11px;max-width:960px}
 .sb2{background:rgba(255,255,255,.025);border:1px solid #3a2010;border-radius:6px;padding:11px}
 .sb2 h4{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:#e8c060;margin-bottom:6px;font-style:italic}
+
+/* ── Room Panel (slide-in overlay) ── */
+#room-panel {
+  position: fixed;
+  top: 0; right: -480px;
+  width: 460px;
+  height: 100vh;
+  background: #0e0c08;
+  border-left: 2px solid #5a3a10;
+  overflow-y: auto;
+  transition: right .3s ease;
+  z-index: 100;
+  box-shadow: -8px 0 40px rgba(0,0,0,.7);
+}
+#room-panel.open { right: 0; }
+
+.rp-loading {
+  padding: 40px 24px;
+  color: #c8920a;
+  font-size: .9rem;
+}
+
+.room-card { display: flex; flex-direction: column; height: 100%; }
+
+.room-card-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: sticky; top: 0;
+  background: #0e0c08;
+  border-bottom: 1px solid #3a2010;
+}
+.room-card-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #e8c060;
+  flex: 1;
+}
+.rc-area {
+  font-size: .75rem;
+  color: #8a7048;
+  background: rgba(200,146,10,.1);
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 1px solid #5a3a10;
+}
+.rc-close {
+  background: none; border: none;
+  color: #5a4020; cursor: pointer;
+  font-size: 1rem; padding: 4px 8px;
+  border-radius: 4px;
+  transition: color .15s;
+}
+.rc-close:hover { color: #e8c060; }
+
+.room-card-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
+
+.rc-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .85rem;
+  font-style: italic;
+  color: #c8920a;
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-size: .65rem;
+}
+
+.rc-placeholder {
+  background: rgba(255,255,255,.02);
+  border: 1px dashed #3a2010;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.rc-soon {
+  color: #5a4020;
+  font-size: .85rem;
+  margin-bottom: 8px;
+}
+.rc-hint {
+  color: #6a5838;
+  font-size: .77rem;
+  line-height: 1.7;
+}
+
+/* Interior design sections (used when room is designed) */
+.rc-palette { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.rc-swatch  { width: 32px; height: 32px; border-radius: 4px; border: 1px solid rgba(255,255,255,.1); cursor: pointer; }
+.rc-swatch:hover::after { content: attr(title); position: absolute; background: #1a1208; color: #e8c060; font-size: .7rem; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 36px; margin-left: -8px; }
+
+.rc-materials { display: flex; flex-direction: column; gap: 6px; }
+.rc-mat-row   { display: flex; justify-content: space-between; font-size: .77rem; padding: 4px 0; border-bottom: 1px solid #1a1610; color: #9a8860; }
+.rc-mat-row span:last-child { color: #f2e8d0; }
+
+/* Clickable room highlight on SVG plans */
+.room-hit {
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.room-hit:hover { opacity: .7; }
