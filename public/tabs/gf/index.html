@@ -51,8 +51,8 @@
 <text x="123" y="338" text-anchor="middle" font-size="9"  fill="#999">BIKE 2</text>
 <rect x="30"  y="388" width="142" height="10" fill="#ccc" stroke="#aaa" stroke-width="1"/>
 <text x="101" y="396" text-anchor="middle" font-size="8.5" fill="#777">ROLLER SHUTTER</text>
-<rect x="30"  y="398" width="142" height="106" fill="#e8e5de"/>
-<text x="101" y="454" text-anchor="middle" font-size="10" fill="#aaa">DRIVEWAY</text>
+<rect x="30"  y="398" width="142" height="477" fill="#e8e5de"/>
+<text x="101" y="580" text-anchor="middle" font-size="10" fill="#aaa">DRIVEWAY</text>
 <text x="101" y="148" text-anchor="middle" font-size="12" fill="#555" font-weight="600">GARAGE</text>
 <text x="101" y="162" text-anchor="middle" font-size="9"  fill="#999">open canopy · 2 cars · 2 bikes</text>
 
@@ -341,20 +341,20 @@
 <!-- ══ DOORS — drawn on top of walls ══ -->
 <!-- Rule: gap = white rect over wall, hinge line = door leaf, arc = sweep INTO room -->
 
-<!-- D1: Ped door garage→foyer (west wall x=175, gap y=222–262, hinge y=222, swing east) -->
-<rect x="172" y="219" width="6" height="46" fill="white"/>
-<line x1="175" y1="222" x2="218" y2="222" stroke="#444" stroke-width="2.5"/>
-<path d="M 218 222 A 43 43 0 0 1 175 265" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D1: Ped door garage→foyer (west wall x=175, gap y=510–552, hinge y=510, swing east into foyer) -->
+<rect x="172" y="507" width="6" height="46" fill="white"/>
+<line x1="175" y1="510" x2="217" y2="510" stroke="#444" stroke-width="2.5"/>
+<path d="M 217 510 A 42 42 0 0 1 175 552" fill="none" stroke="#555" stroke-width="1.5"/>
 
 <!-- D2: Pooja→foyer (south wall y=480, gap x=205–247, hinge x=247, swing south into foyer) -->
 <rect x="202" y="477" width="49" height="6" fill="white"/>
 <line x1="247" y1="480" x2="247" y2="527" stroke="#444" stroke-width="2.5"/>
 <path d="M 247 527 A 47 47 0 0 1 200 480" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D3: Foyer→living (east wall x=315, gap y=500–542, hinge y=500, swing east) -->
-<rect x="312" y="497" width="6" height="48" fill="white"/>
-<line x1="315" y1="500" x2="357" y2="500" stroke="#444" stroke-width="2.5"/>
-<path d="M 357 500 A 42 42 0 0 1 315 542" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D3: Foyer→living (wall x=315, gap y=450–492, hinge y=452, swing east into living) -->
+<rect x="312" y="447" width="6" height="46" fill="white"/>
+<line x1="315" y1="452" x2="357" y2="452" stroke="#444" stroke-width="2.5"/>
+<path d="M 357 452 A 42 42 0 0 1 315 494" fill="none" stroke="#555" stroke-width="1.5"/>
 
 <!-- D4: Main entry double-leaf (south wall y=785, gap x=198–298, double swing north) -->
 <rect x="195" y="782" width="103" height="6" fill="white"/>
@@ -368,10 +368,11 @@
 <line x1="524" y1="430" x2="524" y2="478" stroke="#444" stroke-width="2.5"/>
 <path d="M 524 478 A 48 48 0 0 0 572 430" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D6: Guest bed entry (wall y=530, gap x=518–560, hinge x=560, swing south) -->
-<rect x="515" y="527" width="48" height="6" fill="white"/>
-<line x1="560" y1="530" x2="560" y2="578" stroke="#444" stroke-width="2.5"/>
-<path d="M 560 578 A 48 48 0 0 1 512 530" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D6: Guest bed entry from dining (wall x=510, gap y=558–600, hinge y=558, swing east) -->
+<rect x="507" y="555" width="6" height="45" fill="white"/>
+<line x1="510" y1="558" x2="510" y2="558" stroke="none"/>
+<line x1="510" y1="558" x2="552" y2="558" stroke="#444" stroke-width="2.5"/>
+<path d="M 552 558 A 42 42 0 0 1 510 600" fill="none" stroke="#555" stroke-width="1.5"/>
 
 <!-- D7: Guest bed→bath (wall x=616, gap y=548–590, hinge y=548, swing east) -->
 <rect x="613" y="545" width="6" height="45" fill="white"/>
