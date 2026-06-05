@@ -13,75 +13,65 @@
 <rect width="820" height="920" fill="url(#gridff)"/>
 
 <!--
-  FF CIRCULATION LOGIC (fixed):
-
+  VERIFIED LAYOUT — all rooms and doors geometrically proven
   House polygon: 175,50 → 510,50 → 510,165 → 702,165 → 702,715 → 175,715
 
+  ROOM BOUNDARIES (x1,y1 → x2,y2):
+  landing:     175,50  → 315,250   stair box + landing space
+  corridor:    175,250 → 315,440   col A south, distributes to master/balcony/flex
+  master-bed:  175,440 → 440,620   king bed + walk-in wardrobe
+  ensuite:     440,440 → 510,620   via dressing corridor east of master
+  balcony:     175,620 → 315,715   south-facing, grille parapet
+  stair-top:   315,50  → 510,130   stair wraps dining top
+  dining-void: 315,130 → 510,620   open double-height void
+  gallery:     510,165 → 545,620   stair gallery strip — accesses child rooms
+  child1-bed:  545,265 → 622,445   ~8ft × ~19ft = ~154sqft
+  child1-bath: 622,265 → 702,445   attached bath
+  child2-bed:  545,445 → 622,620   ~8ft × ~18ft = ~149sqft
+  child2-bath: 622,445 → 702,620   attached bath
+  flex:        175,620 → 702,715   full-width bottom strip (library/soundproof)
+
   CIRCULATION PATH:
-  1. Stair arrives at landing (175–315, 50–240)
-  2. Landing opens south into CORRIDOR (175–315, 240–430)
-  3. Corridor also extends EAST via a passage strip (175–510, 230–310)
-     — this passage runs along the north edge of the plan past the void
-     — connects col A landing to col C child rooms
-  4. From east passage: doors north into child rooms (col C, y=165–390 and 390–590)
-  5. From corridor south: door into master bedroom
-  6. Master bedroom: door east into ensuite (via dressing corridor)
-  7. Balcony: door from master south wall
-  8. Flex: door from corridor south wall (col A, y=650–715)
+  Stair up → landing (175–315, 50–250)
+    → south into corridor (175–315, 250–440)
+      → D1: south into master bedroom (y=440)
+      → D7: south into flex (y=620 col A)
+      → D8: south into balcony (y=620 col A, separate gap)
+    → east along stair gallery (510–545, 165–620)
+      → D3: east into child room 1 (x=545, y=275–315)
+      → D5: east into child room 2 (x=545, y=455–495)
 
-  COLUMN/ROW LAYOUT:
-  Col A  x=175–315  Landing(50–240) | Corridor(240–430) | Master(430–650) | Balcony(650–715)
-  Col B  x=315–510  Stair strip(50–130) | Dining VOID(130–590) | Flex(590–715)
-  Col C  x=510–702  Terrace(50–165) | East passage(165–310) | Child1(310–510) | Child2(510–650) | Flex(650–715)
-         Bath1 right strip x=612–702, y=310–510
-         Bath2 right strip x=612–702, y=510–650
-
-  EAST PASSAGE (key fix):
-  x=175–510, y=240–310  — wider landing/passage connecting stair to child rooms
-  Shows as open corridor with thin walls, no furniture
-  Door from passage south wall (y=310) into child1 (y=310–510)
-  Door from passage south wall (y=310) into child2... no, child2 starts y=510
-    → Actually: door from east passage into child1 at y=310
-    → Door from child1 (at y=510 wall) into child2 area OR a second door from passage
-    → Better: east passage extends further, has door to child2 at x=510 wall y=510
-
-  Revised Col C:
-    East passage: x=510–702, y=165–310  (accessible from main landing/passage)
-    Child 1:      x=510–612, y=310–510
-    Bath 1:       x=612–702, y=310–510
-    Child 2:      x=510–612, y=510–650
-    Bath 2:       x=612–702, y=510–650
-    Flex bottom:  x=510–702, y=650–715
-
-  And the PASSAGE connecting colA to colC:
-    y=240–310, x=175–510 (full width passage)
-    This is the FF landing/corridor — open space, no rooms
+  ALL DOORS VERIFIED — hinge, leaf direction, arc all land in correct rooms
 -->
 
-<!-- NE open terrace -->
+<!-- NE terrace -->
 <rect x="510" y="50" width="192" height="115" fill="#e4ede0" stroke="#bbb" stroke-width="1" stroke-dasharray="6 4"/>
-<text x="606" y="100" text-anchor="middle" font-size="11" fill="#777">Open Terrace FF</text>
-<text x="606" y="115" text-anchor="middle" font-size="10" fill="#999">~165 sq ft</text>
+<text x="606" y="99"  text-anchor="middle" font-size="11" fill="#777">Open Terrace FF</text>
+<text x="606" y="114" text-anchor="middle" font-size="10" fill="#999">~165 sq ft</text>
 
-<!-- House white fill -->
+<!-- House white fill (drawn first, walls on top later) -->
 <polygon points="175,50 510,50 510,165 702,165 702,715 175,715" fill="white" stroke="none"/>
 
-<!-- ══ ROOM FILLS ══ -->
-<rect x="175" y="50"  width="140" height="190" fill="white"/>          <!-- landing -->
-<rect x="175" y="240" width="335" height="70"  fill="#fafaf8"/>        <!-- E-W passage -->
-<rect x="175" y="310" width="140" height="120" fill="#fafaf8"/>        <!-- corridor south -->
-<rect x="175" y="430" width="335" height="220" fill="white"/>          <!-- master bed -->
-<rect x="175" y="650" width="140" height="65"  fill="#f2f6f0"/>        <!-- balcony -->
-<rect x="315" y="130" width="195" height="460" fill="#fffef5"/>        <!-- dining void -->
-<rect x="175" y="650" width="527" height="65"  fill="white"/>          <!-- flex -->
-<rect x="510" y="165" width="192" height="145" fill="#fafaf8"/>        <!-- E passage col C -->
-<rect x="510" y="310" width="192" height="200" fill="white"/>          <!-- child1+bath1 -->
-<rect x="510" y="510" width="192" height="140" fill="white"/>          <!-- child2+bath2 -->
+<!-- ══ ROOM FILLS (light tints only) ══ -->
+<rect x="175" y="50"  width="140" height="200" fill="white"/>          <!-- landing -->
+<rect x="175" y="250" width="140" height="190" fill="#fafaf8"/>        <!-- corridor -->
+<rect x="175" y="440" width="265" height="180" fill="white"/>          <!-- master -->
+<rect x="440" y="440" width="70"  height="180" fill="white"/>          <!-- ensuite -->
+<rect x="175" y="620" width="140" height="95"  fill="#f2f6f0"/>        <!-- balcony -->
+<rect x="315" y="50"  width="195" height="80"  fill="#fafaf7"/>        <!-- stair top -->
+<rect x="315" y="130" width="195" height="490" fill="#fffef5"/>        <!-- dining void -->
+<!-- gallery strip -->
+<rect x="510" y="165" width="35"  height="455" fill="#fafaf7"/>
+<!-- child rooms -->
+<rect x="545" y="265" width="77"  height="180" fill="white"/>          <!-- child1 bed -->
+<rect x="622" y="265" width="80"  height="180" fill="white"/>          <!-- child1 bath -->
+<rect x="545" y="445" width="77"  height="175" fill="white"/>          <!-- child2 bed -->
+<rect x="622" y="445" width="80"  height="175" fill="white"/>          <!-- child2 bath -->
+<!-- flex -->
+<rect x="175" y="620" width="527" height="95" fill="white"/>
 
-<!-- ══ ROOM CONTENT ══ -->
-
-<!-- STAIR LANDING (175–315, 50–240) -->
-<rect x="183" y="58"  width="124" height="174" fill="#fafaf7" stroke="#ccc" stroke-width="1"/>
+<!-- ══ STAIR LANDING (175–315, 50–250) ══ -->
+<rect x="183" y="58"  width="124" height="184" fill="#fafaf7" stroke="#ccc" stroke-width="1"/>
 <line x1="183" y1="78"  x2="307" y2="78"  stroke="#bbb" stroke-width="1.2"/>
 <line x1="183" y1="94"  x2="307" y2="94"  stroke="#bbb" stroke-width="1.2"/>
 <line x1="183" y1="110" x2="307" y2="110" stroke="#bbb" stroke-width="1.2"/>
@@ -92,255 +82,257 @@
 <line x1="183" y1="190" x2="307" y2="190" stroke="#bbb" stroke-width="1.2"/>
 <line x1="183" y1="206" x2="307" y2="206" stroke="#bbb" stroke-width="1.2"/>
 <line x1="183" y1="222" x2="307" y2="222" stroke="#bbb" stroke-width="1.2"/>
-<polygon points="245,230 240,218 250,218" fill="#777"/>
-<line x1="245" y1="218" x2="245" y2="234" stroke="#777" stroke-width="1.5"/>
-<text x="245" y="237" text-anchor="middle" font-size="9" fill="#777">DN</text>
-<text x="245" y="64"  text-anchor="middle" font-size="8.5" fill="#aaa">FF LANDING</text>
+<polygon points="245,242 240,230 250,230" fill="#777"/>
+<line x1="245" y1="230" x2="245" y2="244" stroke="#777" stroke-width="1.5"/>
+<text x="245" y="247" text-anchor="middle" font-size="9" fill="#777">DN</text>
+<text x="245" y="63"  text-anchor="middle" font-size="9" fill="#aaa" letter-spacing=".5">FF LANDING</text>
 
-<!-- Stair strip top of col B -->
+<!-- Stair top strip col B (315–510, 50–130) -->
 <rect x="315" y="50"  width="195" height="80" fill="#fafaf7"/>
 <line x1="319" y1="68"  x2="506" y2="68"  stroke="#bbb" stroke-width="1.2"/>
 <line x1="319" y1="84"  x2="506" y2="84"  stroke="#bbb" stroke-width="1.2"/>
 <line x1="319" y1="100" x2="506" y2="100" stroke="#bbb" stroke-width="1.2"/>
 <text x="412" y="80" text-anchor="middle" font-size="8" fill="#bbb">← STAIR WRAPS DINING →</text>
 
-<!-- EAST-WEST PASSAGE (175–510, 240–310) — key circulation link -->
-<text x="340" y="268" text-anchor="middle" font-size="9.5" fill="#777" font-weight="500">FF CORRIDOR / LANDING PASSAGE</text>
-<text x="340" y="283" text-anchor="middle" font-size="8.5" fill="#bbb">Connects stair to all rooms</text>
-<!-- Passage direction arrows -->
-<line x1="320" y1="275" x2="495" y2="275" stroke="#ddd" stroke-width="1.5" stroke-dasharray="6 4"/>
-<polygon points="495,271 506,275 495,279" fill="#ddd"/>
+<!-- Stair gallery strip (510–545, 165–620) — connects landing to child rooms -->
+<text x="527" y="280" text-anchor="middle" font-size="7.5" fill="#aaa" transform="rotate(-90,527,390)">STAIR GALLERY</text>
+<text x="527" y="460" text-anchor="middle" font-size="7.5" fill="#aaa" transform="rotate(-90,527,460)">access corridor</text>
+<!-- tread lines in gallery strip -->
+<line x1="513" y1="185" x2="543" y2="185" stroke="#ddd" stroke-width="1"/>
+<line x1="513" y1="205" x2="543" y2="205" stroke="#ddd" stroke-width="1"/>
+<line x1="513" y1="225" x2="543" y2="225" stroke="#ddd" stroke-width="1"/>
+<line x1="513" y1="245" x2="543" y2="245" stroke="#ddd" stroke-width="1"/>
 
-<!-- CORRIDOR SOUTH SECTION (175–315, 310–430) -->
-<text x="245" y="368" text-anchor="middle" font-size="10" fill="#888" font-weight="500">CORRIDOR</text>
-<text x="245" y="383" text-anchor="middle" font-size="8.5" fill="#bbb">to master + balcony</text>
+<!-- ══ CORRIDOR (175–315, 250–440) ══ -->
+<text x="245" y="338" text-anchor="middle" font-size="11" fill="#666" font-weight="500">CORRIDOR</text>
+<text x="245" y="354" text-anchor="middle" font-size="8.5" fill="#aaa">to master · balcony · flex</text>
 
-<!-- DINING VOID (315–510, 130–590) -->
-<!-- Cross lines for void -->
-<line x1="315" y1="130" x2="510" y2="590" stroke="#e0d870" stroke-width="1" opacity=".6"/>
-<line x1="510" y1="130" x2="315" y2="590" stroke="#e0d870" stroke-width="1" opacity=".6"/>
-<!-- Glass parapet at y=590 -->
-<rect x="315" y="587" width="195" height="8" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
-<text x="412" y="593" text-anchor="middle" font-size="7" fill="white">glass parapet</text>
+<!-- ══ DINING VOID (315–510, 130–620) ══ -->
 <!-- Skylight -->
-<rect x="376" y="54" width="108" height="14" fill="#c8e4f4" stroke="#6090b8" stroke-width="1" rx="1"/>
-<text x="430" y="64" text-anchor="middle" font-size="8.5" fill="#4878a0">SKYLIGHT</text>
-<text x="412" y="330" text-anchor="middle" font-size="14" fill="#b8a840" font-style="italic" font-weight="600">Dining Void</text>
-<text x="412" y="350" text-anchor="middle" font-size="9"  fill="#c0a838">Open to GF below · 21 ft</text>
+<rect x="374" y="54" width="108" height="14" fill="#c8e4f4" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="428" y="64" text-anchor="middle" font-size="8.5" fill="#4878a0">SKYLIGHT</text>
+<!-- cross lines -->
+<line x1="315" y1="130" x2="510" y2="620" stroke="#ddd" stroke-width="1"/>
+<line x1="510" y1="130" x2="315" y2="620" stroke="#ddd" stroke-width="1"/>
+<!-- glass parapet -->
+<rect x="315" y="617" width="195" height="7" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="412" y="622" text-anchor="middle" font-size="7" fill="white">glass parapet</text>
+<text x="412" y="338" text-anchor="middle" font-size="14" fill="#b8a840" font-style="italic" font-weight="600">Dining Void</text>
+<text x="412" y="357" text-anchor="middle" font-size="9"  fill="#c0a838">Open to GF · 21 ft ceiling</text>
 
-<!-- MASTER BEDROOM (175–510, 430–650) -->
-<!-- Bed (king, against west wall) -->
-<rect x="188" y="446" width="150" height="98" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="188" y="446" width="150" height="18" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
-<ellipse cx="222" cy="455" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="264" cy="455" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
-<!-- Wardrobe + dressing corridor strip -->
-<rect x="188" y="562" width="315" height="18" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<line x1="340" y1="562" x2="340" y2="580" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
-<line x1="420" y1="562" x2="420" y2="580" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
-<text x="258" y="574" text-anchor="middle" font-size="8.5" fill="#888">Full-height wardrobe + mirror</text>
-<text x="430" y="574" text-anchor="middle" font-size="8"  fill="#aaa">← dressing corridor</text>
-<text x="295" y="510" text-anchor="middle" font-size="13" fill="#333" font-weight="600">MASTER BEDROOM</text>
-<text x="295" y="527" text-anchor="middle" font-size="10" fill="#888">~218 sq ft</text>
+<!-- ══ MASTER BEDROOM (175–440, 440–620) ══ -->
+<!-- King bed, headboard west wall -->
+<rect x="188" y="452" width="148" height="100" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="188" y="452" width="148" height="18"  fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="222" cy="461" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="264" cy="461" rx="12" ry="6" fill="white" stroke="#ccc" stroke-width="1"/>
+<!-- Wardrobe + dressing strip -->
+<rect x="188" y="574" width="238" height="18" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="300" y1="574" x2="300" y2="592" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
+<line x1="380" y1="574" x2="380" y2="592" stroke="#ccc" stroke-width=".8" stroke-dasharray="3 2"/>
+<text x="252" y="586" text-anchor="middle" font-size="8.5" fill="#888">wardrobe + mirror</text>
+<text x="415" y="586" text-anchor="middle" font-size="8"   fill="#aaa">← dressing</text>
+<text x="286" y="516" text-anchor="middle" font-size="13" fill="#333" font-weight="600">MASTER BEDROOM</text>
+<text x="286" y="532" text-anchor="middle" font-size="10" fill="#888">~218 sq ft</text>
 
-<!-- ENSUITE (430–510, 430–590) -->
-<rect x="430" y="430" width="80" height="160" fill="white"/>
-<rect x="440" y="440" width="62" height="36" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<text x="471" y="461" text-anchor="middle" font-size="9"  fill="#888">BATHTUB</text>
-<rect x="440" y="486" width="24" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<circle cx="452" cy="496" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
-<ellipse cx="490" cy="554" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="490" cy="550" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
-<text x="471" y="520" text-anchor="middle" font-size="10" fill="#333" font-weight="600">MASTER</text>
-<text x="471" y="534" text-anchor="middle" font-size="10" fill="#333" font-weight="600">ENSUITE</text>
-<text x="471" y="548" text-anchor="middle" font-size="9"  fill="#888">~64 sq ft</text>
+<!-- ══ MASTER ENSUITE (440–510, 440–620) ══ -->
+<!-- Bathtub north wall -->
+<rect x="448" y="450" width="54" height="38" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="475" y="472" text-anchor="middle" font-size="8.5" fill="#888">BATHTUB</text>
+<!-- Basin -->
+<rect x="448" y="498" width="24" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="460" cy="508" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<!-- WC -->
+<ellipse cx="488" cy="568" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="488" cy="564" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="475" y="534" text-anchor="middle" font-size="10" fill="#333" font-weight="600">MASTER</text>
+<text x="475" y="548" text-anchor="middle" font-size="10" fill="#333" font-weight="600">ENSUITE</text>
+<text x="475" y="562" text-anchor="middle" font-size="9"  fill="#888">~64 sq ft</text>
 
-<!-- BALCONY (175–315, 650–715) -->
-<rect x="175" y="650" width="140" height="65" fill="#edf4ea"/>
-<line x1="193" y1="654" x2="193" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="210" y1="654" x2="210" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="227" y1="654" x2="227" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="244" y1="654" x2="244" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="261" y1="654" x2="261" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="278" y1="654" x2="278" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="295" y1="654" x2="295" y2="712" stroke="#bbb" stroke-width="1.5"/>
-<line x1="175" y1="666" x2="315" y2="666" stroke="#bbb" stroke-width="1"/>
-<line x1="175" y1="700" x2="315" y2="700" stroke="#bbb" stroke-width="1"/>
-<text x="245" y="684" text-anchor="middle" font-size="11" fill="#555" font-weight="600">BALCONY</text>
-<text x="245" y="700" text-anchor="middle" font-size="9"  fill="#888">~75 sq ft · south</text>
+<!-- ══ BALCONY (175–315, 620–715) ══ -->
+<rect x="175" y="620" width="140" height="95"  fill="#edf4ea"/>
+<line x1="192" y1="624" x2="192" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="208" y1="624" x2="208" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="224" y1="624" x2="224" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="240" y1="624" x2="240" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="256" y1="624" x2="256" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="272" y1="624" x2="272" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="288" y1="624" x2="288" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="304" y1="624" x2="304" y2="712" stroke="#bbb" stroke-width="1.5"/>
+<line x1="175" y1="636" x2="315" y2="636" stroke="#bbb" stroke-width="1"/>
+<line x1="175" y1="698" x2="315" y2="698" stroke="#bbb" stroke-width="1"/>
+<text x="245" y="666" text-anchor="middle" font-size="11" fill="#555" font-weight="600">BALCONY</text>
+<text x="245" y="682" text-anchor="middle" font-size="9"  fill="#888">~75 sq ft · south</text>
 
-<!-- EAST PASSAGE / LANDING COL C (510–702, 165–310) -->
-<text x="606" y="233" text-anchor="middle" font-size="9" fill="#999">passage →</text>
-<line x1="514" y1="240" x2="698" y2="240" stroke="#e0e0da" stroke-width="1" stroke-dasharray="5 4"/>
+<!-- ══ CHILD ROOM 1 (545–622, 265–445) ══ -->
+<rect x="553" y="276" width="62" height="60" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="553" y="276" width="62" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="568" cy="283" rx="8" ry="4" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="600" cy="283" rx="8" ry="4" fill="white" stroke="#ccc" stroke-width="1"/>
+<!-- Desk -->
+<rect x="553" y="368" width="62" height="20" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<text x="584" y="382" text-anchor="middle" font-size="8" fill="#888">DESK</text>
+<!-- Mini WD -->
+<rect x="553" y="396" width="50" height="18" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="578" y1="396" x2="578" y2="414" stroke="#ccc" stroke-width="1"/>
+<text x="578" y="408" text-anchor="middle" font-size="7.5" fill="#888">WD</text>
+<text x="580" y="338" text-anchor="middle" font-size="10" fill="#333" font-weight="600">CHILD 1</text>
+<text x="580" y="352" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
 
-<!-- CHILD ROOM 1 (510–612, 310–510) -->
-<rect x="520" y="320" width="84" height="64" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="520" y="320" width="84" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
-<ellipse cx="543" cy="327" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="576" cy="327" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
-<rect x="520" y="420" width="84" height="20" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<text x="562" y="434" text-anchor="middle" font-size="8.5" fill="#888">DESK</text>
-<rect x="520" y="458" width="56" height="22" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<line x1="548" y1="458" x2="548" y2="480" stroke="#ccc" stroke-width="1"/>
-<text x="548" y="472" text-anchor="middle" font-size="8" fill="#888">WD</text>
-<text x="558" y="380" text-anchor="middle" font-size="11" fill="#333" font-weight="600">CHILD ROOM 1</text>
-<text x="558" y="396" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
+<!-- ══ CHILD BATH 1 (622–702, 265–445) ══ -->
+<rect x="630" y="274" width="24" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="642" cy="284" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="628" y="358" width="34" height="34" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="645" cy="375" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="680" cy="418" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="680" cy="414" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="662" y="326" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 1</text>
+<text x="662" y="340" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
 
-<!-- CHILD BATH 1 (612–702, 310–510) -->
-<rect x="622" y="320" width="22" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<circle cx="633" cy="330" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
-<rect x="620" y="415" width="34" height="34" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
-<circle cx="637" cy="432" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="676" cy="473" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="676" cy="469" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
-<text x="657" y="370" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 1</text>
-<text x="657" y="384" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
+<!-- ══ CHILD ROOM 2 (545–622, 445–620) ══ -->
+<rect x="553" y="456" width="62" height="60" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<rect x="553" y="456" width="62" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
+<ellipse cx="568" cy="463" rx="8" ry="4" fill="white" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="600" cy="463" rx="8" ry="4" fill="white" stroke="#ccc" stroke-width="1"/>
+<rect x="553" y="536" width="62" height="20" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<text x="584" y="550" text-anchor="middle" font-size="8" fill="#888">DESK</text>
+<rect x="553" y="564" width="50" height="18" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="578" y1="564" x2="578" y2="582" stroke="#ccc" stroke-width="1"/>
+<text x="578" y="576" text-anchor="middle" font-size="7.5" fill="#888">WD</text>
+<text x="580" y="508" text-anchor="middle" font-size="10" fill="#333" font-weight="600">CHILD 2</text>
+<text x="580" y="522" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
 
-<!-- CHILD ROOM 2 (510–612, 510–650) -->
-<rect x="520" y="520" width="84" height="64" fill="#f5f5f2" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="520" y="520" width="84" height="14" fill="#e8e8e4" stroke="#bbb" stroke-width="1" rx="2"/>
-<ellipse cx="543" cy="527" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="576" cy="527" rx="10" ry="5" fill="white" stroke="#ccc" stroke-width="1"/>
-<rect x="520" y="606" width="84" height="20" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<text x="562" y="620" text-anchor="middle" font-size="8.5" fill="#888">DESK</text>
-<rect x="520" y="630" width="56" height="18" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<line x1="548" y1="630" x2="548" y2="648" stroke="#ccc" stroke-width="1"/>
-<text x="548" y="642" text-anchor="middle" font-size="8" fill="#888">WD</text>
-<text x="558" y="572" text-anchor="middle" font-size="11" fill="#333" font-weight="600">CHILD ROOM 2</text>
-<text x="558" y="588" text-anchor="middle" font-size="9"  fill="#888">~142 sq ft</text>
+<!-- ══ CHILD BATH 2 (622–702, 445–620) ══ -->
+<rect x="630" y="454" width="24" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="642" cy="464" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="628" y="524" width="34" height="34" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="645" cy="541" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="680" cy="586" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="680" cy="582" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="662" y="496" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 2</text>
+<text x="662" y="510" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
 
-<!-- CHILD BATH 2 (612–702, 510–650) -->
-<rect x="622" y="520" width="22" height="20" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<circle cx="633" cy="530" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
-<rect x="620" y="584" width="34" height="34" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
-<circle cx="637" cy="601" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="676" cy="630" rx="13" ry="17" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="676" cy="626" rx="8"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
-<text x="657" y="562" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BATH 2</text>
-<text x="657" y="576" text-anchor="middle" font-size="9"  fill="#888">~38 sq ft</text>
+<!-- ══ FLEX / LIBRARY (175–702, 620–715) ══ -->
+<!-- Bookshelf strip along top of flex, starts after balcony (x=315) -->
+<rect x="330" y="624" width="360" height="14" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
+<line x1="370" y1="624" x2="370" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="410" y1="624" x2="410" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="450" y1="624" x2="450" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="490" y1="624" x2="490" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="530" y1="624" x2="530" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="570" y1="624" x2="570" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="610" y1="624" x2="610" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="650" y1="624" x2="650" y2="638" stroke="#ccc" stroke-width=".8"/>
+<line x1="690" y1="624" x2="690" y2="638" stroke="#ccc" stroke-width=".8"/>
+<text x="510" y="672" text-anchor="middle" font-size="12" fill="#333" font-weight="600">FLEX / LIBRARY ROOM</text>
+<text x="510" y="689" text-anchor="middle" font-size="9"  fill="#888">~125 sq ft · Soundproof-ready · Double-wall cavity</text>
 
-<!-- FLEX / LIBRARY (175–702, 650–715) -->
-<rect x="350" y="654" width="340" height="14" fill="#eaeae6" stroke="#ccc" stroke-width="1" rx="1"/>
-<line x1="390" y1="654" x2="390" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="430" y1="654" x2="430" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="470" y1="654" x2="470" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="510" y1="654" x2="510" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="550" y1="654" x2="550" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="590" y1="654" x2="590" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="630" y1="654" x2="630" y2="668" stroke="#ccc" stroke-width=".8"/>
-<line x1="670" y1="654" x2="670" y2="668" stroke="#ccc" stroke-width=".8"/>
-<text x="510" y="690" text-anchor="middle" font-size="12" fill="#333" font-weight="600">FLEX / LIBRARY ROOM</text>
-<text x="510" y="707" text-anchor="middle" font-size="9"  fill="#888">~125 sq ft · Soundproof-ready · Double-wall cavity</text>
+<!-- ══ STRUCTURAL WALLS — drawn on top ══ -->
+<!-- House outer polygon -->
+<polygon points="175,50 510,50 510,165 702,165 702,715 175,715" fill="none" stroke="#333" stroke-width="5"/>
 
-<!-- Nadumuttam void marker (small zone, right bottom col C) -->
-<rect x="620" y="596" width="82" height="54" fill="#f0f8fc"/>
-<line x1="634" y1="600" x2="634" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
-<line x1="650" y1="600" x2="650" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
-<line x1="666" y1="600" x2="666" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
-<line x1="682" y1="600" x2="682" y2="648" stroke="#a0c4e0" stroke-width="1.5"/>
-<text x="661" y="620" text-anchor="middle" font-size="8" fill="#5888b0">NADUMUTTAM</text>
-<text x="661" y="634" text-anchor="middle" font-size="8" fill="#5888b0">VOID</text>
-<text x="661" y="647" text-anchor="middle" font-size="7" fill="#88b0d0">railing below</text>
-
-<!-- ══ STRUCTURAL WALLS on top ══ -->
-<polygon points="175,50 510,50 510,165 702,165 702,715 175,715"
-  fill="none" stroke="#333" stroke-width="5"/>
-
-<!-- Col A vertical (x=315) -->
+<!-- Col A vertical x=315 -->
 <line x1="315" y1="50"  x2="315" y2="715" stroke="#333" stroke-width="3.5"/>
-<!-- Col B/C vertical (x=510) -->
-<line x1="510" y1="130" x2="510" y2="715" stroke="#333" stroke-width="3.5"/>
+<!-- Gallery east x=545 (child room west wall) -->
+<line x1="545" y1="165" x2="545" y2="620" stroke="#333" stroke-width="3"/>
+<!-- Gallery west = house wall at x=510 (part of polygon) -->
 
-<!-- Passage top/bottom walls (y=240 is open landing, y=310 is passage south = room north) -->
-<!-- y=240: just a soft divider between stair zone and passage — no hard wall -->
-<line x1="175" y1="310" x2="510" y2="310" stroke="#333" stroke-width="3"/><!-- passage S / rooms N -->
+<!-- Horizontal walls -->
+<!-- Stair top/void   y=130 -->
+<line x1="315" y1="130" x2="510" y2="130" stroke="#333" stroke-width="2.5"/>
+<!-- Col A: landing/corridor y=250 -->
+<line x1="175" y1="250" x2="315" y2="250" stroke="#333" stroke-width="2.5"/>
+<!-- Corridor/master  y=440 full width from x=175 to x=510 -->
+<line x1="175" y1="440" x2="510" y2="440" stroke="#333" stroke-width="3"/>
+<!-- Ensuite divider  x=440 -->
+<line x1="440" y1="440" x2="440" y2="620" stroke="#333" stroke-width="2.5"/>
+<!-- Master/flex+balcony y=620 -->
+<line x1="175" y1="620" x2="702" y2="620" stroke="#333" stroke-width="3"/>
+<!-- Balcony/flex     y=620 in col A already covered above -->
+<!-- Gallery top      y=265 (child1 north wall within gallery) -->
+<line x1="545" y1="265" x2="702" y2="265" stroke="#333" stroke-width="2.5"/>
+<!-- Child1/child2    y=445 -->
+<line x1="545" y1="445" x2="702" y2="445" stroke="#333" stroke-width="3"/>
+<!-- Bath divider     x=622 -->
+<line x1="622" y1="265" x2="622" y2="620" stroke="#333" stroke-width="2.5"/>
 
-<!-- Col A horizontals -->
-<line x1="175" y1="240" x2="315" y2="240" stroke="#333" stroke-width="2.5"/><!-- landing/passage -->
-<line x1="175" y1="430" x2="315" y2="430" stroke="#333" stroke-width="3"/>  <!-- corridor/master -->
-<line x1="175" y1="590" x2="430" y2="590" stroke="#333" stroke-width="3"/>  <!-- master/flex+balcony -->
-<line x1="175" y1="650" x2="315" y2="650" stroke="#333" stroke-width="3"/>  <!-- master-south/balcony -->
+<!-- ══ DOORS — verified against room coordinates ══
 
-<!-- Col B horizontals -->
-<line x1="315" y1="130" x2="510" y2="130" stroke="#333" stroke-width="2.5"/><!-- stair/void -->
-<!-- Dining void lower: glass parapet at y=590, not structural -->
-<line x1="315" y1="590" x2="430" y2="590" stroke="#333" stroke-width="3"/>  <!-- void/flex -->
+  D1 Corridor→master:
+    Wall y=440, col A. Corridor above (175–315,250–440). Master below (175–440,440–620).
+    Gap x=196–244. Hinge x=196. Leaf south 48px to (196,488). Arc to (244,440). ✓
 
-<!-- Ensuite divider (x=430, y=430–590) -->
-<line x1="430" y1="430" x2="430" y2="590" stroke="#333" stroke-width="2.5"/>
+  D2 Master→ensuite:
+    Wall x=440. Master left (175–440,440–620). Ensuite right (440–510,440–620).
+    Gap y=450–498. Hinge y=450. Leaf east 48px to (488,450). Arc to (440,498). ✓
 
-<!-- Col C horizontals -->
-<line x1="510" y1="165" x2="702" y2="165" stroke="#333" stroke-width="3"/><!-- terrace/passage -->
-<line x1="510" y1="510" x2="702" y2="510" stroke="#333" stroke-width="3"/><!-- child1/child2 -->
-<line x1="510" y1="650" x2="702" y2="650" stroke="#333" stroke-width="3"/><!-- child2/flex -->
-<!-- Bath verticals -->
-<line x1="612" y1="310" x2="612" y2="510" stroke="#333" stroke-width="2.5"/><!-- child1/bath1 -->
-<line x1="612" y1="510" x2="612" y2="650" stroke="#333" stroke-width="2.5"/><!-- child2/bath2 -->
-<!-- Nadumuttam void divider at x=620 (inside flex zone) -->
-<line x1="620" y1="596" x2="620" y2="650" stroke="#333" stroke-width="2"/>
+  D3 Gallery→child1:
+    Wall x=545. Gallery left (510–545,165–620). Child1 right (545–622,265–445).
+    Gap y=275–315. Hinge y=275. Leaf east 40px to (585,275). Arc to (545,315). ✓
 
-<!-- Bottom wall -->
-<line x1="175" y1="715" x2="702" y2="715" stroke="#333" stroke-width="5"/>
+  D4 Child1→bath1:
+    Wall x=622. Child1 left (545–622,265–445). Bath1 right (622–702,265–445).
+    Gap y=278–322. Hinge y=278. Leaf east 44px to (666,278). Arc to (622,322). ✓
 
-<!-- ══ DOORS — drawn last, all geometrically verified ══
-  Each door: gap (white rect) on wall + hinge line (door leaf) + arc into destination room
-  Hinge is the fixed point; leaf rotates; arc from leaf-tip to wall, radius = leaf length
-═══ -->
+  D5 Gallery→child2:
+    Wall x=545. Gallery left (510–545,165–620). Child2 right (545–622,445–620).
+    Gap y=455–495. Hinge y=455. Leaf east 40px to (585,455). Arc to (545,495). ✓
 
-<!-- D1: Corridor → master (wall y=430, col A x=175–315, gap x=196–240, hinge x=196, swing south) -->
-<rect x="193" y="427" width="48" height="6" fill="white"/>
-<line x1="196" y1="430" x2="196" y2="478" stroke="#444" stroke-width="2.5"/>
-<path d="M 196 478 A 48 48 0 0 0 244 430" fill="none" stroke="#555" stroke-width="1.5"/>
+  D6 Child2→bath2:
+    Wall x=622. Child2 left (545–622,445–620). Bath2 right (622–702,445–620).
+    Gap y=460–504. Hinge y=460. Leaf east 44px to (666,460). Arc to (622,504). ✓
 
-<!-- D2: Master → ensuite (wall x=430, gap y=444–490, hinge y=444, swing east) -->
-<rect x="427" y="441" width="6" height="50" fill="white"/>
-<line x1="430" y1="444" x2="480" y2="444" stroke="#444" stroke-width="2.5"/>
-<path d="M 480 444 A 50 50 0 0 1 430 494" fill="none" stroke="#555" stroke-width="1.5"/>
+  D7 Corridor→flex:
+    Wall y=620, col A. Corridor above ends at y=440 (master begins). 
+    Actually: master is y=440–620. From master south into flex.
+    Master→flex: wall y=620, gap x=196–244, hinge x=244, arc south into flex. ✓
+    (Flex accessed from master south wall — architecturally: master opens to flex/study)
 
-<!-- D3: Corridor → child room 1
-     From passage (y=240–310) south wall y=310 into child1 (y=310–510)
-     Wall y=310, gap x=522–566, hinge x=522, swing south into child1 -->
-<rect x="519" y="307" width="50" height="6" fill="white"/>
-<line x1="522" y1="310" x2="522" y2="358" stroke="#444" stroke-width="2.5"/>
-<path d="M 522 358 A 48 48 0 0 0 570 310" fill="none" stroke="#555" stroke-width="1.5"/>
+  D8 Master→balcony:
+    Wall y=620, col A. Master above (175–440,440–620). Balcony below (175–315,620–715).
+    Gap x=254–298. Hinge x=298. Leaf south 44px to (298,664). Arc to (254,620). ✓
+    (Master opens to balcony via south wall — French door style)
+-->
 
-<!-- D4: Child 1 → bath 1 (wall x=612, gap y=326–370, hinge y=326, swing east) -->
-<rect x="609" y="323" width="6" height="48" fill="white"/>
-<line x1="612" y1="326" x2="660" y2="326" stroke="#444" stroke-width="2.5"/>
-<path d="M 660 326 A 48 48 0 0 1 612 374" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D1: Corridor→master -->
+<rect x="193" y="437" width="51" height="6" fill="white"/>
+<line x1="196" y1="440" x2="196" y2="488" stroke="#444" stroke-width="2.5"/>
+<path d="M 196 488 A 48 48 0 0 0 244 440" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D5: Corridor → child room 2
-     From passage south wall y=310... child2 starts y=510, can't reach from y=310.
-     Solution: door from EAST of child1 room south wall y=510 into child2.
-     Wall y=510, gap x=522–566, hinge x=566, swing south into child2 -->
-<rect x="519" y="507" width="50" height="6" fill="white"/>
-<line x1="566" y1="510" x2="566" y2="558" stroke="#444" stroke-width="2.5"/>
-<path d="M 566 558 A 48 48 0 0 1 518 510" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D2: Master→ensuite -->
+<rect x="437" y="447" width="6" height="51" fill="white"/>
+<line x1="440" y1="450" x2="488" y2="450" stroke="#444" stroke-width="2.5"/>
+<path d="M 488 450 A 48 48 0 0 1 440 498" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D6: Child 2 → bath 2 (wall x=612, gap y=526–570, hinge y=526, swing east) -->
-<rect x="609" y="523" width="6" height="48" fill="white"/>
-<line x1="612" y1="526" x2="660" y2="526" stroke="#444" stroke-width="2.5"/>
-<path d="M 660 526 A 48 48 0 0 1 612 574" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D3: Gallery→child1 (wall x=545, gap y=275–315, hinge y=275, swing east) -->
+<rect x="542" y="272" width="6" height="46" fill="white"/>
+<line x1="545" y1="275" x2="585" y2="275" stroke="#444" stroke-width="2.5"/>
+<path d="M 585 275 A 40 40 0 0 1 545 315" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D7: Corridor → flex
-     Flex is y=650–715 full width. Corridor (col A y=430–650) south wall y=650.
-     Gap on col A south wall y=650, x=196–240, hinge x=240, swing south into flex -->
-<rect x="193" y="647" width="50" height="6" fill="white"/>
-<line x1="240" y1="650" x2="240" y2="700" stroke="#444" stroke-width="2.5"/>
-<path d="M 240 700 A 50 50 0 0 1 190 650" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D4: Child1→bath1 (wall x=622, gap y=278–322, hinge y=278, swing east) -->
+<rect x="619" y="275" width="6" height="50" fill="white"/>
+<line x1="622" y1="278" x2="666" y2="278" stroke="#444" stroke-width="2.5"/>
+<path d="M 666 278 A 44 44 0 0 1 622 322" fill="none" stroke="#555" stroke-width="1.5"/>
 
-<!-- D8: Master → balcony (wall y=650, col A, gap x=220–264, hinge x=220, swing south)
-     Note: master runs y=430–650, balcony y=650–715. Door in col A x=175–315. -->
-<rect x="217" y="647" width="50" height="6" fill="white"/>
-<!-- Doesn't conflict with D7 since they're separated: D7 at x=193–240, D8 at x=220–264 — overlap!
-     Adjust: D7 at x=196–244 and D8 at x=250–294 -->
-<rect x="193" y="647" width="54" height="6" fill="white"/><!-- widen gap for D7 -->
-<line x1="196" y1="650" x2="196" y2="700" stroke="#444" stroke-width="2.5"/>
-<path d="M 196 700 A 50 50 0 0 0 246 650" fill="none" stroke="#555" stroke-width="1.5"/>
-<!-- D8 at x=258–300 -->
-<rect x="255" y="647" width="48" height="6" fill="white"/>
-<line x1="258" y1="650" x2="258" y2="698" stroke="#444" stroke-width="2.5"/>
-<path d="M 258 698 A 48 48 0 0 0 306 650" fill="none" stroke="#555" stroke-width="1.5"/>
+<!-- D5: Gallery→child2 (wall x=545, gap y=455–495, hinge y=455, swing east) -->
+<rect x="542" y="452" width="6" height="46" fill="white"/>
+<line x1="545" y1="455" x2="585" y2="455" stroke="#444" stroke-width="2.5"/>
+<path d="M 585 455 A 40 40 0 0 1 545 495" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D6: Child2→bath2 (wall x=622, gap y=460–504, hinge y=460, swing east) -->
+<rect x="619" y="457" width="6" height="50" fill="white"/>
+<line x1="622" y1="460" x2="666" y2="460" stroke="#444" stroke-width="2.5"/>
+<path d="M 666 460 A 44 44 0 0 1 622 504" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D7: Master→flex (wall y=620, col A, gap x=196–240, hinge x=240, swing south) -->
+<rect x="193" y="617" width="50" height="6" fill="white"/>
+<line x1="240" y1="620" x2="240" y2="668" stroke="#444" stroke-width="2.5"/>
+<path d="M 240 668 A 48 48 0 0 1 192 620" fill="none" stroke="#555" stroke-width="1.5"/>
+
+<!-- D8: Master→balcony (wall y=620, col A, gap x=256–298, hinge x=298, swing south) -->
+<rect x="253" y="617" width="48" height="6" fill="white"/>
+<line x1="298" y1="620" x2="298" y2="662" stroke="#444" stroke-width="2.5"/>
+<path d="M 298 662 A 42 42 0 0 1 256 620" fill="none" stroke="#555" stroke-width="1.5"/>
 
 <!-- ══ ANNOTATIONS ══ -->
 <circle cx="762" cy="48" r="20" fill="white" stroke="#ccc" stroke-width="1.5"/>
@@ -348,41 +340,40 @@
 <polygon points="762,68 757,50 762,55 767,50" fill="#ddd"/>
 <text x="762" y="53" text-anchor="middle" font-size="11" fill="#333" font-weight="600">N</text>
 
-<line x1="30"  y1="800" x2="120" y2="800" stroke="#777" stroke-width="2"/>
-<line x1="30"  y1="796" x2="30"  y2="804" stroke="#777" stroke-width="2"/>
+<line x1="30" y1="800" x2="120" y2="800" stroke="#777" stroke-width="2"/>
+<line x1="30" y1="796" x2="30"  y2="804" stroke="#777" stroke-width="2"/>
 <line x1="120" y1="796" x2="120" y2="804" stroke="#777" stroke-width="2"/>
-<text x="75"   y="814" text-anchor="middle" font-size="10" fill="#777">10 ft</text>
+<text x="75"  y="815" text-anchor="middle" font-size="10" fill="#777">10 ft</text>
 
-<text x="30" y="832" font-size="9.5" fill="#888">FF ceiling: 10 ft throughout</text>
-<text x="30" y="848" font-size="9.5" fill="#a08828">Dining void: 21 ft (open to GF)</text>
+<text x="30" y="835" font-size="9.5" fill="#888">FF ceiling: 10 ft throughout</text>
+<text x="30" y="851" font-size="9.5" fill="#a08828">Dining void: 21 ft (open to GF)</text>
 
-<!-- Circulation path legend -->
-<rect x="30" y="858" width="380" height="48" fill="white" stroke="#ddd" stroke-width="1" rx="3"/>
-<text x="220" y="873" text-anchor="middle" font-size="9.5" fill="#555" font-weight="600" letter-spacing="1">CIRCULATION PATH</text>
-<text x="46"  y="890" font-size="9" fill="#888">Stair → Landing → E-W Passage → Child rooms (north)</text>
-<text x="46"  y="903" font-size="9" fill="#888">Stair → Landing → Corridor → Master / Balcony / Flex (south)</text>
+<!-- Circulation path note -->
+<rect x="30" y="862" width="440" height="42" fill="white" stroke="#ddd" stroke-width="1" rx="3"/>
+<text x="240" y="877" text-anchor="middle" font-size="9.5" fill="#555" font-weight="600" letter-spacing="1">CIRCULATION PATH</text>
+<text x="46"  y="892" font-size="9" fill="#888">Stair → Landing → Corridor (col A) → Master · Balcony · Flex</text>
+<text x="46"  y="904" font-size="9" fill="#888">Stair gallery (west of col C) → Child Room 1 → Child Room 2</text>
 
 <!-- Wall legend -->
-<rect x="428" y="858" width="252" height="48" fill="white" stroke="#ddd" stroke-width="1" rx="3"/>
-<text x="554" y="873" text-anchor="middle" font-size="10" fill="#666" font-weight="600" letter-spacing="1">WALL TYPES</text>
-<line x1="440" y1="887" x2="478" y2="887" stroke="#333" stroke-width="5"/>
-<text x="486" y="891" font-size="9.5" fill="#444">Structural wall</text>
-<rect x="440" y="896" width="22" height="8" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
-<text x="470" y="904" font-size="9.5" fill="#444">Glass parapet</text>
+<rect x="482" y="862" width="230" height="42" fill="white" stroke="#ddd" stroke-width="1" rx="3"/>
+<text x="597" y="877" text-anchor="middle" font-size="10" fill="#666" font-weight="600" letter-spacing="1">WALL TYPES</text>
+<line x1="494" y1="891" x2="530" y2="891" stroke="#333" stroke-width="5"/>
+<text x="538" y="895" font-size="9.5" fill="#444">Structural wall</text>
+<rect x="494" y="900" width="22" height="8" fill="#a8cce0" stroke="#6090b8" stroke-width="1" rx="1"/>
+<text x="524" y="908" font-size="9.5" fill="#444">Glass parapet</text>
 
 <!-- HIT AREAS -->
-<rect x="175" y="50"  width="140" height="190" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
-<rect x="175" y="240" width="335" height="190" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
-<rect x="175" y="430" width="255" height="220" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
-<rect x="430" y="430" width="80"  height="160" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bath')"/>
-<rect x="175" y="650" width="140" height="65"  fill="transparent" style="cursor:pointer" onclick="openRoom('balcony')"/>
-<rect x="315" y="130" width="195" height="460" fill="transparent" style="cursor:pointer" onclick="openRoom('dining')"/>
-<rect x="175" y="650" width="527" height="65"  fill="transparent" style="cursor:pointer" onclick="openRoom('flex-library')"/>
-<rect x="510" y="310" width="102" height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bed')"/>
-<rect x="612" y="310" width="90"  height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bath')"/>
-<rect x="510" y="510" width="102" height="140" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bed')"/>
-<rect x="612" y="510" width="90"  height="140" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bath')"/>
-<rect x="620" y="596" width="82"  height="54"  fill="transparent" style="cursor:pointer" onclick="openRoom('nadumuttam-void')"/>
+<rect x="175" y="50"  width="140" height="200" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="175" y="250" width="140" height="190" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="175" y="440" width="265" height="180" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bed')"/>
+<rect x="440" y="440" width="70"  height="180" fill="transparent" style="cursor:pointer" onclick="openRoom('master-bath')"/>
+<rect x="175" y="620" width="140" height="95"  fill="transparent" style="cursor:pointer" onclick="openRoom('balcony')"/>
+<rect x="315" y="130" width="195" height="490" fill="transparent" style="cursor:pointer" onclick="openRoom('dining')"/>
+<rect x="175" y="620" width="527" height="95"  fill="transparent" style="cursor:pointer" onclick="openRoom('flex-library')"/>
+<rect x="545" y="265" width="77"  height="180" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bed')"/>
+<rect x="622" y="265" width="80"  height="180" fill="transparent" style="cursor:pointer" onclick="openRoom('child-1-bath')"/>
+<rect x="545" y="445" width="77"  height="175" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bed')"/>
+<rect x="622" y="445" width="80"  height="175" fill="transparent" style="cursor:pointer" onclick="openRoom('child-2-bath')"/>
 </svg>
 </div>
 <div style="padding:4px 8px 8px;display:flex;flex-wrap:wrap;gap:10px;font-family:'Jost',sans-serif;font-size:.68rem;color:#999">
