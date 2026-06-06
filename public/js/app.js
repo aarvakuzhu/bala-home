@@ -109,3 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load first tab (requirements)
   loadTab('req', document.querySelector('.tab.active'));
 });
+
+/* ── View toggle inside room sheet (Perspective ↔ Plan) ── */
+document.addEventListener('click', function(e) {
+  const tab = e.target.closest('[data-view-tab]');
+  if (!tab) return;
+  const sheet = tab.closest('.view-tabs-wrap');
+  if (!sheet) return;
+  const view = tab.dataset.viewTab;
+  sheet.querySelectorAll('[data-view-tab]').forEach(t => {
+    t.style.color = t.dataset.viewTab === view ? '#c8920a' : '#888';
+    t.style.background = t.dataset.viewTab === view ? '#1e1208' : '#1a1208';
+  });
+  sheet.querySelectorAll('[data-view-panel]').forEach(p => {
+    p.style.display = p.dataset.viewPanel === view ? 'block' : 'none';
+  });
+});
