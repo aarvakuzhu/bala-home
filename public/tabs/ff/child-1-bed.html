@@ -1,15 +1,16 @@
-<style>
-.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
-.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
-.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
-</style>
-<div class="view-tabs-wrap">
-  <div class="vt">
-    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
-    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+<div class="view-tabs-wrap" id="vtw-ff-child1bed">
+  <div style="display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none">
+    <button onclick="vtSwitch('ff-child1bed','persp',this)"
+      style="flex:1;padding:8px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1e1208;color:#c8920a;border:none;font-family:'Jost',sans-serif">
+      Perspective
+    </button>
+    <button onclick="vtSwitch('ff-child1bed','plan',this)"
+      style="flex:1;padding:8px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;color:#666;border:none;border-left:1px solid #2a1a08;font-family:'Jost',sans-serif">
+      Plan View
+    </button>
   </div>
-  <div class="vt-frame">
-    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+  <div style="border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden">
+    <div id="vtw-ff-child1bed-persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#f5f0e8" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#e6e1da" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#e6e1da" stroke-width=".4"/>
@@ -72,7 +73,7 @@
 <text x="38" y="252" text-anchor="middle" font-size="9" fill="#c46840">Mini wardrobe</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~142 sq ft · Child Room 1 · FF</text>
 </svg></div>
-    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="176" height="266" viewBox="0 0 176 266" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+    <div id="vtw-ff-child1bed-plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="176" height="266" viewBox="0 0 176 266" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect width="176" height="266" fill="#100e08"/>
 <defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
 <rect x="48" y="48" width="80" height="170" fill="url(#pg)"/>
@@ -108,6 +109,20 @@
 </svg></div>
   </div>
 </div>
+<script>
+function vtSwitch(uid, view, btn) {{
+  var wrap = document.getElementById('vtw-' + uid);
+  // show/hide panels
+  document.getElementById('vtw-' + uid + '-persp').style.display = view === 'persp' ? 'block' : 'none';
+  document.getElementById('vtw-' + uid + '-plan' ).style.display = view === 'plan'  ? 'block' : 'none';
+  // update button styles
+  var btns = wrap.querySelectorAll('button');
+  btns[0].style.color = view === 'persp' ? '#c8920a' : '#666';
+  btns[0].style.background = view === 'persp' ? '#1e1208' : '#1a1208';
+  btns[1].style.color = view === 'plan' ? '#c8920a' : '#666';
+  btns[1].style.background = view === 'plan' ? '#1e1208' : '#1a1208';
+}}
+</script>
 <div class="rs-block">
   <h3>Overview</h3>
   <p class="room-overview">The first child bedroom faces east — morning light, good for waking up. Single bed (convertible to bunk when needed). A full-width study desk with overhead shelving is built into the north wall. A 2-door wardrobe with a full-length mirror. The room is designed to grow — adaptable from nursery to study room to teenager's retreat.</p>
