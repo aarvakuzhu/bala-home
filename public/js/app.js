@@ -125,3 +125,21 @@ document.addEventListener('click', function(e) {
     p.style.display = p.dataset.viewPanel === view ? 'block' : 'none';
   });
 });
+
+/* ── Room view toggle (Perspective ↔ Plan) ── */
+/* Called via onclick in room HTML — must be global */
+function vtSwitch(uid, view) {
+  var pEl = document.getElementById('vtw-' + uid + '-persp');
+  var plEl = document.getElementById('vtw-' + uid + '-plan');
+  var wrap = document.getElementById('vtw-' + uid);
+  if (!pEl || !plEl || !wrap) return;
+
+  pEl.style.display  = view === 'persp' ? 'block' : 'none';
+  plEl.style.display = view === 'plan'  ? 'block' : 'none';
+
+  var btns = wrap.querySelectorAll('button');
+  btns[0].style.color      = view === 'persp' ? '#c8920a' : '#555';
+  btns[0].style.background = view === 'persp' ? '#1e1208' : '#141008';
+  btns[1].style.color      = view === 'plan'  ? '#c8920a' : '#555';
+  btns[1].style.background = view === 'plan'  ? '#1e1208' : '#141008';
+}
