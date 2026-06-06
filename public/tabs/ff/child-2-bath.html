@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#f0f4f5" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#e1e5e6" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#e1e5e6" stroke-width=".4"/>
@@ -145,7 +155,38 @@
 <rect x="-16" y="240" width="109" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="38" y="252" text-anchor="middle" font-size="9" fill="#c8900a">Exposed pipe basin</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~38 sq ft · Private · Child 2 · FF</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="181" height="156" viewBox="0 0 181 156" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="181" height="156" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="85" height="60" fill="url(#pg)"/>
+<rect x="48" y="48" width="85" height="60" fill="#7a8880" opacity=".18"/>
+<rect x="4" y="4" width="24" height="18" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="16" cy="13" r="3" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<text x="16" y="30" text-anchor="middle" font-size="7" fill="#888">basin</text>
+<ellipse cx="68" cy="46" rx="14" ry="10" fill="#f2f2ef" stroke="#bbb" stroke-width="1.5"/>
+<text x="68" y="54" text-anchor="middle" font-size="7" fill="#888">wc</text>
+<rect x="4" y="36" width="28" height="22" fill="none" stroke="#bbb" stroke-width="1.5" rx="0"/>
+<circle cx="18" cy="47" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<text x="18" y="56" text-anchor="middle" font-size="7" fill="#888">shower</text>
+<path d="M 48 58 A 22 22 0 0 0 48 80" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="85" height="60" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="45" y="58" width="8" height="22" fill="#100e08"/>
+<line x1="48" y1="122" x2="133" y2="122" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="118" x2="48" y2="126" stroke="#c8920a" stroke-width="1"/>
+<line x1="133" y1="118" x2="133" y2="126" stroke="#c8920a" stroke-width="1"/>
+<text x="90" y="134" text-anchor="middle" font-size="10" fill="#c8920a">~8.5 ft</text>
+<line x1="147" y1="48" x2="147" y2="108" stroke="#c8920a" stroke-width="1"/>
+<line x1="143" y1="48" x2="151" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="143" y1="108" x2="151" y2="108" stroke="#c8920a" stroke-width="1"/>
+<text x="161" y="82" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,161,82)">~6 ft</text>
+<text x="90" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — CHILD 2 BATH</text>
+<text x="90" y="150" text-anchor="middle" font-size="8.5" fill="#5a4828">~38 sq ft · Bath 2 · FF</text>
+<circle cx="159" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="159,12 155,26 159,23 163,26" fill="#e8c060"/>
+<text x="159" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
