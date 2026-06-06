@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#c0b890" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#b4ac87" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#b4ac87" stroke-width=".4"/>
@@ -79,7 +89,46 @@
 <rect x="376" y="192" width="87" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="420" y="204" text-anchor="middle" font-size="9" fill="#c8920a">Open face east</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~520 sq ft · Open canopy · 2 cars + 2 bikes</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="246" height="300" viewBox="0 0 246 300" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="246" height="300" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="150" height="204" fill="url(#pg)"/>
+<rect x="48" y="48" width="150" height="204" fill="#a0a098" opacity=".18"/>
+<rect x="8" y="8" width="62" height="130" fill="#d8d0b0" stroke="#9a9068" stroke-width="1.5" rx="2"/>
+<text x="39" y="76" text-anchor="middle" font-size="8" fill="#888">CAR 1</text>
+<rect x="80" y="8" width="62" height="130" fill="#d0c8a8" stroke="#9a9068" stroke-width="1.5" rx="2"/>
+<text x="111" y="76" text-anchor="middle" font-size="8" fill="#888">CAR 2</text>
+<rect x="8" y="148" width="52" height="44" fill="#ccc8a8" stroke="#9a9068" stroke-width="1" rx="2"/>
+<text x="34" y="172" text-anchor="middle" font-size="7" fill="#888">BIKE 1</text>
+<rect x="70" y="148" width="52" height="44" fill="#ccc8a8" stroke="#9a9068" stroke-width="1" rx="2"/>
+<text x="96" y="172" text-anchor="middle" font-size="7" fill="#888">BIKE 2</text>
+<rect x="0" y="198" width="150" height="6" fill="#ccc" stroke="#aaa" stroke-width="1" rx="0"/>
+<text x="75" y="194" text-anchor="middle" font-size="7" fill="#888">roller shutter</text>
+<line x1="150" y1="0" x2="150" y2="198" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="134" y="100" text-anchor="middle" font-size="7" fill="#aaa">open</text>
+<circle cx="6" cy="6" r="4" fill="#888" stroke="#666" stroke-width="1"/>
+<circle cx="144" cy="6" r="4" fill="#888" stroke="#666" stroke-width="1"/>
+<circle cx="6" cy="194" r="4" fill="#888" stroke="#666" stroke-width="1"/>
+<circle cx="144" cy="194" r="4" fill="#888" stroke="#666" stroke-width="1"/>
+<path d="M 96 252 A 40 40 0 0 1 136 252" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="150" height="204" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="96" y="249" width="40" height="8" fill="#100e08"/>
+<line x1="48" y1="266" x2="198" y2="266" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="262" x2="48" y2="270" stroke="#c8920a" stroke-width="1"/>
+<line x1="198" y1="262" x2="198" y2="270" stroke="#c8920a" stroke-width="1"/>
+<text x="123" y="278" text-anchor="middle" font-size="10" fill="#c8920a">~15 ft</text>
+<line x1="212" y1="48" x2="212" y2="252" stroke="#c8920a" stroke-width="1"/>
+<line x1="208" y1="48" x2="216" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="208" y1="252" x2="216" y2="252" stroke="#c8920a" stroke-width="1"/>
+<text x="226" y="154" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,226,154)">~35 ft</text>
+<text x="123" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — GARAGE</text>
+<text x="123" y="294" text-anchor="middle" font-size="8.5" fill="#5a4828">~520 sq ft · Open canopy · GF</text>
+<circle cx="224" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="224,12 220,26 224,23 228,26" fill="#e8c060"/>
+<text x="224" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
