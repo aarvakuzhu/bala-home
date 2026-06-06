@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#4a1a4a" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#451845" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#451845" stroke-width=".4"/>
@@ -60,7 +70,43 @@
 <rect x="-19" y="42" width="114" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="38" y="54" text-anchor="middle" font-size="9" fill="#c8900a">Brass cove lighting</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~218 sq ft · Master · FF</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="348" height="267" viewBox="0 0 348 267" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="348" height="267" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="252" height="171" fill="url(#pg)"/>
+<rect x="48" y="48" width="252" height="171" fill="#7a4a28" opacity=".18"/>
+<rect x="8" y="40" width="148" height="110" fill="#5a2a5a" stroke="#3a1a3a" stroke-width="1.5" rx="4"/>
+<rect x="8" y="40" width="148" height="20" fill="#4a1a4a" stroke="#3a1a3a" stroke-width="1" rx="2"/>
+<ellipse cx="52" cy="54" rx="20" ry="8" fill="#d0a0d0" stroke="#a060a0" stroke-width="1"/>
+<ellipse cx="104" cy="54" rx="20" ry="8" fill="#d0a0d0" stroke="#a060a0" stroke-width="1"/>
+<text x="80" y="100" text-anchor="middle" font-size="8" fill="#c0a0c0">MASTER BED</text>
+<rect x="186" y="4" width="62" height="163" fill="#6b3a1f" stroke="#5a3018" stroke-width="1.5" rx="1"/>
+<text x="217" y="90" text-anchor="middle" font-size="7" fill="#c8a870">wardrobe</text>
+<line x1="186" y1="90" x2="186" y2="120" stroke="#c8920a" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="178" y="108" text-anchor="end" font-size="7" fill="#c8920a">ensuite →</text>
+<rect x="166" y="4" width="20" height="163" fill="#3a2010" stroke="#2a1808" stroke-width="1" rx="0"/>
+<text x="176" y="90" text-anchor="middle" font-size="6" fill="#6a5030">dressing</text>
+<rect x="2" y="2" width="248" height="167" fill="none" stroke="#c8900a" stroke-width="0.8" rx="2"/>
+<text x="100" y="10" text-anchor="middle" font-size="7" fill="#c8900a">cove light</text>
+<path d="M 88 48 A 30 30 0 0 1 58 48" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="252" height="171" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="58" y="45" width="30" height="8" fill="#100e08"/>
+<line x1="48" y1="233" x2="300" y2="233" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="229" x2="48" y2="237" stroke="#c8920a" stroke-width="1"/>
+<line x1="300" y1="229" x2="300" y2="237" stroke="#c8920a" stroke-width="1"/>
+<text x="174" y="245" text-anchor="middle" font-size="10" fill="#c8920a">~28 ft</text>
+<line x1="314" y1="48" x2="314" y2="219" stroke="#c8920a" stroke-width="1"/>
+<line x1="310" y1="48" x2="318" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="310" y1="219" x2="318" y2="219" stroke="#c8920a" stroke-width="1"/>
+<text x="328" y="137" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,328,137)">~19 ft</text>
+<text x="174" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — MASTER BED</text>
+<text x="174" y="261" text-anchor="middle" font-size="8.5" fill="#5a4828">~218 sq ft · Master · FF</text>
+<circle cx="326" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="326,12 322,26 326,23 330,26" fill="#e8c060"/>
+<text x="326" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
