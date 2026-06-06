@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#f0ede8" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#e1deda" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#e1deda" stroke-width=".4"/>
@@ -61,7 +71,38 @@
 <rect x="338" y="42" width="104" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="390" y="54" text-anchor="middle" font-size="9" fill="#8b5e3c">Back door to yard</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~32 sq ft · Back of house · covered · GF</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="296" height="136" viewBox="0 0 296 136" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="296" height="136" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="200" height="40" fill="url(#pg)"/>
+<rect x="48" y="48" width="200" height="40" fill="#707868" opacity=".18"/>
+<rect x="8" y="4" width="40" height="32" fill="#e0e0e0" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<circle cx="28" cy="20" r="12" fill="#c8d8e0" stroke="#8898a8" stroke-width="1.5"/>
+<circle cx="28" cy="20" r="6" fill="none" stroke="#8898a8" stroke-width="1"/>
+<text x="28" y="36" text-anchor="middle" font-size="7" fill="#666">WM</text>
+<rect x="60" y="8" width="36" height="22" fill="#d8d4cc" stroke="#aaa" stroke-width="1.5" rx="2"/>
+<text x="78" y="22" text-anchor="middle" font-size="7" fill="#888">sink</text>
+<rect x="188" y="4" width="12" height="32" fill="#8b5e3c" stroke="#5a3018" stroke-width="1.5" rx="1"/>
+<text x="170" y="22" text-anchor="end" font-size="7" fill="#8b5e3c">back door</text>
+<path d="M 248 80 A 24 24 0 0 1 248 56" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="200" height="40" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="245" y="56" width="8" height="24" fill="#100e08"/>
+<line x1="48" y1="102" x2="248" y2="102" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="98" x2="48" y2="106" stroke="#c8920a" stroke-width="1"/>
+<line x1="248" y1="98" x2="248" y2="106" stroke="#c8920a" stroke-width="1"/>
+<text x="148" y="114" text-anchor="middle" font-size="10" fill="#c8920a">~20 ft</text>
+<line x1="262" y1="48" x2="262" y2="88" stroke="#c8920a" stroke-width="1"/>
+<line x1="258" y1="48" x2="266" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="258" y1="88" x2="266" y2="88" stroke="#c8920a" stroke-width="1"/>
+<text x="276" y="72" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,276,72)">~4 ft</text>
+<text x="148" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — LAUNDRY</text>
+<text x="148" y="130" text-anchor="middle" font-size="8.5" fill="#5a4828">~32 sq ft · Laundry · GF</text>
+<circle cx="274" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="274,12 270,26 274,23 278,26" fill="#e8c060"/>
+<text x="274" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
