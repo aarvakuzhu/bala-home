@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#3a2810" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#36250f" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#36250f" stroke-width=".4"/>
@@ -104,7 +114,36 @@
 <rect x="59" y="240" width="82" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="100" y="252" text-anchor="middle" font-size="9" fill="#c8a040">LPG + vessels</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~48 sq ft · Pantry · GF</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="216" height="146" viewBox="0 0 216 146" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="216" height="146" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="120" height="50" fill="url(#pg)"/>
+<rect x="48" y="48" width="120" height="50" fill="#707868" opacity=".18"/>
+<rect x="0" y="0" width="120" height="8" fill="#8b5e3c" stroke="#5a3018" stroke-width="1" rx="0"/>
+<rect x="0" y="0" width="6" height="50" fill="#8b5e3c" stroke="#5a3018" stroke-width="1" rx="0"/>
+<rect x="114" y="0" width="6" height="50" fill="#8b5e3c" stroke="#5a3018" stroke-width="1" rx="0"/>
+<text x="60" y="22" text-anchor="middle" font-size="7" fill="#8b5e3c">shelving 3 walls</text>
+<rect x="12" y="34" width="96" height="12" fill="#d8c8a0" stroke="#b0a080" stroke-width="1" rx="1"/>
+<text x="60" y="42" text-anchor="middle" font-size="7" fill="#9a8060">LPG + vessels</text>
+<path d="M 48 58 A 22 22 0 0 0 48 80" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="120" height="50" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="45" y="58" width="8" height="22" fill="#100e08"/>
+<line x1="48" y1="112" x2="168" y2="112" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="108" x2="48" y2="116" stroke="#c8920a" stroke-width="1"/>
+<line x1="168" y1="108" x2="168" y2="116" stroke="#c8920a" stroke-width="1"/>
+<text x="108" y="124" text-anchor="middle" font-size="10" fill="#c8920a">~12 ft</text>
+<line x1="182" y1="48" x2="182" y2="98" stroke="#c8920a" stroke-width="1"/>
+<line x1="178" y1="48" x2="186" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="178" y1="98" x2="186" y2="98" stroke="#c8920a" stroke-width="1"/>
+<text x="196" y="77" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,196,77)">~5 ft</text>
+<text x="108" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — KITCHEN STORE</text>
+<text x="108" y="140" text-anchor="middle" font-size="8.5" fill="#5a4828">~48 sq ft · Pantry · GF</text>
+<circle cx="194" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="194,12 190,26 194,23 198,26" fill="#e8c060"/>
+<text x="194" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
