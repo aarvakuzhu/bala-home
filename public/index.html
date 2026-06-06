@@ -383,9 +383,11 @@ body{background:#1a1208;font-family:'Jost',sans-serif;color:#f2e8d0;
 <div id="sheet-backdrop" onclick="closeSheet()"></div>
 <div id="room-sheet">
   <div class="sheet-handle" onclick="closeSheet()"></div>
-  <div class="sheet-header">
-    <h2 id="sheet-title">Room</h2>
-    <span class="sheet-area" id="sheet-area"></span>
+  <div class="sheet-header" id="sheet-header" style="border-left:4px solid #c8920a">
+    <div class="sheet-title-block">
+      <h2 id="sheet-title">Room</h2>
+    </div>
+    <span class="sheet-area-badge" id="sheet-area-badge"></span>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-body" id="sheet-body"></div>
@@ -598,40 +600,38 @@ function renderSection() {
 /* ══════════════════════════════════════════
    ROOM SHEET
    ══════════════════════════════════════════ */
+const _roomCache = {};
+
 function openRoom(id) {
   const r = ROOMS[id];
   if (!r) return;
 
+  // Set header immediately
   document.getElementById('sheet-title').textContent = r.emoji + ' ' + r.label;
-  document.getElementById('sheet-area').textContent  = r.area + ' · ' + (r.floor === 'gf' ? 'GF' : 'FF');
+  document.getElementById('sheet-area-badge').textContent = r.area + ' · ' + (r.floor === 'gf' ? 'Ground Floor' : 'First Floor');
   document.getElementById('sheet-header').style.borderLeftColor = r.color;
+  document.getElementById('sheet-body').innerHTML = '<div style="padding:32px 16px;text-align:center;color:#5a4020;font-size:.8rem">Loading…</div>';
 
-  const specsHtml = r.specs.map(([k,v]) =>
-    `<div class="spec-row"><span>${k}</span><span>${v}</span></div>`
-  ).join('');
-
-  document.getElementById('sheet-body').innerHTML = `
-    <div class="sheet-section">
-      <h3>Overview</h3>
-      <p class="sheet-overview">${r.overview}</p>
-    </div>
-    <div class="sheet-section">
-      <h3>Specifications</h3>
-      ${specsHtml}
-    </div>
-    <div class="sheet-section">
-      <h3>Interior Design</h3>
-      <div class="interior-placeholder">
-        <div class="ip-icon">🎨</div>
-        <h4>Not designed yet</h4>
-        <p>When ready, this section will show wall colours, flooring, ceiling detail, furniture layout, materials palette, and mood board.</p>
-      </div>
-    </div>
-  `;
-
+  // Open sheet
   document.getElementById('room-sheet').classList.add('open');
   document.getElementById('sheet-backdrop').classList.add('show');
   document.body.style.overflow = 'hidden';
+
+  // Fetch room content
+  if (_roomCache[id]) {
+    document.getElementById('sheet-body').innerHTML = _roomCache[id];
+    return;
+  }
+  fetch(`/tabs/${r.floor}/${id}.html`)
+    .then(res => { if (!res.ok) throw new Error(); return res.text(); })
+    .then(html => {
+      _roomCache[id] = html;
+      document.getElementById('sheet-body').innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById('sheet-body').innerHTML =
+        `<div class="rs-block"><p style="color:#6a5030;font-size:.82rem;line-height:1.7">${r.overview}</p></div><div class="sheet-end"></div>`;
+    });
 }
 
 function closeSheet() {
