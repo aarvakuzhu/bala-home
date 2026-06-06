@@ -1,5 +1,15 @@
-<div style="margin:12px 0 0;border-radius:10px;overflow:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<style>
+.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
+.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
+.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
+</style>
+<div class="view-tabs-wrap">
+  <div class="vt">
+    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
+    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+  </div>
+  <div class="vt-frame">
+    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#a8d8f0" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#9dcbe1" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#9dcbe1" stroke-width=".4"/>
@@ -77,7 +87,53 @@
 <rect x="51" y="42" width="98" height="16" fill="#181208" rx="3" opacity=".9"/>
 <text x="100" y="54" text-anchor="middle" font-size="9" fill="#6898b8">11 ft drop below</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~55 sq ft · Nadumuttam void · FF</text>
-</svg>
+</svg></div>
+    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="176" height="166" viewBox="0 0 176 166" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+<rect width="176" height="166" fill="#100e08"/>
+<defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
+<rect x="48" y="48" width="80" height="70" fill="url(#pg)"/>
+<rect x="48" y="48" width="80" height="70" fill="#1a2030" opacity=".18"/>
+<line x1="10" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="22" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="34" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="46" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="58" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="70" y1="0" x2="0" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="82" y1="0" x2="12" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="94" y1="0" x2="24" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="106" y1="0" x2="36" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="118" y1="0" x2="48" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="130" y1="0" x2="60" y2="70" stroke="#1a2840" stroke-width="1"/>
+<line x1="142" y1="0" x2="72" y2="70" stroke="#1a2840" stroke-width="1"/>
+<rect x="0" y="0" width="80" height="70" fill="none" stroke="#c8900a" stroke-width="1.5" rx="0"/>
+<text x="40" y="20" text-anchor="middle" font-size="8" fill="#4a6898">OPEN VOID</text>
+<text x="40" y="34" text-anchor="middle" font-size="7" fill="#3a4868">no floor slab</text>
+<text x="40" y="48" text-anchor="middle" font-size="7" fill="#3a4868">looking down to GF</text>
+<line x1="8" y1="0" x2="8" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="18" y1="0" x2="18" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="28" y1="0" x2="28" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="38" y1="0" x2="38" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="48" y1="0" x2="48" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="58" y1="0" x2="58" y2="70" stroke="#c8900a" stroke-width="1"/>
+<line x1="68" y1="0" x2="68" y2="70" stroke="#c8900a" stroke-width="1"/>
+<path d="M 48 68 A 20 20 0 0 0 48 88" fill="none" stroke="#c8920a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="48" y="48" width="80" height="70" fill="none" stroke="#e8e4d8" stroke-width="5"/>
+<rect x="45" y="68" width="8" height="20" fill="#100e08"/>
+<line x1="48" y1="132" x2="128" y2="132" stroke="#c8920a" stroke-width="1"/>
+<line x1="48" y1="128" x2="48" y2="136" stroke="#c8920a" stroke-width="1"/>
+<line x1="128" y1="128" x2="128" y2="136" stroke="#c8920a" stroke-width="1"/>
+<text x="88" y="144" text-anchor="middle" font-size="10" fill="#c8920a">~8 ft</text>
+<line x1="142" y1="48" x2="142" y2="118" stroke="#c8920a" stroke-width="1"/>
+<line x1="138" y1="48" x2="146" y2="48" stroke="#c8920a" stroke-width="1"/>
+<line x1="138" y1="118" x2="146" y2="118" stroke="#c8920a" stroke-width="1"/>
+<text x="156" y="87" text-anchor="middle" font-size="10" fill="#c8920a" transform="rotate(90,156,87)">~7 ft</text>
+<text x="88" y="40" text-anchor="middle" font-size="9.5" fill="#6a5838" letter-spacing="1">PLAN VIEW — NADUMUTTAM VOID</text>
+<text x="88" y="160" text-anchor="middle" font-size="8.5" fill="#5a4828">~55 sq ft · Void · FF</text>
+<circle cx="154" cy="22" r="12" fill="none" stroke="#3a2810" stroke-width="1"/>
+<polygon points="154,12 150,26 154,23 158,26" fill="#e8c060"/>
+<text x="154" y="25" text-anchor="middle" font-size="8" fill="#e8c060" font-weight="600">N</text>
+</svg></div>
+  </div>
 </div>
 <div class="rs-block">
   <h3>Overview</h3>
