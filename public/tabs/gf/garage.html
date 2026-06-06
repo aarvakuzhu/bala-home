@@ -1,15 +1,16 @@
-<style>
-.view-tabs-wrap .vt{display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none}
-.view-tabs-wrap .vt-btn{flex:1;padding:7px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;border:none;transition:all .15s}
-.view-tabs-wrap .vt-frame{border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden}
-</style>
-<div class="view-tabs-wrap">
-  <div class="vt">
-    <button class="vt-btn" data-view-tab="persp" data-view-panel="persp" style="color:#c8920a;background:#1e1208">Perspective</button>
-    <button class="vt-btn" data-view-tab="plan"  data-view-panel="plan"  style="color:#888;background:#1a1208;border-left:1px solid #2a1a08">Plan View</button>
+<div class="view-tabs-wrap" id="vtw-gf-garage">
+  <div style="display:flex;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid #2a1a08;border-bottom:none">
+    <button onclick="vtSwitch('gf-garage','persp',this)"
+      style="flex:1;padding:8px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1e1208;color:#c8920a;border:none;font-family:'Jost',sans-serif">
+      Perspective
+    </button>
+    <button onclick="vtSwitch('gf-garage','plan',this)"
+      style="flex:1;padding:8px 0;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:#1a1208;color:#666;border:none;border-left:1px solid #2a1a08;font-family:'Jost',sans-serif">
+      Plan View
+    </button>
   </div>
-  <div class="vt-frame">
-    <div data-view-panel="persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+  <div style="border:1px solid #2a1a08;border-radius:0 0 10px 10px;overflow:hidden">
+    <div id="vtw-gf-garage-persp" style="display:block"><svg xmlns="http://www.w3.org/2000/svg" width="440" height="260" viewBox="0 0 440 260" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect x="80" y="30" width="280" height="130" fill="#c0b890" stroke="#444" stroke-width="1.5"/>
 <line x1="80" y1="55" x2="360" y2="55" stroke="#b4ac87" stroke-width=".4"/>
 <line x1="80" y1="80" x2="360" y2="80" stroke="#b4ac87" stroke-width=".4"/>
@@ -90,7 +91,7 @@
 <text x="420" y="204" text-anchor="middle" font-size="9" fill="#c8920a">Open face east</text>
 <text x="220" y="256" text-anchor="middle" font-size="8.5" fill="#5a4828">~520 sq ft · Open canopy · 2 cars + 2 bikes</text>
 </svg></div>
-    <div data-view-panel="plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="246" height="300" viewBox="0 0 246 300" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
+    <div id="vtw-gf-garage-plan"  style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="246" height="300" viewBox="0 0 246 300" style="font-family:'Jost',sans-serif;background:#100e08;border-radius:10px;display:block">
 <rect width="246" height="300" fill="#100e08"/>
 <defs><pattern id="pg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e1a12" stroke-width=".6"/></pattern></defs>
 <rect x="48" y="48" width="150" height="204" fill="url(#pg)"/>
@@ -130,6 +131,20 @@
 </svg></div>
   </div>
 </div>
+<script>
+function vtSwitch(uid, view, btn) {{
+  var wrap = document.getElementById('vtw-' + uid);
+  // show/hide panels
+  document.getElementById('vtw-' + uid + '-persp').style.display = view === 'persp' ? 'block' : 'none';
+  document.getElementById('vtw-' + uid + '-plan' ).style.display = view === 'plan'  ? 'block' : 'none';
+  // update button styles
+  var btns = wrap.querySelectorAll('button');
+  btns[0].style.color = view === 'persp' ? '#c8920a' : '#666';
+  btns[0].style.background = view === 'persp' ? '#1e1208' : '#1a1208';
+  btns[1].style.color = view === 'plan' ? '#c8920a' : '#666';
+  btns[1].style.background = view === 'plan' ? '#1e1208' : '#1a1208';
+}}
+</script>
 <div class="rs-block">
   <h3>Overview</h3>
   <p class="room-overview">Open canopy structure on the west side of the compound — not enclosed with solid walls. A flat RCC or sloped metal-sheet canopy is supported on four RCC columns. The east face is completely open to the driveway. The south face has a roller shutter at the compound wall boundary. Two cars park side by side. Two dedicated bike bays in the north portion. A pedestrian door connects directly to the foyer.</p>
