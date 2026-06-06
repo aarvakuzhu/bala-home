@@ -122,20 +122,7 @@
 </svg></div>
   </div>
 </div>
-<script>
-function vtSwitch(uid, view, btn) {{
-  var wrap = document.getElementById('vtw-' + uid);
-  // show/hide panels
-  document.getElementById('vtw-' + uid + '-persp').style.display = view === 'persp' ? 'block' : 'none';
-  document.getElementById('vtw-' + uid + '-plan' ).style.display = view === 'plan'  ? 'block' : 'none';
-  // update button styles
-  var btns = wrap.querySelectorAll('button');
-  btns[0].style.color = view === 'persp' ? '#c8920a' : '#666';
-  btns[0].style.background = view === 'persp' ? '#1e1208' : '#1a1208';
-  btns[1].style.color = view === 'plan' ? '#c8920a' : '#666';
-  btns[1].style.background = view === 'plan' ? '#1e1208' : '#1a1208';
-}}
-</script>
+
 <div class="rs-block">
   <h3>Overview</h3>
   <p class="room-overview">L-shaped kitchen with the cook facing the dining room. A counter-height half-wall separates the two spaces — solid masonry below counter level, open above. The fridge sits near the half-wall partition, accessible from the dining side for drinks. Hob on the north counter, sink east. A chimney hood above the hob vents to the exterior.</p>
