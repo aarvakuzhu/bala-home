@@ -300,18 +300,16 @@ body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 a
 -->
 
 <!-- ── ROOM FILLS ── -->
-<!-- Pooja room (NW, 10..80, 10..80) -->
-<rect x="10"  y="10"  width="70"  height="80"  fill="url(#pj)"/>
-<!-- Master Bedroom (10..160, 80..178) — below pooja -->
-<rect x="10"  y="90"  width="150" height="88"  fill="url(#mb)"/>
-<!-- Master seating (10..160, 10..90 minus pooja) — pooja takes NW, rest is wardrobe/dressing -->
-<rect x="80"  y="10"  width="80"  height="80"  fill="url(#mb)"/>
+<!-- Pooja room (walkway-side, x=208..304, y=10..80) — opens off covered walkway -->
+<rect x="208" y="10"  width="96"  height="62"  fill="url(#pj)"/>
+<!-- Master Bedroom (10..160, 10..178) — full NW zone, no Pooja intrusion -->
+<rect x="10"  y="10"  width="150" height="168" fill="url(#mb)"/>
 
 <!-- Covered walkway (160..208, 10..450) — stone colonnade -->
 <rect x="160" y="10"  width="48"  height="440" fill="url(#col)"/>
 
 <!-- Bath1 (208..304, 10..122) -->
-<rect x="208" y="10"  width="96"  height="112" fill="url(#tl)"/>
+<rect x="208" y="72"  width="96"  height="106" fill="url(#tl)"/><!-- bath1 full -->
 <!-- Hallway (208..304, 122..178) -->
 <rect x="208" y="122" width="96"  height="56"  fill="#f2efe6"/>
 <!-- Bedroom1 (304..490, 10..168) — but office takes NE corner -->
@@ -349,41 +347,40 @@ body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 a
 <!-- Walkway label -->
 <text x="184" y="200" text-anchor="middle" font-size="8" fill="#8a6840" transform="rotate(-90,184,200)">COVERED WALKWAY</text>
 
-<!-- ── POOJA ROOM ── -->
-<!-- Altar (north wall) -->
-<rect x="14"  y="14"  width="62"  height="18" fill="#6b3a1f" stroke="#5a3018" stroke-width="1.2" rx="1"/>
-<circle cx="26" cy="23" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
-<circle cx="45" cy="23" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
-<circle cx="64" cy="23" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
+<!-- ── POOJA ROOM (x=208..304, y=10..80) — direct access from covered walkway ── -->
+<!-- Altar on north wall -->
+<rect x="212" y="14"  width="88"  height="16" fill="#6b3a1f" stroke="#5a3018" stroke-width="1.2" rx="1"/>
+<circle cx="230" cy="22" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
+<circle cx="256" cy="22" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
+<circle cx="282" cy="22" r="5" fill="#c8a040" stroke="#a08020" stroke-width="1"/>
 <!-- Diya -->
-<ellipse cx="45" cy="48" rx="8" ry="5" fill="#c8900a" stroke="#a07008" stroke-width="1"/>
-<line x1="45" y1="43" x2="45" y2="36" stroke="#c8900a" stroke-width="1.2"/>
-<ellipse cx="45" cy="35" rx="3" ry="5" fill="#ffe060" opacity=".8"/>
-<!-- Jali window hint -->
-<rect x="60" y="32" width="16" height="40" fill="#f0d890" stroke="#c8a040" stroke-width="1" rx="1"/>
-<line x1="62" y1="38" x2="74" y2="38" stroke="#d4b850" stroke-width=".5"/>
-<line x1="62" y1="46" x2="74" y2="46" stroke="#d4b850" stroke-width=".5"/>
-<line x1="62" y1="54" x2="74" y2="54" stroke="#d4b850" stroke-width=".5"/>
-<line x1="62" y1="62" x2="74" y2="62" stroke="#d4b850" stroke-width=".5"/>
-<line x1="68" y1="34" x2="68" y2="70" stroke="#d4b850" stroke-width=".5"/>
+<ellipse cx="256" cy="42" rx="8" ry="5" fill="#c8900a" stroke="#a07008" stroke-width="1"/>
+<line x1="256" y1="37" x2="256" y2="30" stroke="#c8900a" stroke-width="1.2"/>
+<ellipse cx="256" cy="29" rx="3" ry="5" fill="#ffe060" opacity=".8"/>
+<!-- Jali east wall -->
+<rect x="288" y="18" width="12"  height="44" fill="#f0d890" stroke="#c8a040" stroke-width="1" rx="1"/>
+<line x1="290" y1="24" x2="298" y2="24" stroke="#d4b850" stroke-width=".5"/>
+<line x1="290" y1="32" x2="298" y2="32" stroke="#d4b850" stroke-width=".5"/>
+<line x1="290" y1="40" x2="298" y2="40" stroke="#d4b850" stroke-width=".5"/>
+<line x1="290" y1="48" x2="298" y2="48" stroke="#d4b850" stroke-width=".5"/>
+<line x1="294" y1="20" x2="294" y2="60" stroke="#d4b850" stroke-width=".5"/>
 <!-- Label -->
-<text x="40"  y="70"  text-anchor="middle" font-size="9"  fill="#8a5a10" font-weight="600">POOJA</text>
+<text x="248" y="68"  text-anchor="middle" font-size="9.5" fill="#8a5a10" font-weight="600">POOJA ROOM</text>
 
-<!-- ── MASTER BEDROOM ── -->
-<!-- Wardrobe top of master (below pooja, 80..160 x=80..160, y=10..90) -->
-<rect x="82"  y="14"  width="70"  height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1" rx="1"/>
-<text x="117" y="24"  text-anchor="middle" font-size="7.5" fill="#888">wardrobe</text>
-<rect x="82"  y="32"  width="70"  height="52" fill="#ddd8d4" stroke="#ccc" stroke-width="1.2" rx="3"/>
-<text x="117" y="62"  text-anchor="middle" font-size="8.5" fill="#777">dressing</text>
-<!-- Bed -->
-<rect x="14"  y="94"  width="140" height="90"  fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
-<rect x="14"  y="94"  width="140" height="22"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
-<ellipse cx="50"  cy="105" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="100" cy="105" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<!-- ── MASTER BEDROOM — full NW zone ── -->
+<!-- Bed (king, against north wall) -->
+<rect x="14"  y="18"  width="140" height="96"  fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
+<rect x="14"  y="18"  width="140" height="22"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
+<ellipse cx="50"  cy="29" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="104" cy="29" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
 <!-- Seating area -->
-<rect x="14"  y="190" width="140" height="0"  fill="none"/><!-- master ends at y=178, so seating in 88..178 -->
-<text x="85"  y="152" text-anchor="middle" font-size="11" fill="#333" font-weight="600">MASTER</text>
-<text x="85"  y="166" text-anchor="middle" font-size="11" fill="#333" font-weight="600">BEDROOM</text>
+<rect x="14"  y="124" width="140" height="38" fill="#dcdad2" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<rect x="14"  y="124" width="16"  height="38" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
+<rect x="138" y="124" width="16"  height="38" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
+<!-- Wardrobe -->
+<rect x="14"  y="162" width="140" height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1"   rx="1"/>
+<line x1="84"  y1="162" x2="84"  y2="176" stroke="#bbb" stroke-width=".8"/>
+<text x="85"  y="150" text-anchor="middle" font-size="12" fill="#333" font-weight="600">MASTER BEDROOM</text>
 
 <!-- ── OFFICE ROOM ── -->
 <!-- Desk full width of room -->
@@ -402,18 +399,15 @@ body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 a
 <text x="431" y="100" text-anchor="middle" font-size="10" fill="#2a5888" font-weight="600">OFFICE</text>
 <text x="431" y="113" text-anchor="middle" font-size="8.5" fill="#4878a0">Work from home</text>
 
-<!-- ── BATH 1 ── -->
-<rect x="216" y="18"  width="80"  height="36" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<text x="256" y="39"  text-anchor="middle" font-size="8"   fill="#888">BATHTUB</text>
-<rect x="216" y="62"  width="24"  height="16" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<circle cx="228" cy="70" r="3.5" fill="none" stroke="#bbb" stroke-width="1.2"/>
-<rect x="246" y="62"  width="24"  height="16" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<circle cx="258" cy="70" r="3.5" fill="none" stroke="#bbb" stroke-width="1.2"/>
-<rect x="216" y="84"  width="34"  height="30" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
-<circle cx="233" cy="99" r="5"   fill="none" stroke="#bbb" stroke-width="1.5"/>
-<ellipse cx="289" cy="80" rx="13" ry="17" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
-<text x="256" y="115" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">BATH 1</text>
-<text x="256" y="9"   text-anchor="middle" font-size="7"   fill="#aaa" letter-spacing="1">VENTILATION</text>
+<!-- ── BATH 1 (now starts at y=80, below Pooja) ── -->
+<rect x="216" y="84"  width="80"  height="28" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="256" y="101" text-anchor="middle" font-size="8"   fill="#888">BATHTUB</text>
+<rect x="216" y="118" width="24"  height="14" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="228" cy="125" r="3"  fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="216" y="136" width="32"  height="28" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="232" cy="150" r="5"  fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="286" cy="146" rx="13" ry="17" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
+<text x="256" y="170" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">BATH 1</text>
 
 <!-- ── HALLWAY + STAIR ── -->
 <rect x="212" y="126" width="88"  height="48" fill="#ecead2" stroke="#bbb" stroke-width="1"/>
@@ -549,9 +543,8 @@ body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 a
 
 <!-- ══ STRUCTURAL WALLS ══ -->
 <rect x="10"  y="10"  width="480" height="520" fill="none" stroke="#2a2a28" stroke-width="5"   rx="2"/>
-<!-- Pooja partition (internal, thinner) -->
-<line x1="10"  y1="80"  x2="158" y2="80"  stroke="#2a2a28" stroke-width="2.5"/><!-- pooja/master split -->
-<line x1="80"  y1="10"  x2="80"  y2="80"  stroke="#2a2a28" stroke-width="2.5"/><!-- pooja east wall -->
+<!-- Pooja partition (x=208..304, y=10..80 — between walkway and bath1) -->
+<line x1="208" y1="72"  x2="304" y2="72"  stroke="#2a2a28" stroke-width="2.5"/><!-- pooja south wall -->
 <!-- Covered walkway walls -->
 <line x1="160" y1="10"  x2="160" y2="450" stroke="#2a2a28" stroke-width="3.5"/><!-- walkway west -->
 <line x1="208" y1="10"  x2="208" y2="530" stroke="#2a2a28" stroke-width="3.5"/><!-- walkway east = col div -->
@@ -604,10 +597,10 @@ body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 a
 <rect x="157" y="461" width="6"  height="48" fill="white"/>
 <line x1="160" y1="464" x2="160" y2="512" stroke="#444" stroke-width="2.5"/>
 <path d="M 160 512 A 48 48 0 0 1 112 464" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- D10: Pooja door (wall y=80, gap x=18..56) -->
-<rect x="15"  y="77"  width="44"  height="6" fill="white"/>
-<line x1="18"  y1="80"  x2="18"  y2="128" stroke="#444" stroke-width="2.5"/>
-<path d="M 18 128 A 48 48 0 0 0 62 80" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D10: Walkway → Pooja (wall x=208, gap y=22..58, hinge y=22, arc west into pooja) -->
+<rect x="205" y="19"  width="6"  height="40" fill="white"/>
+<line x1="208" y1="22"  x2="208" y2="62"  stroke="#444" stroke-width="2.5"/>
+<path d="M 208 62 A 40 40 0 0 1 168 22" fill="none" stroke="#666" stroke-width="1.5"/>
 
 <!-- ══ GARAGE + PORCH ══ -->
 <rect x="10"  y="530" width="254" height="120" fill="#d2cbb2" stroke="#2a2a28" stroke-width="2.5" rx="1"/>
