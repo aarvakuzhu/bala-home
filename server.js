@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Another plan
+app.get('/another', (req, res) => res.redirect('/another/'));
+app.get('/another/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'another', 'index.html'));
+});
+
 // Health check for Render
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', app: 'bala-home', version: '2.0.0' });
