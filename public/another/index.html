@@ -3,746 +3,765 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Another Plan — 60×30 ft</title>
+<title>Another Plan — 60×80 ft Pool House</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f5f5f0;font-family:'Jost',sans-serif;color:#333;max-width:480px;margin:0 auto;min-height:100vh}
-
-/* Header */
-.hdr{background:#1a1208;padding:14px 16px 10px;display:flex;align-items:center;gap:10px}
-.hdr a{color:#c8920a;font-size:.8rem;text-decoration:none;letter-spacing:1px}
-.hdr h1{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#e8c060;flex:1;text-align:center}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#f5f5f0;font-family:'Jost',sans-serif;max-width:480px;margin:0 auto}
+.hdr{background:#1a1208;padding:12px 14px 10px;display:flex;align-items:center;gap:10px}
+.hdr a{color:#c8920a;font-size:.75rem;text-decoration:none;letter-spacing:1px;white-space:nowrap}
+.hdr h1{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#e8c060;flex:1;text-align:center;line-height:1.2}
 .deco{height:3px;background:repeating-linear-gradient(90deg,#6a3808 0,#6a3808 6px,#c8920a 6px,#c8920a 12px,#e8c060 12px,#e8c060 14px,#c8920a 14px,#c8920a 20px)}
-
-/* Tabs */
-.tabs{display:flex;background:#fff;border-bottom:2px solid #e0d8c8;position:sticky;top:0;z-index:10}
-.tab{flex:1;padding:11px 4px;text-align:center;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:#9a8860;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .18s}
-.tab.active{color:#8a5a10;border-bottom-color:#c8920a;font-weight:500}
-
-/* Pages */
-.page{display:none;padding:12px}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e0d8c8;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.tab{flex:1;padding:10px 2px;text-align:center;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:#9a8860;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .18s;font-family:'Jost',sans-serif}
+.tab.active{color:#7a4a08;border-bottom-color:#c8920a;font-weight:500}
+.page{display:none;padding:8px 6px 20px}
 .page.active{display:block}
-
-/* Section heading */
-.sec-head{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:#8a5a10;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e0d8c0;display:flex;align-items:center;gap:8px}
-.sec-head::after{content:'';flex:1;height:1px;background:linear-gradient(to right,#e0d8c0,transparent)}
-
-/* SVG container */
-.plan-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.12);background:#f8f6f0}
-.plan-wrap svg{display:block}
-
-/* Legend */
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.li{display:flex;align-items:center;gap:5px;font-size:.68rem;color:#7a6840}
-.ls{width:10px;height:10px;border-radius:2px}
-
-/* Note */
-.note{background:#fffbf0;border-left:3px solid #c8920a;padding:9px 12px;font-size:.77rem;line-height:1.7;color:#7a6040;margin-top:10px;border-radius:0 5px 5px 0}
-.note strong{color:#8a5010}
-
-/* Room info cards */
-.room-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.rc{background:#fff;border:1px solid #e8e0d0;border-radius:7px;padding:10px;border-left:3px solid var(--ac)}
-.rc h4{font-size:.8rem;font-weight:600;color:#333;margin-bottom:3px}
-.rc p{font-size:.7rem;color:#888;line-height:1.5}
+.sh{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:#8a5a10;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid #e0d8c0}
+.pw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;box-shadow:0 3px 16px rgba(0,0,0,.12)}
+.pw svg{display:block}
+.leg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.li{display:flex;align-items:center;gap:4px;font-size:.66rem;color:#7a6840}
+.ls{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.note{background:#fffbf0;border-left:3px solid #c8920a;padding:8px 11px;font-size:.73rem;line-height:1.7;color:#7a6040;margin-top:8px;border-radius:0 4px 4px 0}
+.note strong{color:#8a5010;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
-
 <div class="deco"></div>
 <div class="hdr">
-  <a href="/">← Back</a>
-  <h1>Another Plan · 60×30 ft</h1>
+  <a href="/">← Home</a>
+  <h1>Another Plan<br><span style="font-size:.7rem;font-family:'Jost',sans-serif;color:#c8a040;letter-spacing:1px">60 × 80 ft · Pool House</span></h1>
 </div>
 <div class="deco"></div>
 
 <div class="tabs">
-  <button class="tab active" onclick="showTab('site',this)">🗺 Site</button>
-  <button class="tab" onclick="showTab('f1',this)">Ground Floor</button>
-  <button class="tab" onclick="showTab('f2',this)">First Floor</button>
+  <button class="tab active" onclick="showTab('site',this)">🗺 Site Plan</button>
+  <button class="tab"        onclick="showTab('gf',this)">Ground Floor</button>
+  <button class="tab"        onclick="showTab('ff',this)">First Floor</button>
 </div>
 
-<!-- ═══════════ SITE PLAN ═══════════ -->
+<!-- ════════════════════
+  SITE PLAN
+  Plot 60×80ft, scale 6px/ft → 360×480px
+  Canvas 420×580 with margins + road
+════════════════════ -->
 <div class="page active" id="page-site">
-<div class="sec-head">Site Plan — 60×30 ft Plot</div>
-
-<div class="plan-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="820" viewBox="0 0 460 820"
-  style="font-family:'Jost',sans-serif;background:#e8e4d8">
+<div class="sh">Site Plan — 60 ft wide × 80 ft deep</div>
+<div class="pw">
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="620" viewBox="0 0 420 620"
+  style="background:#dedad0;font-family:'Jost',sans-serif;display:block">
 <defs>
-  <pattern id="grass" width="8" height="8" patternUnits="userSpaceOnUse">
-    <rect width="8" height="8" fill="#c8d8b0"/>
-    <circle cx="4" cy="4" r="1" fill="#b0c098" opacity=".5"/>
-  </pattern>
-  <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-    <path d="M10 0H0V10" fill="none" stroke="#dedad0" stroke-width=".4"/>
+  <pattern id="grs" width="7" height="7" patternUnits="userSpaceOnUse">
+    <rect width="7" height="7" fill="#b8cc98"/>
+    <circle cx="3.5" cy="3.5" r="1" fill="#a0b880" opacity=".5"/>
   </pattern>
 </defs>
 
 <!-- Road -->
-<rect x="0" y="740" width="460" height="80" fill="#d0cdc0"/>
-<text x="230" y="786" text-anchor="middle" font-size="13" fill="#aaa" letter-spacing="5">R O A D  (SOUTH)</text>
-<line x1="0" y1="740" x2="460" y2="740" stroke="#bbb" stroke-width="1.5" stroke-dasharray="20 8"/>
+<rect x="0" y="548" width="420" height="72" fill="#ccc8bc"/>
+<line x1="0" y1="548" x2="420" y2="548" stroke="#b8b4a8" stroke-width="1.5" stroke-dasharray="16 7"/>
+<text x="210" y="588" text-anchor="middle" font-size="12" fill="#aaa" letter-spacing="4">R O A D</text>
 
-<!-- Plot boundary — 60×30ft, scale: 1ft=12px, so 720×360px, centered -->
-<!-- Canvas 460 wide, plot 360px wide → offset x=50 -->
-<!-- Canvas 820 tall, plot 720px tall → offset y=10, road at 740 -->
-<rect x="50" y="10" width="360" height="720" fill="#dedad0" stroke="#8a7040" stroke-width="3" rx="2"/>
+<!-- Plot boundary: x=20,y=20 w=360,h=480 (60×80ft @6px/ft) -->
+<rect x="20" y="20" width="360" height="480" fill="#e4e0d4" stroke="#8a7040" stroke-width="2.5" rx="2"/>
 
-<!-- Garden zones (setback 5ft=60px) -->
-<rect x="50" y="10"  width="360" height="60"  fill="url(#grass)"/><!-- rear N -->
-<rect x="50" y="670" width="360" height="60"  fill="url(#grass)"/><!-- front S -->
-<rect x="50" y="70"  width="60"  height="600" fill="url(#grass)"/><!-- left W -->
-<rect x="350" y="70" width="60"  height="600" fill="url(#grass)"/><!-- right E -->
+<!-- Garden setbacks ~6ft=36px each side -->
+<rect x="20"  y="20"  width="360" height="36"  fill="url(#grs)"/>
+<rect x="20"  y="464" width="360" height="36"  fill="url(#grs)"/>
+<rect x="20"  y="56"  width="36"  height="408" fill="url(#grs)"/>
+<rect x="344" y="56"  width="36"  height="408" fill="url(#grs)"/>
 
-<!-- Trees in garden -->
+<!-- Trees -->
 <g opacity=".85">
-  <circle cx="80"  cy="40" r="16" fill="#5a8840"/><circle cx="80"  cy="40" r="8"  fill="#3a6828"/>
-  <circle cx="160" cy="40" r="14" fill="#5a8840"/><circle cx="160" cy="40" r="7"  fill="#3a6828"/>
-  <circle cx="250" cy="40" r="18" fill="#5a8840"/><circle cx="250" cy="40" r="9"  fill="#3a6828"/>
-  <circle cx="340" cy="40" r="14" fill="#5a8840"/><circle cx="340" cy="40" r="7"  fill="#3a6828"/>
-  <circle cx="410" cy="40" r="16" fill="#5a8840"/><circle cx="410" cy="40" r="8"  fill="#3a6828"/>
-  <circle cx="68"  cy="220" r="12" fill="#5a8840"/><circle cx="68"  cy="220" r="6"  fill="#3a6828"/>
-  <circle cx="68"  cy="380" r="12" fill="#5a8840"/><circle cx="68"  cy="380" r="6"  fill="#3a6828"/>
-  <circle cx="68"  cy="540" r="12" fill="#5a8840"/><circle cx="68"  cy="540" r="6"  fill="#3a6828"/>
-  <circle cx="392" cy="220" r="12" fill="#5a8840"/><circle cx="392" cy="220" r="6"  fill="#3a6828"/>
-  <circle cx="392" cy="380" r="12" fill="#5a8840"/><circle cx="392" cy="380" r="6"  fill="#3a6828"/>
-  <circle cx="392" cy="540" r="12" fill="#5a8840"/><circle cx="392" cy="540" r="6"  fill="#3a6828"/>
+  <circle cx="44"  cy="36" r="13" fill="#508038"/><circle cx="44"  cy="36" r="6"  fill="#386020"/>
+  <circle cx="120" cy="36" r="11" fill="#508038"/><circle cx="120" cy="36" r="5.5" fill="#386020"/>
+  <circle cx="210" cy="36" r="15" fill="#508038"/><circle cx="210" cy="36" r="7"  fill="#386020"/>
+  <circle cx="300" cy="36" r="11" fill="#508038"/><circle cx="300" cy="36" r="5.5" fill="#386020"/>
+  <circle cx="376" cy="36" r="13" fill="#508038"/><circle cx="376" cy="36" r="6"  fill="#386020"/>
+  <circle cx="32"  cy="150" r="10" fill="#508038"/><circle cx="32"  cy="150" r="5" fill="#386020"/>
+  <circle cx="32"  cy="260" r="10" fill="#508038"/><circle cx="32"  cy="260" r="5" fill="#386020"/>
+  <circle cx="32"  cy="370" r="10" fill="#508038"/><circle cx="32"  cy="370" r="5" fill="#386020"/>
+  <circle cx="388" cy="150" r="10" fill="#508038"/><circle cx="388" cy="150" r="5" fill="#386020"/>
+  <circle cx="388" cy="260" r="10" fill="#508038"/><circle cx="388" cy="260" r="5" fill="#386020"/>
+  <circle cx="388" cy="370" r="10" fill="#508038"/><circle cx="388" cy="370" r="5" fill="#386020"/>
 </g>
 
-<!-- House footprint — 50×20ft = 600×240px inside setbacks -->
-<!-- House x=110,y=70 w=240,h=600 — fills most of plot minus side setbacks -->
-<!-- Actually: 60ft wide plot, 5ft setback each side = 50ft house width = 600px
-     30ft deep plot, 5ft rear + 5ft front = 20ft house depth = 240px
-     Hmm, reference shows deep house. Let me re-read: plot 60×30 but house fills it deeply.
-     Use: house x=110,y=70 w=240,h=540 (45ft deep) leaving 5ft rear + 10ft front -->
-<rect x="110" y="70" width="240" height="600" fill="white" stroke="#555" stroke-width="3" rx="2"/>
+<!-- House footprint:
+  60ft wide × 80ft deep, 6ft setback → house 48×68ft
+  In px: 48×6=288 wide, 68×6=408 tall
+  Offset: x=56, y=56 -->
+<rect x="56" y="56" width="288" height="408" fill="white" stroke="#444" stroke-width="2.5" rx="1"/>
+
+<!-- Pool zone tint -->
+<rect x="56" y="182" width="198" height="204" fill="#a0d4f0" opacity=".45" stroke="#4888b0" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="155" y="290" text-anchor="middle" font-size="9.5" fill="#3a70a0">Pool Courtyard</text>
+
+<!-- Garage south-west -->
+<rect x="56"  y="422" width="143" height="42" fill="#d0c8b0" stroke="#888" stroke-width="1.5"/>
+<text x="127" y="447" text-anchor="middle" font-size="9" fill="#666">DOUBLE GARAGE</text>
+<!-- Front porch SE -->
+<rect x="199" y="422" width="145" height="42" fill="#e0dcd0" stroke="#aaa" stroke-width="1"/>
+<text x="271" y="447" text-anchor="middle" font-size="9" fill="#888">FRONT PORCH</text>
+<!-- Front lawn -->
+<rect x="56"  y="464" width="288" height="36" fill="url(#grs)"/>
+<text x="200" y="486" text-anchor="middle" font-size="9.5" fill="#4a7040">FRONT LAWN</text>
+<!-- Gate -->
+<rect x="168" y="499" width="84" height="8" fill="#e8c040" stroke="#8a6010" stroke-width="1.5" rx="1"/>
+<text x="210" y="524" text-anchor="middle" font-size="9" fill="#666">🚪 GATE</text>
+<!-- Driveway -->
+<rect x="56" y="464" width="143" height="36" fill="#ccc8b4"/>
 
 <!-- House label -->
-<text x="230" y="350" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="16" fill="#3a2808" font-weight="600">G+1 HOUSE</text>
-<text x="230" y="370" text-anchor="middle" font-size="10" fill="#888">60×30 ft plan</text>
-<text x="230" y="386" text-anchor="middle" font-size="10" fill="#888">Pool Courtyard · L-shaped</text>
+<text x="200" y="130" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#3a2808" font-weight="600">G+1 POOL HOUSE</text>
+<text x="200" y="147" text-anchor="middle" font-size="9" fill="#888">48×68 ft footprint · L-shaped pool</text>
 
-<!-- Pool tint inside house -->
-<rect x="130" y="280" width="130" height="200" fill="#a8d8f0" stroke="#4888b0" stroke-width="1.5" stroke-dasharray="5 3" rx="3"/>
-<text x="195" y="384" text-anchor="middle" font-size="9" fill="#3a70a0">Pool Courtyard</text>
-
-<!-- Garage at south -->
-<rect x="110" y="620" width="110" height="50" fill="#d8d0b8" stroke="#888" stroke-width="1.5" rx="1"/>
-<text x="165" y="649" text-anchor="middle" font-size="10" fill="#666">DOUBLE GARAGE</text>
-
-<!-- Front porch -->
-<rect x="220" y="630" width="130" height="40" fill="#e8e4d8" stroke="#aaa" stroke-width="1" rx="1"/>
-<text x="285" y="654" text-anchor="middle" font-size="10" fill="#888">FRONT PORCH</text>
-
-<!-- Front lawn -->
-<rect x="110" y="670" width="240" height="60" fill="url(#grass)"/>
-<text x="230" y="705" text-anchor="middle" font-size="10" fill="#4a7040">FRONT LAWN</text>
-
-<!-- Driveway -->
-<rect x="110" y="670" width="110" height="70" fill="#d8d4c8"/>
-<text x="165" y="710" text-anchor="middle" font-size="9" fill="#888">driveway</text>
-
-<!-- Compound gate -->
-<rect x="165" y="728" width="80" height="12" fill="#e8c040" stroke="#8a6010" stroke-width="1.5" rx="1"/>
-<text x="230" y="760" text-anchor="middle" font-size="9.5" fill="#666">🚪 GATE</text>
-
-<!-- DIMENSIONS -->
-<!-- Width -->
-<line x1="50"  y1="780" x2="410" y2="780" stroke="#8a5a10" stroke-width="1"/>
-<line x1="50"  y1="776" x2="50"  y2="784" stroke="#8a5a10" stroke-width="1"/>
-<line x1="410" y1="776" x2="410" y2="784" stroke="#8a5a10" stroke-width="1"/>
-<text x="230" y="796" text-anchor="middle" font-size="10" fill="#8a5a10">30 ft (plot width)</text>
-<!-- Depth -->
-<line x1="430" y1="10"  x2="430" y2="730" stroke="#8a5a10" stroke-width="1"/>
-<line x1="426" y1="10"  x2="434" y2="10"  stroke="#8a5a10" stroke-width="1"/>
-<line x1="426" y1="730" x2="434" y2="730" stroke="#8a5a10" stroke-width="1"/>
-<text x="444" y="375" text-anchor="middle" font-size="10" fill="#8a5a10" transform="rotate(90,444,375)">60 ft (plot depth)</text>
+<!-- Dimensions -->
+<line x1="20"  y1="536" x2="380" y2="536" stroke="#8a5a10" stroke-width="1"/>
+<line x1="20"  y1="532" x2="20"  y2="540" stroke="#8a5a10" stroke-width="1"/>
+<line x1="380" y1="532" x2="380" y2="540" stroke="#8a5a10" stroke-width="1"/>
+<text x="200" y="547" text-anchor="middle" font-size="9.5" fill="#8a5a10">60 ft wide</text>
+<line x1="400" y1="20"  x2="400" y2="500" stroke="#8a5a10" stroke-width="1"/>
+<line x1="396" y1="20"  x2="404" y2="20"  stroke="#8a5a10" stroke-width="1"/>
+<line x1="396" y1="500" x2="404" y2="500" stroke="#8a5a10" stroke-width="1"/>
+<text x="412" y="264" text-anchor="middle" font-size="9.5" fill="#8a5a10" transform="rotate(90,412,264)">80 ft deep</text>
 <!-- Scale -->
-<line x1="58" y1="770" x2="178" y2="770" stroke="#555" stroke-width="2"/>
-<line x1="58"  y1="766" x2="58"  y2="774" stroke="#555" stroke-width="2"/>
-<line x1="178" y1="766" x2="178" y2="774" stroke="#555" stroke-width="2"/>
-<text x="118" y="768" text-anchor="middle" font-size="9" fill="#555">10 ft</text>
-
-<!-- North arrow -->
-<circle cx="426" cy="50" r="18" fill="white" stroke="#ccc" stroke-width="1.5"/>
-<polygon points="426,32 421,48 426,44 431,48" fill="#333"/>
-<polygon points="426,68 421,52 426,56 431,52" fill="#ddd"/>
-<text x="426" y="55" text-anchor="middle" font-size="10" fill="#333" font-weight="600">N</text>
+<line x1="28" y1="526" x2="88"  y2="526" stroke="#666" stroke-width="2"/>
+<line x1="28" y1="522" x2="28"  y2="530" stroke="#666" stroke-width="2"/>
+<line x1="88" y1="522" x2="88"  y2="530" stroke="#666" stroke-width="2"/>
+<text x="58"  y="522" text-anchor="middle" font-size="9" fill="#666">10 ft</text>
+<!-- North -->
+<circle cx="392" cy="40" r="15" fill="white" stroke="#ccc" stroke-width="1.5"/>
+<polygon points="392,25 388,39 392,36 396,39" fill="#333"/>
+<polygon points="392,55 388,41 392,44 396,41" fill="#ccc"/>
+<text x="392" y="45" text-anchor="middle" font-size="9" fill="#333" font-weight="600">N</text>
 </svg>
 </div>
-
-<div class="legend">
-  <div class="li"><div class="ls" style="background:#c8d8b0;border:1px solid #b0c098"></div>Garden / setback</div>
-  <div class="li"><div class="ls" style="background:white;border:1px solid #555"></div>House footprint</div>
-  <div class="li"><div class="ls" style="background:#a8d8f0"></div>Pool courtyard</div>
-  <div class="li"><div class="ls" style="background:#d8d4c8;border:1px solid #888"></div>Garage / driveway</div>
+<div class="leg">
+  <div class="li"><div class="ls" style="background:#b8cc98"></div>Garden / setback</div>
+  <div class="li"><div class="ls" style="background:white;border:1px solid #444"></div>House footprint (~48×68 ft)</div>
+  <div class="li"><div class="ls" style="background:#a0d4f0"></div>Pool courtyard zone</div>
+  <div class="li"><div class="ls" style="background:#d0c8b0;border:1px solid #888"></div>Garage / driveway</div>
 </div>
-<div class="note">
-  <strong>Plot:</strong> 60 ft deep × 30 ft wide · Road faces south · House fills most of plot with 5 ft setbacks on all sides · Central L-shaped pool courtyard open to sky · Double garage at south-west · Front porch + lawn at south-east
-</div>
+<div class="note"><strong>Site:</strong> 60 ft wide × 80 ft deep · Road faces south · ~6 ft setback all sides · House footprint ~48×68 ft · Central L-shaped pool courtyard open to sky · Double garage + driveway south-west · Front porch + lawn south-east · Compound gate at south centre</div>
 </div>
 
-<!-- ═══════════ FLOOR 1 ═══════════ -->
-<div class="page" id="page-f1">
-<div class="sec-head">Ground Floor — Rooms + Pool Courtyard</div>
-<div class="plan-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="900" viewBox="0 0 460 900"
-  style="font-family:'Jost',sans-serif;background:#f6f6f2">
+<!-- ════════════════════
+  GROUND FLOOR
+  Scale: 8px/ft → 480×640px for 60×80ft
+  Canvas 500×720
+
+  EXACT GRID (verified from reference):
+  x=0..160  = west zone (Master + Pool/BBQ + Laundry)   [0..20ft]
+  x=160..264 = centre zone (Bath1+Hallway + Pool + Kitchen) [20..33ft]
+  x=264..480 = east zone (Bed1 + Bath2 + Living + Dining)  [33..60ft]
+
+  y=0..168   = north zone (Master + Bath1 + Bed1)       [0..21ft]
+  y=168..224 = corridor zone (Hallway + Bath2 top)      [21..28ft]
+  y=224..440 = mid zone (Pool + Living Hall)            [28..55ft]
+  y=440..520 = kitchen zone (Laundry + Kitchen + Dining)[55..65ft]
+  y=520..640 = south (Garage + Porch)                   [65..80ft]
+════════════════════ -->
+<div class="page" id="page-gf">
+<div class="sh">Ground Floor — Exact layout matching reference</div>
+<div class="pw">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="730" viewBox="0 0 500 730"
+  style="background:#f5f5f0;font-family:'Jost',sans-serif;display:block">
 <defs>
-  <pattern id="grid2" width="10" height="10" patternUnits="userSpaceOnUse">
-    <path d="M10 0H0V10" fill="none" stroke="#eeebe4" stroke-width=".5"/>
+  <pattern id="gr2" width="8" height="8" patternUnits="userSpaceOnUse">
+    <path d="M8 0H0V8" fill="none" stroke="#eae6de" stroke-width=".5"/>
   </pattern>
-  <pattern id="marble" width="30" height="30" patternUnits="userSpaceOnUse">
-    <rect width="30" height="30" fill="#f8f6f2"/>
-    <line x1="0" y1="15" x2="30" y2="10" stroke="#ede9e0" stroke-width=".6"/>
-    <line x1="0" y1="5"  x2="20" y2="30" stroke="#ede9e0" stroke-width=".4"/>
+  <pattern id="mb" width="28" height="28" patternUnits="userSpaceOnUse">
+    <rect width="28" height="28" fill="#f8f5f0"/>
+    <path d="M0,14 Q14,8 28,13" stroke="#e8e2d6" stroke-width=".8" fill="none"/>
+    <path d="M3,3 Q15,22 25,7"  stroke="#e8e2d6" stroke-width=".5" fill="none"/>
   </pattern>
-  <pattern id="tile" width="20" height="20" patternUnits="userSpaceOnUse">
-    <rect width="20" height="20" fill="#f0ece4"/>
-    <rect width="20" height="20" fill="none" stroke="#e4e0d8" stroke-width=".6"/>
+  <pattern id="tl" width="16" height="16" patternUnits="userSpaceOnUse">
+    <rect width="16" height="16" fill="#f0ebe3"/>
+    <rect width="16" height="16" fill="none" stroke="#e2dbd0" stroke-width=".7"/>
   </pattern>
-  <pattern id="deck" width="12" height="60" patternUnits="userSpaceOnUse">
-    <rect width="12" height="60" fill="#d8cdb0"/>
-    <line x1="0" y1="0" x2="0" y2="60" stroke="#c8bd9e" stroke-width="1"/>
-  </pattern>
-  <pattern id="grass2" width="8" height="8" patternUnits="userSpaceOnUse">
-    <rect width="8" height="8" fill="#c0d0a0"/>
+  <pattern id="dk" width="8" height="8" patternUnits="userSpaceOnUse">
+    <rect width="8" height="8" fill="#d2c8a6"/>
+    <line x1="0" y1="0" x2="8" y2="0" stroke="#c2b896" stroke-width="1.2"/>
   </pattern>
 </defs>
-<rect width="460" height="900" fill="#f6f6f2"/>
-<rect width="460" height="900" fill="url(#grid2)"/>
+<rect width="500" height="730" fill="#f5f5f0"/>
+<rect width="500" height="730" fill="url(#gr2)"/>
 
-<!--
-  LAYOUT — 30ft wide × 60ft deep, scale 12px/ft
-  Canvas 460×900 (with padding)
-  House: x=20, y=20, w=360, h=720 (30ft × 60ft)
-  Road south (bottom)
-
-  COLUMN SPLIT (left=west, right=east):
-    Left col:  x=20–220  (200px = 16.7ft)  Pool courtyard + BBQ + Garage + Laundry
-    Right col: x=220–380 (160px = 13.3ft)  Bedrooms + Hallway + Living + Dining + Porch
-
-  ROW SPLITS (top=north, bottom=south):
-    y=20–230   (210px=17.5ft) Bedrooms + Bath (right) | Top of courtyard (left)
-    y=230–620  (390px=32.5ft) Pool courtyard (left)   | Living+Dining (right)
-    y=620–720  (100px=8.3ft)  Garage (left)            | Front porch (right)
-    y=720+     Road
+<!-- KEY COORDINATES (8px/ft):
+  Verticals:   x=10(wall), x=170(20ft), x=274(33ft+wall), x=490(60ft wall)
+  Horizontals: y=10(wall), y=178(21ft), y=234(28ft), y=450(55ft), y=530(65ft), y=650(80ft=garage bottom)
 -->
 
-<!-- HOUSE OUTER SHELL -->
-<rect x="20" y="20" width="360" height="720" fill="white" stroke="#333" stroke-width="5" rx="2"/>
+<!-- ── ROOM FILLS ── -->
+<!-- Master Bedroom: x=10,y=10 w=160,h=168 -->
+<rect x="10"  y="10"  width="160" height="168" fill="url(#mb)"/>
+<!-- Bath 1: x=170,y=10 w=104,h=112 -->
+<rect x="170" y="10"  width="104" height="112" fill="url(#tl)"/>
+<!-- Bedroom 1: x=274,y=10 w=216,h=168 -->
+<rect x="274" y="10"  width="216" height="168" fill="url(#mb)"/>
+<!-- Hallway: x=170,y=122 w=104,h=56 -->
+<rect x="170" y="122" width="104" height="56"  fill="#f2efe6"/>
+<!-- Bath 2: x=274,y=178 w=104,h=56 -->
+<rect x="274" y="178" width="104" height="56"  fill="url(#tl)"/>
+<!-- Living Hall: x=274,y=234 w=216,h=216 -->
+<rect x="274" y="234" width="216" height="216" fill="url(#mb)"/>
+<!-- Pool Courtyard: x=10,y=178 w=264,h=272 -->
+<rect x="10"  y="178" width="264" height="272" fill="url(#dk)"/>
+<!-- Laundry: x=10,y=450 w=80,h=80 -->
+<rect x="10"  y="450" width="80"  height="80"  fill="#eeebe2"/>
+<!-- Kitchen+Pantry: x=90,y=450 w=184,h=80 -->
+<rect x="90"  y="450" width="184" height="80"  fill="url(#tl)"/>
+<!-- Dining Area: x=274,y=450 w=216,h=80 -->
+<rect x="274" y="450" width="216" height="80"  fill="url(#mb)"/>
 
-<!-- ─── LEFT SIDE: Pool Courtyard zone (x=20–220) ─── -->
+<!-- ── POOL COURTYARD CONTENT ── -->
+<!-- Plants west strip -->
+<circle cx="22" cy="200" r="9"  fill="#3a7828" opacity=".9"/>
+<circle cx="22" cy="228" r="11" fill="#2a6818" opacity=".9"/>
+<circle cx="22" cy="260" r="9"  fill="#3a7828" opacity=".9"/>
+<circle cx="22" cy="292" r="11" fill="#2a6818" opacity=".9"/>
+<circle cx="22" cy="324" r="9"  fill="#3a7828" opacity=".9"/>
+<circle cx="22" cy="356" r="11" fill="#2a6818" opacity=".9"/>
+<circle cx="22" cy="388" r="9"  fill="#3a7828" opacity=".9"/>
+<circle cx="22" cy="416" r="11" fill="#2a6818" opacity=".9"/>
+<!-- Plants top of courtyard -->
+<circle cx="80"  cy="190" r="9"  fill="#2a6818" opacity=".9"/>
+<circle cx="115" cy="186" r="11" fill="#3a7828" opacity=".9"/>
+<circle cx="150" cy="190" r="9"  fill="#2a6818" opacity=".9"/>
+<circle cx="185" cy="186" r="11" fill="#3a7828" opacity=".9"/>
+<circle cx="220" cy="190" r="9"  fill="#2a6818" opacity=".9"/>
+<!-- BBQ area (x=10..74, y=195..370) -->
+<rect x="14"  y="198" width="56" height="44" fill="#c6be9e" stroke="#aaa" stroke-width="1" rx="2"/>
+<text x="42"  y="224" text-anchor="middle" font-size="9" fill="#666">BBQ</text>
+<!-- Outdoor lounge chairs -->
+<rect x="14"  y="250" width="28" height="20" fill="#d4ceae" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="46"  y="250" width="28" height="20" fill="#d4ceae" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="14"  y="278" width="60" height="14" fill="#dcd8bc" stroke="#bbb" stroke-width="1" rx="1"/>
+<!-- BBQ label -->
+<text x="42"  y="378" text-anchor="middle" font-size="9" fill="#5a7830" font-weight="500">BBQ AREA</text>
+<!-- Stair down to courtyard (timber slat visual) -->
+<rect x="16"  y="300" width="52" height="64" fill="#c4b890" stroke="#aaa" stroke-width="1"/>
+<line x1="16" y1="312" x2="68"  y2="312" stroke="#b4a880" stroke-width="1.5"/>
+<line x1="16" y1="324" x2="68"  y2="324" stroke="#b4a880" stroke-width="1.5"/>
+<line x1="16" y1="336" x2="68"  y2="336" stroke="#b4a880" stroke-width="1.5"/>
+<line x1="16" y1="348" x2="68"  y2="348" stroke="#b4a880" stroke-width="1.5"/>
+<line x1="16" y1="360" x2="68"  y2="360" stroke="#b4a880" stroke-width="1.5"/>
 
-<!-- BBQ / Outdoor lounge strip (x=20–90, y=20–230) -->
-<rect x="20" y="20" width="70" height="210" fill="#e8e4d0" stroke="#333" stroke-width="2"/>
-<!-- Outdoor furniture -->
-<rect x="28" y="36" width="54" height="28" fill="#d8d4c4" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="55" y="54" text-anchor="middle" font-size="8.5" fill="#666">BBQ</text>
-<rect x="28" y="74" width="24" height="24" fill="#d0ccbc" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="58" y="74" width="24" height="24" fill="#d0ccbc" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="28" y="106" width="54" height="22" fill="#e8e4d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<!-- Plants -->
-<circle cx="36" cy="152" r="8" fill="#4a8040" opacity=".8"/>
-<circle cx="55" cy="158" r="10" fill="#3a7030" opacity=".8"/>
-<circle cx="72" cy="150" r="7" fill="#4a8040" opacity=".8"/>
-<text x="55" y="200" text-anchor="middle" font-size="8" fill="#6a8850">PLANTS</text>
-<text x="55" y="212" text-anchor="middle" font-size="8" fill="#6a8850">+ BBQ</text>
-
-<!-- Courtyard / Pool zone (x=90–220, y=20–620) -->
-<rect x="90" y="20" width="130" height="600" fill="#e4e0d4"/>
-
-<!-- Deck surround pool -->
-<rect x="90" y="20" width="130" height="600" fill="url(#deck)"/>
-
-<!-- Pool — L-shaped
-     Main pool: x=100,y=100 w=110,h=280
-     L-extension: x=100,y=380 w=60,h=100 (south-west corner of pool) -->
-<rect x="100" y="100" width="110" height="280" fill="#5ab8e8" stroke="#2a78b0" stroke-width="2" rx="4"/>
-<rect x="100" y="380" width="65" height="100" fill="#5ab8e8" stroke="#2a78b0" stroke-width="2" rx="2"/>
-<!-- Pool water shimmer lines -->
-<line x1="104" y1="140" x2="206" y2="140" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<line x1="104" y1="180" x2="206" y2="180" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<line x1="104" y1="220" x2="206" y2="220" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<line x1="104" y1="260" x2="206" y2="260" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<line x1="104" y1="300" x2="206" y2="300" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<line x1="104" y1="340" x2="206" y2="340" stroke="#80d0f8" stroke-width="1" opacity=".6"/>
-<text x="155" y="248" text-anchor="middle" font-size="11" fill="white" font-weight="600">L-SHAPED</text>
-<text x="155" y="263" text-anchor="middle" font-size="11" fill="white" font-weight="600">POOL</text>
-
+<!-- L-SHAPED POOL
+  Main body: x=80,y=196 w=168,h=228  (10..31ft wide, 24..52ft deep)
+  L-extension SW: x=80,y=376 w=80,h=48  (10..20ft wide, 47..53ft deep) -->
+<rect x="80"  y="196" width="168" height="228" fill="#44aee0" stroke="#2272b0" stroke-width="2.5" rx="4"/>
+<rect x="80"  y="376" width="80"  height="52"  fill="#44aee0" stroke="#2272b0" stroke-width="2.5" rx="2"/>
+<!-- Shimmer -->
+<line x1="84"  y1="230" x2="244" y2="230" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="258" x2="244" y2="258" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="286" x2="244" y2="286" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="314" x2="244" y2="314" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="342" x2="244" y2="342" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="370" x2="244" y2="370" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="398" x2="160" y2="398" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
+<line x1="84"  y1="420" x2="160" y2="420" stroke="#80cef8" stroke-width="1.2" opacity=".7"/>
 <!-- Pool steps -->
-<rect x="100" y="100" width="20" height="12" fill="#a8d8f0" stroke="#2a78b0" stroke-width="1"/>
-<rect x="100" y="112" width="16" height="10" fill="#c0e4f8" stroke="#2a78b0" stroke-width=".8"/>
-
-<!-- Pool deck furniture -->
-<rect x="92" y="50" width="30" height="14" fill="#e0d8c8" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="128" y="50" width="30" height="14" fill="#e0d8c8" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="164" y="50" width="30" height="14" fill="#e0d8c8" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="155" y="44" text-anchor="middle" font-size="8" fill="#888">deck chairs</text>
-
-<!-- Outdoor dining at south end of courtyard -->
-<ellipse cx="155" cy="530" rx="30" ry="20" fill="#d8d0b8" stroke="#bbb" stroke-width="1.5"/>
-<rect x="130" y="506" width="18" height="12" fill="#c8c0a8" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="157" y="506" width="18" height="12" fill="#c8c0a8" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="130" y="542" width="18" height="12" fill="#c8c0a8" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="157" y="542" width="18" height="12" fill="#c8c0a8" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="155" y="583" text-anchor="middle" font-size="8.5" fill="#888">outdoor dining</text>
-
+<rect x="80" y="196" width="22" height="12" fill="#90d4f4" stroke="#2272b0" stroke-width="1"/>
+<rect x="80" y="208" width="16" height="10" fill="#b0e4fc" stroke="#2272b0" stroke-width=".8"/>
+<!-- Pool label -->
+<text x="165" y="302" text-anchor="middle" font-size="11" fill="white" font-weight="600">L-SHAPED</text>
+<text x="165" y="318" text-anchor="middle" font-size="11" fill="white" font-weight="600">POOL</text>
+<!-- Outdoor dining table SE of pool -->
+<ellipse cx="205" cy="420" rx="28" ry="18" fill="#d4ccb2" stroke="#bbb" stroke-width="1.5"/>
+<rect x="181" y="395" width="18" height="12" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="205" y="395" width="18" height="12" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="181" y="432" width="18" height="12" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="205" y="432" width="18" height="12" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="170" y="410" width="12" height="18" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="228" y="410" width="12" height="18" fill="#c8c0a6" stroke="#bbb" stroke-width="1" rx="2"/>
 <!-- Courtyard label -->
-<text x="155" y="76" text-anchor="middle" font-size="9" fill="#6a5830" font-weight="500">POOL COURTYARD</text>
+<text x="165" y="184" text-anchor="middle" font-size="8.5" fill="#4a6820" font-weight="500" letter-spacing=".5">CENTRAL L-SHAPED POOL COURTYARD</text>
 
-<!-- Plants along courtyard walls -->
-<circle cx="96"  cy="430" r="7" fill="#4a8040" opacity=".8"/>
-<circle cx="96"  cy="460" r="9" fill="#3a7030" opacity=".8"/>
-<circle cx="96"  cy="495" r="7" fill="#5a9050" opacity=".8"/>
-<circle cx="214" cy="430" r="7" fill="#4a8040" opacity=".8"/>
-<circle cx="214" cy="460" r="9" fill="#3a7030" opacity=".8"/>
-<circle cx="214" cy="495" r="7" fill="#5a9050" opacity=".8"/>
-
-<!-- ─── LEFT BOTTOM: Laundry + Kitchen + Pantry + Garage ─── -->
-
-<!-- Laundry (x=20–90, y=530–620) -->
-<rect x="20" y="530" width="70" height="90" fill="#f0ece4" stroke="#333" stroke-width="2"/>
-<rect x="30" y="544" width="34" height="34" fill="#e0dcd4" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<circle cx="47" cy="561" r="12" fill="none" stroke="#bbb" stroke-width="1.5"/>
-<circle cx="47" cy="561" r="6"  fill="none" stroke="#ccc" stroke-width="1"/>
-<text x="55" y="604" text-anchor="middle" font-size="9" fill="#555" font-weight="500">LAUNDRY</text>
-
-<!-- Kitchen (x=90–220, y=620–720) — shared bottom strip -->
-<rect x="20" y="620" width="200" height="100" fill="url(#tile)" stroke="#333" stroke-width="2.5"/>
-<!-- Kitchen counter top -->
-<rect x="28" y="628" width="184" height="18" fill="#e0e0dc" stroke="#ccc" stroke-width="1.2" rx="1"/>
-<!-- Hob -->
-<circle cx="80"  cy="637" r="5" fill="none" stroke="#aaa" stroke-width="1.5"/>
-<circle cx="96"  cy="637" r="5" fill="none" stroke="#aaa" stroke-width="1.5"/>
-<circle cx="80"  cy="651" r="4" fill="none" stroke="#aaa" stroke-width="1.5"/>
-<circle cx="96"  cy="651" r="4" fill="none" stroke="#aaa" stroke-width="1.5"/>
-<!-- Sink -->
-<rect x="124" y="629" width="28" height="14" fill="#d0d0cc" stroke="#aaa" stroke-width="1" rx="1"/>
-<!-- Fridge -->
-<rect x="162" y="628" width="28" height="40" fill="#e8e8e4" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<text x="176" y="652" text-anchor="middle" font-size="8" fill="#888">FRIDGE</text>
-<!-- Pantry (right of kitchen counter) -->
-<rect x="130" y="660" width="82" height="32" fill="#e8e4dc" stroke="#bbb" stroke-width="1" rx="1"/>
-<text x="171" y="680" text-anchor="middle" font-size="9" fill="#666">PANTRY</text>
-<!-- Island -->
-<rect x="40" y="668" width="80" height="32" fill="#d8d8d4" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<text x="80" y="688" text-anchor="middle" font-size="9" fill="#555">ISLAND</text>
-<!-- Kitchen label -->
-<text x="220" y="700" text-anchor="middle" font-size="11" fill="#333" font-weight="600">KITCHEN</text>
-
-<!-- Garage (x=20–180, y=720+... wait garage is inside house south end) -->
-<!-- Actually the garage pushes the house boundary. Let me put garage at y=720 below house. -->
-<!-- House ends at y=740. Garage: outside the main house rect, shown separately -->
-
-<!-- ─── RIGHT SIDE: Bedrooms + Living + Dining ─── -->
-
-<!-- Master Bedroom (x=220–380, y=20–240) -->
-<rect x="220" y="20" width="160" height="220" fill="url(#marble)" stroke="#333" stroke-width="2.5"/>
-<!-- Bed -->
-<rect x="230" y="36" width="130" height="90" fill="#e8e0d8" stroke="#bbb" stroke-width="1.5" rx="4"/>
-<rect x="230" y="36" width="130" height="22" fill="#d8d0c8" stroke="#bbb" stroke-width="1" rx="3"/>
-<ellipse cx="270" cy="48" rx="18" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="320" cy="48" rx="18" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
-<!-- Wardrobe strip -->
-<rect x="230" y="190" width="130" height="16" fill="#d8d4c8" stroke="#bbb" stroke-width="1" rx="1"/>
-<line x1="296" y1="190" x2="296" y2="206" stroke="#bbb" stroke-width=".8"/>
-<text x="296" y="202" text-anchor="middle" font-size="7.5" fill="#888">wardrobe</text>
-<!-- Bedside tables -->
-<rect x="230" y="130" width="18" height="18" fill="#e0d8d0" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="342" y="130" width="18" height="18" fill="#e0d8d0" stroke="#bbb" stroke-width="1" rx="2"/>
-<!-- Seating area -->
-<rect x="240" y="152" width="110" height="32" fill="#d8d4cc" stroke="#bbb" stroke-width="1" rx="3"/>
-<text x="295" y="172" text-anchor="middle" font-size="8.5" fill="#666">seating</text>
-<!-- Label -->
-<text x="295" y="216" text-anchor="middle" font-size="12" fill="#333" font-weight="600">MASTER</text>
-<text x="295" y="230" text-anchor="middle" font-size="10" fill="#555">BEDROOM</text>
-
-<!-- Bath 1 (x=220–320, y=240–360) -->
-<rect x="220" y="240" width="100" height="120" fill="#f0ece8" stroke="#333" stroke-width="2"/>
-<!-- Bathtub -->
-<rect x="228" y="248" width="84" height="42" fill="#e0dcd8" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<text x="270" y="272" text-anchor="middle" font-size="8.5" fill="#888">BATHTUB</text>
-<!-- Basin -->
-<rect x="228" y="298" width="26" height="18" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<!-- WC -->
-<ellipse cx="304" cy="344" rx="14" ry="18" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5"/>
-<!-- Shower -->
-<rect x="268" y="296" width="36" height="36" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
-<circle cx="286" cy="314" r="5" fill="none" stroke="#bbb" stroke-width="1.5"/>
-<text x="270" y="356" text-anchor="middle" font-size="9.5" fill="#555" font-weight="500">BATH 1</text>
-
-<!-- Bedroom 1 (x=320–380, y=240–440) -->
-<rect x="320" y="240" width="60" height="200" fill="url(#marble)" stroke="#333" stroke-width="2"/>
-<rect x="328" y="252" width="44" height="60" fill="#e8e0d8" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="328" y="252" width="44" height="14" fill="#d8d0c8" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="350" y="332" text-anchor="middle" font-size="9" fill="#333" font-weight="600">BED</text>
-<text x="350" y="345" text-anchor="middle" font-size="9" fill="#555">ROOM 1</text>
+<!-- ── MASTER BEDROOM ── -->
+<rect x="18"  y="20"  width="136" height="92"  fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
+<rect x="18"  y="20"  width="136" height="22"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
+<ellipse cx="52"  cy="31" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="104" cy="31" rx="18" ry="7" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<!-- Seating -->
+<rect x="18"  y="120" width="120" height="38" fill="#dcdad0" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<rect x="18"  y="120" width="16"  height="38" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
+<rect x="122" y="120" width="16"  height="38" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
 <!-- Wardrobe -->
-<rect x="328" y="406" width="44" height="14" fill="#d8d4c8" stroke="#bbb" stroke-width="1" rx="1"/>
-<text x="350" y="416" text-anchor="middle" font-size="7" fill="#888">WD</text>
+<rect x="18"  y="162" width="84"  height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1"   rx="1"/>
+<line x1="60" y1="162" x2="60"   y2="176" stroke="#bbb" stroke-width=".8"/>
+<!-- Bedside tables -->
+<rect x="154" y="38"  width="14"  height="14" fill="#ddd8d0" stroke="#bbb" stroke-width="1"   rx="2"/>
+<rect x="154" y="60"  width="14"  height="14" fill="#ddd8d0" stroke="#bbb" stroke-width="1"   rx="2"/>
+<text x="88"  y="160" text-anchor="middle" font-size="12" fill="#333" font-weight="600">MASTER</text>
+<text x="88"  y="150" text-anchor="middle" font-size="12" fill="#333" font-weight="600">BEDROOM</text>
 
-<!-- Bath 2 (x=320–380, y=440–540) -->
-<rect x="320" y="440" width="60" height="100" fill="#f0ece8" stroke="#333" stroke-width="2"/>
-<rect x="328" y="448" width="44" height="24" fill="#e0dcd8" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<text x="350" y="462" text-anchor="middle" font-size="7.5" fill="#888">basin</text>
-<ellipse cx="350" cy="518" rx="13" ry="16" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5"/>
-<text x="350" y="535" text-anchor="middle" font-size="9" fill="#555" font-weight="500">BATH 2</text>
+<!-- ── BATH 1 ── -->
+<!-- Bathtub north wall -->
+<rect x="178" y="18"  width="88"  height="40" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="222" y="42"  text-anchor="middle" font-size="8"   fill="#888">BATHTUB</text>
+<!-- Double basin -->
+<rect x="178" y="66"  width="26"  height="18" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="191" cy="75" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="210" y="66"  width="26"  height="18" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="223" cy="75" r="4" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<!-- Shower -->
+<rect x="178" y="90"  width="38"  height="36" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="197" cy="108" r="5"  fill="none" stroke="#bbb" stroke-width="1.5"/>
+<!-- WC -->
+<ellipse cx="256" cy="84"  rx="14" ry="19" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="256" cy="79"  rx="9"  ry="7"  fill="none"   stroke="#ccc" stroke-width="1"/>
+<text x="222" y="119" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">BATH 1</text>
+<!-- Ventilation -->
+<text x="222" y="9"   text-anchor="middle" font-size="7"   fill="#aaa" letter-spacing="1">VENTILATION</text>
 
-<!-- Hallway (x=220–320, y=360–440) -->
-<rect x="220" y="360" width="100" height="80" fill="#f4f0e8" stroke="#333" stroke-width="2"/>
-<text x="270" y="403" text-anchor="middle" font-size="10" fill="#777" font-weight="500">HALLWAY</text>
-<text x="270" y="417" text-anchor="middle" font-size="8" fill="#aaa">circulation</text>
-<!-- Stair -->
-<rect x="228" y="368" width="60" height="66" fill="#eeebe0" stroke="#bbb" stroke-width="1"/>
-<line x1="228" y1="382" x2="288" y2="382" stroke="#bbb" stroke-width="1.2"/>
-<line x1="228" y1="396" x2="288" y2="396" stroke="#bbb" stroke-width="1.2"/>
-<line x1="228" y1="410" x2="288" y2="410" stroke="#bbb" stroke-width="1.2"/>
-<line x1="228" y1="424" x2="288" y2="424" stroke="#bbb" stroke-width="1.2"/>
-<polygon points="258,370 253,382 263,382" fill="#888"/>
-<text x="258" y="432" text-anchor="middle" font-size="7.5" fill="#888">UP</text>
+<!-- ── HALLWAY + STAIR ── -->
+<text x="222" y="136" text-anchor="middle" font-size="9.5" fill="#888" font-weight="500">HALLWAY</text>
+<rect x="174" y="124" width="96"  height="52" fill="#ecead2" stroke="#bbb" stroke-width="1"/>
+<line x1="178" y1="136" x2="266" y2="136" stroke="#bbb" stroke-width="1.2"/>
+<line x1="178" y1="148" x2="266" y2="148" stroke="#bbb" stroke-width="1.2"/>
+<line x1="178" y1="160" x2="266" y2="160" stroke="#bbb" stroke-width="1.2"/>
+<polygon points="222,126 217,138 227,138" fill="#888"/>
+<text x="222" y="171" text-anchor="middle" font-size="7.5" fill="#888">STAIR UP</text>
 
-<!-- Living Hall (x=220–380, y=440–600) -->
-<rect x="220" y="540" width="160" height="180" fill="url(#marble)" stroke="#333" stroke-width="2.5"/>
-<!-- Sofa group -->
-<rect x="230" y="552" width="140" height="48" fill="#ddd8d0" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="230" y="552" width="18" height="48" fill="#d0ccc4" stroke="#bbb" stroke-width="1.2" rx="2"/>
-<rect x="352" y="552" width="18" height="48" fill="#d0ccc4" stroke="#bbb" stroke-width="1.2" rx="2"/>
-<rect x="252" y="538" width="96" height="16" fill="#d0ccc4" stroke="#bbb" stroke-width="1.2" rx="2"/>
-<!-- Coffee table -->
-<rect x="265" y="608" width="70" height="38" fill="#c8c0b0" stroke="#aaa" stroke-width="1.5" rx="2"/>
-<!-- TV wall -->
-<rect x="228" y="706" width="144" height="10" fill="#aaa" stroke="#888" stroke-width="1" rx="1"/>
-<text x="300" y="714" text-anchor="middle" font-size="7.5" fill="#666">TV WALL</text>
-<!-- Label -->
-<text x="300" y="736" text-anchor="middle" font-size="12" fill="#333" font-weight="600">LIVING HALL</text>
+<!-- ── BEDROOM 1 ── -->
+<rect x="282" y="18"  width="200" height="94"  fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
+<rect x="282" y="18"  width="200" height="22"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
+<ellipse cx="326" cy="29" rx="20" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="398" cy="29" rx="20" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<!-- Wardrobe full width -->
+<rect x="282" y="152" width="200" height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1"   rx="1"/>
+<line x1="382" y1="152" x2="382" y2="166" stroke="#bbb" stroke-width=".8"/>
+<!-- Seating nook NE corner -->
+<rect x="440" y="42"  width="40"  height="68" fill="#dcdad0" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<text x="460" y="80"  text-anchor="middle" font-size="8"   fill="#888">seat</text>
+<text x="382" y="144" text-anchor="middle" font-size="12" fill="#333" font-weight="600">BEDROOM 1</text>
+<!-- Ventilation east -->
+<text x="494" y="80"  text-anchor="middle" font-size="7"   fill="#aaa" transform="rotate(90,494,80)">VENTILATION</text>
 
-<!-- Dining Area (x=220–380, y=600–720 pushed to side) -->
-<!-- Actually: let me put Dining between Living and the bottom -->
-<!-- Dining: x=220,y=720 → runs into porch area. Instead nest it. -->
-<!-- Revised: Living y=540–660, Dining y=660–740 (right col bottom) -->
-<rect x="220" y="660" width="160" height="80" fill="url(#tile)" stroke="#333" stroke-width="2"/>
-<ellipse cx="300" cy="695" rx="40" ry="26" fill="none" stroke="#bbb" stroke-width="1.5"/>
-<rect x="268" y="664" width="18" height="14" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="314" y="664" width="18" height="14" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="268" y="710" width="18" height="14" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="314" y="710" width="18" height="14" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="228" y="678" width="14" height="22" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<rect x="358" y="678" width="14" height="22" fill="#d8d8d4" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="300" y="750" text-anchor="middle" font-size="11" fill="#333" font-weight="600">DINING AREA</text>
+<!-- ── BATH 2 ── -->
+<!-- Bathtub -->
+<rect x="282" y="186" width="80"  height="40" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="322" y="210" text-anchor="middle" font-size="8"   fill="#888">bathtub</text>
+<!-- Shower -->
+<rect x="370" y="186" width="40"  height="40" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="390" cy="206" r="6"  fill="none" stroke="#bbb" stroke-width="1.5"/>
+<!-- WC -->
+<ellipse cx="454" cy="208" rx="14" ry="18" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
+<text x="382" y="224" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">BATH 2</text>
+<!-- Ventilation -->
+<text x="494" y="208" text-anchor="middle" font-size="7"   fill="#aaa" transform="rotate(90,494,208)">VENT</text>
 
-<!-- ─── HOUSE WALLS on top ─── -->
-<!-- Main vertical wall left/right -->
-<line x1="220" y1="20"  x2="220" y2="620" stroke="#333" stroke-width="3.5"/>
-<line x1="90"  y1="20"  x2="90"  y2="620" stroke="#333" stroke-width="3"/>
-<!-- Horizontals -->
-<line x1="20"  y1="240" x2="220" y2="240" stroke="#333" stroke-width="2.5"/>
-<line x1="20"  y1="530" x2="90"  y2="530" stroke="#333" stroke-width="2.5"/>
-<line x1="20"  y1="620" x2="380" y2="620" stroke="#333" stroke-width="3"/>
-<line x1="220" y1="240" x2="380" y2="240" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="360" x2="380" y2="360" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="440" x2="380" y2="440" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="540" x2="380" y2="540" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="660" x2="380" y2="660" stroke="#333" stroke-width="2.5"/>
-<line x1="320" y1="240" x2="320" y2="540" stroke="#333" stroke-width="2.5"/>
+<!-- ── LIVING HALL ── -->
+<!-- Large sofa group -->
+<rect x="284" y="250" width="200" height="56" fill="#dddad2" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<rect x="284" y="250" width="18"  height="56" fill="#d4d0c8" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<rect x="466" y="250" width="18"  height="56" fill="#d4d0c8" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<rect x="304" y="238" width="162" height="14" fill="#d0ccc4" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<!-- Round coffee table (matching reference) -->
+<circle cx="384" cy="346" r="30" fill="none"   stroke="#ccc" stroke-width="1.5"/>
+<circle cx="384" cy="346" r="26" fill="#d4d0c8" stroke="#bbb" stroke-width="1"/>
+<circle cx="384" cy="346" r="5"  fill="#c8c4bc"/>
+<!-- Side chairs -->
+<rect x="284" y="326" width="30"  height="38" fill="#dedcd4" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<rect x="454" y="326" width="30"  height="38" fill="#dedcd4" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<!-- TV wall south edge of living -->
+<rect x="284" y="432" width="200" height="10" fill="#aaa"    stroke="#888" stroke-width="1"   rx="1"/>
+<text x="384" y="430" text-anchor="middle" font-size="7.5" fill="#888">TV WALL</text>
+<text x="384" y="420" text-anchor="middle" font-size="12" fill="#333" font-weight="600">LIVING HALL</text>
+<text x="384" y="406" text-anchor="middle" font-size="9"  fill="#888">~26×27 ft</text>
 
-<!-- ─── GARAGE + PORCH (south, below y=740) ─── -->
-<!-- Double Garage -->
-<rect x="20" y="740" width="170" height="110" fill="#d8d0b8" stroke="#333" stroke-width="2.5" rx="1"/>
-<rect x="28"  y="752" width="70" height="90" fill="#d0c8b0" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<rect x="112" y="752" width="70" height="90" fill="#d0c8b0" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<!-- Cars -->
-<rect x="34"  y="762" width="58" height="76" fill="#b8c0c8" stroke="#8898a8" stroke-width="1.5" rx="4"/>
-<rect x="118" y="762" width="58" height="76" fill="#a8b0b8" stroke="#7888a0" stroke-width="1.5" rx="4"/>
-<rect x="190" y="740" width="80" height="30" fill="#c8c0b0" stroke="#aaa" stroke-width="1" rx="1"/>
-<text x="230" y="756" text-anchor="middle" font-size="9" fill="#888">DOUBLE GARAGE</text>
-<text x="105" y="860" text-anchor="middle" font-size="10" fill="#666" font-weight="500">DOUBLE GARAGE</text>
+<!-- ── DINING AREA ── -->
+<!-- Round dining table -->
+<ellipse cx="380" cy="492" rx="46" ry="30" fill="none"   stroke="#bbb" stroke-width="1.8"/>
+<ellipse cx="380" cy="492" rx="38" ry="24" fill="#d8d4cc" stroke="#ccc" stroke-width="1"/>
+<!-- Chairs around table -->
+<rect x="348" y="455" width="20" height="13" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="378" y="455" width="20" height="13" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="348" y="512" width="20" height="13" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="378" y="512" width="20" height="13" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="278" y="478" width="13" height="20" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<rect x="458" y="478" width="13" height="20" fill="#dedad4" stroke="#bbb" stroke-width="1" rx="2"/>
+<!-- Lounge nook right -->
+<rect x="440" y="455" width="48"  height="68" fill="#d8d6ce" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<text x="464" y="493" text-anchor="middle" font-size="8"   fill="#888">lounge</text>
+<text x="356" y="524" text-anchor="middle" font-size="12" fill="#333" font-weight="600">DINING AREA</text>
 
+<!-- ── KITCHEN + PANTRY ── -->
+<!-- Counter top (north wall) -->
+<rect x="98"  y="458" width="168" height="16" fill="#e0dcd4" stroke="#ccc" stroke-width="1.2" rx="1"/>
+<!-- Hob circles -->
+<circle cx="120" cy="466" r="5"  fill="none" stroke="#aaa" stroke-width="1.5"/>
+<circle cx="136" cy="466" r="5"  fill="none" stroke="#aaa" stroke-width="1.5"/>
+<circle cx="120" cy="480" r="4"  fill="none" stroke="#aaa" stroke-width="1.5"/>
+<circle cx="136" cy="480" r="4"  fill="none" stroke="#aaa" stroke-width="1.5"/>
+<!-- Sink -->
+<rect x="160" y="459" width="26"  height="13" fill="#d4d0cc" stroke="#aaa" stroke-width="1"   rx="1"/>
+<circle cx="173" cy="466" r="3.5" fill="none" stroke="#aaa" stroke-width="1.2"/>
+<!-- Fridge -->
+<rect x="200" y="458" width="22"  height="38" fill="#e6e6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<line x1="211" y1="458" x2="211" y2="496" stroke="#ddd" stroke-width="1"/>
+<text x="211" y="482" text-anchor="middle" font-size="7"   fill="#888">FRG</text>
+<!-- Pantry shelf -->
+<rect x="98"  y="482" width="80"  height="28" fill="#e8e4dc" stroke="#bbb" stroke-width="1"   rx="1"/>
+<text x="138" y="500" text-anchor="middle" font-size="9"   fill="#666">PANTRY</text>
+<!-- Island -->
+<rect x="98"  y="516" width="160" height="22" fill="#dcdad0" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<text x="178" y="530" text-anchor="middle" font-size="9"   fill="#555">ISLAND</text>
+<text x="178" y="512" text-anchor="middle" font-size="11" fill="#333" font-weight="600">KITCHEN</text>
+
+<!-- ── LAUNDRY ── -->
+<rect x="18"  y="460" width="34"  height="34" fill="#e2deda" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<circle cx="35"  cy="477" r="12" fill="none"   stroke="#ccc" stroke-width="1.8"/>
+<circle cx="35"  cy="477" r="6"  fill="none"   stroke="#ddd" stroke-width="1.2"/>
+<text x="35"  y="508" text-anchor="middle" font-size="8.5" fill="#888">WM</text>
+<rect x="58"  y="462" width="26"  height="22" fill="#dad8d0" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="71"  cy="473" r="4"  fill="none"   stroke="#bbb" stroke-width="1.2"/>
+<text x="71"  y="494" text-anchor="middle" font-size="7.5" fill="#888">sink</text>
+<text x="50"  y="524" text-anchor="middle" font-size="11" fill="#333" font-weight="600">LAUNDRY</text>
+
+<!-- ══ STRUCTURAL WALLS (drawn on top) ══ -->
+<rect x="10"  y="10"  width="480" height="520" fill="none" stroke="#2a2a28" stroke-width="5"   rx="2"/>
+<!-- Col verticals -->
+<line x1="170" y1="10"  x2="170" y2="178" stroke="#2a2a28" stroke-width="3.5"/><!-- master/bath1 -->
+<line x1="274" y1="10"  x2="274" y2="530" stroke="#2a2a28" stroke-width="3.5"/><!-- east col -->
+<line x1="90"  y1="450" x2="90"  y2="530" stroke="#2a2a28" stroke-width="3"/>  <!-- laundry/kitchen -->
+<!-- Row horizontals -->
+<line x1="10"  y1="178" x2="490" y2="178" stroke="#2a2a28" stroke-width="3.5"/><!-- bedrooms/rest -->
+<line x1="170" y1="122" x2="274" y2="122" stroke="#2a2a28" stroke-width="3"/>  <!-- bath1/hallway split -->
+<line x1="274" y1="234" x2="490" y2="234" stroke="#2a2a28" stroke-width="3"/>  <!-- bath2/living -->
+<line x1="10"  y1="450" x2="490" y2="450" stroke="#2a2a28" stroke-width="3.5"/><!-- kitchen/pool bot -->
+<line x1="274" y1="530" x2="490" y2="530" stroke="#2a2a28" stroke-width="3"/>  <!-- dining bot (for garage wall) -->
+
+<!-- ══ DOORS ══ -->
+<!-- D1: Master → Pool courtyard (south wall y=178, gap x=50..92) -->
+<rect x="47"  y="175" width="48"  height="6"  fill="white"/>
+<line x1="95"  y1="178" x2="95"  y2="130" stroke="#444" stroke-width="2.5"/>
+<path d="M 95 130 A 48 48 0 0 1 47 178" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D2: Bath1 → Hallway (wall y=122, gap x=196..240) -->
+<rect x="193" y="119" width="48"  height="6"  fill="white"/>
+<line x1="240" y1="122" x2="240" y2="170" stroke="#444" stroke-width="2.5"/>
+<path d="M 240 170 A 48 48 0 0 1 192 122" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D3: Bedroom1 → Hallway (wall x=274, gap y=126..168) -->
+<rect x="271" y="123" width="6"   height="48" fill="white"/>
+<line x1="274" y1="126" x2="274" y2="174" stroke="#444" stroke-width="2.5"/>
+<path d="M 274 174 A 48 48 0 0 1 322 126" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D4: Bath2 → from hallway (wall y=178, gap x=294..338) -->
+<rect x="291" y="175" width="50"  height="6"  fill="white"/>
+<line x1="294" y1="178" x2="294" y2="226" stroke="#444" stroke-width="2.5"/>
+<path d="M 294 226 A 48 48 0 0 0 342 178" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D5: Living Hall from hallway (wall x=274, gap y=260..304) -->
+<rect x="271" y="257" width="6"   height="50" fill="white"/>
+<line x1="274" y1="260" x2="274" y2="310" stroke="#444" stroke-width="2.5"/>
+<path d="M 274 310 A 50 50 0 0 0 324 260" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D6: Kitchen back door (west wall x=10, gap y=464..508) -->
+<rect x="7"   y="461" width="6"   height="48" fill="white"/>
+<line x1="10"  y1="464" x2="10"  y2="512" stroke="#444" stroke-width="2.5"/>
+<path d="M 10 512 A 48 48 0 0 0 58 464" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D7: Main entrance (south wall y=530, gap x=282..330) -->
+<rect x="279" y="527" width="52"  height="6"  fill="white"/>
+<line x1="282" y1="530" x2="282" y2="482" stroke="#444" stroke-width="2.5"/>
+<path d="M 282 482 A 48 48 0 0 1 330 530" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D8: Kitchen → Pool (north wall y=450, gap x=108..152) -->
+<rect x="105" y="447" width="48"  height="6"  fill="white"/>
+<line x1="152" y1="450" x2="152" y2="402" stroke="#444" stroke-width="2.5"/>
+<path d="M 152 402 A 48 48 0 0 1 104 450" fill="none" stroke="#666" stroke-width="1.5"/>
+
+<!-- ══ GARAGE + PORCH (south of house) ══ -->
+<rect x="10"  y="530" width="264" height="120" fill="#d2cbb2" stroke="#2a2a28" stroke-width="2.5" rx="1"/>
+<!-- Garage bay dividers -->
+<rect x="18"  y="540" width="116" height="102" fill="#c8c0a6" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<rect x="148" y="540" width="118" height="102" fill="#c8c0a6" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<!-- Cars top-down -->
+<rect x="26"  y="548" width="100" height="86"  fill="#b2bac2" stroke="#8898a8" stroke-width="1.5" rx="5"/>
+<text x="76"  y="595" text-anchor="middle" font-size="8.5" fill="#555">CAR 1</text>
+<rect x="156" y="548" width="102" height="86"  fill="#a6aeb6" stroke="#8090a0" stroke-width="1.5" rx="5"/>
+<text x="207" y="595" text-anchor="middle" font-size="8.5" fill="#555">CAR 2</text>
+<text x="137" y="658" text-anchor="middle" font-size="10" fill="#555" font-weight="500">DOUBLE GARAGE</text>
 <!-- Front Porch -->
-<rect x="190" y="770" width="190" height="80" fill="#eeebe2" stroke="#333" stroke-width="2" rx="1"/>
-<text x="285" y="818" text-anchor="middle" font-size="11" fill="#555" font-weight="500">FRONT PORCH</text>
+<rect x="274" y="530" width="216" height="120" fill="#ece8de" stroke="#2a2a28" stroke-width="2.5" rx="1"/>
+<text x="382" y="594" text-anchor="middle" font-size="11" fill="#666" font-weight="500">FRONT PORCH</text>
+<!-- Porch chairs -->
+<rect x="284" y="542" width="42"  height="28" fill="#dedad4" stroke="#bbb" stroke-width="1"   rx="2"/>
+<rect x="336" y="542" width="42"  height="28" fill="#dedad4" stroke="#bbb" stroke-width="1"   rx="2"/>
+<!-- Porch lounge right -->
+<rect x="412" y="542" width="68"  height="100" fill="#d8d6ce" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<text x="446" y="596" text-anchor="middle" font-size="8.5" fill="#777">lounge</text>
 
 <!-- Front Lawn -->
-<rect x="20" y="850" width="360" height="40" fill="#c0d0a0" stroke="#90a870" stroke-width="1" rx="1"/>
-<text x="200" y="875" text-anchor="middle" font-size="10" fill="#4a7040">FRONT LAWN</text>
-
-<!-- ─── DOORS ─── -->
-<!-- Master → hallway -->
-<rect x="284" y="237" width="36" height="6" fill="white"/>
-<line x1="320" y1="240" x2="320" y2="276" stroke="#444" stroke-width="2.5"/>
-<path d="M 320 276 A 36 36 0 0 1 284 240" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Bath1 door -->
-<rect x="220" y="352" width="30" height="6" fill="white"/>
-<line x1="220" y1="352" x2="220" y2="382" stroke="#444" stroke-width="2.5"/>
-<path d="M 220 382 A 30 30 0 0 0 250 352" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Bedroom1 door -->
-<rect x="317" y="360" width="6" height="30" fill="white"/>
-<line x1="320" y1="360" x2="356" y2="360" stroke="#444" stroke-width="2.5"/>
-<path d="M 356 360 A 36 36 0 0 1 320 396" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Bath2 door -->
-<rect x="317" y="440" width="6" height="28" fill="white"/>
-<line x1="320" y1="440" x2="320" y2="468" stroke="#444" stroke-width="2.5"/>
-<path d="M 320 468 A 28 28 0 0 1 348 440" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Living → hallway -->
-<rect x="220" y="524" width="34" height="6" fill="white"/>
-<line x1="220" y1="524" x2="220" y2="556" stroke="#444" stroke-width="2.5"/>
-<path d="M 220 556 A 32 32 0 0 0 252 524" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Kitchen back door -->
-<rect x="14" y="648" width="6" height="30" fill="white"/>
-<line x1="20" y1="648" x2="20" y2="678" stroke="#444" stroke-width="2.5"/>
-<path d="M 20 678 A 30 30 0 0 0 50 648" fill="none" stroke="#666" stroke-width="1.5"/>
-<!-- Main entrance -->
-<rect x="268" y="735" width="50" height="6" fill="white"/>
-<line x1="268" y1="740" x2="268" y2="700" stroke="#444" stroke-width="2.5"/>
-<path d="M 268 700 A 40 40 0 0 1 308 740" fill="none" stroke="#666" stroke-width="1.5"/>
-
-<!-- NORTH + DIMS -->
-<circle cx="432" cy="48" r="18" fill="white" stroke="#ccc" stroke-width="1.5"/>
-<polygon points="432,30 427,46 432,42 437,46" fill="#333"/>
-<polygon points="432,66 427,50 432,54 437,50" fill="#ddd"/>
-<text x="432" y="53" text-anchor="middle" font-size="10" fill="#333" font-weight="600">N</text>
-<line x1="28" y1="878" x2="148" y2="878" stroke="#888" stroke-width="2"/>
-<line x1="28"  y1="874" x2="28"  y2="882" stroke="#888" stroke-width="2"/>
-<line x1="148" y1="874" x2="148" y2="882" stroke="#888" stroke-width="2"/>
-<text x="88"   y="895" text-anchor="middle" font-size="10" fill="#888">10 ft</text>
-</svg>
-</div>
-
-<div class="legend">
-  <div class="li"><div class="ls" style="background:#f8f6f2;border:1px solid #ccc"></div>Marble floor (bedrooms/living)</div>
-  <div class="li"><div class="ls" style="background:#f0ece4;border:1px solid #ccc"></div>Tile floor (kitchen/bath)</div>
-  <div class="li"><div class="ls" style="background:#d8cdb0;border:1px solid #ccc"></div>Timber deck (pool area)</div>
-  <div class="li"><div class="ls" style="background:#5ab8e8"></div>L-shaped pool</div>
-</div>
-<div class="note">
-  <strong>Ground floor layout:</strong> Master bedroom + Bath 1 north-east · Bedroom 1 + Bath 2 east · Central L-shaped pool courtyard with BBQ area · Open kitchen + laundry south-west · Living hall + Dining south-east · Double garage + Front porch at south entry
-</div>
-</div>
-
-<!-- ═══════════ FLOOR 2 ═══════════ -->
-<div class="page" id="page-f2">
-<div class="sec-head">First Floor — Bedrooms Above · Pool Void Below</div>
-<div class="plan-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="900" viewBox="0 0 460 900"
-  style="font-family:'Jost',sans-serif;background:#f6f6f2">
-<defs>
-  <pattern id="grid3" width="10" height="10" patternUnits="userSpaceOnUse">
-    <path d="M10 0H0V10" fill="none" stroke="#eeebe4" stroke-width=".5"/>
-  </pattern>
-  <pattern id="marble2" width="30" height="30" patternUnits="userSpaceOnUse">
-    <rect width="30" height="30" fill="#f8f6f2"/>
-    <line x1="0" y1="15" x2="30" y2="10" stroke="#ede9e0" stroke-width=".6"/>
-    <line x1="0" y1="5"  x2="20" y2="30" stroke="#ede9e0" stroke-width=".4"/>
-  </pattern>
-  <pattern id="tile2" width="20" height="20" patternUnits="userSpaceOnUse">
-    <rect width="20" height="20" fill="#f0ece4"/>
-    <rect width="20" height="20" fill="none" stroke="#e4e0d8" stroke-width=".6"/>
-  </pattern>
-</defs>
-<rect width="460" height="900" fill="#f6f6f2"/>
-<rect width="460" height="900" fill="url(#grid3)"/>
-
-<!-- House outer shell -->
-<rect x="20" y="20" width="360" height="720" fill="white" stroke="#333" stroke-width="5" rx="2"/>
-
-<!-- ─── POOL VOID (left zone, open to sky) ─── -->
-<!-- Pool void shows where the courtyard is below — no floor, open to sky -->
-<rect x="20" y="20" width="200" height="600" fill="#e8f4fc"/>
-<!-- Diagonal hatch for void -->
-<line x1="20"  y1="40"  x2="60"  y2="20"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="80"  x2="100" y2="20"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="120" x2="140" y2="20"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="160" x2="180" y2="20"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="200" x2="220" y2="20"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="240" x2="220" y2="40"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="280" x2="220" y2="80"  stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="320" x2="220" y2="120" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="360" x2="220" y2="160" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="400" x2="220" y2="200" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="440" x2="220" y2="240" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="480" x2="220" y2="280" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="520" x2="220" y2="320" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="560" x2="220" y2="360" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="20"  y1="600" x2="220" y2="400" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="60"  y1="620" x2="220" y2="460" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="100" y1="620" x2="220" y2="500" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="140" y1="620" x2="220" y2="540" stroke="#b8d8f0" stroke-width="1"/>
-<line x1="180" y1="620" x2="220" y2="580" stroke="#b8d8f0" stroke-width="1"/>
-<!-- Pool void glass railing -->
-<rect x="22" y="22" width="196" height="596" fill="none" stroke="#a8d0f0" stroke-width="2" stroke-dasharray="8 4"/>
-<!-- Pool visible below annotation -->
-<text x="120" y="300" text-anchor="middle" font-size="13" fill="#4878a0" font-style="italic" font-weight="600">Pool Void</text>
-<text x="120" y="320" text-anchor="middle" font-size="10" fill="#6898c0">Open to sky</text>
-<text x="120" y="338" text-anchor="middle" font-size="10" fill="#6898c0">Pool visible below</text>
-<!-- Sun/sky symbol -->
-<circle cx="120" cy="180" r="24" fill="rgba(255,220,60,.15)" stroke="rgba(255,200,40,.3)" stroke-width="1.5"/>
-<circle cx="120" cy="180" r="14" fill="rgba(255,220,60,.25)"/>
-<!-- Rain dots -->
-<line x1="90" y1="90" x2="87" y2="106" stroke="#60a8d8" stroke-width="1.5" opacity=".6"/>
-<line x1="110" y1="86" x2="107" y2="102" stroke="#60a8d8" stroke-width="1.5" opacity=".6"/>
-<line x1="130" y1="90" x2="127" y2="106" stroke="#60a8d8" stroke-width="1.5" opacity=".6"/>
-<line x1="150" y1="87" x2="147" y2="103" stroke="#60a8d8" stroke-width="1.5" opacity=".6"/>
-<!-- Glass parapet annotation -->
-<text x="120" y="432" text-anchor="middle" font-size="8.5" fill="#4878a0">glass parapet railing</text>
-<text x="120" y="448" text-anchor="middle" font-size="8.5" fill="#4878a0">looks down to pool</text>
-
-<!-- ─── LANDING / CORRIDOR ─── -->
-<rect x="220" y="20" width="160" height="60" fill="#f4f0e8" stroke="#333" stroke-width="2.5"/>
-<text x="300" y="54" text-anchor="middle" font-size="10" fill="#777">FF LANDING</text>
-<!-- Stair arriving -->
-<rect x="228" y="28" width="70" height="44" fill="#eeeae0" stroke="#bbb" stroke-width="1"/>
-<line x1="232" y1="40" x2="294" y2="40" stroke="#bbb" stroke-width="1.2"/>
-<line x1="232" y1="52" x2="294" y2="52" stroke="#bbb" stroke-width="1.2"/>
-<line x1="232" y1="64" x2="294" y2="64" stroke="#bbb" stroke-width="1.2"/>
-<polygon points="262,28 257,40 267,40" fill="#888"/>
-<text x="262" y="26" text-anchor="middle" font-size="7.5" fill="#888">DN</text>
-
-<!-- ─── BEDROOM 2 (FF Master, x=220–380, y=80–300) ─── -->
-<rect x="220" y="80" width="160" height="220" fill="url(#marble2)" stroke="#333" stroke-width="2.5"/>
-<rect x="230" y="96" width="130" height="90" fill="#e8e0d8" stroke="#bbb" stroke-width="1.5" rx="4"/>
-<rect x="230" y="96" width="130" height="22" fill="#d8d0c8" stroke="#bbb" stroke-width="1" rx="3"/>
-<ellipse cx="270" cy="108" rx="18" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
-<ellipse cx="320" cy="108" rx="18" ry="8" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
-<!-- Walk-in WD -->
-<rect x="230" y="250" width="130" height="18" fill="#d8d4c8" stroke="#bbb" stroke-width="1" rx="1"/>
-<line x1="296" y1="250" x2="296" y2="268" stroke="#bbb" stroke-width=".8"/>
-<text x="296" y="262" text-anchor="middle" font-size="7.5" fill="#888">walk-in wardrobe</text>
-<!-- Seating -->
-<rect x="240" y="196" width="110" height="48" fill="#d8d4cc" stroke="#bbb" stroke-width="1" rx="3"/>
-<text x="295" y="224" text-anchor="middle" font-size="8.5" fill="#666">seating area</text>
-<text x="295" y="282" text-anchor="middle" font-size="12" fill="#333" font-weight="600">BEDROOM 2</text>
-<text x="295" y="296" text-anchor="middle" font-size="10" fill="#555">FF Master</text>
-
-<!-- Door: landing → bed2 -->
-<rect x="250" y="77" width="36" height="6" fill="white"/>
-<line x1="250" y1="80" x2="250" y2="116" stroke="#444" stroke-width="2.5"/>
-<path d="M 250 116 A 36 36 0 0 0 286 80" fill="none" stroke="#666" stroke-width="1.5"/>
-
-<!-- ─── FF ENSUITE (x=220–320, y=300–400) ─── -->
-<rect x="220" y="300" width="100" height="100" fill="url(#tile2)" stroke="#333" stroke-width="2"/>
-<rect x="228" y="308" width="84" height="38" fill="#e0dcd8" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<text x="270" y="330" text-anchor="middle" font-size="8.5" fill="#888">BATHTUB</text>
-<rect x="228" y="354" width="26" height="18" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<ellipse cx="304" cy="378" rx="13" ry="16" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5"/>
-<text x="270" y="396" text-anchor="middle" font-size="9.5" fill="#555" font-weight="500">ENSUITE</text>
-
-<!-- Door: bed2 → ensuite -->
-<rect x="217" y="318" width="6" height="30" fill="white"/>
-<line x1="220" y1="318" x2="256" y2="318" stroke="#444" stroke-width="2.5"/>
-<path d="M 256 318 A 36 36 0 0 1 220 354" fill="none" stroke="#666" stroke-width="1.5"/>
-
-<!-- ─── BEDROOM 3 (x=320–380, y=80–300) ─── -->
-<rect x="320" y="80" width="60" height="220" fill="url(#marble2)" stroke="#333" stroke-width="2"/>
-<rect x="328" y="96" width="44" height="60" fill="#e8e0d8" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="328" y="96" width="44" height="14" fill="#d8d0c8" stroke="#bbb" stroke-width="1" rx="2"/>
-<text x="350" y="178" text-anchor="middle" font-size="9" fill="#333" font-weight="600">BED</text>
-<text x="350" y="191" text-anchor="middle" font-size="9" fill="#555">ROOM 3</text>
-<rect x="328" y="262" width="44" height="14" fill="#d8d4c8" stroke="#bbb" stroke-width="1" rx="1"/>
-<text x="350" y="273" text-anchor="middle" font-size="7" fill="#888">WD</text>
-
-<!-- Door: landing → bed3 -->
-<rect x="317" y="88" width="6" height="28" fill="white"/>
-<line x1="320" y1="88" x2="356" y2="88" stroke="#444" stroke-width="2.5"/>
-<path d="M 356 88 A 36 36 0 0 1 320 124" fill="none" stroke="#666" stroke-width="1.5"/>
-
-<!-- ─── BATH 3 (x=320–380, y=300–400) ─── -->
-<rect x="320" y="300" width="60" height="100" fill="url(#tile2)" stroke="#333" stroke-width="2"/>
-<rect x="328" y="308" width="44" height="26" fill="#e0dcd8" stroke="#bbb" stroke-width="1.5" rx="2"/>
-<text x="350" y="323" text-anchor="middle" font-size="7.5" fill="#888">basin</text>
-<ellipse cx="350" cy="378" rx="13" ry="16" fill="#e8e4e0" stroke="#bbb" stroke-width="1.5"/>
-<text x="350" y="396" text-anchor="middle" font-size="9" fill="#555" font-weight="500">BATH 3</text>
-
-<!-- Door: bed3 → bath3 -->
-<rect x="317" y="308" width="6" height="26" fill="white"/>
-<line x1="320" y1="308" x2="320" y2="334" stroke="#444" stroke-width="2.5"/>
-<path d="M 320 334 A 26 26 0 0 1 346 308" fill="none" stroke="#666" stroke-width="1.5"/>
-
-<!-- ─── STUDY / LOUNGE (x=220–380, y=400–540) ─── -->
-<rect x="220" y="400" width="160" height="140" fill="url(#marble2)" stroke="#333" stroke-width="2.5"/>
-<!-- Sofa -->
-<rect x="230" y="412" width="140" height="44" fill="#ddd8d0" stroke="#bbb" stroke-width="1.5" rx="3"/>
-<rect x="230" y="412" width="18" height="44" fill="#d0ccc4" stroke="#bbb" stroke-width="1.2" rx="2"/>
-<rect x="352" y="412" width="18" height="44" fill="#d0ccc4" stroke="#bbb" stroke-width="1.2" rx="2"/>
-<!-- Coffee table -->
-<rect x="268" y="462" width="64" height="36" fill="#c8c0b0" stroke="#aaa" stroke-width="1.5" rx="2"/>
-<!-- Bookshelf -->
-<rect x="230" y="506" width="140" height="14" fill="#d0c8b8" stroke="#bbb" stroke-width="1" rx="1"/>
-<line x1="300" y1="506" x2="300" y2="520" stroke="#bbb" stroke-width=".8"/>
-<text x="300" y="530" text-anchor="middle" font-size="9" fill="#888">bookshelves</text>
-<text x="300" y="546" text-anchor="middle" font-size="12" fill="#333" font-weight="600">STUDY / LOUNGE</text>
-
-<!-- Door: landing → study -->
-<rect x="220" y="400" width="6" height="0" fill="white"/><!-- no door needed, open plan -->
-<line x1="220" y1="400" x2="220" y2="400" stroke="none"/>
-
-<!-- ─── TERRACE / BALCONY (x=220–380, y=540–620) ─── -->
-<rect x="220" y="540" width="160" height="80" fill="#e8f0e4" stroke="#333" stroke-width="2.5" stroke-dasharray="8 4"/>
-<!-- Grille -->
-<line x1="236" y1="544" x2="236" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="252" y1="544" x2="252" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="268" y1="544" x2="268" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="284" y1="544" x2="284" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="300" y1="544" x2="300" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="316" y1="544" x2="316" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="332" y1="544" x2="332" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="348" y1="544" x2="348" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="364" y1="544" x2="364" y2="616" stroke="#bbb" stroke-width="1.5"/>
-<line x1="220" y1="576" x2="380" y2="576" stroke="#bbb" stroke-width="1"/>
-<text x="300" y="566" text-anchor="middle" font-size="10" fill="#4a7040" font-weight="500">TERRACE</text>
-<text x="300" y="600" text-anchor="middle" font-size="9" fill="#6a8850">south-facing</text>
-
-<!-- ─── FF bottom (void continues, no rooms over garage) ─── -->
-<rect x="20" y="620" width="360" height="120" fill="#f0ede8" stroke="#333" stroke-width="2"/>
-<text x="200" y="685" text-anchor="middle" font-size="11" fill="#888" font-style="italic">No floor above garage</text>
-<text x="200" y="701" text-anchor="middle" font-size="9"  fill="#aaa">Roof slab only</text>
-
-<!-- WALLS on top -->
-<line x1="220" y1="20"  x2="220" y2="620" stroke="#333" stroke-width="3.5"/>
-<line x1="220" y1="80"  x2="380" y2="80"  stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="300" x2="380" y2="300" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="400" x2="380" y2="400" stroke="#333" stroke-width="2.5"/>
-<line x1="220" y1="540" x2="380" y2="540" stroke="#333" stroke-width="2.5"/>
-<line x1="320" y1="80"  x2="320" y2="400" stroke="#333" stroke-width="2.5"/>
-
-<!-- Glass parapet around void (right side) -->
-<rect x="218" y="22" width="4" height="596" fill="#a8d0f0" opacity=".6"/>
-<text x="212" y="380" text-anchor="middle" font-size="7.5" fill="#4878a0" transform="rotate(-90,212,380)">glass parapet → pool below</text>
+<rect x="10"  y="650" width="480" height="36"  fill="#b4cc90" stroke="#8aaa60" stroke-width="1"   rx="1"/>
+<text x="250" y="673" text-anchor="middle" font-size="10" fill="#4a7030" font-weight="500">FRONT LAWN</text>
 
 <!-- Road -->
-<rect x="0" y="850" width="460" height="50" fill="#d0cdc0"/>
-<text x="230" y="880" text-anchor="middle" font-size="11" fill="#aaa" letter-spacing="4">R O A D</text>
+<rect x="0"   y="690" width="500" height="40"  fill="#d0ccc0"/>
+<text x="250" y="714" text-anchor="middle" font-size="9.5" fill="#aaa" letter-spacing="4">R O A D</text>
 
-<!-- NORTH + SCALE -->
-<circle cx="432" cy="48" r="18" fill="white" stroke="#ccc" stroke-width="1.5"/>
-<polygon points="432,30 427,46 432,42 437,46" fill="#333"/>
-<polygon points="432,66 427,50 432,54 437,50" fill="#ddd"/>
-<text x="432" y="53" text-anchor="middle" font-size="10" fill="#333" font-weight="600">N</text>
-<line x1="28" y1="820" x2="148" y2="820" stroke="#888" stroke-width="2"/>
-<line x1="28"  y1="816" x2="28"  y2="824" stroke="#888" stroke-width="2"/>
-<line x1="148" y1="816" x2="148" y2="824" stroke="#888" stroke-width="2"/>
-<text x="88"   y="838" text-anchor="middle" font-size="10" fill="#888">10 ft</text>
-<text x="28"   y="756" font-size="9" fill="#888">FF ceiling: 10 ft</text>
+<!-- North arrow -->
+<circle cx="472" cy="28" r="15" fill="white" stroke="#ccc" stroke-width="1.5"/>
+<polygon points="472,13 468,27 472,24 476,27" fill="#333"/>
+<polygon points="472,43 468,29 472,32 476,29" fill="#ccc"/>
+<text x="472" y="33" text-anchor="middle" font-size="9"  fill="#333" font-weight="600">N</text>
+<!-- Scale -->
+<line x1="16"  y1="638" x2="96"  y2="638" stroke="#777" stroke-width="2"/>
+<line x1="16"  y1="634" x2="16"  y2="642" stroke="#777" stroke-width="2"/>
+<line x1="96"  y1="634" x2="96"  y2="642" stroke="#777" stroke-width="2"/>
+<text x="56"   y="650" text-anchor="middle" font-size="9"  fill="#777">10 ft</text>
 </svg>
 </div>
+<div class="leg">
+  <div class="li"><div class="ls" style="background:#f8f5f0;border:1px solid #ccc"></div>Marble floor</div>
+  <div class="li"><div class="ls" style="background:#f0ebe3;border:1px solid #ccc"></div>Tile (bathrooms/kitchen)</div>
+  <div class="li"><div class="ls" style="background:#d2c8a6;border:1px solid #bbb"></div>Timber deck (pool courtyard)</div>
+  <div class="li"><div class="ls" style="background:#44aee0"></div>L-shaped pool</div>
+</div>
+<div class="note"><strong>Ground floor:</strong> Master Bedroom NW (20×21 ft) · Bath 1 + Hallway centre-north · Bedroom 1 NE (27×21 ft) · Bath 2 east-centre · Central L-shaped pool courtyard + BBQ west (33×34 ft) · Kitchen + Pantry + Laundry south-west · Living Hall SE (26×27 ft) · Dining Area south-east · Double Garage + Front Porch south entry</div>
+</div>
 
-<div class="legend">
-  <div class="li"><div class="ls" style="background:#e8f4fc;border:1.5px dashed #a8d0f0"></div>Pool void (open to sky)</div>
-  <div class="li"><div class="ls" style="background:#f8f6f2;border:1px solid #ccc"></div>Marble floor</div>
-  <div class="li"><div class="ls" style="background:#f0ece4;border:1px solid #ccc"></div>Tile floor (wet areas)</div>
-  <div class="li"><div class="ls" style="background:#e8f0e4;border:1.5px dashed #90a870"></div>Terrace / balcony</div>
+<!-- ════════════════════
+  FIRST FLOOR
+  Pool courtyard = OPEN VOID to sky
+  Left zone (x=10..274): pool void
+  Right zone (x=274..490): bedrooms + study + terrace
+  Same footprint as GF
+════════════════════ -->
+<div class="page" id="page-ff">
+<div class="sh">First Floor — Pool Void Open · Rooms East Side</div>
+<div class="pw">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="730" viewBox="0 0 500 730"
+  style="background:#f5f5f0;font-family:'Jost',sans-serif;display:block">
+<defs>
+  <pattern id="gr3" width="8" height="8" patternUnits="userSpaceOnUse">
+    <path d="M8 0H0V8" fill="none" stroke="#eae6de" stroke-width=".5"/>
+  </pattern>
+  <pattern id="mb2" width="28" height="28" patternUnits="userSpaceOnUse">
+    <rect width="28" height="28" fill="#f8f5f0"/>
+    <path d="M0,14 Q14,8 28,13" stroke="#e8e2d6" stroke-width=".8" fill="none"/>
+    <path d="M3,3 Q15,22 25,7"  stroke="#e8e2d6" stroke-width=".5" fill="none"/>
+  </pattern>
+  <pattern id="tl2" width="16" height="16" patternUnits="userSpaceOnUse">
+    <rect width="16" height="16" fill="#f0ebe3"/>
+    <rect width="16" height="16" fill="none" stroke="#e2dbd0" stroke-width=".7"/>
+  </pattern>
+</defs>
+<rect width="500" height="730" fill="#f5f5f0"/>
+<rect width="500" height="730" fill="url(#gr3)"/>
+
+<!-- House outline fill -->
+<rect x="10" y="10" width="480" height="520" fill="white" stroke="none"/>
+
+<!-- ══ POOL VOID — west zone (x=10..274, y=10..450) ══ -->
+<rect x="10" y="10" width="264" height="440" fill="#daeef8"/>
+<!-- Sky hatch -->
+<g stroke="#a8d0ec" stroke-width="1" opacity=".65">
+  <line x1="10"  y1="34"  x2="58"  y2="10"/>
+  <line x1="10"  y1="82"  x2="106" y2="10"/>
+  <line x1="10"  y1="130" x2="154" y2="10"/>
+  <line x1="10"  y1="178" x2="202" y2="10"/>
+  <line x1="10"  y1="226" x2="250" y2="10"/>
+  <line x1="10"  y1="274" x2="274" y2="10"/>
+  <line x1="10"  y1="322" x2="274" y2="58"/>
+  <line x1="10"  y1="370" x2="274" y2="106"/>
+  <line x1="10"  y1="418" x2="274" y2="154"/>
+  <line x1="30"  y1="450" x2="274" y2="206"/>
+  <line x1="78"  y1="450" x2="274" y2="254"/>
+  <line x1="126" y1="450" x2="274" y2="302"/>
+  <line x1="174" y1="450" x2="274" y2="350"/>
+  <line x1="222" y1="450" x2="274" y2="398"/>
+  <line x1="250" y1="450" x2="274" y2="436"/>
+</g>
+<!-- Pool ghost below -->
+<rect x="80"  y="196" width="168" height="228" fill="#44aee0" opacity=".28" rx="4"/>
+<rect x="80"  y="376" width="80"  height="52"  fill="#44aee0" opacity=".28" rx="2"/>
+<rect x="80"  y="196" width="168" height="228" fill="none" stroke="#4488b8" stroke-width="1.5" stroke-dasharray="7 4" rx="4"/>
+<rect x="80"  y="376" width="80"  height="52"  fill="none" stroke="#4488b8" stroke-width="1.5" stroke-dasharray="7 4" rx="2"/>
+<!-- Glass parapet east face -->
+<rect x="272" y="12" width="4" height="436" fill="#90c4e4" opacity=".7"/>
+<!-- Void labels -->
+<text x="142" y="160" text-anchor="middle" font-size="14" fill="#2a6090" font-style="italic" font-weight="600">POOL VOID</text>
+<text x="142" y="180" text-anchor="middle" font-size="10" fill="#4a80b0">Open to sky</text>
+<text x="142" y="198" text-anchor="middle" font-size="10" fill="#4a80b0">Pool visible below</text>
+<!-- Sun -->
+<circle cx="142" cy="96"  r="22" fill="rgba(255,215,40,.14)" stroke="rgba(255,200,30,.28)" stroke-width="1.5"/>
+<circle cx="142" cy="96"  r="13" fill="rgba(255,215,40,.24)"/>
+<!-- Rain drops -->
+<line x1="82"  y1="42" x2="79"  y2="58" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<line x1="108" y1="38" x2="105" y2="54" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<line x1="134" y1="42" x2="131" y2="58" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<line x1="160" y1="38" x2="157" y2="54" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<line x1="186" y1="42" x2="183" y2="58" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<line x1="212" y1="38" x2="209" y2="54" stroke="#58a4d8" stroke-width="1.5" opacity=".6"/>
+<text x="142" y="370" text-anchor="middle" font-size="9"  fill="#4488b8">pool below</text>
+<!-- Glass railing note -->
+<text x="268" y="300" font-size="7.5" fill="#4478a8" transform="rotate(-90,268,300)">glass parapet · pool below</text>
+
+<!-- ══ STAIR LANDING (centre-west, arriving at FF) ══ -->
+<rect x="170" y="10" width="104" height="80" fill="#f0ede4"/>
+<rect x="174" y="14" width="96"  height="72" fill="#e8e4d8" stroke="#bbb" stroke-width="1"/>
+<line x1="178" y1="28" x2="266" y2="28" stroke="#bbb" stroke-width="1.2"/>
+<line x1="178" y1="42" x2="266" y2="42" stroke="#bbb" stroke-width="1.2"/>
+<line x1="178" y1="56" x2="266" y2="56" stroke="#bbb" stroke-width="1.2"/>
+<line x1="178" y1="70" x2="266" y2="70" stroke="#bbb" stroke-width="1.2"/>
+<polygon points="222,16 217,28 227,28" fill="#888"/>
+<text x="222" y="84" text-anchor="middle" font-size="8"  fill="#777">DN</text>
+<text x="222" y="92" text-anchor="middle" font-size="7.5" fill="#aaa">FF Landing</text>
+
+<!-- ══ CORRIDOR (left zone, y=450..530) ══ -->
+<rect x="10"  y="450" width="264" height="80" fill="#f0ede6"/>
+<text x="142" y="495" text-anchor="middle" font-size="10" fill="#888">FF CORRIDOR</text>
+<text x="142" y="510" text-anchor="middle" font-size="8.5" fill="#aaa">connects stair to all rooms</text>
+
+<!-- ══ BEDROOM 2 — FF Master (x=274..490, y=10..220) ══ -->
+<rect x="274" y="10"  width="216" height="210" fill="url(#mb2)"/>
+<rect x="282" y="22"  width="196" height="100" fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
+<rect x="282" y="22"  width="196" height="24"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
+<ellipse cx="332" cy="34" rx="22" ry="9" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="420" cy="34" rx="22" ry="9" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<!-- Seating -->
+<rect x="286" y="136" width="188" height="50" fill="#dcdad2" stroke="#bbb" stroke-width="1.2" rx="3"/>
+<rect x="286" y="136" width="18"  height="50" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
+<rect x="456" y="136" width="18"  height="50" fill="#d4d0c8" stroke="#bbb" stroke-width="1"   rx="2"/>
+<!-- Wardrobe -->
+<rect x="282" y="194" width="196" height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1"   rx="1"/>
+<line x1="380" y1="194" x2="380" y2="208" stroke="#bbb" stroke-width=".8"/>
+<text x="380" y="206" text-anchor="middle" font-size="7.5" fill="#888">walk-in wardrobe</text>
+<text x="380" y="190" text-anchor="middle" font-size="12" fill="#333" font-weight="600">BEDROOM 2</text>
+<text x="380" y="178" text-anchor="middle" font-size="9"  fill="#888">FF Master · ~27×27 ft</text>
+
+<!-- ══ FF ENSUITE (x=274..386, y=220..340) ══ -->
+<rect x="274" y="220" width="112" height="120" fill="url(#tl2)"/>
+<rect x="282" y="228" width="96"  height="46" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="3"/>
+<text x="330" y="254" text-anchor="middle" font-size="8.5" fill="#888">BATHTUB</text>
+<rect x="282" y="282" width="26"  height="18" fill="#eae6e2" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<circle cx="295" cy="291" r="4"  fill="none" stroke="#bbb" stroke-width="1.2"/>
+<rect x="314" y="280" width="36"  height="36" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="332" cy="298" r="5"  fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="370" cy="332" rx="14" ry="18" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
+<text x="330" y="335" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">ENSUITE</text>
+
+<!-- ══ BEDROOM 3 (x=386..490, y=220..420) ══ -->
+<rect x="386" y="220" width="104" height="200" fill="url(#mb2)"/>
+<rect x="394" y="230" width="88"  height="80"  fill="#eae4de" stroke="#ccc" stroke-width="1.5" rx="4"/>
+<rect x="394" y="230" width="88"  height="20"  fill="#ddd8d0" stroke="#ccc" stroke-width="1"   rx="3"/>
+<ellipse cx="420" cy="240" rx="15" ry="6" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<ellipse cx="460" cy="240" rx="15" ry="6" fill="#f0ece8" stroke="#ccc" stroke-width="1"/>
+<rect x="394" y="396" width="88"  height="14" fill="#d6d2c6" stroke="#bbb" stroke-width="1"   rx="1"/>
+<text x="438" y="366" text-anchor="middle" font-size="10" fill="#333" font-weight="600">BED 3</text>
+<text x="438" y="380" text-anchor="middle" font-size="9"  fill="#888">~13×25 ft</text>
+
+<!-- ══ BATH 3 (x=274..386, y=340..420) ══ -->
+<rect x="274" y="340" width="112" height="80" fill="url(#tl2)"/>
+<rect x="282" y="348" width="60"  height="32" fill="#e2deda" stroke="#bbb" stroke-width="1.5" rx="2"/>
+<text x="312" y="367" text-anchor="middle" font-size="7.5" fill="#888">bathtub</text>
+<rect x="348" y="348" width="32"  height="32" fill="none"   stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="364" cy="364" r="5"  fill="none" stroke="#bbb" stroke-width="1.5"/>
+<ellipse cx="294" cy="406" rx="14" ry="18" fill="#e2deda" stroke="#bbb" stroke-width="1.5"/>
+<text x="354" y="414" text-anchor="middle" font-size="10"  fill="#555" font-weight="500">BATH 3</text>
+
+<!-- ══ STUDY / LOUNGE (x=274..490, y=420..530) ══ -->
+<rect x="274" y="420" width="216" height="110" fill="url(#mb2)"/>
+<rect x="284" y="430" width="196" height="52" fill="#dcdad2" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<rect x="284" y="430" width="18"  height="52" fill="#d4d0c8" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<rect x="462" y="430" width="18"  height="52" fill="#d4d0c8" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<rect x="304" y="418" width="156" height="14" fill="#d0ccc4" stroke="#ccc" stroke-width="1.2" rx="2"/>
+<rect x="290" y="488" width="188" height="14" fill="#c4c0b8" stroke="#bbb" stroke-width="1"   rx="1"/>
+<text x="382" y="500" text-anchor="middle" font-size="7.5" fill="#888">bookshelves</text>
+<text x="382" y="516" text-anchor="middle" font-size="12" fill="#333" font-weight="600">STUDY / LOUNGE</text>
+
+<!-- ══ TERRACE / BALCONY (below house, south-east) ══ -->
+<rect x="274" y="530" width="216" height="80" fill="#dcecd4" stroke="#5a8040" stroke-width="1.5" stroke-dasharray="6 4"/>
+<!-- Grille lines -->
+<g stroke="#90b878" stroke-width="1.5">
+  <line x1="290" y1="534" x2="290" y2="606"/>
+  <line x1="306" y1="534" x2="306" y2="606"/>
+  <line x1="322" y1="534" x2="322" y2="606"/>
+  <line x1="338" y1="534" x2="338" y2="606"/>
+  <line x1="354" y1="534" x2="354" y2="606"/>
+  <line x1="370" y1="534" x2="370" y2="606"/>
+  <line x1="386" y1="534" x2="386" y2="606"/>
+  <line x1="402" y1="534" x2="402" y2="606"/>
+  <line x1="418" y1="534" x2="418" y2="606"/>
+  <line x1="434" y1="534" x2="434" y2="606"/>
+  <line x1="450" y1="534" x2="450" y2="606"/>
+  <line x1="466" y1="534" x2="466" y2="606"/>
+  <line x1="482" y1="534" x2="482" y2="606"/>
+</g>
+<line x1="274" y1="568" x2="490" y2="568" stroke="#90b878" stroke-width="1.2"/>
+<!-- Planters -->
+<circle cx="370" cy="550" r="8"  fill="#3a7828" opacity=".85"/>
+<circle cx="392" cy="546" r="10" fill="#2a6818" opacity=".85"/>
+<circle cx="414" cy="550" r="8"  fill="#3a7828" opacity=".85"/>
+<text x="382" y="592" text-anchor="middle" font-size="11" fill="#4a7030" font-weight="500">TERRACE</text>
+<text x="382" y="607" text-anchor="middle" font-size="8.5" fill="#6a9050">south-facing · open air</text>
+
+<!-- No room over garage -->
+<rect x="10"  y="530" width="264" height="80" fill="#ede9e0"/>
+<text x="142" y="574" text-anchor="middle" font-size="10" fill="#aaa" font-style="italic">Roof above garage</text>
+<text x="142" y="589" text-anchor="middle" font-size="9"  fill="#bbb">no rooms</text>
+<rect x="10"  y="610" width="480" height="36" fill="#b4cc90" stroke="#8aaa60" stroke-width="1" rx="1"/>
+<text x="250" y="633" text-anchor="middle" font-size="10" fill="#4a7030" font-weight="500">FRONT LAWN</text>
+<rect x="0"   y="650" width="500" height="40" fill="#d0ccc0"/>
+<text x="250" y="674" text-anchor="middle" font-size="9.5" fill="#aaa" letter-spacing="4">R O A D</text>
+
+<!-- ══ STRUCTURAL WALLS FF ══ -->
+<rect x="10"  y="10"  width="480" height="520" fill="none" stroke="#2a2a28" stroke-width="5"   rx="2"/>
+<line x1="274" y1="10"  x2="274" y2="530" stroke="#2a2a28" stroke-width="3.5"/><!-- void/rooms -->
+<line x1="386" y1="220" x2="386" y2="420" stroke="#2a2a28" stroke-width="3"/>  <!-- bed3/bath3 split -->
+<line x1="274" y1="220" x2="490" y2="220" stroke="#2a2a28" stroke-width="3"/>  <!-- bed2 bot -->
+<line x1="274" y1="340" x2="386" y2="340" stroke="#2a2a28" stroke-width="2.5"/><!-- ensuite/bath3 -->
+<line x1="274" y1="420" x2="490" y2="420" stroke="#2a2a28" stroke-width="3"/>  <!-- bath3/study -->
+<line x1="274" y1="530" x2="490" y2="530" stroke="#2a2a28" stroke-width="3"/>  <!-- study/terrace -->
+<line x1="10"  y1="530" x2="274" y2="530" stroke="#2a2a28" stroke-width="3"/>  <!-- corridor bot -->
+<line x1="170" y1="10"  x2="170" y2="90"  stroke="#2a2a28" stroke-width="2.5"/><!-- stair wall -->
+
+<!-- ══ DOORS FF ══ -->
+<!-- D1: Corridor → Bed2 (wall x=274, gap y=24..72) -->
+<rect x="271" y="21"  width="6"  height="54" fill="white"/>
+<line x1="274" y1="24"  x2="274" y2="78"  stroke="#444" stroke-width="2.5"/>
+<path d="M 274 78 A 54 54 0 0 0 328 24" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D2: Bed2 → Ensuite (wall y=220, gap x=288..336) -->
+<rect x="285" y="217" width="54"  height="6"  fill="white"/>
+<line x1="288" y1="220" x2="288" y2="274" stroke="#444" stroke-width="2.5"/>
+<path d="M 288 274 A 54 54 0 0 0 342 220" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D3: Corridor → Bed3 (wall x=274, gap y=230..274) -->
+<rect x="383" y="225" width="6"  height="46" fill="white"/>
+<line x1="386" y1="228" x2="386" y2="274" stroke="#444" stroke-width="2.5"/>
+<path d="M 386 274 A 46 46 0 0 1 432 228" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D4: Bath3 from corridor (wall x=274, gap y=348..390) -->
+<rect x="271" y="345" width="6"  height="44" fill="white"/>
+<line x1="274" y1="348" x2="274" y2="392" stroke="#444" stroke-width="2.5"/>
+<path d="M 274 392 A 44 44 0 0 0 318 348" fill="none" stroke="#666" stroke-width="1.5"/>
+<!-- D5: Corridor → Study (wall x=274, gap y=432..476) -->
+<rect x="271" y="429" width="6"  height="48" fill="white"/>
+<line x1="274" y1="432" x2="274" y2="480" stroke="#444" stroke-width="2.5"/>
+<path d="M 274 480 A 48 48 0 0 0 322 432" fill="none" stroke="#666" stroke-width="1.5"/>
+
+<!-- North arrow -->
+<circle cx="472" cy="28" r="15" fill="white" stroke="#ccc" stroke-width="1.5"/>
+<polygon points="472,13 468,27 472,24 476,27" fill="#333"/>
+<polygon points="472,43 468,29 472,32 476,29" fill="#ccc"/>
+<text x="472" y="33" text-anchor="middle" font-size="9"  fill="#333" font-weight="600">N</text>
+<!-- Scale -->
+<line x1="16"  y1="600" x2="96"  y2="600" stroke="#777" stroke-width="2"/>
+<line x1="16"  y1="596" x2="16"  y2="604" stroke="#777" stroke-width="2"/>
+<line x1="96"  y1="596" x2="96"  y2="604" stroke="#777" stroke-width="2"/>
+<text x="56"   y="610" text-anchor="middle" font-size="9"  fill="#777">10 ft</text>
+</svg>
 </div>
-<div class="note">
-  <strong>First floor:</strong> Pool courtyard is fully open to sky — glass railing on east face, you look down to the pool from FF level · Bedroom 2 (FF master) + ensuite north-east · Bedroom 3 + Bath 3 east · Study / lounge south-east · South-facing terrace · No floor slab over garage
+<div class="leg">
+  <div class="li"><div class="ls" style="background:#daeef8;border:1.5px dashed #a0c4e8"></div>Pool void (open to sky)</div>
+  <div class="li"><div class="ls" style="background:#f8f5f0;border:1px solid #ccc"></div>Marble floor</div>
+  <div class="li"><div class="ls" style="background:#f0ebe3;border:1px solid #ccc"></div>Tile (bathrooms)</div>
+  <div class="li"><div class="ls" style="background:#dcecd4;border:1.5px dashed #5a8040"></div>Terrace / balcony</div>
 </div>
+<div class="note"><strong>First floor:</strong> Pool courtyard fully open to sky — glass parapet on east face, pool visible below · Bedroom 2 (FF Master) + Ensuite NE · Bedroom 3 + Bath 3 east · Study/Lounge SE · South-facing terrace with planters · FF corridor connects stair to all rooms · Roof slab only above garage zone</div>
 </div>
 
 <script>
-function showTab(name, btn) {
+function showTab(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('page-' + id).classList.add('active');
   btn.classList.add('active');
 }
 </script>
